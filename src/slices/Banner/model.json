@@ -1,0 +1,26 @@
+{
+  "id": "banner",
+  "type": "SharedSlice",
+  "name": "Banner",
+  "description": "Banner",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Quote",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "quote_text": {
+          "type": "Text",
+          "config": {
+            "label": "Quote Text",
+            "placeholder": "Write your quote here…"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
