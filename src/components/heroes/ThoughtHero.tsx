@@ -64,62 +64,44 @@ export default function ThoughtHero({
         </motion.h1>
 
         {/* Metadata Row */}
-        <div className="flex flex-col s:flex-col m:flex-row l:flex-row justify-between items-start mb-8 m:mb-12 space-y-4 m:space-y-0">
-          
+        <motion.div
+          className="flex flex-col s:flex-row justify-between mb-8 m:mb-12 space-y-4 s:space-y-0"
+          initial={{ 
+            opacity: 0, 
+            y: 140, 
+            filter: "blur(10px)" 
+          }}
+          animate={{ 
+            opacity: 1, 
+            y: 0, 
+            filter: "blur(0px)" 
+          }}
+          transition={{
+            duration: 1,
+            delay: 1.2, // Right after title animation
+            ease: "easeOut"
+          }}
+        >
           {/* Left Info */}
-          <motion.div
-            className="flex flex-col space-y-1"
-            initial={{ 
-              opacity: 0, 
-              y: 140, 
-              filter: "blur(10px)" 
-            }}
-            animate={{ 
-              opacity: 1, 
-              y: 0, 
-              filter: "blur(0px)" 
-            }}
-            transition={{
-              duration: 1,
-              delay: 1.2, // Right after title animation
-              ease: "easeOut"
-            }}
-          >
+          <div className="flex flex-col s:flex-row items-start gap-2">
             <span className={`${TYPOGRAPHY.text16} text-black-40`}>
               {leftInfoLabel}
             </span>
             <span className={`${TYPOGRAPHY.text16} text-black font-medium`}>
               {leftInfoValue}
             </span>
-          </motion.div>
+          </div>
 
           {/* Right Info */}
-          <motion.div
-            className="flex flex-col space-y-1 text-left m:text-right"
-            initial={{ 
-              opacity: 0, 
-              y: 140, 
-              filter: "blur(10px)" 
-            }}
-            animate={{ 
-              opacity: 1, 
-              y: 0, 
-              filter: "blur(0px)" 
-            }}
-            transition={{
-              duration: 1,
-              delay: 1.2, // Right after title animation
-              ease: "easeOut"
-            }}
-          >
+          <div className="flex flex-col s:flex-row items-start s:items-end gap-2">
             <span className={`${TYPOGRAPHY.text16} text-black-40`}>
               {rightInfoLabel}
             </span>
             <span className={`${TYPOGRAPHY.text16} text-black font-medium`}>
               {rightInfoValue}
             </span>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
 
         {/* Cover Image */}
         <motion.div
