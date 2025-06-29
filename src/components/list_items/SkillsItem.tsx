@@ -49,7 +49,7 @@ export default function SkillsItem({
       <div className="space-y-6 l:space-y-8 text-left">
         {/* Item Number */}
         <p className={`${TYPOGRAPHY.mono16} text-black-40`}>
-          {itemNumber.toString().padStart(2, '0')}
+          /.{itemNumber.toString().padStart(2, '0')}
         </p>
 
         {/* Title */}
