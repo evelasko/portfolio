@@ -25,8 +25,8 @@ export function ComponentSection({ title, children }: { title: string; children:
           {/* Code Display */}
           <div className="bg-gray-900 p-4">
             <div className="text-sm text-gray-400 mb-2">Code:</div>
-            <pre className="text-green-400 text-sm overflow-x-auto">
-              <code>{code}</code>
+            <pre className="text-green-400 text-sm overflow-x-auto font-mono">
+              <code className="text-green-400 text-sm overflow-x-auto">{code}</code>
             </pre>
           </div>
         </div>
