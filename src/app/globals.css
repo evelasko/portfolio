@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 /* @import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;1,200;1,400;1,500;1,600;1,700;1,800&display=swap'); */
 
-@theme {
+@theme inline {
   /* Colors */
   --color-black-100: #000000;
   --color-black-90: #1A1A1A;
@@ -104,7 +104,7 @@
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
 }
 
 @layer base {
@@ -233,7 +233,7 @@ body {
 
   .mono-24 { 
     font-weight: var(--font-weight-regular);
-    font-family: var(--font-mono);
+    font-family: var(--font-fragment-mono), monospace;
     color: var(--color-black-100);
     line-height: 1.3em;
     letter-spacing: 0em;
@@ -241,7 +241,7 @@ body {
   }
   .mono-20 { 
     font-weight: var(--font-weight-regular);
-    font-family: var(--font-mono);
+    font-family: var(--font-fragment-mono), monospace;
     color: var(--color-black-90);
     line-height: 1.5em;
     letter-spacing: -0.02em;
@@ -249,7 +249,7 @@ body {
   }
   .mono-18 { 
     font-weight: var(--font-weight-regular);
-    font-family: var(--font-mono);
+    font-family: var(--font-fragment-mono), monospace;
     color: var(--color-black-90);
     line-height: 1.4em;
     letter-spacing: -0.05em;
@@ -257,7 +257,7 @@ body {
   }
   .mono-16 { 
     font-weight: var(--font-weight-regular);
-    font-family: var(--font-mono);
+    font-family: var(--font-fragment-mono), monospace;
     color: var(--color-black-90);
     line-height: 1.4em;
     letter-spacing: 0em;
@@ -265,7 +265,7 @@ body {
   }
   .mono-14 { 
     font-weight: var(--font-weight-regular);
-    font-family: var(--font-mono);
+    font-family: var(--font-fragment-mono), monospace;
     color: var(--color-black-90);
     line-height: 1.6em;
     letter-spacing: 0em;
