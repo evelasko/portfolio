@@ -2,10 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { DynamicIcon, IconName } from 'lucide-react/dynamic';
 import { SocialLink } from "@/lib/types";
 import { TYPOGRAPHY } from '@/lib/typography';
-import { ArrowUp, PhoneOutgoing, Send } from 'lucide-react';
 /**
  * Footer Component
  * @param heading - string, p tag style TYPOGRAPHY.h1, color black-90
@@ -69,8 +67,8 @@ export default function Footer({
           </p>
         </div>
 
-        {/* Content Row - 4 columns on large/medium, 1 column on small */}
-        <div className="grid grid-cols-1 m:grid-cols-4 l:grid-cols-4 gap-8 m:gap-12 l:gap-16 pb-16 m:pb-20 l:pb-24">
+        {/* Content Row - Dynamic columns based on showCurrentTime */}
+        <div className={`grid grid-cols-1 ${showCurrentTime ? 'm:grid-cols-4 l:grid-cols-4' : 'm:grid-cols-3 l:grid-cols-3'} gap-8 m:gap-12 l:gap-16 pb-16 m:pb-20 l:pb-24`}>
           
           {/* Column 1: Email and Phone Links */}
           <div className="space-y-4">
@@ -83,7 +81,9 @@ export default function Footer({
                 className="opacity-40 hover:opacity-70 transition-opacity"
                 aria-label="Copy email"
               >
-                <Send className="black-90" size={16}/>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M4 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/>
+                </svg>
               </button>
             </div>
             
@@ -96,7 +96,9 @@ export default function Footer({
                 className="opacity-40 hover:opacity-70 transition-opacity"
                 aria-label="Copy phone"
               >
-                <PhoneOutgoing className="black-90" size={16}/>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M4 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/>
+                </svg>
               </button>
             </div>
           </div>
@@ -125,16 +127,16 @@ export default function Footer({
           </div>
 
           {/* Column 4: Social Links (Icons Only) */}
-          <div className="space-y-3 flex flex-col items-end pr-8">
+          <div className="space-y-3">
             {socialLinks.map((link, index) => (
               <Link 
                 key={index}
                 href={link.url}
-                className={`${TYPOGRAPHY.text18} text-black-90 hover:text-black-50 transition-colors`}
+                className={`${TYPOGRAPHY.text18} text-black-90 hover:text-black-50 transition-colors block`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {link.icon && <DynamicIcon name={link.icon as unknown as IconName} size={24} className="black-90"/>}
+                {link.icon}
               </Link>
             ))}
           </div>
@@ -142,12 +144,12 @@ export default function Footer({
       </div>
 
       {/* Bottom Section with white-98 background */}
-      <div className="bg-white-98 border-t pt-3 border-gray-100 uppercase">
+      <div className="bg-white-98 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-6 m:px-8 l:px-12 py-8">
           <div className="flex flex-col space-y-6 m:space-y-0 m:flex-row m:items-center m:justify-between">
             
             {/* Legal Links */}
-            <div className="flex flex-col space-y-4 m:space-y-0 m:flex-row m:space-x-8">
+            <div className="flex flex-col space-y-4 m:space-y-0 m:flex-row m:items-center m:space-x-8">
               <Link 
                 href="/legal/privacy-policy"
                 className={`${TYPOGRAPHY.text14} text-black-90 hover:text-black-50 transition-colors`}
@@ -169,18 +171,21 @@ export default function Footer({
             </div>
 
             {/* Copyright and Back to Top */}
-            <div className="flex items-start space-x-4 justify-center">
-              <p className={`${TYPOGRAPHY.text14} text-black-50 flex items-start`}>
+            <div className="flex items-center space-x-4">
+              <p className={`${TYPOGRAPHY.text14} text-black-90 leading-none`}>
                 {copyrightText}
               </p>
               
               {/* Back to top button */}
               <button 
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="opacity-40 hover:opacity-70 transition-opacity flex h-[18px] mt-1 ml-4"
+                className="opacity-40 hover:opacity-70 transition-opacity flex items-center justify-center"
                 aria-label="Back to top"
               >
-               <ArrowUp className="black-90" size={18}/>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" className="flex-shrink-0">
+                  <path d="M8 2.5a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-1 0V4.707L3.354 8.854a.5.5 0 1 1-.708-.708l4.5-4.5A.5.5 0 0 1 8 3.5z"/>
+                  <path d="M7.646 3.146a.5.5 0 0 1 .708 0l4.5 4.5a.5.5 0 0 1-.708.708L8 4.207 3.854 8.354a.5.5 0 1 1-.708-.708l4.5-4.5z"/>
+                </svg>
               </button>
             </div>
           </div>

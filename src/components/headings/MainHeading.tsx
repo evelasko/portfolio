@@ -28,14 +28,7 @@ export default function MainHeading({
     >
       {/* Title */}
       <motion.h2
-        className={`${TYPOGRAPHY.h8} uppercase`}
-        style={{ 
-          color: 'var(--color-black-70)',
-          fontWeight: 'var(--font-weight-bold)',
-          lineHeight: '1.3em',
-          letterSpacing: '-0.03em',
-          marginBottom: '32px'
-        }}
+        className={`${TYPOGRAPHY.h8} uppercase tracking-[0.3em]`}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ 
