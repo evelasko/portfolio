@@ -1,0 +1,161 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"overtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "pig",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "clean",
+				"type": "Text"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "machinery",
+				"type": "Text"
+			},
+			"quote": {
+				"__TYPE__": "FieldContent",
+				"value": "swimming",
+				"type": "Text"
+			},
+			"date": {
+				"__TYPE__": "FieldContent",
+				"type": "Date",
+				"value": "2024-01-28"
+			},
+			"list_label": {
+				"__TYPE__": "FieldContent",
+				"value": "habit",
+				"type": "Text"
+			},
+			"list_items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"list_item",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "fought",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"work": {
+				"key": "3849caf3-050b-47e0-932f-b9704fbf5fbe",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "infoTextBlock",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "history",
+				"type": "Text"
+			},
+			"subheading_text": {
+				"__TYPE__": "FieldContent",
+				"value": "different",
+				"type": "Text"
+			},
+			"info_text": {
+				"__TYPE__": "FieldContent",
+				"value": "history",
+				"type": "Text"
+			},
+			"quote": {
+				"__TYPE__": "FieldContent",
+				"value": "explanation",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "infoImageBlock",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "mill",
+				"type": "Text"
+			},
+			"info_text": {
+				"__TYPE__": "FieldContent",
+				"value": "doctor",
+				"type": "Text"
+			},
+			"quote": {
+				"__TYPE__": "FieldContent",
+				"value": "particular",
+				"type": "Text"
+			},
+			"image_path": {
+				"__TYPE__": "FieldContent",
+				"value": "route",
+				"type": "Text"
+			},
+			"image_caption": {
+				"__TYPE__": "FieldContent",
+				"value": "furniture",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "infoSimpleBlock",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "satisfied",
+				"type": "Text"
+			},
+			"info_text": {
+				"__TYPE__": "FieldContent",
+				"value": "writing",
+				"type": "Text"
+			},
+			"subheading": {
+				"__TYPE__": "FieldContent",
+				"value": "father",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

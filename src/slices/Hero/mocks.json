@@ -1,0 +1,166 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"top_text": {
+				"__TYPE__": "FieldContent",
+				"value": "power",
+				"type": "Text"
+			},
+			"bottom_text": {
+				"__TYPE__": "FieldContent",
+				"value": "brick",
+				"type": "Text"
+			},
+			"graphic_path": {
+				"__TYPE__": "FieldContent",
+				"value": "pure",
+				"type": "Text"
+			},
+			"graphic_width": {
+				"__TYPE__": "FieldContent",
+				"value": "82",
+				"type": "Number"
+			},
+			"graphic_height": {
+				"__TYPE__": "FieldContent",
+				"value": "15",
+				"type": "Number"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "clearly",
+				"type": "Text"
+			},
+			"image_paths": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"path",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "current",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"link_to": {
+				"__TYPE__": "FieldContent",
+				"value": "shout",
+				"type": "Text"
+			},
+			"video_path": {
+				"__TYPE__": "FieldContent",
+				"value": "floating",
+				"type": "Text"
+			},
+			"slideshow_stay_duration": {
+				"__TYPE__": "FieldContent",
+				"value": "44",
+				"type": "Number"
+			},
+			"slideshow_transition_speed": {
+				"__TYPE__": "FieldContent",
+				"value": "61",
+				"type": "Number"
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "minimal",
+		"primary": {
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "pick",
+				"type": "Text"
+			},
+			"link_to": {
+				"__TYPE__": "FieldContent",
+				"value": "told",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "which",
+				"type": "Text"
+			},
+			"image_path": {
+				"__TYPE__": "FieldContent",
+				"value": "steam",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "photo",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "pour",
+				"type": "Text"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "both",
+				"type": "Text"
+			},
+			"image_path": {
+				"__TYPE__": "FieldContent",
+				"value": "camp",
+				"type": "Text"
+			},
+			"link_to": {
+				"__TYPE__": "FieldContent",
+				"value": "former",
+				"type": "Text"
+			},
+			"photo_path": {
+				"__TYPE__": "FieldContent",
+				"value": "fur",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "thought",
+		"primary": {
+			"thought": {
+				"key": "0e5147b9-45f1-4df6-b4de-33f774b5fe17",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

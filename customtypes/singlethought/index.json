@@ -12,6 +12,50 @@
           "label": "UID"
         }
       },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "cover_image_path": {
+        "type": "Text",
+        "config": {
+          "label": "Cover Image Path",
+          "placeholder": ""
+        }
+      },
+      "date_published": {
+        "type": "Date",
+        "config": {
+          "label": "Date Published",
+          "placeholder": ""
+        }
+      },
+      "content": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Content",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "category": {
+        "type": "Link",
+        "config": {
+          "label": "Category",
+          "select": "document",
+          "repeat": false,
+          "customtypes": [
+            {
+              "id": "thought_category",
+              "fields": ["title"]
+            }
+          ]
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

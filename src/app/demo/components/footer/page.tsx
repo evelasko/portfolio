@@ -5,12 +5,12 @@ import { SocialLink } from '@/lib/types';
 
 // Sample data for demonstrations
 const sampleSocialLinks: SocialLink[] = [
-  { icon: 'instagram', label: 'Instagram', url: 'https://instagram.com' },
-  { icon: 'twitter', label: 'X', url: 'https://x.com' },
-  { icon: 'youtube', label: 'Youtube', url: 'https://youtube.com' },
-  { icon: 'facebook', label: 'Facebook', url: 'https://facebook.com' },
-  { icon: 'linkedIn', label: 'LinkedIn', url: 'https://linkedin.com' },
-  { icon: 'tiktok', label: 'TikTok', url: 'https://tiktok.com' },
+  { icon: 'Instagram', label: 'Instagram', url: 'https://instagram.com' },
+  { icon: 'X', label: 'X', url: 'https://x.com' },
+  { icon: 'Youtube', label: 'Youtube', url: 'https://youtube.com' },
+  { icon: 'Facebook', label: 'Facebook', url: 'https://facebook.com' },
+  { icon: 'LinkedIn', label: 'LinkedIn', url: 'https://linkedin.com' },
+  { icon: 'TikTok', label: 'TikTok', url: 'https://tiktok.com' },
 ];
 
 const sampleAddress = [
@@ -138,12 +138,13 @@ export default function FooterComponentsDemo() {
                 <h5 className="font-semibold text-sm mb-3">Features:</h5>
                 <ul className="text-sm space-y-2">
                   <li>• Large prominent heading in independent row</li>
-                  <li>• 4-column content layout (medium/large screens)</li>
+                  <li>• Dynamic column layout (4 columns with time, 3 without)</li>
                   <li>• Contact information with copy-to-clipboard</li>
                   <li>• Real-time clock display (optional, dedicated column)</li>
-                  <li>• Multi-line address support</li>
+                  <li>• Multi-line address support (auto-centers when time hidden)</li>
                   <li>• Social media links (icons only)</li>
                   <li>• Legal page navigation in white-98 footer</li>
+                  <li>• Vertically aligned bottom section elements</li>
                   <li>• Back-to-top functionality</li>
                   <li>• Responsive column stacking</li>
                 </ul>
@@ -169,12 +170,12 @@ export default function FooterComponentsDemo() {
             <h4 className={`${TYPOGRAPHY.h5} mb-4`}>Layout Structure</h4>
             <div className="space-y-3 text-sm">
               <div><strong>Heading Row:</strong> Independent row with large heading (TYPOGRAPHY.h1)</div>
-              <div><strong>Content Row:</strong> 4 columns on medium/large, 1 column on small screens</div>
+              <div><strong>Content Row:</strong> Dynamic columns - 4 columns when time is shown, 3 columns when hidden</div>
               <div><strong>Column 1:</strong> Email and phone links with copy buttons</div>
-              <div><strong>Column 2:</strong> Current time display (or empty if disabled)</div>
-              <div><strong>Column 3:</strong> Physical address (multi-line)</div>
+              <div><strong>Column 2:</strong> Current time display (hidden if showCurrentTime is false)</div>
+              <div><strong>Column 3:</strong> Physical address (multi-line, moves center when time hidden)</div>
               <div><strong>Column 4:</strong> Social media links (icons only)</div>
-              <div><strong>Bottom Section:</strong> White-98 background with legal links and copyright</div>
+              <div><strong>Bottom Section:</strong> White-98 background with vertically centered legal links and copyright</div>
               <div><strong>Typography:</strong> Bottom section uses TYPOGRAPHY.text14 with black-90 color</div>
             </div>
           </div>
@@ -208,10 +209,10 @@ export default function FooterComponentsDemo() {
                 <ul className={`${TYPOGRAPHY.text16} space-y-2`}>
                   <li>• <strong>Heading:</strong> Use all caps for brand names, gets independent row</li>
                   <li>• <strong>Contact Info:</strong> Column 1 - email and phone with copy functionality</li>
-                  <li>• <strong>Time Column:</strong> Column 2 - dedicated space for time or leave empty</li>
+                  <li>• <strong>Time Column:</strong> Column 2 - when disabled, layout auto-adjusts to 3 columns</li>
                   <li>• <strong>Address Format:</strong> Column 3 - break address into logical line segments</li>
                   <li>• <strong>Social Links:</strong> Column 4 - use icon property, not label</li>
-                  <li>• <strong>4-Column Layout:</strong> Maintains structure on medium/large screens</li>
+                  <li>• <strong>Dynamic Layout:</strong> 4 columns with time, 3 columns without time</li>
                   <li>• <strong>Bottom Section:</strong> Uses white-98 background with text-14 black-90</li>
                   <li>• <strong>Legal Links:</strong> Ensure all legal pages exist and are accessible</li>
                   <li>• <strong>Accessibility:</strong> All interactive elements have proper ARIA labels</li>

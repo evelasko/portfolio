@@ -4,4 +4,10 @@ import dynamic from "next/dynamic";
 
 export const components = {
   banner: dynamic(() => import("./Banner")),
+  card: dynamic(() => import("./Card")),
+  content_block: dynamic(() => import("./ContentBlock")),
+  heading: dynamic(() => import("./Heading")),
+  hero: dynamic(() => import("./Hero")),
+  image_stripe: dynamic(() => import("./ImageStripe")),
+  item_list: dynamic(() => import("./ItemList")),
 };

@@ -21,6 +21,49 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "connect",
+      "name": "Connect",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "primary_text": {
+          "type": "Text",
+          "config": {
+            "label": "Primary Text",
+            "placeholder": ""
+          }
+        },
+        "key_text": {
+          "type": "Text",
+          "config": {
+            "label": "Key Text",
+            "placeholder": ""
+          }
+        },
+        "cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "background_image_path": {
+          "type": "Text",
+          "config": {
+            "label": "Background Image Path",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

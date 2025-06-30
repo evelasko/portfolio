@@ -1,0 +1,102 @@
+{
+  "id": "image_stripe",
+  "type": "SharedSlice",
+  "name": "ImageStripe",
+  "description": "ImageStripe",
+  "variations": [
+    {
+      "id": "default",
+      "name": "SimpleStripe",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "images": {
+          "type": "Group",
+          "config": {
+            "label": "Images",
+            "repeat": true,
+            "fields": {
+              "image_path": {
+                "type": "Text",
+                "config": {
+                  "label": "Image Path",
+                  "placeholder": ""
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "longStripe",
+      "name": "LongStripe",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "featured_images": {
+          "type": "Group",
+          "config": {
+            "label": "Featured Images",
+            "repeat": true,
+            "fields": {
+              "image_path": {
+                "type": "Text",
+                "config": {
+                  "label": "Image Path",
+                  "placeholder": ""
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "images": {
+          "type": "Group",
+          "config": {
+            "label": "Images",
+            "repeat": true,
+            "fields": {
+              "image_path": {
+                "type": "Text",
+                "config": {
+                  "label": "Image Path",
+                  "placeholder": ""
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

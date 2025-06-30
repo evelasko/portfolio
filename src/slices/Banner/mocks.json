@@ -10,5 +10,41 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "connect",
+		"primary": {
+			"primary_text": {
+				"__TYPE__": "FieldContent",
+				"value": "frequently",
+				"type": "Text"
+			},
+			"key_text": {
+				"__TYPE__": "FieldContent",
+				"value": "wrote",
+				"type": "Text"
+			},
+			"cta_link": {
+				"key": "7d435563-d59d-4cdf-9118-414f449577bd",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "amount"
+				}
+			},
+			"background_image_path": {
+				"__TYPE__": "FieldContent",
+				"value": "journey",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

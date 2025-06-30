@@ -1,0 +1,230 @@
+{
+  "id": "content_block",
+  "type": "SharedSlice",
+  "name": "ContentBlock",
+  "description": "ContentBlock",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Heading",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "overtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Overtitle",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "subtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Subtitle",
+            "placeholder": ""
+          }
+        },
+        "date": {
+          "type": "Date",
+          "config": {
+            "label": "Date",
+            "placeholder": ""
+          }
+        },
+        "quote": {
+          "type": "Text",
+          "config": {
+            "label": "Quote",
+            "placeholder": ""
+          }
+        },
+        "list_label": {
+          "type": "Text",
+          "config": {
+            "label": "List Label",
+            "placeholder": ""
+          }
+        },
+        "list_items": {
+          "type": "Group",
+          "config": {
+            "label": "List Items",
+            "repeat": true,
+            "fields": {
+              "list_item": {
+                "type": "Text",
+                "config": {
+                  "label": "List Item",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "work": {
+          "type": "Link",
+          "config": {
+            "label": "Work",
+            "select": "document",
+            "repeat": false,
+            "customtypes": [
+              {
+                "id": "singlework",
+                "fields": [
+                  "featured",
+                  "title",
+                  "subtitle",
+                  "image_path",
+                  "release_date",
+                  {
+                    "id": "skills",
+                    "fields": [
+                      {
+                        "id": "skill",
+                        "customtypes": [
+                          {
+                            "id": "skill",
+                            "fields": [
+                              "skill_name"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "infoTextBlock",
+      "name": "Info Text Block",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "subheading_text": {
+          "type": "Text",
+          "config": {
+            "label": "Subheading Text",
+            "placeholder": ""
+          }
+        },
+        "info_text": {
+          "type": "Text",
+          "config": {
+            "label": "Info Text",
+            "placeholder": ""
+          }
+        },
+        "quote": {
+          "type": "Text",
+          "config": {
+            "label": "Quote",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "infoImageBlock",
+      "name": "Info Image Block",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "image_path": {
+          "type": "Text",
+          "config": {
+            "label": "Image Path",
+            "placeholder": ""
+          }
+        },
+        "image_caption": {
+          "type": "Text",
+          "config": {
+            "label": "Image Caption",
+            "placeholder": ""
+          }
+        },
+        "info_text": {
+          "type": "Text",
+          "config": {
+            "label": "Info Text",
+            "placeholder": ""
+          }
+        },
+        "quote": {
+          "type": "Text",
+          "config": {
+            "label": "Quote",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "infoSimpleBlock",
+      "name": "Info Simple Block",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "subheading": {
+          "type": "Text",
+          "config": {
+            "label": "Subheading",
+            "placeholder": ""
+          }
+        },
+        "info_text": {
+          "type": "Text",
+          "config": {
+            "label": "Info Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
