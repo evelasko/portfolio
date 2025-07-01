@@ -70,7 +70,6 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 type AboutDocumentDataSlicesSlice =
-  | CardSlice
   | BannerSlice
   | ContentBlockSlice
   | ItemListSlice
@@ -143,8 +142,7 @@ type HomeDocumentDataSlicesSlice =
   | HeroSlice
   | ItemListSlice
   | ContentBlockSlice
-  | BannerSlice
-  | CardSlice;
+  | BannerSlice;
 
 /**
  * Content for Home documents
@@ -359,7 +357,6 @@ type SinglethoughtDocumentDataSlicesSlice =
   | ImageStripeSlice
   | ContentBlockSlice
   | HeadingSlice
-  | CardSlice
   | BannerSlice;
 
 /**
@@ -505,8 +502,7 @@ type SingleworkDocumentDataSlicesSlice =
   | HeroSlice
   | ItemListSlice
   | ContentBlockSlice
-  | BannerSlice
-  | CardSlice;
+  | BannerSlice;
 
 /**
  * Content for SingleWork documents
@@ -775,8 +771,7 @@ type ThoughtsDocumentDataSlicesSlice =
   | HeroSlice
   | ItemListSlice
   | HeadingSlice
-  | BannerSlice
-  | CardSlice;
+  | BannerSlice;
 
 /**
  * Content for Thoughts documents
@@ -847,7 +842,6 @@ type WorksDocumentDataSlicesSlice =
   | HeroSlice
   | ImageStripeSlice
   | ContentBlockSlice
-  | CardSlice
   | BannerSlice;
 
 /**
@@ -1029,128 +1023,6 @@ type BannerSliceVariation = BannerSliceDefault | BannerSliceConnect;
 export type BannerSlice = prismic.SharedSlice<"banner", BannerSliceVariation>;
 
 /**
- * Primary content in *Card → Project Card → Primary*
- */
-export interface CardSliceDefaultPrimary {
-  /**
-   * Project field in *Card → Project Card → Primary*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: card.default.primary.project
-   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
-   */
-  project: ContentRelationshipFieldWithData<
-    [
-      {
-        id: "singlework";
-        fields: ["featured", "title", "subtitle", "image_path"];
-      },
-    ]
-  >;
-}
-
-/**
- * Project Card variation for Card Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type CardSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<CardSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Primary content in *Card → Thought Card → Primary*
- */
-export interface CardSliceThoughtCardPrimary {
-  /**
-   * Thought field in *Card → Thought Card → Primary*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: card.thoughtCard.primary.thought
-   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
-   */
-  thought: ContentRelationshipFieldWithData<
-    [
-      {
-        id: "singlethought";
-        fields: ["title", "cover_image_path", "date_published", "content"];
-      },
-    ]
-  >;
-}
-
-/**
- * Thought Card variation for Card Slice
- *
- * - **API ID**: `thoughtCard`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type CardSliceThoughtCard = prismic.SharedSliceVariation<
-  "thoughtCard",
-  Simplify<CardSliceThoughtCardPrimary>,
-  never
->;
-
-/**
- * Primary content in *Card → Thought Minimal → Primary*
- */
-export interface CardSliceThoughtMinimalPrimary {
-  /**
-   * Thought field in *Card → Thought Minimal → Primary*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: card.thoughtMinimal.primary.thought
-   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
-   */
-  thought: ContentRelationshipFieldWithData<
-    [
-      {
-        id: "singlethought";
-        fields: ["title", "cover_image_path", "date_published", "content"];
-      },
-    ]
-  >;
-}
-
-/**
- * Thought Minimal variation for Card Slice
- *
- * - **API ID**: `thoughtMinimal`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type CardSliceThoughtMinimal = prismic.SharedSliceVariation<
-  "thoughtMinimal",
-  Simplify<CardSliceThoughtMinimalPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Card*
- */
-type CardSliceVariation =
-  | CardSliceDefault
-  | CardSliceThoughtCard
-  | CardSliceThoughtMinimal;
-
-/**
- * Card Shared Slice
- *
- * - **API ID**: `card`
- * - **Description**: Card
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type CardSlice = prismic.SharedSlice<"card", CardSliceVariation>;
-
-/**
  * Item in *ContentBlock → Heading → Primary → List Items*
  */
 export interface ContentBlockSliceDefaultPrimaryListItemsItem {
@@ -1330,6 +1202,16 @@ export interface ContentBlockSliceInfoTextBlockPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   quote: prismic.KeyTextField;
+
+  /**
+   * Quote Author field in *ContentBlock → Info Text Block → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_block.infoTextBlock.primary.quote_author
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  quote_author: prismic.KeyTextField;
 }
 
 /**
@@ -1820,7 +1702,83 @@ export interface HeroSliceThoughtPrimary {
    * - **API ID Path**: hero.thought.primary.thought
    * - **Documentation**: https://prismic.io/docs/fields/content-relationship
    */
-  thought: prismic.ContentRelationshipField<"singlethought">;
+  thought: ContentRelationshipFieldWithData<
+    [
+      {
+        id: "singlethought";
+        fields: [
+          "title",
+          "cover_image_path",
+          "date_published",
+          "content",
+          {
+            id: "category";
+            customtypes: [{ id: "thought_category"; fields: ["title"] }];
+          },
+        ];
+      },
+    ]
+  >;
+
+  /**
+   * Title field in *Hero → Thought → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.thought.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Cover Image Path field in *Hero → Thought → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.thought.primary.cover_image_path
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  cover_image_path: prismic.KeyTextField;
+
+  /**
+   * Left Info Label field in *Hero → Thought → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.thought.primary.left_info_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  left_info_label: prismic.KeyTextField;
+
+  /**
+   * Left Info Value field in *Hero → Thought → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.thought.primary.left_info_value
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  left_info_value: prismic.KeyTextField;
+
+  /**
+   * Right Info Label field in *Hero → Thought → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.thought.primary.right_info_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  right_info_label: prismic.KeyTextField;
+
+  /**
+   * Right Info Value field in *Hero → Thought → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.thought.primary.right_info_value
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  right_info_value: prismic.KeyTextField;
 }
 
 /**
@@ -2356,14 +2314,6 @@ declare module "@prismicio/client" {
       BannerSliceVariation,
       BannerSliceDefault,
       BannerSliceConnect,
-      CardSlice,
-      CardSliceDefaultPrimary,
-      CardSliceThoughtCardPrimary,
-      CardSliceThoughtMinimalPrimary,
-      CardSliceVariation,
-      CardSliceDefault,
-      CardSliceThoughtCard,
-      CardSliceThoughtMinimal,
       ContentBlockSlice,
       ContentBlockSliceDefaultPrimaryListItemsItem,
       ContentBlockSliceDefaultPrimary,

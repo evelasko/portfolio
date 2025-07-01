@@ -76,9 +76,6 @@
             "heading": {
               "type": "SharedSlice"
             },
-            "card": {
-              "type": "SharedSlice"
-            },
             "banner": {
               "type": "SharedSlice"
             }

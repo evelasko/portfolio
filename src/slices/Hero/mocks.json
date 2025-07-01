@@ -5,18 +5,18 @@
 		"primary": {
 			"top_text": {
 				"__TYPE__": "FieldContent",
-				"value": "power",
-				"type": "Text"
+				"type": "Text",
+				"value": "mark"
 			},
 			"bottom_text": {
 				"__TYPE__": "FieldContent",
-				"value": "brick",
-				"type": "Text"
+				"type": "Text",
+				"value": "ashton"
 			},
 			"graphic_path": {
 				"__TYPE__": "FieldContent",
-				"value": "pure",
-				"type": "Text"
+				"type": "Text",
+				"value": "/assets/graphics/signature_white.svg"
 			},
 			"graphic_width": {
 				"__TYPE__": "FieldContent",
@@ -25,13 +25,13 @@
 			},
 			"graphic_height": {
 				"__TYPE__": "FieldContent",
-				"value": "15",
-				"type": "Number"
+				"type": "Number",
+				"value": "130"
 			},
 			"subtitle": {
 				"__TYPE__": "FieldContent",
-				"value": "clearly",
-				"type": "Text"
+				"type": "Text",
+				"value": "timeless visual stories for legendary brands"
 			},
 			"image_paths": {
 				"__TYPE__": "GroupContentType",
@@ -43,8 +43,47 @@
 								"path",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "current",
-									"type": "Text"
+									"type": "Text",
+									"value": "/assets/images/cards/card_1.jpg"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"path",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "/assets/images/cards/card_2.jpg"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"path",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "/assets/images/cards/card_3.jpg"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"path",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "/assets/images/cards/card_4.jpg"
 								}
 							]
 						]
@@ -53,23 +92,8 @@
 			},
 			"link_to": {
 				"__TYPE__": "FieldContent",
-				"value": "shout",
-				"type": "Text"
-			},
-			"video_path": {
-				"__TYPE__": "FieldContent",
-				"value": "floating",
-				"type": "Text"
-			},
-			"slideshow_stay_duration": {
-				"__TYPE__": "FieldContent",
-				"value": "44",
-				"type": "Number"
-			},
-			"slideshow_transition_speed": {
-				"__TYPE__": "FieldContent",
-				"value": "61",
-				"type": "Number"
+				"type": "Text",
+				"value": "#location"
 			}
 		},
 		"items": []
@@ -80,23 +104,23 @@
 		"primary": {
 			"subtitle": {
 				"__TYPE__": "FieldContent",
-				"value": "pick",
-				"type": "Text"
+				"type": "Text",
+				"value": "Sed eget ante eget justo vestibulum molestie eu a purus. Curabitur tincidunt lacinia mi, at hendrerit justo laoreet vel. Fusce aliquam dictum sem eu fermentum. Sed faucibus tincidunt erat, ut eleifend neque feugiat quis. Fusce et augue quis enim venenatis ornare. Fusce euismod sem nisl, semper vestibulum ante molestie et."
 			},
 			"link_to": {
 				"__TYPE__": "FieldContent",
-				"value": "told",
-				"type": "Text"
+				"type": "Text",
+				"value": "#location"
 			},
 			"title": {
 				"__TYPE__": "FieldContent",
-				"value": "which",
-				"type": "Text"
+				"type": "Text",
+				"value": "Journey of Innovation and Creativity —"
 			},
 			"image_path": {
 				"__TYPE__": "FieldContent",
-				"value": "steam",
-				"type": "Text"
+				"type": "Text",
+				"value": "/assets/images/cards/card_3.jpg"
 			}
 		},
 		"items": [
@@ -112,28 +136,28 @@
 		"primary": {
 			"title": {
 				"__TYPE__": "FieldContent",
-				"value": "pour",
-				"type": "Text"
+				"type": "Text",
+				"value": "Creative Insights & Design Journeys —"
 			},
 			"subtitle": {
 				"__TYPE__": "FieldContent",
-				"value": "both",
-				"type": "Text"
+				"type": "Text",
+				"value": "Sed eget ante eget justo vestibulum molestie eu a purus. Curabitur tincidunt lacinia mi, at hendrerit justo laoreet vel. Fusce aliquam dictum sem eu fermentum. Sed faucibus tincidunt erat, ut eleifend neque feugiat quis. Fusce et augue quis enim venenatis ornare. Fusce euismod sem nisl, semper vestibulum ante molestie et."
 			},
 			"image_path": {
 				"__TYPE__": "FieldContent",
-				"value": "camp",
-				"type": "Text"
+				"type": "Text",
+				"value": "/assets/images/backgrounds/abstract_neutral_1.jpg"
 			},
 			"link_to": {
 				"__TYPE__": "FieldContent",
-				"value": "former",
-				"type": "Text"
+				"type": "Text",
+				"value": "#location"
 			},
 			"photo_path": {
 				"__TYPE__": "FieldContent",
-				"value": "fur",
-				"type": "Text"
+				"type": "Text",
+				"value": "/assets/images/photos/photo_1.jpg"
 			}
 		},
 		"items": [
@@ -148,12 +172,42 @@
 		"variation": "thought",
 		"primary": {
 			"thought": {
-				"key": "0e5147b9-45f1-4df6-b4de-33f774b5fe17",
 				"__TYPE__": "LinkContent",
+				"key": "fd7c7014-eedf-4333-b04c-7cb59e949306",
 				"value": {
 					"__TYPE__": "DocumentLink",
 					"id": "mock_document_id"
 				}
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Making of Stellar Odyssey"
+			},
+			"cover_image_path": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "/assets/images/thoughts/thought_1.jpg"
+			},
+			"left_info_label": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Published on"
+			},
+			"left_info_value": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "July 31, 2024"
+			},
+			"right_info_label": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Reading Time"
+			},
+			"right_info_value": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "2 mins"
 			}
 		},
 		"items": [

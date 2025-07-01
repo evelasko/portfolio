@@ -1,29 +1,17 @@
 [
 	{
 		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"quote_text": {
-				"__TYPE__": "FieldContent",
-				"value": "fence",
-				"type": "Text"
-			}
-		},
-		"items": []
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
 		"variation": "connect",
 		"primary": {
 			"primary_text": {
 				"__TYPE__": "FieldContent",
-				"value": "frequently",
-				"type": "Text"
+				"type": "Text",
+				"value": "Have a Project?"
 			},
 			"key_text": {
 				"__TYPE__": "FieldContent",
-				"value": "wrote",
-				"type": "Text"
+				"type": "Text",
+				"value": "I'm available for new Projects"
 			},
 			"cta_link": {
 				"key": "7d435563-d59d-4cdf-9118-414f449577bd",
@@ -31,13 +19,13 @@
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "https://slicemachine.dev",
-					"text": "amount"
+					"text": "Book a Free Call"
 				}
 			},
 			"background_image_path": {
 				"__TYPE__": "FieldContent",
-				"value": "journey",
-				"type": "Text"
+				"type": "Text",
+				"value": "assets/images/backgrounds/abstract_neutral_1.jpg"
 			}
 		},
 		"items": [
@@ -46,5 +34,17 @@
 				"value": []
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"quote_text": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Aenean mollis eros urna, elementum dictum dui posuere id. Nullam vel interdum orci, non aliquam augue. Morbi risus orci, iaculis non diam a, sodales egestas dolor. In dapibus nulla id arcu viverra mollis. Nullam ullamcorper elit vitae lacinia semper. Donec quis finibus sem. In hac habitasse platea dictumst."
+			}
+		},
+		"items": []
 	}
 ]

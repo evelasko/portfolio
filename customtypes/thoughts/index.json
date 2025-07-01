@@ -28,9 +28,6 @@
             },
             "banner": {
               "type": "SharedSlice"
-            },
-            "card": {
-              "type": "SharedSlice"
             }
           }
         }

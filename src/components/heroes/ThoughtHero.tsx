@@ -39,7 +39,7 @@ export default function ThoughtHero({
         
         {/* Title */}
         <motion.h1
-          className={`${TYPOGRAPHY.h3} mb-8 m:mb-12 text-black-90`}
+          className={`${TYPOGRAPHY.h3} mb-4 pb-2 m:pb-8 text-black-90 border-b border-black-10`}
           style={{
             lineHeight: '1.2em',
             letterSpacing: '-0.02em'

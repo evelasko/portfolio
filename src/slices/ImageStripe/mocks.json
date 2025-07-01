@@ -13,8 +13,34 @@
 								"image_path",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "open",
-									"type": "Text"
+									"type": "Text",
+									"value": "/assets/images/cards/card_1.jpg"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image_path",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "/assets/images/cards/card_2.jpg"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image_path",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "/assets/images/cards/card_3.jpg"
 								}
 							]
 						]
@@ -23,13 +49,13 @@
 			},
 			"margin": {
 				"__TYPE__": "FieldContent",
-				"value": "26",
-				"type": "Number"
+				"type": "Number",
+				"value": "64"
 			},
 			"height": {
 				"__TYPE__": "FieldContent",
-				"value": "12",
-				"type": "Number"
+				"type": "Number",
+				"value": "400"
 			}
 		},
 		"items": []
@@ -48,8 +74,60 @@
 								"image_path",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "highest",
-									"type": "Text"
+									"type": "Text",
+									"value": "/assets/images/cards/card_1.jpg"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image_path",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "/assets/images/cards/card_2.jpg"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image_path",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "/assets/images/cards/card_3.jpg"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image_path",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "/assets/images/thoughts/thought_1.jpg"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image_path",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "/assets/images/thoughts/thought_2.jpg"
 								}
 							]
 						]
@@ -66,8 +144,21 @@
 								"image_path",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "stood",
-									"type": "Text"
+									"type": "Text",
+									"value": "/assets/images/photos/photo_1.jpg"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image_path",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "/assets/images/thoughts/thought_3.jpg"
 								}
 							]
 						]
@@ -76,18 +167,18 @@
 			},
 			"row_height": {
 				"__TYPE__": "FieldContent",
-				"value": "84",
-				"type": "Number"
+				"type": "Number",
+				"value": "350"
 			},
 			"margin": {
 				"__TYPE__": "FieldContent",
-				"value": "8",
-				"type": "Number"
+				"type": "Number",
+				"value": "64"
 			},
 			"featured_row_height": {
 				"__TYPE__": "FieldContent",
-				"value": "5",
-				"type": "Number"
+				"type": "Number",
+				"value": "800"
 			}
 		},
 		"items": [

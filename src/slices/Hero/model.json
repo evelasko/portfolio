@@ -201,8 +201,69 @@
             "select": "document",
             "repeat": false,
             "customtypes": [
-              "singlethought"
+              {
+                "id": "singlethought",
+                "fields": [
+                  "title",
+                  "cover_image_path",
+                  "date_published",
+                  "content",
+                  {
+                    "id": "category",
+                    "customtypes": [
+                      {
+                        "id": "thought_category",
+                        "fields": [
+                          "title"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
             ]
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "cover_image_path": {
+          "type": "Text",
+          "config": {
+            "label": "Cover Image Path",
+            "placeholder": ""
+          }
+        },
+        "left_info_label": {
+          "type": "Text",
+          "config": {
+            "label": "Left Info Label",
+            "placeholder": ""
+          }
+        },
+        "left_info_value": {
+          "type": "Text",
+          "config": {
+            "label": "Left Info Value",
+            "placeholder": ""
+          }
+        },
+        "right_info_label": {
+          "type": "Text",
+          "config": {
+            "label": "Right Info Label",
+            "placeholder": ""
+          }
+        },
+        "right_info_value": {
+          "type": "Text",
+          "config": {
+            "label": "Right Info Value",
+            "placeholder": ""
           }
         }
       },

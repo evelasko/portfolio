@@ -1,6 +1,9 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import { isFilled } from "@prismicio/client";
+import ImageSimpleStripe from "@/components/image_stripes/ImageSimpleStripe";
+import LongStripe from "@/components/image_stripes/LongStripe";
 
 /**
  * Props for `ImageStripe`.
@@ -11,43 +14,67 @@ export type ImageStripeProps = SliceComponentProps<Content.ImageStripeSlice>;
  * Component for "ImageStripe" Slices.
  */
 const ImageStripe: FC<ImageStripeProps> = ({ slice }) => {
-  return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for image_stripe (variation: {slice.variation})
-      slices.
-      <br />
-      <strong>You can edit this slice directly in your code editor.</strong>
-      {/**
-       * 💡 Use Prismic MCP with your code editor
-       *
-       * Get AI-powered help to build your slice components — based on your actual model.
-       *
-       * ▶️ Setup:
-       * 1. Add a new MCP Server in your code editor:
-       *
-       * {
-       *   "mcpServers": {
-       *     "Prismic MCP": {
-       *       "command": "npx",
-       *       "args": ["-y", "@prismicio/mcp-server@latest"]
-       *     }
-       *   }
-       * }
-       *
-       * 2. Select a model optimized for coding (e.g. Claude 3.7 Sonnet or similar)
-       *
-       * ✅ Then open your slice file and ask your code editor:
-       *    "Code this slice"
-       *
-       * Your code editor reads your slice model and helps you code faster ⚡
-       * 🎙️ Give your feedback: https://community.prismic.io/t/help-us-shape-the-future-of-slice-creation/19505
-       * 📚 Documentation: https://prismic.io/docs/ai#code-with-prismics-mcp-server
-       */}
-    </section>
-  );
+  const { slice_type, variation } = slice;
+
+  // SimpleStripe variant (default)
+  if (variation === "default") {
+    // Extract image paths from group field
+    const imagePaths = isFilled.group(slice.primary.images) 
+      ? slice.primary.images.map(item => item.image_path || "").filter(Boolean)
+      : [];
+
+    // Validate that we have images
+    if (imagePaths.length === 0) {
+      return null;
+    }
+
+    return (
+      <section
+        data-slice-type={slice_type}
+        data-slice-variation={variation}
+      >
+        <ImageSimpleStripe
+          images={imagePaths}
+          height={isFilled.number(slice.primary.height) ? slice.primary.height : undefined}
+          margin={isFilled.number(slice.primary.margin) ? slice.primary.margin : 0}
+        />
+      </section>
+    );
+  }
+
+  // LongStripe variant
+  if (variation === "longStripe") {
+    // Extract image paths from group fields
+    const imagePaths = isFilled.group(slice.primary.images) 
+      ? slice.primary.images.map(item => item.image_path || "").filter(Boolean)
+      : [];
+
+    const featuredImagePaths = isFilled.group(slice.primary.featured_images) 
+      ? slice.primary.featured_images.map(item => item.image_path || "").filter(Boolean)
+      : [];
+
+    // Validate that we have images and row_height
+    if ((imagePaths.length === 0 && featuredImagePaths.length === 0) || !isFilled.number(slice.primary.row_height)) {
+      return null;
+    }
+
+    return (
+      <section
+        data-slice-type={slice_type}
+        data-slice-variation={variation}
+      >
+        <LongStripe
+          images={imagePaths}
+          featured_images={featuredImagePaths}
+          row_height={slice.primary.row_height}
+          featured_row_height={isFilled.number(slice.primary.featured_row_height) ? slice.primary.featured_row_height : undefined}
+          margin={isFilled.number(slice.primary.margin) ? slice.primary.margin : 0}
+        />
+      </section>
+    );
+  }
+
+  return null;
 };
 
 export default ImageStripe;

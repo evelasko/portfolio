@@ -11,9 +11,6 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "card": {
-              "type": "SharedSlice"
-            },
             "banner": {
               "type": "SharedSlice"
             },

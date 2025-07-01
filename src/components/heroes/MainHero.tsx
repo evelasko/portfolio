@@ -30,8 +30,8 @@ import { TYPOGRAPHY } from '@/lib/typography';
 export default function MainHero({ 
   topText, 
   bottomText, 
-  sideTextHorizontal, 
-  sideTextVertical, 
+  sideTextHorizontal = "2K25", 
+  sideTextVertical = "./portfolio", 
   graphic, 
   graphicHeight = 100, 
   graphicWidth = 100, 

@@ -144,6 +144,13 @@
             "label": "Quote",
             "placeholder": ""
           }
+        },
+        "quote_author": {
+          "type": "Text",
+          "config": {
+            "label": "Quote Author",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

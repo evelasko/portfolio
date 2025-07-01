@@ -26,9 +26,6 @@
             "content_block": {
               "type": "SharedSlice"
             },
-            "card": {
-              "type": "SharedSlice"
-            },
             "banner": {
               "type": "SharedSlice"
             }
