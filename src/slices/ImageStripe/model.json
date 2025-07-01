@@ -24,16 +24,22 @@
                   "label": "Image Path",
                   "placeholder": ""
                 }
-              },
-              "image": {
-                "type": "Image",
-                "config": {
-                  "label": "Image",
-                  "constraint": {},
-                  "thumbnails": []
-                }
               }
             }
+          }
+        },
+        "margin": {
+          "type": "Number",
+          "config": {
+            "label": "margin",
+            "placeholder": ""
+          }
+        },
+        "height": {
+          "type": "Number",
+          "config": {
+            "label": "height",
+            "placeholder": ""
           }
         }
       },
@@ -59,14 +65,6 @@
                   "label": "Image Path",
                   "placeholder": ""
                 }
-              },
-              "image": {
-                "type": "Image",
-                "config": {
-                  "label": "Image",
-                  "constraint": {},
-                  "thumbnails": []
-                }
               }
             }
           }
@@ -83,16 +81,29 @@
                   "label": "Image Path",
                   "placeholder": ""
                 }
-              },
-              "image": {
-                "type": "Image",
-                "config": {
-                  "label": "Image",
-                  "constraint": {},
-                  "thumbnails": []
-                }
               }
             }
+          }
+        },
+        "row_height": {
+          "type": "Number",
+          "config": {
+            "label": "Row Height",
+            "placeholder": ""
+          }
+        },
+        "featured_row_height": {
+          "type": "Number",
+          "config": {
+            "label": "Featured Row Height",
+            "placeholder": ""
+          }
+        },
+        "margin": {
+          "type": "Number",
+          "config": {
+            "label": "Margin",
+            "placeholder": ""
           }
         }
       },

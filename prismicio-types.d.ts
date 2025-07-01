@@ -252,6 +252,55 @@ interface LegalDocumentData {
 export type LegalDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<LegalDocumentData>, "legal", Lang>;
 
+/**
+ * Item in *Settings → Main Navigation*
+ */
+export interface SettingsDocumentDataMainNavigationItem {
+  /**
+   * Link field in *Settings → Main Navigation*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.main_navigation[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Content for Settings documents
+ */
+interface SettingsDocumentData {
+  /**
+   * Main Navigation field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.main_navigation[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  main_navigation: prismic.GroupField<
+    Simplify<SettingsDocumentDataMainNavigationItem>
+  >;
+}
+
+/**
+ * Settings document from Prismic
+ *
+ * - **API ID**: `settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SettingsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SettingsDocumentData>,
+    "settings",
+    Lang
+  >;
+
 type SinglethoughtDocumentDataSlicesSlice = BannerSlice;
 
 /**
@@ -784,6 +833,7 @@ export type AllDocumentTypes =
   | AboutDocument
   | HomeDocument
   | LegalDocument
+  | SettingsDocument
   | SinglethoughtDocument
   | SingleworkDocument
   | SkillDocument
@@ -1737,16 +1787,6 @@ export interface ImageStripeSliceDefaultPrimaryImagesItem {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   image_path: prismic.KeyTextField;
-
-  /**
-   * Image field in *ImageStripe → SimpleStripe → Primary → Images*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: image_stripe.default.primary.images[].image
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<never>;
 }
 
 /**
@@ -1762,16 +1802,6 @@ export interface ImageStripeSliceLongStripePrimaryFeaturedImagesItem {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   image_path: prismic.KeyTextField;
-
-  /**
-   * Image field in *ImageStripe → LongStripe → Primary → Featured Images*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: image_stripe.longStripe.primary.featured_images[].image
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<never>;
 }
 
 /**
@@ -1787,16 +1817,6 @@ export interface ImageStripeSliceLongStripePrimaryImagesItem {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   image_path: prismic.KeyTextField;
-
-  /**
-   * Image field in *ImageStripe → LongStripe → Primary → Images*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: image_stripe.longStripe.primary.images[].image
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<never>;
 }
 
 /**
@@ -1814,6 +1834,26 @@ export interface ImageStripeSliceDefaultPrimary {
   images: prismic.GroupField<
     Simplify<ImageStripeSliceDefaultPrimaryImagesItem>
   >;
+
+  /**
+   * margin field in *ImageStripe → SimpleStripe → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_stripe.default.primary.margin
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  margin: prismic.NumberField;
+
+  /**
+   * height field in *ImageStripe → SimpleStripe → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_stripe.default.primary.height
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  height: prismic.NumberField;
 }
 
 /**
@@ -1856,6 +1896,36 @@ export interface ImageStripeSliceLongStripePrimary {
   images: prismic.GroupField<
     Simplify<ImageStripeSliceLongStripePrimaryImagesItem>
   >;
+
+  /**
+   * Row Height field in *ImageStripe → LongStripe → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_stripe.longStripe.primary.row_height
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  row_height: prismic.NumberField;
+
+  /**
+   * Featured Row Height field in *ImageStripe → LongStripe → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_stripe.longStripe.primary.featured_row_height
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  featured_row_height: prismic.NumberField;
+
+  /**
+   * Margin field in *ImageStripe → LongStripe → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_stripe.longStripe.primary.margin
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  margin: prismic.NumberField;
 }
 
 /**
@@ -2175,6 +2245,9 @@ declare module "@prismicio/client" {
       LegalDocument,
       LegalDocumentData,
       LegalDocumentDataSlicesSlice,
+      SettingsDocument,
+      SettingsDocumentData,
+      SettingsDocumentDataMainNavigationItem,
       SinglethoughtDocument,
       SinglethoughtDocumentData,
       SinglethoughtDocumentDataSlicesSlice,

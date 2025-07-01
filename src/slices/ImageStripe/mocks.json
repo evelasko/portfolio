@@ -16,36 +16,20 @@
 									"value": "open",
 									"type": "Text"
 								}
-							],
-							[
-								"image",
-								{
-									"origin": {
-										"id": "main",
-										"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
-										"width": 3277,
-										"height": 4092
-									},
-									"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
-									"width": 3277,
-									"height": 4092,
-									"edit": {
-										"zoom": 1,
-										"crop": {
-											"x": 0,
-											"y": 0
-										},
-										"background": "transparent"
-									},
-									"alt": "medicine",
-									"credits": null,
-									"__TYPE__": "ImageContent",
-									"thumbnails": {}
-								}
 							]
 						]
 					}
 				]
+			},
+			"margin": {
+				"__TYPE__": "FieldContent",
+				"value": "26",
+				"type": "Number"
+			},
+			"height": {
+				"__TYPE__": "FieldContent",
+				"value": "12",
+				"type": "Number"
 			}
 		},
 		"items": []
@@ -67,32 +51,6 @@
 									"value": "highest",
 									"type": "Text"
 								}
-							],
-							[
-								"image",
-								{
-									"origin": {
-										"id": "main",
-										"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
-										"width": 3958,
-										"height": 3958
-									},
-									"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
-									"width": 3958,
-									"height": 3958,
-									"edit": {
-										"zoom": 1,
-										"crop": {
-											"x": 0,
-											"y": 0
-										},
-										"background": "transparent"
-									},
-									"alt": "led",
-									"credits": null,
-									"__TYPE__": "ImageContent",
-									"thumbnails": {}
-								}
 							]
 						]
 					}
@@ -111,36 +69,25 @@
 									"value": "stood",
 									"type": "Text"
 								}
-							],
-							[
-								"image",
-								{
-									"origin": {
-										"id": "main",
-										"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
-										"width": 3456,
-										"height": 3456
-									},
-									"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
-									"width": 3456,
-									"height": 3456,
-									"edit": {
-										"zoom": 1,
-										"crop": {
-											"x": 0,
-											"y": 0
-										},
-										"background": "transparent"
-									},
-									"alt": "silent",
-									"credits": null,
-									"__TYPE__": "ImageContent",
-									"thumbnails": {}
-								}
 							]
 						]
 					}
 				]
+			},
+			"row_height": {
+				"__TYPE__": "FieldContent",
+				"value": "84",
+				"type": "Number"
+			},
+			"margin": {
+				"__TYPE__": "FieldContent",
+				"value": "8",
+				"type": "Number"
+			},
+			"featured_row_height": {
+				"__TYPE__": "FieldContent",
+				"value": "5",
+				"type": "Number"
 			}
 		},
 		"items": [
