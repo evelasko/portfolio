@@ -69,7 +69,14 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-type AboutDocumentDataSlicesSlice = never;
+type AboutDocumentDataSlicesSlice =
+  | CardSlice
+  | BannerSlice
+  | ContentBlockSlice
+  | ItemListSlice
+  | HeroSlice
+  | HeadingSlice
+  | ImageStripeSlice;
 
 /**
  * Content for About documents
@@ -130,7 +137,14 @@ interface AboutDocumentData {
 export type AboutDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, "about", Lang>;
 
-type HomeDocumentDataSlicesSlice = never;
+type HomeDocumentDataSlicesSlice =
+  | ImageStripeSlice
+  | HeadingSlice
+  | HeroSlice
+  | ItemListSlice
+  | ContentBlockSlice
+  | BannerSlice
+  | CardSlice;
 
 /**
  * Content for Home documents
@@ -194,11 +208,11 @@ export type HomeDocument<Lang extends string = string> =
 type LegalDocumentDataSlicesSlice = never;
 
 /**
- * Content for legal documents
+ * Content for Legal documents
  */
 interface LegalDocumentData {
   /**
-   * Slice Zone field in *legal*
+   * Slice Zone field in *Legal*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
@@ -207,7 +221,7 @@ interface LegalDocumentData {
    * - **Documentation**: https://prismic.io/docs/slices
    */
   slices: prismic.SliceZone<LegalDocumentDataSlicesSlice> /**
-   * Meta Title field in *legal*
+   * Meta Title field in *Legal*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
@@ -218,7 +232,7 @@ interface LegalDocumentData {
   meta_title: prismic.KeyTextField;
 
   /**
-   * Meta Description field in *legal*
+   * Meta Description field in *Legal*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
@@ -229,7 +243,7 @@ interface LegalDocumentData {
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *legal*
+   * Meta Image field in *Legal*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -241,7 +255,7 @@ interface LegalDocumentData {
 }
 
 /**
- * legal document from Prismic
+ * Legal document from Prismic
  *
  * - **API ID**: `legal`
  * - **Repeatable**: `true`
@@ -268,6 +282,31 @@ export interface SettingsDocumentDataMainNavigationItem {
 }
 
 /**
+ * Item in *Settings → Social Links*
+ */
+export interface SettingsDocumentDataSocialLinksItem {
+  /**
+   * Link field in *Settings → Social Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.social_links[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Icon Name field in *Settings → Social Links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.social_links[].icon_name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  icon_name: prismic.KeyTextField;
+}
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -282,6 +321,19 @@ interface SettingsDocumentData {
    */
   main_navigation: prismic.GroupField<
     Simplify<SettingsDocumentDataMainNavigationItem>
+  >;
+
+  /**
+   * Social Links field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.social_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  social_links: prismic.GroupField<
+    Simplify<SettingsDocumentDataSocialLinksItem>
   >;
 }
 
@@ -301,7 +353,14 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-type SinglethoughtDocumentDataSlicesSlice = BannerSlice;
+type SinglethoughtDocumentDataSlicesSlice =
+  | HeroSlice
+  | ItemListSlice
+  | ImageStripeSlice
+  | ContentBlockSlice
+  | HeadingSlice
+  | CardSlice
+  | BannerSlice;
 
 /**
  * Content for SingleThought documents
@@ -440,7 +499,14 @@ export interface SingleworkDocumentDataSkillsItem {
   >;
 }
 
-type SingleworkDocumentDataSlicesSlice = never;
+type SingleworkDocumentDataSlicesSlice =
+  | ImageStripeSlice
+  | HeadingSlice
+  | HeroSlice
+  | ItemListSlice
+  | ContentBlockSlice
+  | BannerSlice
+  | CardSlice;
 
 /**
  * Content for SingleWork documents
@@ -703,7 +769,14 @@ export type ThoughtCategoryDocument<Lang extends string = string> =
     Lang
   >;
 
-type ThoughtsDocumentDataSlicesSlice = never;
+type ThoughtsDocumentDataSlicesSlice =
+  | ImageStripeSlice
+  | ContentBlockSlice
+  | HeroSlice
+  | ItemListSlice
+  | HeadingSlice
+  | BannerSlice
+  | CardSlice;
 
 /**
  * Content for Thoughts documents
@@ -768,7 +841,14 @@ export type ThoughtsDocument<Lang extends string = string> =
     Lang
   >;
 
-type WorksDocumentDataSlicesSlice = never;
+type WorksDocumentDataSlicesSlice =
+  | ItemListSlice
+  | HeadingSlice
+  | HeroSlice
+  | ImageStripeSlice
+  | ContentBlockSlice
+  | CardSlice
+  | BannerSlice;
 
 /**
  * Content for Works documents
@@ -2248,6 +2328,7 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataMainNavigationItem,
+      SettingsDocumentDataSocialLinksItem,
       SinglethoughtDocument,
       SinglethoughtDocumentData,
       SinglethoughtDocumentDataSlicesSlice,

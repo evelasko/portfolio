@@ -1,6 +1,9 @@
 {
   "format": "page",
   "id": "legal",
+  "label": "Legal",
+  "repeatable": true,
+  "status": true,
   "json": {
     "Main": {
       "uid": {
@@ -10,11 +13,11 @@
         }
       },
       "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
         "config": {
           "choices": {}
-        },
-        "fieldset": "Slice Zone",
-        "type": "Slices"
+        }
       }
     },
     "SEO & Metadata": {
@@ -44,8 +47,5 @@
         "type": "Image"
       }
     }
-  },
-  "label": "legal",
-  "repeatable": true,
-  "status": true
+  }
 }

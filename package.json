@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@prismicio/client": "^7.18.0",
+    "@prismicio/helpers": "^2.3.9",
     "@prismicio/next": "^2.0.1",
     "@prismicio/react": "^3.2.1",
     "@radix-ui/react-slot": "^1.2.3",

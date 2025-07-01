@@ -1,14 +1,39 @@
 {
   "format": "page",
   "id": "thoughts",
+  "label": "Thoughts",
+  "repeatable": false,
+  "status": true,
   "json": {
     "Main": {
       "slices": {
-        "config": {
-          "choices": {}
-        },
+        "type": "Slices",
         "fieldset": "Slice Zone",
-        "type": "Slices"
+        "config": {
+          "choices": {
+            "image_stripe": {
+              "type": "SharedSlice"
+            },
+            "content_block": {
+              "type": "SharedSlice"
+            },
+            "hero": {
+              "type": "SharedSlice"
+            },
+            "item_list": {
+              "type": "SharedSlice"
+            },
+            "heading": {
+              "type": "SharedSlice"
+            },
+            "banner": {
+              "type": "SharedSlice"
+            },
+            "card": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     },
     "SEO & Metadata": {
@@ -38,8 +63,5 @@
         "type": "Image"
       }
     }
-  },
-  "label": "Thoughts",
-  "repeatable": false,
-  "status": true
+  }
 }

@@ -1,14 +1,39 @@
 {
   "format": "page",
   "id": "about",
+  "label": "About",
+  "repeatable": false,
+  "status": true,
   "json": {
     "Main": {
       "slices": {
-        "config": {
-          "choices": {}
-        },
+        "type": "Slices",
         "fieldset": "Slice Zone",
-        "type": "Slices"
+        "config": {
+          "choices": {
+            "card": {
+              "type": "SharedSlice"
+            },
+            "banner": {
+              "type": "SharedSlice"
+            },
+            "content_block": {
+              "type": "SharedSlice"
+            },
+            "item_list": {
+              "type": "SharedSlice"
+            },
+            "hero": {
+              "type": "SharedSlice"
+            },
+            "heading": {
+              "type": "SharedSlice"
+            },
+            "image_stripe": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     },
     "SEO & Metadata": {
@@ -38,8 +63,5 @@
         "type": "Image"
       }
     }
-  },
-  "label": "About",
-  "repeatable": false,
-  "status": true
+  }
 }

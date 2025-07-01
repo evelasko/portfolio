@@ -1,14 +1,39 @@
 {
   "format": "page",
   "id": "works",
+  "label": "Works",
+  "repeatable": false,
+  "status": true,
   "json": {
     "Main": {
       "slices": {
-        "config": {
-          "choices": {}
-        },
+        "type": "Slices",
         "fieldset": "Slice Zone",
-        "type": "Slices"
+        "config": {
+          "choices": {
+            "item_list": {
+              "type": "SharedSlice"
+            },
+            "heading": {
+              "type": "SharedSlice"
+            },
+            "hero": {
+              "type": "SharedSlice"
+            },
+            "image_stripe": {
+              "type": "SharedSlice"
+            },
+            "content_block": {
+              "type": "SharedSlice"
+            },
+            "card": {
+              "type": "SharedSlice"
+            },
+            "banner": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     },
     "SEO & Metadata": {
@@ -38,8 +63,5 @@
         "type": "Image"
       }
     }
-  },
-  "label": "Works",
-  "repeatable": false,
-  "status": true
+  }
 }

@@ -76,7 +76,29 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "image_stripe": {
+              "type": "SharedSlice"
+            },
+            "heading": {
+              "type": "SharedSlice"
+            },
+            "hero": {
+              "type": "SharedSlice"
+            },
+            "item_list": {
+              "type": "SharedSlice"
+            },
+            "content_block": {
+              "type": "SharedSlice"
+            },
+            "banner": {
+              "type": "SharedSlice"
+            },
+            "card": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },
