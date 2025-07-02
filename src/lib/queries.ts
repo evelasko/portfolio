@@ -2,7 +2,8 @@ import type * as prismic from "@prismicio/client";
 import { createClient } from "@/prismicio";
 import type { 
   SettingsDocument, 
-  SettingsDocumentDataMainNavigationItem 
+  SettingsDocumentDataMainNavigationItem,
+  TestimonialDocument 
 } from "../../prismicio-types";
 import type { PrismicSocialLink } from "./types";
 
@@ -76,5 +77,25 @@ export async function getSettings(
   } catch (error) {
     console.error("Error fetching settings:", error);
     return null;
+  }
+}
+
+/**
+ * Fetches all published testimonial documents
+ * 
+ * @param options - Query options including optional client
+ * @returns Promise containing all published testimonials
+ */
+export async function getTestimonials(
+  options: QueryOptions = {}
+): Promise<TestimonialDocument[]> {
+  const client = options.client || createClient();
+  
+  try {
+    const testimonials = await client.getAllByType<TestimonialDocument>("testimonial");
+    return testimonials;
+  } catch (error) {
+    console.error("Error fetching testimonials:", error);
+    return [];
   }
 }
