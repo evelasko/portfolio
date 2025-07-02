@@ -734,6 +734,71 @@ export type SkillCollectionDocument<Lang extends string = string> =
   >;
 
 /**
+ * Content for Testimonial documents
+ */
+interface TestimonialDocumentData {
+  /**
+   * Author Name field in *Testimonial*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Author Title field in *Testimonial*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Author Avatar field in *Testimonial*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.avatar
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  avatar: prismic.KeyTextField;
+
+  /**
+   * Message field in *Testimonial*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.message
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  message: prismic.KeyTextField;
+}
+
+/**
+ * Testimonial document from Prismic
+ *
+ * - **API ID**: `testimonial`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TestimonialDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<TestimonialDocumentData>,
+    "testimonial",
+    Lang
+  >;
+
+/**
  * Content for Thought Category documents
  */
 interface ThoughtCategoryDocumentData {
@@ -912,6 +977,7 @@ export type AllDocumentTypes =
   | SingleworkDocument
   | SkillDocument
   | SkillCollectionDocument
+  | TestimonialDocument
   | ThoughtCategoryDocument
   | ThoughtsDocument
   | WorksDocument;
@@ -1021,6 +1087,138 @@ type BannerSliceVariation = BannerSliceDefault | BannerSliceConnect;
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type BannerSlice = prismic.SharedSlice<"banner", BannerSliceVariation>;
+
+/**
+ * Item in *BioBlock → Default → Primary → Other Links*
+ */
+export interface BioBlockSliceDefaultPrimaryOtherLinksItem {
+  /**
+   * Link field in *BioBlock → Default → Primary → Other Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bio_block.default.primary.other_links[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Primary content in *BioBlock → Default → Primary*
+ */
+export interface BioBlockSliceDefaultPrimary {
+  /**
+   * Photo Path field in *BioBlock → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bio_block.default.primary.photo_path
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  photo_path: prismic.KeyTextField;
+
+  /**
+   * Over Photo Text field in *BioBlock → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bio_block.default.primary.over_photo_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  over_photo_text: prismic.KeyTextField;
+
+  /**
+   * Over Photo Graphic field in *BioBlock → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bio_block.default.primary.over_photo_graphic
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  over_photo_graphic: prismic.KeyTextField;
+
+  /**
+   * Graphic Width field in *BioBlock → Default → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bio_block.default.primary.graphic_width
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  graphic_width: prismic.NumberField;
+
+  /**
+   * Graphic Height field in *BioBlock → Default → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bio_block.default.primary.graphic_height
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  graphic_height: prismic.NumberField;
+
+  /**
+   * Short Bio field in *BioBlock → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bio_block.default.primary.short_bio
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  short_bio: prismic.RichTextField;
+
+  /**
+   * Other Links field in *BioBlock → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bio_block.default.primary.other_links[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  other_links: prismic.GroupField<
+    Simplify<BioBlockSliceDefaultPrimaryOtherLinksItem>
+  >;
+
+  /**
+   * Margin field in *BioBlock → Default → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bio_block.default.primary.margin
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  margin: prismic.NumberField;
+}
+
+/**
+ * Default variation for BioBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BioBlockSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BioBlockSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BioBlock*
+ */
+type BioBlockSliceVariation = BioBlockSliceDefault;
+
+/**
+ * BioBlock Shared Slice
+ *
+ * - **API ID**: `bio_block`
+ * - **Description**: BioBlock
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BioBlockSlice = prismic.SharedSlice<
+  "bio_block",
+  BioBlockSliceVariation
+>;
 
 /**
  * Item in *ContentBlock → Heading → Primary → List Items*
@@ -2253,6 +2451,101 @@ export type ItemListSlice = prismic.SharedSlice<
   ItemListSliceVariation
 >;
 
+/**
+ * Item in *Testimonials → Default → Primary → Testimonials*
+ */
+export interface TestimonialsSliceDefaultPrimaryTestimonialsItem {
+  /**
+   * Testimonial Item field in *Testimonials → Default → Primary → Testimonials*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.testimonials[].testimonial_item
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  testimonial_item: ContentRelationshipFieldWithData<
+    [{ id: "testimonial"; fields: ["name", "title", "avatar", "message"] }]
+  >;
+}
+
+/**
+ * Primary content in *Testimonials → Default → Primary*
+ */
+export interface TestimonialsSliceDefaultPrimary {
+  /**
+   * Title field in *Testimonials → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *Testimonials → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * Include all published field in *Testimonials → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: testimonials.default.primary.include_all_published
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  include_all_published: prismic.BooleanField;
+
+  /**
+   * Testimonials field in *Testimonials → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.testimonials[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  testimonials: prismic.GroupField<
+    Simplify<TestimonialsSliceDefaultPrimaryTestimonialsItem>
+  >;
+}
+
+/**
+ * Default variation for Testimonials Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TestimonialsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TestimonialsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Testimonials*
+ */
+type TestimonialsSliceVariation = TestimonialsSliceDefault;
+
+/**
+ * Testimonials Shared Slice
+ *
+ * - **API ID**: `testimonials`
+ * - **Description**: Testimonials
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TestimonialsSlice = prismic.SharedSlice<
+  "testimonials",
+  TestimonialsSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -2299,6 +2592,8 @@ declare module "@prismicio/client" {
       SkillCollectionDocument,
       SkillCollectionDocumentData,
       SkillCollectionDocumentDataSkillsItem,
+      TestimonialDocument,
+      TestimonialDocumentData,
       ThoughtCategoryDocument,
       ThoughtCategoryDocumentData,
       ThoughtsDocument,
@@ -2314,6 +2609,11 @@ declare module "@prismicio/client" {
       BannerSliceVariation,
       BannerSliceDefault,
       BannerSliceConnect,
+      BioBlockSlice,
+      BioBlockSliceDefaultPrimaryOtherLinksItem,
+      BioBlockSliceDefaultPrimary,
+      BioBlockSliceVariation,
+      BioBlockSliceDefault,
       ContentBlockSlice,
       ContentBlockSliceDefaultPrimaryListItemsItem,
       ContentBlockSliceDefaultPrimary,
@@ -2360,6 +2660,11 @@ declare module "@prismicio/client" {
       ItemListSliceDefault,
       ItemListSliceThoughtsList,
       ItemListSliceSkillsList,
+      TestimonialsSlice,
+      TestimonialsSliceDefaultPrimaryTestimonialsItem,
+      TestimonialsSliceDefaultPrimary,
+      TestimonialsSliceVariation,
+      TestimonialsSliceDefault,
     };
   }
 }

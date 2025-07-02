@@ -1,0 +1,122 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"photo_path": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "/assets/images/photos/photo_2.jpg"
+			},
+			"short_bio": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aenean mollis eros urna, elementum dictum dui posuere id. Nullam vel interdum orci, non aliquam augue. Morbi risus orci, iaculis non diam a, sodales egestas dolor. In dapibus nulla id arcu viverra mollis. Nullam ullamcorper elit vitae lacinia semper. Donec quis finibus sem. In hac habitasse platea dictumst. Donec id nunc sed velit tincidunt rutrum et eleifend lectus.",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 58,
+									"end": 103
+								},
+								{
+									"type": "strong",
+									"start": 275,
+									"end": 307
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Donec scelerisque, ex nec euismod hendrerit, ante mi fringilla ipsum, ut congue tellus libero eget eros. Nam eget mollis dui. Praesent dictum sodales molestie. Phasellus a purus maximus, scelerisque ante ut, porta turpis. Sed ac auctor leo.",
+							"spans": [
+								{
+									"type": "hyperlink",
+									"start": 126,
+									"end": 158,
+									"data": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://apple.com",
+										"target": "_blank"
+									}
+								}
+							]
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"other_links": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "e6c723d9-99b7-4eec-9ca1-b3497a9c6ec3",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com",
+										"text": "resume"
+									}
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "d4bae77e-5e2e-4398-b346-48c10e403a3d",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://apple.com",
+										"target": "_blank",
+										"text": "more"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"over_photo_graphic": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "/assets/graphics/signature_white.svg"
+			},
+			"over_photo_text": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "AWARD-WINNING DESIGNER, ARTIST AND Entrepeneur"
+			},
+			"graphic_width": {
+				"__TYPE__": "FieldContent",
+				"value": "60",
+				"type": "Number"
+			},
+			"graphic_height": {
+				"__TYPE__": "FieldContent",
+				"type": "Number",
+				"value": "110"
+			},
+			"margin": {
+				"__TYPE__": "FieldContent",
+				"type": "Number",
+				"value": "200"
+			}
+		},
+		"items": []
+	}
+]

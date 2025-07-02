@@ -1,0 +1,90 @@
+{
+  "id": "bio_block",
+  "type": "SharedSlice",
+  "name": "BioBlock",
+  "description": "BioBlock",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "photo_path": {
+          "type": "Text",
+          "config": {
+            "label": "Photo Path",
+            "placeholder": ""
+          }
+        },
+        "over_photo_text": {
+          "type": "Text",
+          "config": {
+            "label": "Over Photo Text",
+            "placeholder": ""
+          }
+        },
+        "over_photo_graphic": {
+          "type": "Text",
+          "config": {
+            "label": "Over Photo Graphic",
+            "placeholder": ""
+          }
+        },
+        "graphic_width": {
+          "type": "Number",
+          "config": {
+            "label": "Graphic Width",
+            "placeholder": ""
+          }
+        },
+        "graphic_height": {
+          "type": "Number",
+          "config": {
+            "label": "Graphic Height",
+            "placeholder": ""
+          }
+        },
+        "short_bio": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Short Bio",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,hyperlink,list-item,o-list-item"
+          }
+        },
+        "other_links": {
+          "type": "Group",
+          "config": {
+            "label": "Other Links",
+            "repeat": true,
+            "fields": {
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        },
+        "margin": {
+          "type": "Number",
+          "config": {
+            "label": "Margin",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
