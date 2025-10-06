@@ -42,25 +42,28 @@ export default function NavigationBarStatic({
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden l:flex l:justify-between l:items-center l:w-full l:px-8 l:py-6 fixed top-0 left-0 right-0 z-50 bg-transparent">
-        {/* Main Navigation Links - Expand to take available space */}
+      <nav className="hidden l:flex l:items-center l:w-full l:px-4 l:py-2 fixed top-0 left-0 right-0 z-50 bg-transparent">
+        {/* Logo - Extreme Left */}
         <div
           className={cn(
-            "font-sans font-extrabold",
-            "width-[160px] height-[40px]",
-            "text-white uppercase tracking-wide"
+            "mono-18 !font-sans font-extrabold",
+            "w-[160px]",
+            "text-white !mb-0 uppercase tracking-wide",
+            "flex items-center justify-start mb-[40px]"
           )}
         >
           E. VELASCO
         </div>
-        <div className="flex space-x-12 flex-1">
+
+        {/* Navigation Links - Center, Evenly Distributed */}
+        <div className="flex-1 flex justify-around px-12 items-center">
           {links.map((link, index) => (
             <Link
               key={index}
               href={link.href}
               className={cn(
                 TYPOGRAPHY.mono18,
-                "text-white uppercase tracking-wide hover:underline transition-all duration-200"
+                "text-white !mb-0 uppercase tracking-tighter hover:underline transition-all duration-200"
               )}
             >
               {link.label || "Link"}
@@ -68,15 +71,15 @@ export default function NavigationBarStatic({
           ))}
         </div>
 
-        {/* Social Links - Shrink to fit content */}
-        <div className="flex space-x-8 flex-shrink-0">
+        {/* Social Links - Extreme Right */}
+        <div className="flex space-x-4 justify-end items-center">
           {socialLinks.map((socialLink, index) => (
             <Link
               key={index}
               href={socialLink.href}
               className={cn(
                 TYPOGRAPHY.mono18,
-                "text-white uppercase tracking-wide hover:underline transition-all duration-200 flex items-center"
+                "text-white !mb-0 uppercase tracking-tighter hover:underline transition-all duration-200 flex items-center"
               )}
             >
               {socialLink.label}
@@ -89,7 +92,7 @@ export default function NavigationBarStatic({
       </nav>
 
       {/* Mobile and Tablet Navigation */}
-      <nav className="flex l:hidden justify-between items-center w-full px-6 py-4 fixed top-0 left-0 right-0 z-50 bg-black">
+      <nav className="flex l:hidden justify-between items-center w-full px-6 py-2 fixed top-0 left-0 right-0 z-50 bg-black">
         {/* Logo/Brand Name */}
         <div
           className={cn(TYPOGRAPHY.h4, "text-white uppercase tracking-wide")}

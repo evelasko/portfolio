@@ -41,26 +41,28 @@ export default function MainHeading({
       </motion.h2>
 
       {/* Subtitle */}
-      <motion.div
-        className={`${TYPOGRAPHY.h4}`}
-        style={{ 
-          color: 'var(--color-black-90)',
-          fontWeight: 'var(--font-weight-bold)',
-          lineHeight: '1.2em',
-          letterSpacing: '-0.04em',
-          marginBottom: '0'
-        }}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ 
-          duration: 0.6,
-          delay: 0.2,
-          ease: "easeOut"
-        }}
-        viewport={{ once: true }}
-      >
-        {subtitle}
-      </motion.div>
+      {subtitle && subtitle.length > 0 && (
+        <motion.div
+          className={`${TYPOGRAPHY.h4}`}
+          style={{ 
+            color: 'var(--color-black-90)',
+            fontWeight: 'var(--font-weight-bold)',
+            lineHeight: '1.2em',
+            letterSpacing: '-0.04em',
+            marginBottom: '0'
+          }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.6,
+            delay: 0.2,
+            ease: "easeOut"
+          }}
+          viewport={{ once: true }}
+        >
+          {subtitle}
+        </motion.div>
+      )}
 
       {/* Responsive Desktop Padding */}
       <style dangerouslySetInnerHTML={{

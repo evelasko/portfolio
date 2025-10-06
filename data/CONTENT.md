@@ -54,7 +54,7 @@
 
 - **Ago 2004 – Ago 2010: Curso Int. de Verano. Instituto Universitario de Danza Alicia Alonso (Madrid)**
 
-## Actividad docente y creativa
+## Actividad en las artes escénicas
 
 - **Ene 2003 – actual: Coreógrafo Residente, Mâitre. Ballet de Cámara de Madrid (Madrid)**
     Creadas más de una treintena de obras (ballet, danza contemporánea y teatro musical), reposicionado obras como *West Side Story*, *Minus 16*, *Dancin’* entre otras.
@@ -64,6 +64,23 @@
 
 - **Ene 1998 – Dic 1999: Intérprete. Tropicana (La Habana, CU)**
     Bajo la dirección de Santiago Alfonso en el espectáculo *Un Paraíso Bajo las Estrellas*.
+
+### Dance Choreography
+
+#### Relevant Original Creations
+
+- Hey Siri, do you love me? (2023)
+- Un Siglo con Cuatro Sentidos (2024)
+- Bankai (2024)
+- The Scientist (2010)
+- Carillón (2009)
+- Tribute to Dogs (2009)
+- El Cuarto (2024)
+
+#### Staged Pieces
+
+- Fosse's Sway (2018)
+- West Side Story (2011)
 
 ## Proyectos y start–ups
 
@@ -92,17 +109,61 @@
 
 ## Actividades Extra–Curriculares
 
-- **2017: Diseño Gráfico Corporativo**
-    Ha creado imagen de marca para diversas instituciones y proyectos así como maquetación de publicaciones gráficas de eventos y . —Puede econtrar más información sobre sus diseños en el perfil en Behance.com
+### Diseño Gráfico Corporativo
 
-- **2008: Diseño de Iluminación, Programación y Operación Técnica de Espectáculos**
-    Ha creado junto al prof. Javier Otero el diseño de iluminación de todas las obras que se han representado en el Ballet de Cámara de Madrid desde 2008 y a su vez ha desarrollado y operado la técnica de todos los espectáculos de dicha compañía. —Puede encontrar más información sobre sus diseños en el perfil de Behance.com
+Ha creado imagen de marca para diversas instituciones y proyectos así como maquetación de publicaciones gráficas de eventos y . —Puede econtrar más información sobre sus diseños en el perfil en Behance.com
 
-- **2004: Composición Musical Electrónica y Diseño de Sonido**
-    En 2004 compuso la música de su obra Hoist Point (nominada para el premio internacional de coreografía original de la Fundación Onassis); desde entonces ha desarrollado ediciones y diseño de sonido de numerosas obras del Ballet de Cámara de Madrid.
+- **2018: Main brand for Alicia Alonso Foundation and its educational centers (Madrid)**
+    available at: behance.net
+- **2019: Main brand for Congreso Mundial de Artes Escénicas**
+    available at: behance.net
 
-- **2017: Desarrollo de Aplicaciones Informáticas**
-    Ha desarrollado varias páginas web y aplicaciones móbiles; actualmente actúa de administrador el sistema Google Workspace del Instituto Universitario de Danza Alicia Alonso. —Más información sobre sus contribuciones informáticas en software opensource disponible en el perfil de Github.
+### Diseño de Iluminación, Programación y Operación Técnica de Espectáculos
+
+Ha creado junto al prof. Javier Otero el diseño de iluminación de todas las obras que se han representado en el Ballet de Cámara de Madrid desde 2008 y a su vez ha desarrollado y operado la técnica de todos los espectáculos de dicha compañía. —Puede encontrar más información sobre sus diseños en el perfil de Behance.com
+
+### Composición Musical Electrónica y Diseño de Sonido
+
+En 2004 compuso la música de su obra Hoist Point (nominada para el premio internacional de coreografía original de la Fundación Onassis); desde entonces ha desarrollado ediciones y diseño de sonido de numerosas obras del Ballet de Cámara de Madrid.
+
+### Desarrollo de Aplicaciones Informáticas
+
+Ha desarrollado varias páginas web y aplicaciones móbiles; actualmente actúa de administrador el sistema Google Workspace del Instituto Universitario de Danza Alicia Alonso. —Más información sobre sus contribuciones informáticas en software opensource disponible en el perfil de Github.
+
+#### Mobile
+
+- Alicialonso Virtual Campus App (*Flutter/Dart*)
+
+#### Desktop
+
+- Alicialonso Campus Management App (*Flutter/Dart*)
+
+#### Web
+
+- Alicialonso Virtual Campus App (*Typescript*)
+
+### Plugins and Integrations
+
+- Obsidian Zotero Linker (*Typescript*)
+    A plugin that allows you to connect Obsidian to your Zotero library, search for references, and insert them into your notes.
+    [repository](https://github.com/evelasko/obsidian-zotero-linker)
+
+- Zotero Citation Linker (*Typescript*)
+    A powerful Zotero plugin that seamlessly bridges reference management with Markdown-based writing workflows. Generate inline citations with API links instantly, and integrate external applications through a comprehensive local HTTP server.
+    [repository](https://github.com/evelasko/zotero-citation-linker)
+
+### AI Agents and Automation Workflows
+
+- Zotero AI Translator (*Typescript*)
+    AI-powered content translation service for Zotero metadata extraction, optimized for browser and Electron environments.
+    [repository](https://github.com/evelasko/zotero-ai-translator)
+
+- Theodore (Python)
+    A comprehensive system designed to leverage the agentic capabilities of modern IDEs (like Cursor, windsurf, etc.) and AI code generators (like Claude Code, Codex, etc.) to streamline the entire process of writing, revising, laying out, and publishing a doctoral thesis.
+
+### Other Scripts
+
+- QLab Automation Scripts (*Applescript*)
 
 ## Lenguajes
 

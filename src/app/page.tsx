@@ -1,27 +1,35 @@
+import HomeHero from "@/components/home/HomeHero";
+import NavigationBarStatic from "@/components/navigation_bar/NavigationBarStatic";
+import { navigation, socialLinks } from "@/lib/navigation";
 import { type Metadata } from "next";
-import { notFound } from "next/navigation";
-import { asImageSrc } from "@prismicio/client";
-import { SliceZone } from "@prismicio/react";
-
-import { createClient } from "@/prismicio";
-import { components } from "@/slices";
 
 export default async function Page() {
-  const client = createClient();
-  const page = await client.getSingle("home").catch(() => notFound());
-
-  return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+    <>
+      <NavigationBarStatic links={navigation} socialLinks={socialLinks} />
+      <HomeHero
+        topText="ENRIQUE"
+        bottomText="VELASCO"
+        sideTextHorizontal="2K25"
+        sideTextVertical="./ PORTFOLIO"
+        graphic="/assets/graphics/signature.svg"
+        graphicHeight={100}
+        graphicWidth={100}
+        subtitle="TIMELESS VISUAL STORIES FOR LEGENDARY BRANDS"
+        images={[]}
+        link="#documentation"
+        video="/assets/videos/throwback-slo-mo.mp4"
+      />
+    </>
+  );
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const client = createClient();
-  const page = await client.getSingle("home").catch(() => notFound());
-
   return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
+    title: "Home",
+    description: "Home",
     openGraph: {
-      images: [{ url: asImageSrc(page.data.meta_image) ?? "" }],
+      images: [],
     },
   };
 }

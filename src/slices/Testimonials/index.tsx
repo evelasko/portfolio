@@ -1,6 +1,10 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import { isFilled } from "@prismicio/client";
+import { getTestimonials } from "@/lib/queries";
+import MainHeading from "@/components/headings/MainHeading";
+import TestimonialCarousel from "@/components/lists_and_grids/TestimonialCarousel";
 
 /**
  * Props for `Testimonials`.
@@ -10,42 +14,47 @@ export type TestimonialsProps = SliceComponentProps<Content.TestimonialsSlice>;
 /**
  * Component for "Testimonials" Slices.
  */
-const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
+const Testimonials: FC<TestimonialsProps> = async ({ slice }) => {
+  const { slice_type, variation } = slice;
+
+  // Validate required fields
+  if (!isFilled.keyText(slice.primary.title)) {
+    return null;
+  }
+
+  // Determine testimonials data source
+  let testimonialsData: Content.TestimonialDocument[] = [];
+
+  if (slice.primary.include_all_published) {
+    // Fetch all published testimonials
+    const allTestimonials = await getTestimonials();
+    testimonialsData = allTestimonials;
+  } else {
+    // Use testimonials from the group field
+    if (isFilled.group(slice.primary.testimonials)) {
+      testimonialsData = slice.primary.testimonials.map<Content.TestimonialDocument | null>(item => isFilled.contentRelationship(item.testimonial_item) ? item.testimonial_item as unknown as Content.TestimonialDocument : null).filter(item => item !== null);
+    }
+  }
+
+  // Return early if no testimonials
+  if (testimonialsData.length === 0) {
+    return null;
+  }
+  console.log(testimonialsData);
+
   return (
     <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
+      data-slice-type={slice_type}
+      data-slice-variation={variation}
+      className="py-16 m:py-20 l:py-24"
     >
-      Placeholder component for testimonials (variation: {slice.variation})
-      slices.
-      <br />
-      <strong>You can edit this slice directly in your code editor.</strong>
-      {/**
-       * 💡 Use Prismic MCP with your code editor
-       *
-       * Get AI-powered help to build your slice components — based on your actual model.
-       *
-       * ▶️ Setup:
-       * 1. Add a new MCP Server in your code editor:
-       *
-       * {
-       *   "mcpServers": {
-       *     "Prismic MCP": {
-       *       "command": "npx",
-       *       "args": ["-y", "@prismicio/mcp-server@latest"]
-       *     }
-       *   }
-       * }
-       *
-       * 2. Select a model optimized for coding (e.g. Claude 3.7 Sonnet or similar)
-       *
-       * ✅ Then open your slice file and ask your code editor:
-       *    "Code this slice"
-       *
-       * Your code editor reads your slice model and helps you code faster ⚡
-       * 🎙️ Give your feedback: https://community.prismic.io/t/help-us-shape-the-future-of-slice-creation/19505
-       * 📚 Documentation: https://prismic.io/docs/ai#code-with-prismics-mcp-server
-       */}
+      <div className="container mx-auto px-4">
+        {/* Section Header */}
+        <MainHeading title={slice.primary.title as string} subtitle={slice.primary.subtitle as string} className="text-center" />
+
+        {/* Testimonials Carousel */}
+        <TestimonialCarousel testimonials={testimonialsData} />
+      </div>
     </section>
   );
 };

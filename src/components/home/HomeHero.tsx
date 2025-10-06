@@ -490,8 +490,8 @@ export default function HomeHero({
       </div>
       <div className="bg-black p-24">
         <div className={TYPOGRAPHY.h3}>
-          <span className="text-white">I believe in a new language</span>
-          <br />A language where a line of code can be as elegant as a line of
+          <span className="text-white">I believe in a new language</span>A
+          language where a line of code can be as elegant as a line of
           choreography. Where a business model can be a work of art. And where
           an artist can be the architect of their own future.
         </div>
