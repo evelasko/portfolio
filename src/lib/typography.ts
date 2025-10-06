@@ -1,6 +1,6 @@
 /**
  * Typography Constants for Enrique Velasco Portfolio
- * 
+ *
  * Provides simplified constants for responsive typography classes.
  * Each constant maps to the full responsive class string for easy usage.
  */
@@ -8,14 +8,14 @@
 // Heading Constants
 export const TYPOGRAPHY = {
   // Headings (H1-H9)
-  h1: "text-h1-s m:text-h1-m l:text-h1-l",
-  h2: "text-h2-s m:text-h2-m l:text-h2-l", 
-  h3: "text-h3-s m:text-h3-m l:text-h3-l",
-  h4: "text-h4-s m:text-h4-m l:text-h4-l",
-  h5: "text-h5-s m:text-h5-m l:text-h5-l",
-  h6: "text-h6-s m:text-h6-m l:text-h6-l",
+  h1: "text-h1 text-h1-s m:text-h1-m l:text-h1-l",
+  h2: "text-h2 text-h2-s m:text-h2-m l:text-h2-l",
+  h3: "text-h3 text-h3-s m:text-h3-m l:text-h3-l",
+  h4: "text-h4 text-h4-s m:text-h4-m l:text-h4-l",
+  h5: "text-h5 text-h5-s m:text-h5-m l:text-h5-l",
+  h6: "text-h6 text-h6-s m:text-h6-m l:text-h6-l",
   h7: "text-h7 text-h7-s m:text-h7-m l:text-h7-l",
-  h8: "text-h8 text-h8-s m:text-h8-m l:text-h8-l", 
+  h8: "text-h8 text-h8-s m:text-h8-m l:text-h8-l",
   h9: "text-h9 text-h9-s m:text-h9-m l:text-h9-l",
 
   // Text Sizes
@@ -40,18 +40,36 @@ export const TYPOGRAPHY = {
   // Link Styles
   linkDark: "link-dark",
   linkLight: "link-light",
-  linkWhiteToOrange: "link-white-to-orange", 
+  linkWhiteToOrange: "link-white-to-orange",
   linkOrangeToOrange: "link-orange-to-orange",
 } as const;
 
 // Export individual constants for direct import
 export const {
-  h1, h2, h3, h4, h5, h6, h7, h8, h9,
-  text20, text18, text16, text14,
-  mono24, mono20, mono18, mono16, mono14,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  h7,
+  h8,
+  h9,
+  text20,
+  text18,
+  text16,
+  text14,
+  mono24,
+  mono20,
+  mono18,
+  mono16,
+  mono14,
   menu,
   navBar,
-  linkDark, linkLight, linkWhiteToOrange, linkOrangeToOrange
+  linkDark,
+  linkLight,
+  linkWhiteToOrange,
+  linkOrangeToOrange,
 } = TYPOGRAPHY;
 
 // Type for valid typography keys
@@ -64,4 +82,4 @@ export type TypographyKey = keyof typeof TYPOGRAPHY;
  */
 export function getTypography(key: TypographyKey): string {
   return TYPOGRAPHY[key];
-} 
+}
