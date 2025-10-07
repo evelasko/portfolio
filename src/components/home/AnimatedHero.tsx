@@ -9,6 +9,7 @@ import clsx from "clsx";
 import { TYPOGRAPHY } from "@/lib/typography";
 import Enrique from "@/components/graphics/Enrique";
 import Velasco from "@/components/graphics/Velasco";
+import Evelasco from "../graphics/Evelasco";
 
 /**
  * MainHero
@@ -30,13 +31,8 @@ import Velasco from "@/components/graphics/Velasco";
  * @param transitionSpeed - number, how fast the slide transition happens in seconds, default 1.2 - only applies to image carousel
  */
 export default function AnimatedHero({
-  topText,
-  bottomText,
   sideTextHorizontal = "2K25",
   sideTextVertical = "./portfolio",
-  graphic,
-  graphicHeight = 100,
-  graphicWidth = 100,
   subtitle,
   images,
   link,
@@ -44,13 +40,8 @@ export default function AnimatedHero({
   stayDuration = 4000,
   transitionSpeed = 1.2,
 }: {
-  topText: string;
-  bottomText: string;
   sideTextHorizontal: string;
   sideTextVertical: string;
-  graphic: string;
-  graphicHeight: number;
-  graphicWidth: number;
   subtitle: string;
   images: string[];
   link: string;
@@ -379,72 +370,8 @@ export default function AnimatedHero({
 
             {/* Row 3: topText + bottomText concatenated (bottom-aligned with margin) */}
             <div className="flex-shrink-0 pb-8">
-              <div className="flex flex-row gap-4">
-                <motion.h1
-                  className="text-h1-s font-bold uppercase tracking-tight"
-                  style={{
-                    color: "var(--color-white-100)",
-                    lineHeight: "0.85em",
-                    letterSpacing: "-0.05em",
-                  }}
-                  initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{
-                    delay: 0.6,
-                    duration: 0.6,
-                    ease: "easeOut",
-                  }}
-                >
-                  {(topText.length > 5 ? `${topText.slice(0, 1)}.` : topText)
-                    .split("")
-                    .map((char, i) => (
-                      <motion.span
-                        key={i}
-                        initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
-                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        transition={{
-                          delay: 0.6 + i * 0.05,
-                          duration: 0.6,
-                          ease: "easeOut",
-                        }}
-                        className="inline-block"
-                      >
-                        {char === " " ? "\u00A0" : char}
-                      </motion.span>
-                    ))}
-                </motion.h1>
-
-                <motion.h1
-                  className="text-h1-s font-bold uppercase tracking-tight"
-                  style={{
-                    color: "var(--color-white-100)",
-                    lineHeight: "0.85em",
-                    letterSpacing: "-0.05em",
-                  }}
-                  initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{
-                    delay: 1.2,
-                    duration: 0.6,
-                    ease: "easeOut",
-                  }}
-                >
-                  {bottomText.split("").map((char, i) => (
-                    <motion.span
-                      key={i}
-                      initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
-                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                      transition={{
-                        delay: 1.2 + i * 0.05,
-                        duration: 0.6,
-                        ease: "easeOut",
-                      }}
-                      className="inline-block"
-                    >
-                      {char === " " ? "\u00A0" : char}
-                    </motion.span>
-                  ))}
-                </motion.h1>
+              <div className="flex w-full flex-row gap-4">
+                <Evelasco />
               </div>
 
               {/* Arrow for mobile */}

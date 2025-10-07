@@ -10,13 +10,8 @@ export default async function Page() {
     <>
       <NavigationBarStatic links={navigation} socialLinks={socialLinks} />
       <AnimatedHero
-        topText="ENRIQUE"
-        bottomText="VELASCO"
         sideTextHorizontal="2K25"
         sideTextVertical="./ PORTFOLIO"
-        graphic="/assets/graphics/signature.svg"
-        graphicHeight={100}
-        graphicWidth={100}
         subtitle="TIMELESS VISUAL STORIES FOR LEGENDARY BRANDS"
         images={[]}
         link="#documentation"
