@@ -29,7 +29,7 @@ import Velasco from "@/components/graphics/Velasco";
  * @param stayDuration - number, how long each image stays visible in milliseconds, default 4000 (4 seconds) - only applies to image carousel
  * @param transitionSpeed - number, how fast the slide transition happens in seconds, default 1.2 - only applies to image carousel
  */
-export default function HomeHero({
+export default function AnimatedHero({
   topText,
   bottomText,
   sideTextHorizontal = "2K25",
@@ -470,14 +470,6 @@ export default function HomeHero({
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="bg-black p-24">
-        <div className={TYPOGRAPHY.h3}>
-          <span className="text-white">I believe in a new language</span>A
-          language where a line of code can be as elegant as a line of
-          choreography. Where a business model can be a work of art. And where
-          an artist can be the architect of their own future.
         </div>
       </div>
     </>
