@@ -1,10 +1,10 @@
 "use client";
 
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowDown } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 import { TYPOGRAPHY } from "@/lib/typography";
 import Enrique from "@/components/graphics/Enrique";
@@ -59,6 +59,16 @@ export default function HomeHero({
   transitionSpeed?: number;
 }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  // Track scroll progress through the hero section
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Fade out Row 2 as user scrolls (fade from 1 to 0 in first 60% of scroll)
+  const row2Opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   // Image carousel effect (only when not using video)
   useEffect(() => {
@@ -74,9 +84,9 @@ export default function HomeHero({
 
   return (
     <>
-      <div className="relative w-full h-screen overflow-hidden">
+      <div id="hero" ref={heroRef} className="relative w-full h-screen">
         {/* Background Video or Image Carousel */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           {video ? (
             /* Video Background */
             <video
@@ -125,17 +135,22 @@ export default function HomeHero({
         {/* Content */}
         <div className="relative z-20 w-full h-full">
           {/* DESKTOP/TABLET LAYOUT (M & L) */}
-          <div className="hidden m:flex l:flex flex-col w-full h-full px-4 m:px-4 l:px-4">
-            {/* Row 1: topText only (fixed height based on content) */}
+          <div className="hidden m:flex l:flex flex-col justify-between w-full h-full px-4 m:px-4 l:px-4">
+            {/* Row 1: topText only (sticky to top) */}
             <div
               id="row1"
-              className="flex-shrink-0 flex items-start justify-start pt-8 m:pt-8 l:pt-8 w-[47.8%]"
+              className="flex-shrink-0 flex items-start justify-start w-[47.8%] sticky top-8"
+              style={{ position: "sticky" }}
             >
               <Enrique />
             </div>
 
-            {/* Row 2: sideText block + graphic (expandable to fill remaining space) */}
-            <div id="row2" className="flex-1 flex items-center">
+            {/* Row 2: sideText block + graphic (fixed height for sticky positioning) */}
+            <motion.div
+              id="row2"
+              className="flex-shrink-0 flex items-center relative h-80"
+              style={{ opacity: row2Opacity }}
+            >
               {/* Column 1: Side Text Block */}
               <div className="flex-1 flex flex-col items-start">
                 <motion.div
@@ -180,10 +195,14 @@ export default function HomeHero({
                 id="row2-graphic"
                 className="flex-1 flex items-center justify-center pl-8 m:pl-12 l:pl-16"
               ></div>
-            </div>
+            </motion.div>
 
-            {/* Row 3: subtitle+button + bottomText (fixed height based on bottomText content) */}
-            <div id="row3" className="flex-shrink-0 flex pb-8 m:pb-8 l:pb-0">
+            {/* Row 3: subtitle+button + bottomText (sticky to top, aligns with Row 1) */}
+            <div
+              id="row3"
+              className="flex-shrink-0 flex pb-8 m:pb-8 l:pb-0 sticky top-8"
+              style={{ position: "sticky" }}
+            >
               {/* Column 1: Subtitle + Button (flexible, yields space) */}
               <div className="flex-1 flex flex-col min-w-0 h-full">
                 {/* Subtitle row - aligned to top baseline of bottomText */}
