@@ -70,6 +70,26 @@ export default function HomeHero({
   // Fade out Row 2 as user scrolls (fade from 1 to 0 in first 60% of scroll)
   const row2Opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
+  // Fade animations for specific elements
+  // Row 2 side text - horizontal: simple fade
+  const sideTextHorizontalOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.3],
+    [1, 0]
+  );
+
+  // Row 2 side text - vertical: fade to top
+  const sideTextVerticalOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.3],
+    [1, 0]
+  );
+  const sideTextVerticalY = useTransform(scrollYProgress, [0, 0.3], [0, -50]);
+
+  // Row 3 subtitle and button: fade to bottom
+  const row3ElementsOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+  const row3ElementsY = useTransform(scrollYProgress, [0, 0.4], [0, 50]);
+
   // Image carousel effect (only when not using video)
   useEffect(() => {
     if (!video && images.length > 1) {
@@ -163,15 +183,18 @@ export default function HomeHero({
                   }}
                   className="space-y-2"
                 >
-                  <div
+                  <motion.div
+                    id="row2-side-text-horizontal"
                     className={clsx(
                       TYPOGRAPHY.mono24,
                       "uppercase tracking-wider text-white-100"
                     )}
+                    style={{ opacity: sideTextHorizontalOpacity }}
                   >
                     {sideTextHorizontal}
-                  </div>
-                  <div
+                  </motion.div>
+                  <motion.div
+                    id="row2-side-text-vertical"
                     className={clsx(
                       TYPOGRAPHY.mono24,
                       "uppercase tracking-wider"
@@ -183,10 +206,12 @@ export default function HomeHero({
                       writingMode: "vertical-rl",
                       textOrientation: "mixed",
                       transform: "rotate(180deg)",
+                      opacity: sideTextVerticalOpacity,
+                      y: sideTextVerticalY,
                     }}
                   >
                     {sideTextVertical}
-                  </div>
+                  </motion.div>
                 </motion.div>
               </div>
 
@@ -206,9 +231,13 @@ export default function HomeHero({
               {/* Column 1: Subtitle + Button (flexible, yields space) */}
               <div className="flex-1 flex flex-col min-w-0 h-full">
                 {/* Subtitle row - aligned to top baseline of bottomText */}
-                <div
+                <motion.div
                   id="row3-subtitle"
                   className="flex-shrink-0 overflow-hidden flex items-start"
+                  style={{
+                    opacity: row3ElementsOpacity,
+                    y: row3ElementsY,
+                  }}
                 >
                   <motion.div
                     className={clsx(
@@ -231,12 +260,16 @@ export default function HomeHero({
                   >
                     {subtitle}
                   </motion.div>
-                </div>
+                </motion.div>
 
                 {/* Button row - aligned to bottom baseline of bottomText */}
-                <div
+                <motion.div
                   id="row3-button"
                   className="flex-shrink-0 flex items-baseline-last"
+                  style={{
+                    opacity: row3ElementsOpacity,
+                    y: row3ElementsY,
+                  }}
                 >
                   <Link href={link} className="group">
                     <motion.div
@@ -256,7 +289,7 @@ export default function HomeHero({
                       />
                     </motion.div>
                   </Link>
-                </div>
+                </motion.div>
               </div>
 
               {/* Column 2: Bottom Text (expands as needed, right-aligned) */}
