@@ -7,6 +7,8 @@ import { ArrowDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 import { TYPOGRAPHY } from "@/lib/typography";
+import Enrique from "@/components/graphics/Enrique";
+import Velasco from "@/components/graphics/Velasco";
 
 /**
  * MainHero
@@ -123,43 +125,13 @@ export default function HomeHero({
         {/* Content */}
         <div className="relative z-20 w-full h-full">
           {/* DESKTOP/TABLET LAYOUT (M & L) */}
-          <div className="hidden m:flex l:flex flex-col h-full px-4 m:px-4 l:px-4">
+          <div className="hidden m:flex l:flex flex-col w-full h-full px-4 m:px-4 l:px-4">
             {/* Row 1: topText only (fixed height based on content) */}
             <div
               id="row1"
-              className="flex-shrink-0 flex items-start justify-start pt-8 m:pt-8 l:pt-8"
+              className="flex-shrink-0 flex items-start justify-start pt-8 m:pt-8 l:pt-8 w-[47.8%]"
             >
-              <motion.h1
-                className="text-h1-s m:text-h1-m l:text-h1-l font-bold uppercase tracking-tight"
-                style={{
-                  color: "var(--color-white-100)",
-                  lineHeight: "0.85em",
-                  letterSpacing: "-0.05em",
-                }}
-                initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{
-                  delay: 0.6,
-                  duration: 0.6,
-                  ease: "easeOut",
-                }}
-              >
-                {topText.split("").map((char, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
-                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    transition={{
-                      delay: 0.6 + i * 0.05,
-                      duration: 0.6,
-                      ease: "easeOut",
-                    }}
-                    className="inline-block"
-                  >
-                    {char === " " ? "\u00A0" : char}
-                  </motion.span>
-                ))}
-              </motion.h1>
+              <Enrique />
             </div>
 
             {/* Row 2: sideText block + graphic (expandable to fill remaining space) */}
@@ -207,42 +179,17 @@ export default function HomeHero({
               <div
                 id="row2-graphic"
                 className="flex-1 flex items-center justify-center pl-8 m:pl-12 l:pl-16"
-              >
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    delay: 0.8,
-                    duration: 0.8,
-                    ease: "easeOut",
-                  }}
-                  className="relative ml-8"
-                >
-                  {graphic && (
-                    <Image
-                      src={graphic}
-                      alt="Signature"
-                      width={graphicWidth}
-                      height={graphicHeight}
-                      className="object-contain filter invert"
-                      style={{
-                        maxWidth: "200px",
-                        height: "auto",
-                      }}
-                    />
-                  )}
-                </motion.div>
-              </div>
+              ></div>
             </div>
 
             {/* Row 3: subtitle+button + bottomText (fixed height based on bottomText content) */}
-            <div id="row3" className="flex-shrink-0 flex pb-8 m:pb-8 l:pb-8">
+            <div id="row3" className="flex-shrink-0 flex pb-8 m:pb-8 l:pb-0">
               {/* Column 1: Subtitle + Button (flexible, yields space) */}
               <div className="flex-1 flex flex-col min-w-0 h-full">
                 {/* Subtitle row - aligned to top baseline of bottomText */}
                 <div
                   id="row3-subtitle"
-                  className="flex-shrink-0 overflow-hidden flex items-start mt-2"
+                  className="flex-shrink-0 overflow-hidden flex items-start"
                 >
                   <motion.div
                     className={clsx(
@@ -284,7 +231,7 @@ export default function HomeHero({
                       }}
                     >
                       <ArrowDown
-                        size={32}
+                        size={24}
                         className="group-hover:scale-110 transition-transform duration-300"
                         style={{ color: "var(--color-white-100)" }}
                       />
@@ -296,39 +243,9 @@ export default function HomeHero({
               {/* Column 2: Bottom Text (expands as needed, right-aligned) */}
               <div
                 id="row3-bottom-text"
-                className="flex-shrink-0 flex items-start ml-4"
+                className="flex-shrink-0 flex items-start ml-4 w-[52.2%]"
               >
-                <motion.h1
-                  className="text-h1-s m:text-h1-m l:text-h1-l font-bold uppercase tracking-tight text-right"
-                  style={{
-                    color: "var(--color-white-100)",
-                    lineHeight: "0.85em",
-                    letterSpacing: "-0.05em",
-                  }}
-                  initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{
-                    delay: 1.2,
-                    duration: 0.6,
-                    ease: "easeOut",
-                  }}
-                >
-                  {bottomText.split("").map((char, i) => (
-                    <motion.span
-                      key={i}
-                      initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
-                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                      transition={{
-                        delay: 1.2 + i * 0.05,
-                        duration: 0.6,
-                        ease: "easeOut",
-                      }}
-                      className="inline-block"
-                    >
-                      {char === " " ? "\u00A0" : char}
-                    </motion.span>
-                  ))}
-                </motion.h1>
+                <Velasco />
               </div>
             </div>
           </div>
@@ -492,7 +409,7 @@ export default function HomeHero({
                     }}
                   >
                     <ArrowDown
-                      size={32}
+                      size={24}
                       className="group-hover:scale-110 transition-transform duration-300"
                       style={{ color: "var(--color-white-100)" }}
                     />

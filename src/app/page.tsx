@@ -1,4 +1,4 @@
-import HomeHero from "@/components/home/HomeHero";
+import AnimatedHero from "@/components/home/AnimatedHero";
 import NavigationBarStatic from "@/components/navigation_bar/NavigationBarStatic";
 import { navigation, socialLinks } from "@/lib/navigation";
 import { type Metadata } from "next";
@@ -7,7 +7,7 @@ export default async function Page() {
   return (
     <>
       <NavigationBarStatic links={navigation} socialLinks={socialLinks} />
-      <HomeHero
+      <AnimatedHero
         topText="ENRIQUE"
         bottomText="VELASCO"
         sideTextHorizontal="2K25"
