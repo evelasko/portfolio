@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useState, useEffect, useRef, RefObject } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import { TYPOGRAPHY } from "@/lib/typography";
 import { AlignJustify, icons } from "lucide-react";
 import Link from "next/link";
@@ -12,13 +12,51 @@ import Evelasco from "@/components/graphics/Evelasco";
 interface NavigationBarProps {
   links: NavigationLink[];
   socialLinks?: SocialLink[];
+  heroRef?: RefObject<HTMLDivElement | null>;
 }
 
 export default function NavBar({
   links,
   socialLinks = [],
+  heroRef,
 }: NavigationBarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isNavVisible, setIsNavVisible] = useState(true);
+  const [isHeroInView, setIsHeroInView] = useState(true);
+  const lastScrollYRef = useRef(0);
+
+  // Scroll direction detection and hero visibility tracking
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Hide/show nav based on scroll direction
+      if (currentScrollY > lastScrollYRef.current && currentScrollY > 70) {
+        // Scrolling down
+        setIsNavVisible(false);
+      } else {
+        // Scrolling up
+        setIsNavVisible(true);
+      }
+
+      // Check if hero is in view
+      if (heroRef?.current) {
+        const heroRect = heroRef.current.getBoundingClientRect();
+        const heroBottom = heroRect.bottom;
+        // Hero is out of view when its bottom is above the nav height
+        setIsHeroInView(heroBottom > 70);
+      }
+
+      lastScrollYRef.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Initial check
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [heroRef]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -43,14 +81,45 @@ export default function NavBar({
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden l:flex l:items-center l:w-full l:px-4 l:py-2 l:h-[70px] fixed top-0 left-0 right-0 z-50 bg-transparent">
-        {/* Logo - Extreme Left */}
-        <div className={cn("w-[102px]")}>
+      <motion.nav
+        className="hidden l:flex l:items-center l:w-full l:px-4 l:py-2 l:h-[70px] fixed top-0 left-0 right-0 z-50 bg-transparent"
+        initial={{ y: 0 }}
+        animate={{
+          y: isNavVisible ? 0 : "-100%",
+        }}
+        transition={{
+          duration: 0.3,
+          ease: "easeOut",
+        }}
+      >
+        {/* Logo - Extreme Left (Hidden when hero is in view) */}
+        <motion.div
+          className="overflow-hidden"
+          initial={{ width: 0, opacity: 0 }}
+          animate={{
+            width: isHeroInView ? 0 : 102,
+            opacity: isHeroInView ? 0 : 1,
+          }}
+          transition={{
+            duration: 0.5,
+            ease: "easeInOut",
+          }}
+        >
           <Evelasco />
-        </div>
+        </motion.div>
 
-        {/* Navigation Links - Center, Evenly Distributed */}
-        <div className="flex-1 flex justify-around px-12 items-center">
+        {/* Navigation Links - Spread when hero in view, aligned right when hero out of view */}
+        <motion.div
+          className="flex-1 flex items-center px-12"
+          animate={{
+            justifyContent: isHeroInView ? "space-around" : "flex-end",
+            gap: isHeroInView ? undefined : "2rem",
+          }}
+          transition={{
+            duration: 0.5,
+            ease: "easeInOut",
+          }}
+        >
           {links.map((link, index) => (
             <Link
               key={index}
@@ -63,9 +132,9 @@ export default function NavBar({
               {link.label || "Link"}
             </Link>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Social Links - Extreme Right */}
+        {/* Social Links - Extreme Right (Always static) */}
         <div className="flex space-x-4 justify-end items-center">
           {socialLinks.map((socialLink, index) => (
             <Link
@@ -83,7 +152,7 @@ export default function NavBar({
             </Link>
           ))}
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Mobile and Tablet Navigation */}
       <nav className="flex l:hidden justify-between items-center w-full px-6 py-2 fixed top-0 left-0 right-0 z-50 bg-black">

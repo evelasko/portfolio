@@ -4,7 +4,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowDown } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, RefObject } from "react";
 import clsx from "clsx";
 import { TYPOGRAPHY } from "@/lib/typography";
 import Enrique from "@/components/graphics/Enrique";
@@ -39,6 +39,7 @@ export default function AnimatedHero({
   video,
   stayDuration = 4000,
   transitionSpeed = 1.2,
+  heroRef,
 }: {
   sideTextHorizontal: string;
   sideTextVertical: string;
@@ -48,13 +49,15 @@ export default function AnimatedHero({
   video?: string;
   stayDuration?: number;
   transitionSpeed?: number;
+  heroRef?: RefObject<HTMLDivElement | null>;
 }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const heroRef = useRef<HTMLDivElement>(null);
+  const internalHeroRef = useRef<HTMLDivElement>(null);
+  const activeHeroRef = heroRef || internalHeroRef;
 
   // Track scroll progress through the hero section
   const { scrollYProgress } = useScroll({
-    target: heroRef,
+    target: activeHeroRef,
     offset: ["start start", "end start"],
   });
 
@@ -95,7 +98,7 @@ export default function AnimatedHero({
 
   return (
     <>
-      <div id="hero" ref={heroRef} className="relative w-full h-screen">
+      <div id="hero" ref={activeHeroRef} className="relative w-full h-screen">
         {/* Background Video or Image Carousel */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           {video ? (
