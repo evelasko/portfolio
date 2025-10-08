@@ -1,14 +1,14 @@
 import InfoImageBlock from "@/components/content_blocks/InfoImageBlock";
 import AnimatedHero from "@/components/home/AnimatedHero";
 import Message from "@/components/home/Message";
-import NavigationBarStatic from "@/components/navigation_bar/NavigationBarStatic";
+import NavBar from "@/components/layout/NavBar";
 import { navigation, socialLinks } from "@/lib/navigation";
 import { type Metadata } from "next";
 
 export default async function Page() {
   return (
     <>
-      <NavigationBarStatic links={navigation} socialLinks={socialLinks} />
+      <NavBar links={navigation} socialLinks={socialLinks} />
       <AnimatedHero
         sideTextHorizontal="2K25"
         sideTextVertical="./ PORTFOLIO"

@@ -150,7 +150,7 @@ export default function AnimatedHero({
             {/* Row 1: topText only (sticky to top) */}
             <div
               id="row1"
-              className="flex-shrink-0 flex items-start justify-start w-[47.8%] sticky top-8"
+              className="flex-shrink-0 flex items-start justify-start w-[47.8%] sticky top-16"
               style={{ position: "sticky" }}
             >
               <Enrique />
@@ -216,7 +216,7 @@ export default function AnimatedHero({
             {/* Row 3: subtitle+button + bottomText (sticky to top, aligns with Row 1) */}
             <div
               id="row3"
-              className="flex-shrink-0 flex pb-8 m:pb-8 l:pb-0 sticky top-8"
+              className="flex-shrink-0 flex pb-8 m:pb-8 l:pb-0 sticky top-16"
               style={{ position: "sticky" }}
             >
               {/* Column 1: Subtitle + Button (flexible, yields space) */}
