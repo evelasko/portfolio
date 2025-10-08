@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Fragment_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import ReactLenis from "lenis/react";
+import { LayoutProvider } from "@/contexts/LayoutContext";
+import LayoutContent from "@/components/layout/LayoutContent";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -31,7 +33,11 @@ export default function RootLayout({
       <body
         className={`${plusJakartaSans.variable} ${fragmentMono.variable} antialiased`}
       >
-        <ReactLenis root>{children}</ReactLenis>
+        <ReactLenis root>
+          <LayoutProvider>
+            <LayoutContent>{children}</LayoutContent>
+          </LayoutProvider>
+        </ReactLenis>
       </body>
     </html>
   );

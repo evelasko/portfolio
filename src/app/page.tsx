@@ -1,18 +1,26 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import InfoImageBlock from "@/components/content_blocks/InfoImageBlock";
 import AnimatedHero from "@/components/home/AnimatedHero";
 import Message from "@/components/home/Message";
-import NavBar from "@/components/layout/NavBar";
-import { navigation, socialLinks } from "@/lib/navigation";
+import { useLayout } from "@/contexts/LayoutContext";
 
 export default function Page() {
   const heroRef = useRef<HTMLDivElement>(null);
+  const { setHeroRef, setShowNavBar, setShowFooter, setFooterVariant } =
+    useLayout();
+
+  // Configure layout for this page
+  useEffect(() => {
+    setHeroRef(heroRef);
+    setShowNavBar(true);
+    setShowFooter(true);
+    setFooterVariant("full");
+  }, [setHeroRef, setShowNavBar, setShowFooter, setFooterVariant]);
 
   return (
     <>
-      <NavBar links={navigation} socialLinks={socialLinks} heroRef={heroRef} />
       <AnimatedHero
         sideTextHorizontal="2K25"
         sideTextVertical="./ PORTFOLIO"
