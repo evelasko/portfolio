@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { TYPOGRAPHY } from "@/lib/typography";
 
-export default function Message() {
+export default function Message({ segments }: { segments: string[] }) {
   const messageRef = useRef<HTMLDivElement>(null);
 
   // Track scroll progress through the message section
@@ -12,13 +12,6 @@ export default function Message() {
     target: messageRef,
     offset: ["start start", "end end"],
   });
-
-  const segments = [
-    "I believe in a new language",
-    "A language where a line of code can be as elegant as a line of choreography.",
-    "Where a business model can be a work of art.",
-    "And where an artist can be the architect of their own future.",
-  ];
 
   // Map scroll progress to active segment index (0-3 for 4 segments)
   // Slower progression: each segment takes more scroll to reveal
