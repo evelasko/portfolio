@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, RefObject } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import { TYPOGRAPHY } from "@/lib/typography";
-import { AlignJustify, icons } from "lucide-react";
+import { AlignJustify, icons, X } from "lucide-react";
 import Link from "next/link";
 import { NavigationLink, SocialLink } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -165,13 +165,22 @@ export default function NavBar({
       </motion.nav>
 
       {/* Mobile and Tablet Navigation */}
-      <nav className="flex l:hidden justify-between items-center w-full px-6 py-2 fixed top-0 left-0 right-0 z-50 bg-black">
+      <nav className="flex l:hidden justify-between items-center w-full px-6 py-2 fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-md">
         {/* Logo/Brand Name */}
-        <div
-          className={cn(TYPOGRAPHY.h4, "text-white uppercase tracking-wide")}
+        <motion.div
+          className="overflow-hidden w-[120px]"
+          initial={{ width: 0, opacity: 0 }}
+          animate={{
+            width: isHeroInView ? 0 : 102,
+            opacity: isHeroInView ? 0 : 1,
+          }}
+          transition={{
+            duration: 0.5,
+            ease: "easeInOut",
+          }}
         >
-          E. VELASCO
-        </div>
+          <Evelasco color="rgb(255, 255, 255)" />
+        </motion.div>
 
         {/* Hamburger Menu Button */}
         <button
@@ -194,14 +203,9 @@ export default function NavBar({
             className="fixed inset-0 bg-black z-50 flex flex-col"
           >
             {/* Header with Brand and Close Button */}
-            <div className="flex justify-between items-center px-6 py-4 border-b border-gray-800">
-              <div
-                className={cn(
-                  TYPOGRAPHY.h4,
-                  "text-white uppercase tracking-wide"
-                )}
-              >
-                E. VELASCO
+            <div className="flex justify-between items-center px-6 py-2 border-b border-gray-800">
+              <div className={cn("w-[120px] text-white")}>
+                <Evelasco color="rgb(255, 255, 255)" />
               </div>
 
               <button
@@ -209,19 +213,7 @@ export default function NavBar({
                 className="w-8 h-8 flex items-center justify-center"
                 aria-label="Close menu"
               >
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
+                <X className="w-6 h-6 text-white" />
               </button>
             </div>
 
