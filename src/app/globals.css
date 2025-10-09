@@ -844,7 +844,7 @@ body {
     "box-5 box-6 box-7 box-7";
 }
 
-@media (max-width: 768px) {
+@media (max-width: 809px) {
   .bento-grid {
     grid-template-areas:
       "box-1 box-1 box-1"

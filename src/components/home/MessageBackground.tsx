@@ -41,6 +41,9 @@ export default function MessageBackground({
     ["grayscale(100%)", "grayscale(0%)"]
   );
 
+  // VHS effect opacity: fades out as grayscale fades out (0-60%)
+  const vhsOpacity = useTransform(messageScrollProgress, [0, 0.6], [1, 0]);
+
   // Final text animations
   // Opacity: fades in from 55-70% and stays visible
   const finalTextOpacity = useTransform(
@@ -88,7 +91,7 @@ export default function MessageBackground({
       <div className="sticky top-0 h-screen flex flex-col items-center justify-between px-4 m:px-8 l:px-16 py-8 m:py-12 l:py-16 overflow-hidden">
         {/* Background Image with grayscale animation */}
         <motion.div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-10"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
           style={{
             backgroundImage: `url(${imagePath})`,
             filter: backgroundFilter,
@@ -96,15 +99,41 @@ export default function MessageBackground({
         />
 
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/40 -z-10" />
+        <div className="absolute inset-0 bg-black/40 z-[1]" />
+
+        {/* VHS Noise Texture Overlay */}
+        <motion.div
+          className="absolute inset-0 pointer-events-none z-[2]"
+          style={{
+            backgroundImage: "url(/assets/textures/noise.png)",
+            backgroundRepeat: "repeat",
+            mixBlendMode: "overlay",
+            opacity: vhsOpacity,
+          }}
+        />
+
+        {/* VHS Scan Lines Overlay */}
+        <motion.div
+          className="absolute inset-0 pointer-events-none z-[3]"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+              0deg,
+              rgba(0, 0, 0, 0.15),
+              rgba(0, 0, 0, 0.15) 1px,
+              transparent 1px,
+              transparent 2px
+            )`,
+            opacity: vhsOpacity,
+          }}
+        />
 
         {/* Initial text at the top */}
-        <h3 className={`${TYPOGRAPHY.h3} text-white text-center`}>
+        <h3 className={`${TYPOGRAPHY.h3} text-white text-center relative z-10`}>
           {initialText}
         </h3>
 
         {/* Segments text - centered vertically in remaining space */}
-        <div className="flex items-center justify-center flex-1">
+        <div className="flex items-center justify-center flex-1 relative z-10">
           <h3 className={`${TYPOGRAPHY.h7} text-center`}>
             {segments.map((segment, index) => (
               <motion.span
@@ -122,7 +151,7 @@ export default function MessageBackground({
 
         {/* Final text with stronger appearance at the bottom */}
         <motion.h2
-          className={`${TYPOGRAPHY.h2} text-white font-bold text-center`}
+          className={`${TYPOGRAPHY.h2} text-white font-bold text-center relative z-10`}
           style={{
             opacity: finalTextOpacity,
             scale: finalTextScale,

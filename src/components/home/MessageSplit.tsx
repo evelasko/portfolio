@@ -35,6 +35,9 @@ export default function MessageSplit({
     ["grayscale(100%)", "grayscale(0%)"]
   );
 
+  // VHS effect opacity: fades out as grayscale fades out (0-60%)
+  const vhsOpacity = useTransform(messageScrollProgress, [0, 0.6], [1, 0]);
+
   // Left text animations: fades in from the right (0-30%)
   const leftTextOpacity = useTransform(messageScrollProgress, [0, 0.3], [0, 1]);
   const leftTextX = useTransform(messageScrollProgress, [0, 0.3], [100, 0]);
@@ -74,7 +77,7 @@ export default function MessageSplit({
       <div className="sticky top-0 h-screen flex flex-col items-center justify-between px-4 m:px-8 l:px-16 py-8 m:py-12 l:py-16 overflow-hidden">
         {/* Background Image with grayscale animation */}
         <motion.div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-10"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
           style={{
             backgroundImage: `url(${imagePath})`,
             filter: backgroundFilter,
@@ -82,15 +85,41 @@ export default function MessageSplit({
         />
 
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/40 -z-10" />
+        <div className="absolute inset-0 bg-black/40 z-[1]" />
+
+        {/* VHS Noise Texture Overlay */}
+        <motion.div
+          className="absolute inset-0 pointer-events-none z-[2]"
+          style={{
+            backgroundImage: "url(/assets/textures/noise.png)",
+            backgroundRepeat: "repeat",
+            mixBlendMode: "overlay",
+            opacity: vhsOpacity,
+          }}
+        />
+
+        {/* VHS Scan Lines Overlay */}
+        <motion.div
+          className="absolute inset-0 pointer-events-none z-[3]"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+              0deg,
+              rgba(0, 0, 0, 0.15),
+              rgba(0, 0, 0, 0.15) 1px,
+              transparent 1px,
+              transparent 2px
+            )`,
+            opacity: vhsOpacity,
+          }}
+        />
 
         {/* Initial text at the top */}
-        <h3 className={`${TYPOGRAPHY.h3} text-white text-center`}>
+        <h3 className={`${TYPOGRAPHY.h3} text-white text-center relative z-10`}>
           {initialText}
         </h3>
 
         {/* Two-column text layout - centered vertically in remaining space */}
-        <div className="flex items-center justify-center flex-1 w-full">
+        <div className="flex items-center justify-center flex-1 w-full relative z-10">
           <div className="grid grid-cols-1 m:grid-cols-2 gap-8 m:gap-12 l:gap-16 w-full max-w-7xl">
             {/* Left text - fades in from right */}
             <motion.div
@@ -118,7 +147,7 @@ export default function MessageSplit({
 
         {/* Final text with stronger appearance at the bottom */}
         <motion.h2
-          className={`${TYPOGRAPHY.h2} text-white font-bold text-center`}
+          className={`${TYPOGRAPHY.h2} text-white font-bold text-center relative z-10`}
           style={{
             opacity: finalTextOpacity,
             scale: finalTextScale,
