@@ -32,7 +32,13 @@ const Testimonials: FC<TestimonialsProps> = async ({ slice }) => {
   } else {
     // Use testimonials from the group field
     if (isFilled.group(slice.primary.testimonials)) {
-      testimonialsData = slice.primary.testimonials.map<Content.TestimonialDocument | null>(item => isFilled.contentRelationship(item.testimonial_item) ? item.testimonial_item as unknown as Content.TestimonialDocument : null).filter(item => item !== null);
+      testimonialsData = slice.primary.testimonials
+        .map<Content.TestimonialDocument | null>(item =>
+          isFilled.contentRelationship(item.testimonial_item)
+            ? (item.testimonial_item as unknown as Content.TestimonialDocument)
+            : null
+        )
+        .filter(item => item !== null);
     }
   }
 
@@ -50,10 +56,14 @@ const Testimonials: FC<TestimonialsProps> = async ({ slice }) => {
     >
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <MainHeading title={slice.primary.title as string} subtitle={slice.primary.subtitle as string} className="text-center" />
+        <MainHeading
+          title={slice.primary.title as string}
+          subtitle={slice.primary.subtitle as string}
+          className="text-center"
+        />
 
         {/* Testimonials Carousel */}
-        <TestimonialCarousel testimonials={testimonialsData} />
+        {/* <TestimonialCarousel testimonials={testimonialsData} /> */}
       </div>
     </section>
   );
