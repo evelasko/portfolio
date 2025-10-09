@@ -1,0 +1,106 @@
+import { TYPOGRAPHY } from "@/lib/typography";
+import clsx from "clsx";
+import ArrowButton from "../buttons/ArrowButton";
+
+function BentoGrid({
+  bentoClass,
+  className,
+  children,
+}: {
+  bentoClass: string;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      className={clsx(
+        bentoClass,
+        ...(className
+          ? [className]
+          : [
+              "grid rounded-4xl border border-black-10 overflow-hidden w-full p-4 bg-black/[0.02]",
+              "grid-cols-3 grid-rows-[200px_200px_200px_200px_200px] gap-4",
+              "m:grid-cols-4 m:grid-rows-[200px_200px_200px] gap-4",
+            ])
+      )}
+    >
+      {children}
+    </div>
+  );
+}
+
+function BentoContentRow({
+  heading,
+  text,
+  link,
+  gridBox,
+}: {
+  heading: string;
+  text: string;
+  link: string;
+  gridBox?: string;
+}) {
+  return (
+    <div
+      style={{ gridArea: gridBox }}
+      className="flex-1 bg-white rounded-4xl border border-black-20 p-8 flex flex-col justify-between"
+    >
+      <div
+        className={clsx(
+          TYPOGRAPHY.mono16,
+          "tracking-tight uppercase text-black-50"
+        )}
+      >
+        {heading}
+      </div>
+      <div className="h-full w-full flex flex-row">
+        <div className="flex-1 w-full">
+          <div className="flex flex-col gap-2">
+            <div
+              className={clsx(
+                TYPOGRAPHY.h7,
+                "!mb-0 !pb-0 text-black-90 leading-[1.2] h-full"
+              )}
+            >
+              {text}
+            </div>
+            <div
+              className={clsx(TYPOGRAPHY.text14, "!mb-0 text-black-50 h-fit")}
+            >
+              Some long text description about the project, work, or
+              contribution category
+            </div>
+          </div>
+        </div>
+        <div className="flex items-end">
+          <ArrowButton href={link} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function BentoImageRow({
+  imagePath,
+  imageAlt,
+  gridBox,
+}: {
+  imagePath: string;
+  imageAlt: string;
+  gridBox: string;
+}) {
+  return (
+    <div style={{ gridArea: gridBox }} className="rounded-4xl overflow-hidden">
+      <img
+        src={imagePath}
+        alt={imageAlt}
+        className="w-full h-full object-cover transition-transform duration-300 ease-out hover:scale-110"
+      />
+    </div>
+  );
+}
+
+BentoGrid.ContentRow = BentoContentRow;
+BentoGrid.ImageRow = BentoImageRow;
+
+export default BentoGrid;

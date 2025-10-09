@@ -836,3 +836,21 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.bento-grid {
+  grid-template-areas:
+    "box-1 box-1 box-2 box-3"
+    "box-5 box-4 box-4 box-3"
+    "box-5 box-6 box-7 box-7";
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-areas:
+      "box-1 box-1 box-1"
+      "box-2 box-3 box-3"
+      "box-4 box-4 box-4"
+      "box-5 box-5 box-6"
+      "box-7 box-7 box-7";
+  }
+}
