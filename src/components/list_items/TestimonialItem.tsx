@@ -1,5 +1,12 @@
 import Image from "next/image";
-import { TYPOGRAPHY } from '@/lib/typography';
+import { TYPOGRAPHY } from "@/lib/typography";
+
+export interface TestimonialItemProps {
+  name: string;
+  title: string;
+  message: string;
+  avatar: string;
+}
 
 /**
  * Testimonial Item Component
@@ -8,19 +15,14 @@ import { TYPOGRAPHY } from '@/lib/typography';
  * @param message - string, tag p style TYPOGRAPHY.h9, color black-70
  * @param avatar - string, image url 42px square
  */
-export default function TestimonialItem({ 
-  name, 
-  title, 
-  message, 
-  avatar 
-}: { 
-  name: string; 
-  title: string; 
-  message: string; 
-  avatar: string; 
-}) {
+export default function TestimonialItem({
+  name,
+  title,
+  message,
+  avatar,
+}: TestimonialItemProps) {
   return (
-    <div className="bg-white p-8 m:p-10 l:p-12 rounded-lg shadow-sm border border-gray-100">
+    <div className="bg-black/[0.02] p-8 m:p-10 l:p-12 rounded-lg shadow-sm border border-gray-100">
       {/* Testimonial Message */}
       <div className="mb-8 l:mb-10">
         <p className={`${TYPOGRAPHY.h9} text-black-70 leading-relaxed`}>
@@ -33,9 +35,9 @@ export default function TestimonialItem({
         {/* Avatar */}
         <div className="flex-shrink-0">
           <div className="relative w-[42px] h-[42px] rounded-full overflow-hidden">
-            <Image 
-              src={avatar} 
-              alt={name} 
+            <Image
+              src={avatar}
+              alt={name}
               fill
               className="object-cover"
               sizes="42px"

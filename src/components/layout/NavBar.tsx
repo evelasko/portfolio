@@ -13,12 +13,14 @@ interface NavigationBarProps {
   links: NavigationLink[];
   socialLinks?: SocialLink[];
   heroRef?: RefObject<HTMLDivElement | null>;
+  socialAsIcons?: boolean;
 }
 
 export default function NavBar({
   links,
   socialLinks = [],
   heroRef,
+  socialAsIcons = false,
 }: NavigationBarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isNavVisible, setIsNavVisible] = useState(true);
@@ -83,6 +85,7 @@ export default function NavBar({
       {/* Desktop Navigation */}
       <motion.nav
         className="hidden l:flex l:items-center l:w-full l:px-4 l:py-2 l:h-[70px] fixed top-0 left-0 right-0 z-50 bg-transparent"
+        style={{ mixBlendMode: "difference" }}
         initial={{ y: 0 }}
         animate={{
           y: isNavVisible ? 0 : "-100%",
@@ -105,7 +108,7 @@ export default function NavBar({
             ease: "easeInOut",
           }}
         >
-          <Evelasco />
+          <Evelasco color="rgb(255, 255, 255)" />
         </motion.div>
 
         {/* Navigation Links - Spread when hero in view, aligned right when hero out of view */}
@@ -126,8 +129,9 @@ export default function NavBar({
               href={link.href}
               className={cn(
                 TYPOGRAPHY.mono18,
-                "text-white !mb-0 uppercase tracking-tighter hover:underline transition-all duration-200"
+                "!mb-0 uppercase tracking-tighter hover:underline transition-all duration-200"
               )}
+              style={{ color: "rgb(255, 255, 255)" }}
             >
               {link.label || "Link"}
             </Link>
@@ -142,13 +146,19 @@ export default function NavBar({
               href={socialLink.href}
               className={cn(
                 TYPOGRAPHY.mono18,
-                "text-white !mb-0 uppercase tracking-tighter hover:underline transition-all duration-200 flex items-center"
+                "!mb-0 uppercase tracking-tighter hover:underline transition-all duration-200 flex items-center"
               )}
+              style={{ color: "rgb(255, 255, 255)" }}
             >
-              {socialLink.label}
-              {socialLink.icon && (
-                <DynamicIcon iconName={socialLink.icon} className="w-5 h-5" />
-              )}
+              {socialAsIcons
+                ? (socialLink.icon && (
+                    <DynamicIcon
+                      iconName={socialLink.icon}
+                      className="w-5 h-5"
+                    />
+                  )) ||
+                  socialLink.label
+                : socialLink.label}
             </Link>
           ))}
         </div>

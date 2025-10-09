@@ -1,13 +1,15 @@
 "use client";
 
 import TestimonialItem from "@/components/list_items/TestimonialItem";
-import type { Content } from "@prismicio/client";
+import type { TestimonialItemProps } from "@/components/list_items/TestimonialItem";
 
 interface TestimonialCarouselProps {
-  testimonials: Content.TestimonialDocument[];
+  testimonials: TestimonialItemProps[];
 }
 
-export default function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) {
+export default function TestimonialCarousel({
+  testimonials,
+}: TestimonialCarouselProps) {
   if (testimonials.length === 0) {
     return null;
   }
@@ -15,23 +17,22 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
   return (
     <div className="relative">
       <div className="overflow-x-auto scrollbar-hide">
-        <div className="flex gap-6 m:gap-8 pb-4" style={{ width: 'max-content' }}>
-          {testimonials.map((testimonial, index) => {
+        <div
+          className="flex gap-6 m:gap-8 pb-4"
+          style={{ width: "max-content" }}
+        >
+          {testimonials.map(({ name, title, message, avatar }, index) => {
             // Extract testimonial data
-            const testimonialData = testimonial.data;
-            
-            if (!testimonialData) return null;
+
+            if (!name || !title || !message || !avatar) return null;
 
             return (
-              <div
-                key={testimonial.id || index}
-                className="flex-none w-80 m:w-96"
-              >
+              <div key={name || index} className="flex-none w-80 m:w-96">
                 <TestimonialItem
-                  name={testimonialData.name || ""}
-                  title={testimonialData.title || ""}
-                  message={testimonialData.message || ""}
-                  avatar={testimonialData.avatar || ""}
+                  name={name || ""}
+                  title={title || ""}
+                  message={message || ""}
+                  avatar={avatar || ""}
                 />
               </div>
             );

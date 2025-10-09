@@ -1,40 +1,138 @@
-'use client';
+"use client";
 
-import { PrismicSocialLink } from "@/lib/types";
-import { RichTextField, LinkField } from "@prismicio/client";
-import { PrismicRichText } from "@prismicio/react";
-import { PrismicNextLink } from "@prismicio/next";
-import { isFilled } from "@prismicio/client";
-import { motion } from 'motion/react';
-import { TYPOGRAPHY } from '@/lib/typography';
+import React from "react";
+import { SocialLink, NavigationLink } from "@/lib/types";
+import { motion } from "motion/react";
+import { TYPOGRAPHY } from "@/lib/typography";
 import Image from "next/image";
-import { icons } from 'lucide-react';
+import { icons } from "lucide-react";
+import Link from "next/link";
 
-export default function BioBlock({ 
-  photo_path, 
-  over_photo_text, 
-  over_photo_graphic, 
-  graphic_width = 100, 
-  graphic_height = 100, 
-  short_bio, 
-  social_links, 
+export default function BioBlock({
+  photo_path,
+  over_photo_text,
+  over_photo_graphic,
+  graphic_width = 100,
+  graphic_height = 100,
+  short_bio,
+  social_links,
   other_links,
-  margin = 0
-}: { 
-  photo_path: string, 
-  over_photo_text?: string, 
-  over_photo_graphic?: string, 
-  graphic_width?: number, 
-  graphic_height?: number, 
-  short_bio: RichTextField, 
-  social_links: PrismicSocialLink[], 
-  other_links: LinkField[],
-  margin?: number
+  margin = 0,
+}: {
+  photo_path: string;
+  over_photo_text?: string;
+  over_photo_graphic?: string;
+  graphic_width?: number;
+  graphic_height?: number;
+  short_bio: string;
+  social_links: SocialLink[];
+  other_links: NavigationLink[];
+  margin?: number;
 }) {
   // Component to render dynamic icon from Lucide
-  const DynamicIcon = ({ iconName, className }: { iconName: string; className?: string }) => {
+  const DynamicIcon = ({
+    iconName,
+    className,
+  }: {
+    iconName: string;
+    className?: string;
+  }) => {
     const LucideIcon = icons[iconName as keyof typeof icons];
     return LucideIcon ? <LucideIcon className={className} /> : null;
+  };
+
+  // Format markdown-like text to JSX
+  const formatBioText = (text: string) => {
+    // Split text into paragraphs
+    const paragraphs = text.split("\n\n");
+
+    return paragraphs.map((paragraph, pIndex) => {
+      // Process the paragraph for inline formatting
+      const processInlineFormatting = (
+        text: string
+      ): (string | React.ReactElement)[] => {
+        const result: (string | React.ReactElement)[] = [];
+        let remaining = text;
+        let tempKeyIndex = 0;
+
+        while (remaining.length > 0) {
+          // Check for bold (**text**)
+          const boldMatch = remaining.match(/\*\*(.*?)\*\*/);
+          if (boldMatch && boldMatch.index !== undefined) {
+            // Add text before bold
+            if (boldMatch.index > 0) {
+              result.push(remaining.slice(0, boldMatch.index));
+            }
+            // Add bold text
+            result.push(
+              <span
+                key={`bold-${tempKeyIndex++}`}
+                className="text-white font-medium"
+              >
+                {boldMatch[1]}
+              </span>
+            );
+            remaining = remaining.slice(boldMatch.index + boldMatch[0].length);
+            continue;
+          }
+
+          // Check for links [text](url)
+          const linkMatch = remaining.match(/\[(.*?)\]\((.*?)\)/);
+          if (linkMatch && linkMatch.index !== undefined) {
+            // Add text before link
+            if (linkMatch.index > 0) {
+              result.push(remaining.slice(0, linkMatch.index));
+            }
+            // Add link
+            result.push(
+              <a
+                key={`link-${tempKeyIndex++}`}
+                href={linkMatch[2]}
+                className="text-black-40 hover:text-white transition-colors duration-200"
+              >
+                {linkMatch[1]}
+              </a>
+            );
+            remaining = remaining.slice(linkMatch.index + linkMatch[0].length);
+            continue;
+          }
+
+          // Check for inline code (`code`)
+          const codeMatch = remaining.match(/`(.*?)`/);
+          if (codeMatch && codeMatch.index !== undefined) {
+            // Add text before code
+            if (codeMatch.index > 0) {
+              result.push(remaining.slice(0, codeMatch.index));
+            }
+            // Add code
+            result.push(
+              <code
+                key={`code-${tempKeyIndex++}`}
+                className={`${TYPOGRAPHY.mono18} text-black-40`}
+              >
+                {codeMatch[1]}
+              </code>
+            );
+            remaining = remaining.slice(codeMatch.index + codeMatch[0].length);
+            continue;
+          }
+
+          // No more matches, add remaining text
+          result.push(remaining);
+          break;
+        }
+
+        return result;
+      };
+
+      const formattedContent = processInlineFormatting(paragraph);
+
+      return (
+        <p key={`p-${pIndex}`} className="mb-4 last:mb-0 text-black-40">
+          {formattedContent}
+        </p>
+      );
+    });
   };
 
   // Spring animation settings
@@ -42,22 +140,22 @@ export default function BioBlock({
     type: "spring" as const,
     stiffness: 200,
     damping: 65,
-    mass: 1
+    mass: 1,
   };
 
   const overPhotoSpringSettings = {
     type: "spring" as const,
     stiffness: 200,
     damping: 65,
-    mass: 1
+    mass: 1,
   };
 
   return (
-    <div 
+    <div
       className="w-full bg-black-100 p-12"
-      style={{ 
-        paddingTop: `${margin}px`, 
-        paddingBottom: `${margin}px` 
+      style={{
+        paddingTop: `${margin}px`,
+        paddingBottom: `${margin}px`,
       }}
     >
       <div className="flex flex-col l:flex-row m:flex-row gap-8 l:gap-12">
@@ -68,24 +166,24 @@ export default function BioBlock({
           viewport={{ once: true, margin: "-100px" }}
           variants={{
             hidden: { opacity: 0, y: 150, scale: 1.4 },
-            visible: { 
-              opacity: 1, 
+            visible: {
+              opacity: 1,
               y: 0,
               scale: 1,
-              transition: photoSpringSettings
-            }
+              transition: photoSpringSettings,
+            },
           }}
           className="relative w-full m:w-[40%] l:w-[40%] aspect-[1/1.5] overflow-hidden rounded-lg"
         >
           {/* Main Photo with Black & White Effect */}
-          <Image 
-            src={photo_path} 
+          <Image
+            src={photo_path}
             alt="Bio photo"
             fill
             className="object-cover grayscale"
             sizes="(max-width: 768px) 100vw, 40vw"
           />
-          
+
           {/* Over Photo Elements - Half width of photo container */}
           <div className="absolute inset-0 flex flex-col justify-center items-center">
             <div className="w-1/2 flex flex-col items-center">
@@ -97,16 +195,16 @@ export default function BioBlock({
                   viewport={{ once: true, margin: "-100px" }}
                   variants={{
                     hidden: { opacity: 0, y: 300, scale: 0.9 },
-                    visible: { 
-                      opacity: 1, 
+                    visible: {
+                      opacity: 1,
                       y: 0,
                       scale: 1,
-                      transition: overPhotoSpringSettings
-                    }
+                      transition: overPhotoSpringSettings,
+                    },
                   }}
                   className="mb-4"
                 >
-                  <Image 
+                  <Image
                     src={over_photo_graphic}
                     alt="Over photo graphic"
                     width={graphic_width}
@@ -124,12 +222,12 @@ export default function BioBlock({
                   viewport={{ once: true, margin: "-100px" }}
                   variants={{
                     hidden: { opacity: 0, y: 160, scale: 0.9 },
-                    visible: { 
-                      opacity: 1, 
+                    visible: {
+                      opacity: 1,
                       y: 0,
                       scale: 1,
-                      transition: overPhotoSpringSettings
-                    }
+                      transition: overPhotoSpringSettings,
+                    },
                   }}
                   className={`${TYPOGRAPHY.mono14} text-white-96 text-center`}
                 >
@@ -149,39 +247,19 @@ export default function BioBlock({
             viewport={{ once: true, margin: "-100px" }}
             variants={{
               hidden: { opacity: 0, y: 40 },
-              visible: { 
-                opacity: 1, 
+              visible: {
+                opacity: 1,
                 y: 0,
                 transition: {
                   type: "tween",
                   ease: "easeInOut",
-                  duration: 0.6
-                }
-              }
+                  duration: 0.6,
+                },
+              },
             }}
             className={`${TYPOGRAPHY.h9} text-black-40 pb-12 mb-12 border-b border-black-80`}
           >
-            <PrismicRichText
-              field={short_bio}
-              components={{
-                paragraph: ({ children }) => <p className="mb-4 last:mb-0 text-black-40">{children}</p>,
-                strong: ({ children }) => <span className="text-white font-medium">{children}</span>,
-                hyperlink: ({ children, node }) => (
-                  <a 
-                    href={node.data.url || '#'} 
-                    className="text-black-40 hover:text-white transition-colors duration-200"
-                  >
-                    {children}
-                  </a>
-                ),
-                label: ({ children, node }) => {
-                  if (node.data.label === 'code') {
-                    return <code className={`${TYPOGRAPHY.mono18} text-black-40`}>{children}</code>;
-                  }
-                  return <span>{children}</span>;
-                }
-              }}
-            />
+            {formatBioText(short_bio)}
           </motion.div>
 
           {/* Social Links */}
@@ -195,28 +273,28 @@ export default function BioBlock({
                   viewport={{ once: true, margin: "-100px" }}
                   variants={{
                     hidden: { opacity: 0, y: 40 },
-                    visible: { 
-                      opacity: 1, 
+                    visible: {
+                      opacity: 1,
                       y: 0,
                       transition: {
                         type: "spring",
                         duration: 1,
                         bounce: 0.2,
-                        delay: 0.5 + (index * 0.1)
-                      }
-                    }
+                        delay: 0.5 + index * 0.1,
+                      },
+                    },
                   }}
                 >
-                  {isFilled.link(socialLink.link) && isFilled.keyText(socialLink.icon) && (
-                    <PrismicNextLink 
-                      field={socialLink.link}
+                  {socialLink.href && socialLink.icon && (
+                    <Link
+                      href={socialLink.href}
                       className="text-black-40 hover:text-white transition-colors duration-200"
                     >
-                      <DynamicIcon 
-                        iconName={socialLink.icon} 
+                      <DynamicIcon
+                        iconName={socialLink.icon}
                         className="w-6 h-6"
                       />
-                    </PrismicNextLink>
+                    </Link>
                   )}
                 </motion.div>
               ))}
@@ -234,25 +312,25 @@ export default function BioBlock({
                   viewport={{ once: true, margin: "-100px" }}
                   variants={{
                     hidden: { opacity: 0, y: 40 },
-                    visible: { 
-                      opacity: 1, 
+                    visible: {
+                      opacity: 1,
                       y: 0,
                       transition: {
                         type: "spring",
                         duration: 1,
                         bounce: 0.2,
-                        delay: 0.7 + (index * 0.1)
-                      }
-                    }
+                        delay: 0.7 + index * 0.1,
+                      },
+                    },
                   }}
                 >
-                  {isFilled.link(link) && (
-                    <PrismicNextLink 
-                      field={link}
+                  {link.href && (
+                    <Link
+                      href={link.href}
                       className={`${TYPOGRAPHY.mono18} uppercase text-black-30 hover:text-white transition-colors duration-200`}
                     >
-                      {link.text || 'LINK'}
-                    </PrismicNextLink>
+                      {link.label || "LINK"}
+                    </Link>
                   )}
                 </motion.div>
               ))}

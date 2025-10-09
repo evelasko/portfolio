@@ -19,21 +19,21 @@ export const socialLinks: SocialLink[] = [
   {
     label: "YT",
     href: "https://youtube.com/markashton",
-    icon: "youtube",
+    icon: "Youtube",
   },
   {
     label: "IG",
     href: "https://instagram.com/markashton",
-    icon: "instagram",
+    icon: "Instagram",
   },
   {
     label: "LI",
     href: "https://linkedin.com/markashton",
-    icon: "linkedin",
+    icon: "Linkedin",
   },
   {
     label: "GH",
     href: "https://github.com/markashton",
-    icon: "github",
+    icon: "Github",
   },
 ];

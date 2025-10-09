@@ -97,4 +97,65 @@ The entire page is designed as a single, scrolling narrative divided into six di
 - **Final Call-to-Action:**
   - `[ Explore All Insights in The Journal ]` (Links to the `/journal` page).
 
+#### **Act VI: Proof in Practice (Featured Works)**
+
+**Goal:** To provide immediate, irrefutable proof of your "Harmonious Engineer" identity by showcasing the tangible output of your philosophy. This section is the ultimate validator.
+
+- **Visual:** A clean, elegant three-card layout on a slightly different background color to signify a new "act." Each card features a powerful hero image and a minimalist design.
+- **Text:**
+  - **Headline:** `Proof in Practice`
+  - **Intro:** "A philosophy is only as strong as the work it produces. Here is the synthesis of art and technology in action."
+- **The Three Featured Works (Crucially, one for each pillar of your brand):**
+  - **Card 1: The Artistic Practice**
+    - **Image:** A stunning, high-quality photograph from one of your most compelling choreographic works (e.g., _Hey Siri, do you love me?_).
+    - **Title:** `Choreography: The Architecture of Emotion`
+    - **Description:** "Designing intricate systems of movement that explore the human condition. Featuring work with the Netherlands Dans Theatre and over thirty original creations."
+  - **Card 2: The Technological Innovation**
+    - **Image:** A clean, professional mockup or screenshot of one of your software projects (e.g., Stoomp or Kusari).
+    - **Title:** `Software: The Logic of Connection`
+    - **Description:** "Building practical, elegant tools that solve real-world problems for artists and streamline the creative workflow, from rehearsal to production."
+  - **Card 3: The Synthesis (The Most Important Card)**
+    - **Image:** A graphic representing a concept from one of your presentations or a project that explicitly blends both worlds. The "Tokenization of Performing Arts" is perfect.
+    - **Title:** `The Synthesis: Where Stage Meets Silicon`
+    - **Description:** "Pioneering new frameworks at the intersection of performance and systems-thinking, from lighting design to AI-driven creative tools and blockchain-based startups."
+- **Call-to-Action:** A single, understated button below the cards.
+  - `[ Explore All Work ]` (Links to the `/work` page).
+
+---
+
+#### **REVISED - Act VII: Start Your Exploration (Featured Blog Posts)**
+
+This section (formerly Act VI) now serves as the final, generous act. After you've made your promise and provided your proof, you now offer immediate value and a path to continued learning.
+
+**Goal:** To demonstrate that you are an active, generous thinker and to provide a low-friction next step for the visitor to engage with your ideas.
+
+- **Visual & Text:** This remains largely the same as the original design.
+- **Crucial Refinement:** The three posts featured here should be **strategically selected, not just the "latest."** They should mirror the three pillars showcased in the "Proof in Practice" section to create a powerful thematic resonance.
+  - **Post 1 (The Intention Architect):** A post on the craft of choreography or creative philosophy.
+  - **Post 2 (The Resilient Entrepreneur):** A post on the business/tech side of being an artist.
+  - **Post 3 (The Harmonious Engineer):** A post that explicitly synthesizes both worlds.
+- This creates a perfect parallel structure: "Here is what I've **done** in Art, Tech, and Synthesis. And here is what I **think** about Art, Tech, and Synthesis. Now, come learn more."
+
+---
+
+### **The Solution for "News & Upcoming Events"**
+
+This information is important but does not belong in the primary narrative flow of the homepage.
+
+**The Most Appropriate & Effective Method: The Announcement Bar**
+
+- **What it is:** A thin, full-width, non-intrusive bar that sits at the very top of the webpage.
+- **How it works:**
+  - It is reserved for **timely, high-priority information only.**
+  - It contains a short, single line of text and a link.
+  - It can be easily dismissed by the user (with an 'x' icon).
+  - It doesn't disrupt the design or the narrative flow of the main page content.
+- **When to Use It:**
+  - "Registration is now open for the CENIE Academy's 'Future-Ready Artist' course. Enroll now →"
+  - "I will be delivering the keynote at the International Congress of Performing Arts on Oct 25th. Learn More →"
+  - "My latest article on AI in choreography was just featured in [Publication]. Read it here →"
+- **Why it's the right solution:** It meets the marketing need for timely announcements without compromising the integrity of the carefully crafted homepage experience. It separates the "temporary news" from the "timeless narrative."
+
+By integrating "Proof in Practice" as a core act in your narrative and handling timely news with an elegant Announcement Bar, you achieve the best of all worlds. You present a powerful, inspiring vision and immediately back it up with undeniable, concrete proof, creating a homepage that is both philosophically resonant and deeply credible.
+
 This homepage structure achieves the perfect balance. It is abstract in its narrative flow and emotional arc, honoring the depth of your brand. But it is concrete and powerful in its value proposition, clearly identifying the user's pain, presenting a transformative solution, and offering a tangible ecosystem and a clear next step. It is the perfect first chapter.
