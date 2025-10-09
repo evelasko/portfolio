@@ -31,12 +31,14 @@ function BentoGrid({
 
 function BentoContentRow({
   heading,
-  text,
+  title,
+  description,
   link,
   gridBox,
 }: {
   heading: string;
-  text: string;
+  title: string;
+  description?: string;
   link: string;
   gridBox?: string;
 }) {
@@ -53,24 +55,24 @@ function BentoContentRow({
       >
         {heading}
       </div>
-      <div className="h-full w-full flex flex-row">
-        <div className="flex-1 w-full">
-          <div className="flex flex-col gap-2">
-            <div
-              className={clsx(
-                TYPOGRAPHY.h7,
-                "!mb-0 !pb-0 text-black-90 leading-[1.2] h-full"
-              )}
-            >
-              {text}
-            </div>
-            <div
-              className={clsx(TYPOGRAPHY.text14, "!mb-0 text-black-50 h-fit")}
-            >
-              Some long text description about the project, work, or
-              contribution category
-            </div>
-          </div>
+
+      <div
+        className={clsx(
+          TYPOGRAPHY.h7,
+          "!mb-0 !pb-0 text-black-90 leading-[1.2] h-full"
+        )}
+      >
+        {title}
+      </div>
+
+      <div className="flex flex-row items-end">
+        <div
+          className={clsx(
+            TYPOGRAPHY.text14,
+            "flex-1 pr-2 !mb-0 leading-[1.2] text-black-50 h-fit"
+          )}
+        >
+          {description || <div />}
         </div>
         <div className="flex items-end">
           <ArrowButton href={link} />

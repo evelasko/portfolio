@@ -73,14 +73,15 @@ export default function TheWorks() {
         <BentoGrid
           bentoClass="bento-grid"
           className={clsx(
-            "grid rounded-4xl border border-black-10 overflow-hidden w-full p-4 bg-black/[0.02]",
+            "grid rounded-4xl border border-black-10 overflow-hidden w-full p-4 bg-black",
             "grid-cols-3 grid-rows-[200px_200px_200px_200px_200px] gap-4",
             "m:grid-cols-4 m:grid-rows-[200px_200px_200px] gap-4"
           )}
         >
           <BentoGrid.ContentRow
             heading="Choreography / Graphic / Lighting …"
-            text="Artistic Works"
+            title="Artistic Works"
+            description="Comprehensive brand identity design including logo, color palette, typography, and brand guidelines for a SaaS startup."
             link="/works"
             gridBox="box-1"
           />
@@ -96,7 +97,8 @@ export default function TheWorks() {
           />
           <BentoGrid.ContentRow
             heading="Development / Automation / Engineering …"
-            text="Technology Works"
+            title="Technology Works"
+            description="Intuitive dashboard design for data visualization and analytics, helping businesses make data-driven decisions."
             link="/works"
             gridBox="box-4"
           />
@@ -112,7 +114,8 @@ export default function TheWorks() {
           />
           <BentoGrid.ContentRow
             heading="where stage meets silicon"
-            text="Synthesised Works"
+            title="Synthesised Works"
+            description="Complete redesign and development of a modern e-commerce platform with seamless user experience and increased conversion rates."
             link="/works"
             gridBox="box-7"
           />
