@@ -12,23 +12,30 @@ import Velasco from "@/components/graphics/Velasco";
 import Evelasco from "../graphics/Evelasco";
 
 /**
- * MainHero
+ * AnimatedHero
  *
- * The sideTextHorizontal and sideTextVertical are animated upon scroll to a Y offset of -404px with an ease In Out of bezier 0.44, 0, 0.56, 1, time 1 (these are treated as one block)
- * The background can be either a video (if video prop is provided) or a carrousel of images (without any indicators) animated as a sideways transitioning slideshow
- * @param topText - string, TYPOGRAPHY.h1, color white-100, uppercase, animates on appear per character with a delay of 0.6 from a blur of 10px and a Y offset of 150px using an ease In Out with bezier 0.44, 0, 0.56, 1 time 0.6
- * @param bottomText - string, same style and animation as topText
- * @param sideTextHorizontal - string, TYPOGRAPHY.mono24, color white-100, uppercase
- * @param sideTextVertical - string, TYPOGRAPHY.mono24, color white-100, uppercase
- * @param graphic - string, `/public/${string}.svg` or `/public/${string}.png`
- * @param graphicHeight - number, default 100
- * @param graphicWidth - number, default 100
- * @param subtitle - string, TYPOGRAPHY.mono24, color white-100, uppercase, same style and animation as topText but instead of an offset of Y it animates from an X offset of 100px
+ * Main hero section with animated name graphics and message block
+ * The background can be either a video (if video prop is provided) or a carousel of images (without any indicators) animated as a sideways transitioning slideshow
+ *
+ * Desktop/Tablet - Row 2 contains a message block with three animated text rows:
+ * - Row 1: "You've been told a story" (fades in from bottom right)
+ * - Row 2: Long message about art/business/technology (fades in with scale)
+ * - Row 3: "That story is a lie..." (fades in from top left)
+ *
+ * Mobile - Row 1 contains the same message block in a single column:
+ * - Text 1 & 2: Left aligned
+ * - Text 3: Right aligned
+ * - All animate with fade in scale effect
+ *
+ * @param sideTextHorizontal - string, TYPOGRAPHY.mono24, color white-100, uppercase (legacy prop, kept for backward compatibility)
+ * @param sideTextVertical - string, TYPOGRAPHY.mono24, color white-100, uppercase (legacy prop, kept for backward compatibility)
+ * @param subtitle - string, TYPOGRAPHY.mono24, color white-100, uppercase, animates from an X offset of 100px
  * @param images - string[], image urls for carousel (ignored if video is provided)
- * @param link - string, link url
+ * @param link - string, link url for scroll-down arrow
  * @param video - string, optional video URL for background video instead of image carousel
  * @param stayDuration - number, how long each image stays visible in milliseconds, default 4000 (4 seconds) - only applies to image carousel
  * @param transitionSpeed - number, how fast the slide transition happens in seconds, default 1.2 - only applies to image carousel
+ * @param heroRef - RefObject, optional ref for the hero container
  */
 export default function AnimatedHero({
   sideTextHorizontal = "2K25",
@@ -63,22 +70,6 @@ export default function AnimatedHero({
 
   // Fade out Row 2 as user scrolls (fade from 1 to 0 in first 60% of scroll)
   const row2Opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-
-  // Fade animations for specific elements
-  // Row 2 side text - horizontal: simple fade
-  const sideTextHorizontalOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.3],
-    [1, 0]
-  );
-
-  // Row 2 side text - vertical: fade to top
-  const sideTextVerticalOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.3],
-    [1, 0]
-  );
-  const sideTextVerticalY = useTransform(scrollYProgress, [0, 0.3], [0, -50]);
 
   // Row 3 subtitle and button: fade to bottom
   const row3ElementsOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
@@ -159,61 +150,80 @@ export default function AnimatedHero({
               <Enrique />
             </div>
 
-            {/* Row 2: sideText block + graphic (fixed height for sticky positioning) */}
+            {/* Row 2: Message block with three rows */}
             <motion.div
               id="row2"
-              className="flex-shrink-0 flex items-center relative h-80"
+              className="flex-shrink-0 flex items-center justify-center relative h-80"
               style={{ opacity: row2Opacity }}
             >
-              {/* Column 1: Side Text Block */}
-              <div className="flex-1 flex flex-col items-start">
-                <motion.div
-                  initial={{ opacity: 0, y: -404 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 1,
-                    ease: "easeOut",
-                  }}
-                  className="space-y-2"
-                >
+              <div className="w-full flex flex-col justify-center gap-8">
+                {/* First row: Two columns - text on left aligned right, empty on right */}
+                <div className="flex w-full">
                   <motion.div
-                    id="row2-side-text-horizontal"
-                    className={clsx(
-                      TYPOGRAPHY.mono24,
-                      "uppercase tracking-wider text-white-100"
-                    )}
-                    style={{ opacity: sideTextHorizontalOpacity }}
-                  >
-                    {sideTextHorizontal}
-                  </motion.div>
-                  <motion.div
-                    id="row2-side-text-vertical"
-                    className={clsx(
-                      TYPOGRAPHY.mono24,
-                      "uppercase tracking-wider"
-                    )}
-                    style={{
-                      color: "var(--color-white-100)",
-                      lineHeight: "1.2em",
-                      letterSpacing: "0.05em",
-                      writingMode: "vertical-rl",
-                      textOrientation: "mixed",
-                      transform: "rotate(180deg)",
-                      opacity: sideTextVerticalOpacity,
-                      y: sideTextVerticalY,
+                    className="flex-1 flex justify-end pr-8"
+                    initial={{ opacity: 0, x: 50, y: 50 }}
+                    whileInView={{ opacity: 1, x: 0, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.8,
+                      ease: [0.44, 0, 0.56, 1],
                     }}
                   >
-                    {sideTextVertical}
+                    <span
+                      className={clsx(
+                        TYPOGRAPHY.h7,
+                        "pb-0 mb-0 text-white-100"
+                      )}
+                    >
+                      You've been told a story
+                    </span>
                   </motion.div>
-                </motion.div>
-              </div>
+                  <div className="flex-1"></div>
+                </div>
 
-              {/* Column 2: Graphic (centered, then pushed right) */}
-              <div
-                id="row2-graphic"
-                className="flex-1 flex items-center justify-center pl-8 m:pl-12 l:pl-16"
-              ></div>
+                {/* Second row: Centered 70% width column */}
+                <div className="flex w-full justify-center">
+                  <motion.div
+                    className="w-[70%] text-center"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.8,
+                      ease: [0.44, 0, 0.56, 1],
+                    }}
+                  >
+                    <span className={clsx(TYPOGRAPHY.h8, "text-white-100")}>
+                      that art and business are enemies,
+                      <br />
+                      that technology is a threat,
+                      <br />
+                      and that to be a true creator is to struggle
+                    </span>
+                  </motion.div>
+                </div>
+
+                {/* Third row: Two columns - empty on left, text on right aligned left */}
+                <div className="flex w-full">
+                  <div className="flex-1"></div>
+                  <motion.div
+                    className="flex-1 flex justify-start pl-8"
+                    initial={{ opacity: 0, x: -50, y: -50 }}
+                    whileInView={{ opacity: 1, x: 0, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.8,
+                      ease: [0.44, 0, 0.56, 1],
+                    }}
+                  >
+                    <span className={clsx(TYPOGRAPHY.h7, "text-white-100")}>
+                      That story is a lie.
+                      <br />
+                      It is a bug in our collective code.
+                    </span>
+                  </motion.div>
+                </div>
+              </div>
             </motion.div>
 
             {/* Row 3: subtitle+button + bottomText (sticky to top, aligns with Row 1) */}
@@ -298,43 +308,65 @@ export default function AnimatedHero({
 
           {/* MOBILE LAYOUT (S) */}
           <div className="flex m:hidden l:hidden flex-col h-full px-4">
-            {/* Row 1: sideText block (can expand, pushes others down) */}
+            {/* Row 1: Message block (replaces sideText) */}
             <div className="flex-1 flex items-start justify-start pt-24 min-h-0">
-              <motion.div
-                initial={{ opacity: 0, y: -404 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 1,
-                  ease: "easeOut",
-                  delay: 0.3,
-                }}
-                className="space-y-2"
-              >
-                <div
-                  className={clsx(
-                    TYPOGRAPHY.mono24,
-                    "uppercase tracking-wider text-white-100"
-                  )}
-                >
-                  {sideTextHorizontal}
-                </div>
-                <div
-                  className={clsx(
-                    TYPOGRAPHY.mono24,
-                    "uppercase tracking-wider"
-                  )}
-                  style={{
-                    color: "var(--color-white-100)",
-                    lineHeight: "1.2em",
-                    letterSpacing: "0.05em",
-                    writingMode: "vertical-rl",
-                    textOrientation: "mixed",
-                    transform: "rotate(180deg)",
+              <div className="flex flex-col gap-6 w-full">
+                {/* Text 1: Left aligned */}
+                <motion.div
+                  className="text-left"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    duration: 0.8,
+                    ease: [0.44, 0, 0.56, 1],
+                    delay: 0.3,
                   }}
                 >
-                  {`${sideTextVertical} ————————`}
-                </div>
-              </motion.div>
+                  <span
+                    className={clsx(TYPOGRAPHY.h7, "pb-0 mb-0 text-white-100")}
+                  >
+                    You've been told a story
+                  </span>
+                </motion.div>
+
+                {/* Text 2: Left aligned */}
+                <motion.div
+                  className="text-left"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    duration: 0.8,
+                    ease: [0.44, 0, 0.56, 1],
+                    delay: 0.5,
+                  }}
+                >
+                  <span className={clsx(TYPOGRAPHY.h8, "text-white-100")}>
+                    that art and business are enemies,
+                    <br />
+                    that technology is a threat,
+                    <br />
+                    and that to be a true creator is to struggle
+                  </span>
+                </motion.div>
+
+                {/* Text 3: Right aligned */}
+                <motion.div
+                  className="text-right"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    duration: 0.8,
+                    ease: [0.44, 0, 0.56, 1],
+                    delay: 0.7,
+                  }}
+                >
+                  <span className={clsx(TYPOGRAPHY.h7, "text-white-100")}>
+                    That story is a lie.
+                    <br />
+                    It is a bug in our collective code.
+                  </span>
+                </motion.div>
+              </div>
             </div>
 
             {/* Row 2: subtitle (full width, no cutting) */}
@@ -378,7 +410,7 @@ export default function AnimatedHero({
               </div>
 
               {/* Arrow for mobile */}
-              <div className="flex justify-center">
+              <div className="flex pt-4 justify-center">
                 <Link href={link} className="group">
                   <motion.div
                     animate={{
