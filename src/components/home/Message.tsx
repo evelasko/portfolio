@@ -72,7 +72,8 @@ export default function Message({ segments }: { segments: string[] }) {
               }}
               className="transition-colors duration-300 ease-in-out"
             >
-              {segment}{" "}
+              {segment}
+              {index === 0 ? <br /> : " "}
             </motion.span>
           ))}
         </h3>
