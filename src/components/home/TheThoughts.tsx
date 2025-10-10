@@ -35,7 +35,7 @@ export default function TheThoughts() {
 
   return (
     <section id="the-thoughts" className="py-12 m:py-16 l:py-20 bg-white-90">
-      <div className="container mx-auto px-4 m:px-8 l:px-12">
+      <div className="w-full max-w-7xl mx-auto px-4 m:px-8 l:px-12">
         <MainHeading
           title="The Thoughts"
           className="text-center mb-12 m:mb-16 l:mb-20"

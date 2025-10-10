@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fragment_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import ReactLenis from "lenis/react";
 import { LayoutProvider } from "@/contexts/LayoutContext";
@@ -35,7 +36,10 @@ export default function RootLayout({
       >
         <ReactLenis root>
           <LayoutProvider>
-            <LayoutContent>{children}</LayoutContent>
+            <LayoutContent>
+              {children}
+              <SpeedInsights />
+            </LayoutContent>
           </LayoutProvider>
         </ReactLenis>
       </body>

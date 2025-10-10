@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { TYPOGRAPHY } from "@/lib/typography";
+import clsx from "clsx";
 
 interface MessageBackgroundProps {
   initialText: string;
@@ -87,8 +88,8 @@ export default function MessageBackground({
       ref={messageRef}
       className="relative min-h-[200vh] bg-black"
     >
-      {/* Sticky container that holds everything */}
-      <div className="sticky top-0 h-screen flex flex-col items-center justify-between px-4 m:px-8 l:px-16 py-8 m:py-12 l:py-16 overflow-hidden">
+      {/* Sticky container that holds everything and accounts for navbar height */}
+      <div className="sticky top-12 l:top-[70px] h-screen flex flex-col items-center justify-between px-4 m:px-8 l:px-16 py-12 m:py-12 l:py-16 overflow-hidden">
         {/* Background Image with grayscale animation */}
         <motion.div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
@@ -128,7 +129,12 @@ export default function MessageBackground({
         />
 
         {/* Initial text at the top */}
-        <h3 className={`${TYPOGRAPHY.h3} text-white text-center relative z-10`}>
+        <h3
+          className={clsx(
+            TYPOGRAPHY.h3,
+            "text-white text-center relative z-10"
+          )}
+        >
           {initialText}
         </h3>
 

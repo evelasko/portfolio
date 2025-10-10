@@ -73,7 +73,7 @@ export default function MessageSplit({
       ref={messageRef}
       className="relative min-h-[200vh] bg-black"
     >
-      {/* Sticky container that holds everything */}
+      {/* Sticky container that holds everything and accounts for navbar height */}
       <div className="sticky top-0 h-screen flex flex-col items-center justify-between px-4 m:px-8 l:px-16 py-8 m:py-12 l:py-16 overflow-hidden">
         {/* Background Image with grayscale animation */}
         <motion.div

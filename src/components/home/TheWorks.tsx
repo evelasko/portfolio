@@ -42,13 +42,15 @@ export default function TheWorks() {
 
   return (
     <section id="the-works" className="w-full py-12 m:py-16 l:py-20">
-      <div className="container w-full mx-4 l:mx-auto">
+      <div className="w-full max-w-7xl mx-auto px-4 m:px-6">
         <MainHeading
           title="The Works"
           subtitle="Proof in Practice"
           className="text-center mb-12"
         />
-        <div className={clsx(TYPOGRAPHY.text20, "text-center px-12 mb-12")}>
+        <div
+          className={clsx(TYPOGRAPHY.text20, "text-center px-4 m:px-12 mb-12")}
+        >
           A philosophy is only as strong as the work it produces.
           <br />
           Here is the synthesis of art and technology in action.
@@ -68,14 +70,14 @@ export default function TheWorks() {
         </div>
         <MainHeading
           subtitle="Dig deeper into the works"
-          className="text-center !pt-12"
+          className="text-center pt-12"
         />
         <BentoGrid
           bentoClass="bento-grid"
           className={clsx(
-            "grid rounded-4xl border border-black-10 overflow-hidden w-full p-4 bg-black",
-            "grid-cols-3 grid-rows-[200px_200px_200px_200px_200px] gap-4",
-            "m:grid-cols-4 m:grid-rows-[200px_200px_200px] gap-4"
+            "grid rounded-4xl border border-black-10 overflow-hidden w-full bg-black",
+            "p-2 gap-2 grid-cols-3 grid-rows-[200px_200px_200px_200px_200px]",
+            "m:p-4 m:gap-4 m:grid-cols-4 m:grid-rows-[200px_200px_200px]"
           )}
         >
           <BentoGrid.ContentRow
