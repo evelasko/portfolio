@@ -34,14 +34,14 @@ export default function Message({ segments }: { segments: string[] }) {
   const segmentColors = segments.map((_, index) =>
     useTransform(activeSegmentIndex, value => {
       // If we're in fade-out phase (value >= 5), turn all grey
-      if (value >= 5) return "rgb(100, 100, 100)";
+      if (value >= 5) return "rgb(50, 50, 50)";
       // If this segment's index is < current active segment (fully revealed), white
       // Use Math.floor to ensure clean transitions - only fully revealed segments stay white
       if (index < Math.floor(value)) return "rgb(255, 255, 255)";
       // If this is the currently revealing segment, interpolate based on progress
       if (index === Math.floor(value)) {
         const progress = value - Math.floor(value); // 0 to 1
-        const grey = 100;
+        const grey = 50;
         const white = 255;
         const r = Math.round(grey + (white - grey) * progress);
         const g = Math.round(grey + (white - grey) * progress);
@@ -49,7 +49,7 @@ export default function Message({ segments }: { segments: string[] }) {
         return `rgb(${r}, ${g}, ${b})`;
       }
       // Otherwise grey (not yet revealed)
-      return "rgb(100, 100, 100)";
+      return "rgb(50, 50, 50)";
     })
   );
 
@@ -60,7 +60,7 @@ export default function Message({ segments }: { segments: string[] }) {
       className="relative bg-black min-h-[200vh]"
     >
       <motion.div
-        className="sticky top-0 h-screen flex items-center justify-center px-4 m:px-8 l:px-16"
+        className="sticky top-0 h-screen flex items-center justify-center px-18 m:px-32 l:px-64"
         style={{ opacity: messageFinalOpacity }}
       >
         <h3 className={TYPOGRAPHY.h3}>
