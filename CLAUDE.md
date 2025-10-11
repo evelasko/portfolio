@@ -5,6 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Development Commands
 
 ### Running the Application
+
 ```bash
 npm run dev          # Start development server with debugging and Turbopack
 npm run build        # Build for production
@@ -13,6 +14,7 @@ npm run clean        # Remove .next build artifacts
 ```
 
 ### Code Quality
+
 ```bash
 npm run lint         # Run ESLint
 npm run lint:fix     # Run ESLint and auto-fix issues
@@ -23,6 +25,7 @@ npm run format:check # Check formatting without making changes
 ## High-Level Architecture
 
 ### Framework Stack
+
 - **Next.js 15** with App Router
 - **React 19**
 - **TypeScript** with strict mode enabled
@@ -30,6 +33,7 @@ npm run format:check # Check formatting without making changes
 - Path aliases: `@/*` maps to `./src/*`
 
 ### Core Libraries
+
 - **Motion** (Framer Motion fork) - Animation library
 - **Lenis** - Smooth scrolling
 - **Vercel Speed Insights** - Performance monitoring
@@ -40,12 +44,15 @@ npm run format:check # Check formatting without making changes
 This project uses a **custom responsive typography system** that differs from standard Tailwind approaches:
 
 #### Custom Breakpoints
+
 - `s` (small): 0px - default/mobile
 - `m` (medium): 810px - tablet
 - `l` (large): 1200px - desktop
 
 #### Typography System
+
 All typography is managed through `src/lib/typography.ts` which exports the `TYPOGRAPHY` constant. This provides consistent responsive classes across:
+
 - **9 heading levels** (h1-h9)
 - **4 text sizes** (text20, text18, text16, text14)
 - **5 monospace sizes** (mono24, mono20, mono18, mono16, mono14)
@@ -53,6 +60,7 @@ All typography is managed through `src/lib/typography.ts` which exports the `TYP
 - **4 link style variants**
 
 **Always use `TYPOGRAPHY` constants for text styling:**
+
 ```tsx
 import { TYPOGRAPHY } from "@/lib/typography";
 
@@ -62,17 +70,21 @@ import { TYPOGRAPHY } from "@/lib/typography";
 ```
 
 Each typography constant includes three responsive classes:
+
 ```tsx
 // Example: TYPOGRAPHY.h3 expands to:
-"text-h3 text-h3-s m:text-h3-m l:text-h3-l"
+"text-h3 text-h3-s m:text-h3-m l:text-h3-l";
 ```
 
 #### Font Families
+
 - **Sans-serif**: Plus Jakarta Sans (via `next/font/google`)
 - **Monospace**: Fragment Mono (via `next/font/google`)
 
 #### Color Palette
+
 Primary colors defined in `src/app/globals.css`:
+
 - Black scale: `black-10` through `black-100` (10 shades)
 - White scale: `white-96`, `white-98`, `white-100`
 - Accent: `orange-100` (#ff4400)
@@ -80,11 +92,13 @@ Primary colors defined in `src/app/globals.css`:
 ### Global Layout Context
 
 The `LayoutContext` (`src/contexts/LayoutContext.tsx`) manages layout configuration across pages:
+
 - Hero section reference for scroll detection
 - NavBar visibility
 - Footer visibility and variant (full | simple | minimal)
 
 **Every page should configure layout in `useEffect`:**
+
 ```tsx
 import { useLayout } from "@/contexts/LayoutContext";
 
@@ -106,6 +120,7 @@ export default function Page() {
 ### Component Organization
 
 Components are organized by type in `src/components/`:
+
 - **`banners/`** - Banner components (BlockQuoteBanner, ConnectBanner)
 - **`buttons/`** - Button components (PortfolioButton, ArrowButton)
 - **`cards/`** - Card components (ProjectCard, ThoughtCard, ImageCard, BentoGrid)
@@ -123,6 +138,7 @@ Components are organized by type in `src/components/`:
 ### WebGL Globe Component
 
 A custom WebGL globe implementation (`src/components/misc/Globe/`) features:
+
 - Custom vertex and fragment shaders
 - WebGL engine abstraction
 - Shader uniform management
@@ -130,6 +146,7 @@ A custom WebGL globe implementation (`src/components/misc/Globe/`) features:
 - Custom hooks for engine lifecycle
 
 Key files:
+
 - `webgl/WebGLEngine.ts` - Core WebGL rendering engine
 - `webgl/WebGLShader.ts` - Shader compilation and program management
 - `hooks/useGlobeEngine.ts` - React hook for engine integration
@@ -138,7 +155,9 @@ Key files:
 ## Key Development Patterns
 
 ### Animation with Motion
+
 Use Motion for animations with spring physics:
+
 ```tsx
 import { motion } from "motion/react";
 
@@ -149,21 +168,24 @@ import { motion } from "motion/react";
   transition={{ duration: 0.8, ease: [0.44, 0, 0.56, 1] }}
 >
   Content
-</motion.div>
+</motion.div>;
 ```
 
 ### Smooth Scrolling
+
 Lenis is configured globally in `src/app/layout.tsx` via `<ReactLenis root>`.
 
 ### Demo Pages
+
 Component demos are available at `/demo` routes:
+
 - `/demo/styles` - Typography showcase
 - `/demo/components` - Component library
 - `/demo/components/[component-type]` - Individual component demos
 
 ## Project Structure
 
-```
+```tree
 src/
 ├── app/              # Next.js App Router pages
 │   ├── page.tsx      # Homepage

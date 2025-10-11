@@ -18,13 +18,6 @@
         "motion-ai"
       ]
     },
-    "prismic": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@prismicio/mcp-server@latest"
-      ]
-    },
     "framer": {
       "type": "http",
       "url": "https://mcp.unframer.co/sse?id=f40a23761a2437019658c6af47fc07087eb95abfaaf09a14693b3ab52a2cdece&secret=Ita94yo3tjo4dhj2yEmwLKIKXIlbisUT",

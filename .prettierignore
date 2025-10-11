@@ -96,10 +96,6 @@ temp/
 ehthumbs.db
 Thumbs.db
 
-# Prismic generated files
-prismic-types.d.ts
-prismic-types.ts
-
 # Generated files
 *.generated.*
 
