@@ -1,6 +1,8 @@
 'use client';
 
 import { motion } from 'motion/react';
+import { TYPOGRAPHY } from '@/lib/typography';
+import clsx from 'clsx';
 import Image from "next/image";
 import Link from "next/link";
 
@@ -49,17 +51,10 @@ export default function ThoughtCard({
         <div className="px-5 py-3 l:px-10 l:py-5 m:px-10 m:py-5">
           {/* Title */}
           <motion.h6
-            className="text-h6-s m:text-h6-m l:text-h6-l mb-4"
-            style={{ 
-              color: 'var(--color-black-80)',
-              fontWeight: 'var(--font-weight-bold)',
-              lineHeight: '1.4em',
-              letterSpacing: '-0.03em',
-              marginBottom: '16px'
-            }}
+            className={clsx(TYPOGRAPHY.h6, "text-black-80 mb-4")}
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
+            transition={{
               duration: 0.5,
               ease: "easeOut"
             }}
@@ -69,11 +64,11 @@ export default function ThoughtCard({
           </motion.h6>
 
           {/* Metadata */}
-          <motion.div 
+          <motion.div
             className="flex flex-col gap-2 l:flex-row l:justify-between l:items-center"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
+            transition={{
               duration: 0.5,
               delay: 0.1,
               ease: "easeOut"
@@ -82,52 +77,20 @@ export default function ThoughtCard({
           >
             {/* Published Date */}
             <div className="flex items-center gap-2">
-              <span 
-                className="text-16-s m:text-16-m l:text-16-l"
-                style={{ 
-                  color: 'var(--color-black-40)',
-                  fontWeight: 'var(--font-weight-regular)',
-                  lineHeight: '1.6em',
-                  letterSpacing: '-0.02em'
-                }}
-              >
+              <span className={clsx(TYPOGRAPHY.text16, "text-black-40")}>
                 Published
               </span>
-              <span 
-                className="text-16-s m:text-16-m l:text-16-l"
-                style={{ 
-                  color: 'var(--color-black-90)',
-                  fontWeight: 'var(--font-weight-regular)',
-                  lineHeight: '1.6em',
-                  letterSpacing: '-0.02em'
-                }}
-              >
+              <span className={clsx(TYPOGRAPHY.text16, "text-black-90")}>
                 {publishedAt}
               </span>
             </div>
 
             {/* Reading Time */}
             <div className="flex items-center gap-2">
-              <span 
-                className="text-16-s m:text-16-m l:text-16-l"
-                style={{ 
-                  color: 'var(--color-black-40)',
-                  fontWeight: 'var(--font-weight-regular)',
-                  lineHeight: '1.6em',
-                  letterSpacing: '-0.02em'
-                }}
-              >
+              <span className={clsx(TYPOGRAPHY.text16, "text-black-40")}>
                 Reading Time
               </span>
-              <span 
-                className="text-16-s m:text-16-m l:text-16-l"
-                style={{ 
-                  color: 'var(--color-black-90)',
-                  fontWeight: 'var(--font-weight-regular)',
-                  lineHeight: '1.6em',
-                  letterSpacing: '-0.02em'
-                }}
-              >
+              <span className={clsx(TYPOGRAPHY.text16, "text-black-90")}>
                 {readingTime} min{readingTime > 1 ? 's' : ''}
               </span>
             </div>

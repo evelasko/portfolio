@@ -108,72 +108,15 @@ body {
 }
 
 @layer base {
-  h1 {
+  h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sans);
-    font-weight: var(--font-weight-extrabold);
-    color: var(--color-white-100);
-    line-height: 1em;
-    letter-spacing: -0.05em;
-    margin-bottom: 40px;
-    font-size: var(--font-size-h1-s);
-  }
-  h2 {
-    font-family: var(--font-sans);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-black-90);
-    line-height: 1.1em;
-    letter-spacing: -0.02em;
-    margin-bottom: 40px;
-    font-size: var(--font-size-h2-s);
-  }
-  h3 {
-    font-family: var(--font-sans);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-black-90);
-    line-height: 1.2em;
-    letter-spacing: -0.02em;
-    margin-bottom: 40px;
-    font-size: var(--font-size-h3-s);
-  }
-  h4 {
-    font-family: var(--font-sans);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-black-90);
-    line-height: 1.2em;
-    letter-spacing: -0.04em;
-    margin-bottom: 40px;
-    font-size: var(--font-size-h4-s);
-  }
-  h5 {
-    font-family: var(--font-sans);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-black-90);
-    line-height: 1.4em;
-    letter-spacing: -0.04em;
-    margin-bottom: 40px;
-    font-size: var(--font-size-h5-s);
-  }
-  h6 {
-    font-family: var(--font-sans);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-black-90);
-    line-height: 1.4em;
-    letter-spacing: -0.03em;
-    margin-bottom: 40px;
-    font-size: var(--font-size-h6-s);
   }
   p {
     font-family: var(--font-sans);
-    font-weight: var(--font-weight-regular);
-    color: var(--color-black-90);
-    line-height: 1.7em;
-    letter-spacing: 0em;
-    margin-bottom: 20px;
   }
   code,
   pre {
     font-family: var(--font-mono);
-    color: var(--color-black-100);
   }
 }
 
@@ -182,159 +125,121 @@ body {
   .text-20 {
     font-family: var(--font-sans);
     font-weight: var(--font-weight-regular);
-    color: var(--color-black-90);
     line-height: 1.7em;
     letter-spacing: 0em;
-    margin-bottom: 20px;
   }
   .text-18 {
     font-family: var(--font-sans);
     font-weight: var(--font-weight-regular);
-    color: var(--color-black-90);
     line-height: 1.5em;
     letter-spacing: -0.02em;
-    margin-bottom: 0;
   }
   .text-16 {
     font-family: var(--font-sans);
     font-weight: var(--font-weight-regular);
-    color: var(--color-black-90);
     line-height: 1.6em;
     letter-spacing: -0.02em;
-    margin-bottom: 20px;
   }
   .text-14 {
     font-family: var(--font-sans);
     font-weight: var(--font-weight-medium);
-    color: var(--color-black-100);
     line-height: 1.6em;
     letter-spacing: 0em;
-    margin-bottom: 20px;
   }
 
   /* --- Heading Styles (H1-H9) --- */
   .text-h1 {
     font-family: var(--font-sans);
-    font-weight: var(--font-weight-extrabold) !important;
-    color: var(--color-white-100);
+    font-weight: var(--font-weight-extrabold);
     line-height: 1em;
     letter-spacing: -0.05em;
-    margin-bottom: 40px;
   }
   .text-h2 {
     font-family: var(--font-sans);
-    font-weight: var(--font-weight-bold) !important;
-    color: var(--color-black-90);
+    font-weight: var(--font-weight-bold);
     line-height: 1.1em;
     letter-spacing: -0.02em;
-    margin-bottom: 40px;
   }
   .text-h3 {
     font-family: var(--font-sans);
     font-weight: var(--font-weight-bold);
-    color: var(--color-black-80);
     line-height: 1.2em;
     letter-spacing: -0.02em;
-    margin-bottom: 40px;
   }
   .text-h4 {
     font-family: var(--font-sans);
-    font-weight: var(--font-weight-bold) !important;
-    color: var(--color-black-90);
+    font-weight: var(--font-weight-bold);
     line-height: 1.2em;
     letter-spacing: -0.04em;
-    margin-bottom: 40px;
   }
   .text-h5 {
     font-family: var(--font-sans);
-    font-weight: var(--font-weight-bold) !important;
-    color: var(--color-black-90);
+    font-weight: var(--font-weight-bold);
     line-height: 1.4em;
     letter-spacing: -0.04em;
-    margin-bottom: 40px;
   }
   .text-h6 {
     font-family: var(--font-sans);
-    font-weight: var(--font-weight-bold) !important;
-    color: var(--color-black-90);
+    font-weight: var(--font-weight-bold);
     line-height: 1.4em;
     letter-spacing: -0.03em;
-    margin-bottom: 40px;
   }
   .text-h7 {
     font-family: var(--font-sans);
     font-weight: var(--font-weight-semibold);
-    color: var(--color-black-90);
     line-height: 1.4em;
     letter-spacing: -0.04em;
-    margin-bottom: 40px;
   }
   .text-h8 {
     font-family: var(--font-sans);
     font-weight: var(--font-weight-medium);
-    color: var(--color-black-70);
     line-height: 1.4em;
     letter-spacing: -0.03em;
-    margin-bottom: 40px;
   }
   .text-h9 {
     font-family: var(--font-sans);
     font-weight: var(--font-weight-medium);
-    color: var(--color-black-90);
     line-height: 1.6em;
     letter-spacing: -0.02em;
-    margin-bottom: 40px;
   }
 
   .mono-24 {
     font-weight: var(--font-weight-regular);
     font-family: var(--font-fragment-mono), monospace;
-    color: var(--color-black-100);
     line-height: 1.3em;
     letter-spacing: 0em;
-    margin-bottom: 20px;
   }
   .mono-20 {
     font-weight: var(--font-weight-regular);
     font-family: var(--font-fragment-mono), monospace;
-    color: var(--color-black-90);
     line-height: 1.5em;
     letter-spacing: -0.02em;
-    margin-bottom: 20px;
   }
   .mono-18 {
     font-weight: var(--font-weight-regular);
     font-family: var(--font-fragment-mono), monospace;
-    color: var(--color-black-90);
     line-height: 1.4em;
     letter-spacing: -0.05em;
-    margin-bottom: 40px;
   }
   .mono-16 {
     font-weight: var(--font-weight-regular);
     font-family: var(--font-fragment-mono), monospace;
-    color: var(--color-black-90);
     line-height: 1.4em;
     letter-spacing: 0em;
-    margin-bottom: 0;
   }
   .mono-14 {
     font-weight: var(--font-weight-regular);
     font-family: var(--font-fragment-mono), monospace;
-    color: var(--color-black-90);
     line-height: 1.6em;
     letter-spacing: 0em;
-    margin-bottom: 20px;
   }
 
   /* --- Menu Style --- */
   .menu {
     font-family: var(--font-sans);
     font-weight: var(--font-weight-bold);
-    color: var(--color-black-80);
     line-height: 1.3em;
     letter-spacing: -0.03em;
-    margin-bottom: 40px;
     text-transform: uppercase;
   }
 
@@ -565,24 +470,6 @@ body {
 
   /* --- Responsive Breakpoints --- */
   @media (min-width: 810px) {
-    h1 {
-      font-size: var(--font-size-h1-m) !important;
-    }
-    h2 {
-      font-size: var(--font-size-h2-m) !important;
-    }
-    h3 {
-      font-size: var(--font-size-h3-m) !important;
-    }
-    h4 {
-      font-size: var(--font-size-h4-m) !important;
-    }
-    h5 {
-      font-size: var(--font-size-h5-m) !important;
-    }
-    h6 {
-      font-size: var(--font-size-h6-m) !important;
-    }
     .m\:text-h1-m {
       font-size: var(--font-size-h1-m) !important;
     }
@@ -643,24 +530,6 @@ body {
   }
 
   @media (min-width: 1200px) {
-    h1 {
-      font-size: var(--font-size-h1-l) !important;
-    }
-    h2 {
-      font-size: var(--font-size-h2-l) !important;
-    }
-    h3 {
-      font-size: var(--font-size-h3-l) !important;
-    }
-    h4 {
-      font-size: var(--font-size-h4-l) !important;
-    }
-    h5 {
-      font-size: var(--font-size-h5-l) !important;
-    }
-    h6 {
-      font-size: var(--font-size-h6-l) !important;
-    }
     .l\:text-h1-l {
       font-size: var(--font-size-h1-l) !important;
     }

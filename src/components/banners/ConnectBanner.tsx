@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
+import { TYPOGRAPHY } from "@/lib/typography";
+import clsx from "clsx";
 import PortfolioButton from "../buttons/PortfolioButton";
 
 /**
@@ -40,14 +42,7 @@ export default function ConnectBanner({
       <div className="hidden l:grid l:grid-cols-2 l:gap-20 l:items-start">
         {/* Left Column - Primary Text */}
         <motion.h6
-          className="text-h6-s m:text-h6-m l:text-h6-l"
-          style={{
-            color: "var(--color-white-98)",
-            fontWeight: "var(--font-weight-bold)",
-            lineHeight: "1.4em",
-            letterSpacing: "-0.03em",
-            marginBottom: "0",
-          }}
+          className={clsx(TYPOGRAPHY.h6, "text-white-98")}
           initial={{ opacity: 0, y: 190 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
@@ -64,14 +59,7 @@ export default function ConnectBanner({
         {/* Right Column - Key Text and CTA */}
         <div className="flex flex-col gap-10">
           <motion.h4
-            className="text-h5-s m:text-h5-m l:text-h5-l"
-            style={{
-              color: "var(--color-white-98)",
-              fontWeight: "var(--font-weight-bold)",
-              lineHeight: "1.4em",
-              letterSpacing: "-0.04em",
-              marginBottom: "0",
-            }}
+            className={clsx(TYPOGRAPHY.h5, "text-white-98")}
             initial={{ opacity: 0, y: 190 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
@@ -104,14 +92,7 @@ export default function ConnectBanner({
       {/* Tablet Layout (M) */}
       <div className="hidden m:flex l:hidden flex-col gap-16 items-center text-center">
         <motion.h6
-          className="text-h6-s m:text-h6-m"
-          style={{
-            color: "var(--color-white-98)",
-            fontWeight: "var(--font-weight-bold)",
-            lineHeight: "1.4em",
-            letterSpacing: "-0.03em",
-            marginBottom: "0",
-          }}
+          className={clsx(TYPOGRAPHY.h6, "text-white-98")}
           initial={{ opacity: 0, y: 190 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
@@ -126,14 +107,7 @@ export default function ConnectBanner({
         </motion.h6>
 
         <motion.h4
-          className="text-h5-s m:text-h5-m"
-          style={{
-            color: "var(--color-white-98)",
-            fontWeight: "var(--font-weight-bold)",
-            lineHeight: "1.4em",
-            letterSpacing: "-0.04em",
-            marginBottom: "0",
-          }}
+          className={clsx(TYPOGRAPHY.h5, "text-white-98")}
           initial={{ opacity: 0, y: 190 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
@@ -165,14 +139,7 @@ export default function ConnectBanner({
       {/* Mobile Layout (S) */}
       <div className="flex m:hidden flex-col gap-12 items-center text-center">
         <motion.h6
-          className="text-h6-s"
-          style={{
-            color: "var(--color-white-98)",
-            fontWeight: "var(--font-weight-bold)",
-            lineHeight: "1.4em",
-            letterSpacing: "-0.03em",
-            marginBottom: "0",
-          }}
+          className={clsx(TYPOGRAPHY.h6, "text-white-98")}
           initial={{ opacity: 0, y: 190 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
@@ -187,14 +154,7 @@ export default function ConnectBanner({
         </motion.h6>
 
         <motion.h4
-          className="text-h5-s"
-          style={{
-            color: "var(--color-white-98)",
-            fontWeight: "var(--font-weight-bold)",
-            lineHeight: "1.4em",
-            letterSpacing: "-0.04em",
-            marginBottom: "0",
-          }}
+          className={clsx(TYPOGRAPHY.h5, "text-white-98")}
           initial={{ opacity: 0, y: 190 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
