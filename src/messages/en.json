@@ -1,6 +1,32 @@
 {
   "home": {
     "title": "Home",
-    "description": "Description of the home page"
+    "subtitle": "Timeless harmony of art and technology.",
+    "description": "Description of the home page",
+    "sections": {
+      "message": "I believe in a new language.\nA language where a line of code can be as elegant as a line of choreography.\nWhere a business model can be a work of art.\nAnd where an artist can be the architect of their own future.",
+      "messageSplit": {
+        "initialText": "Reach beyond your art",
+        "leftText": "The old model casts you as a performer, waiting for permission, subject to a broken system.",
+        "rightText": "The new model empowers you as an architect: a sovereign creator who designs their own systems, builds their own value, and owns their own career.",
+        "finalText": "Become an Architect"
+      },
+      "theHow": {
+        "title": "The How",
+        "description": "Description of the how page"
+      },
+      "theWho": {
+        "title": "The Who",
+        "description": "Description of the who page"
+      },
+      "theWorks": {
+        "title": "The Works",
+        "description": "Description of the works page"
+      },
+      "theThoughts": {
+        "title": "The Thoughts",
+        "description": "Description of the thoughts page"
+      }
+    }
   }
 }

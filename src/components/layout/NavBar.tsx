@@ -8,6 +8,7 @@ import Link from "next/link";
 import { NavigationLink, SocialLink } from "@/lib/types/navigation";
 import { cn } from "@/lib/utils";
 import Evelasco from "@/components/graphics/Evelasco";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 interface NavigationBarProps {
   links: NavigationLink[];
@@ -161,6 +162,7 @@ export default function NavBar({
                 : socialLink.label}
             </Link>
           ))}
+          <LanguageSwitcher locale={"en"} />
         </div>
       </motion.nav>
 

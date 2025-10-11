@@ -1,6 +1,32 @@
 {
   "home": {
     "title": "Inicio",
-    "description": "Descripción de la página de inicio"
+    "subtitle": "Harmonía inmortal de arte y tecnología",
+    "description": "Descripción de la página de inicio",
+    "sections": {
+      "message": "Creo en un nuevo lenguaje.\nUn lenguaje donde una línea de código puede ser tan elegante como una línea de baile.\nDonde un modelo de negocio puede ser un trabajo de arte.\nY donde un artista puede ser el arquitecto de su propio futuro.",
+      "messageSplit": {
+        "initialText": "Alcánzate más allá de tu arte",
+        "leftText": "El modelo antiguo te hace actuar como un artista, esperando permiso, sujeto a un sistema roto.",
+        "rightText": "El nuevo modelo te hace actuar como un arquitecto: un creador soberano que diseña sus propios sistemas, construye su propio valor y posee su propia carrera.",
+        "finalText": "Become an Architect"
+      },
+      "theHow": {
+        "title": "El Cómo",
+        "description": "Descripción de la página de how"
+      },
+      "theWho": {
+        "title": "El Quien",
+        "description": "Descripción de la página de who"
+      },
+      "theWorks": {
+        "title": "Trabajos",
+        "description": "Descripción de la página de works"
+      },
+      "theThoughts": {
+        "title": "Reflexiones",
+        "description": "Descripción de la página de thoughts"
+      }
+    }
   }
 }

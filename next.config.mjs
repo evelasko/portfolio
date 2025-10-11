@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+import createNextIntlPlugin from "next-intl/plugin";
+import withMDX from "@next/mdx";
 
 const nextConfig = {
   reactStrictMode: true,

@@ -29,12 +29,6 @@ export interface StructureItem {
   href: LocalizedHref; // Localized paths
   label: LocalizedLabel; // Localized labels
 
-  // Navigation metadata
-  icon?: React.ReactNode;
-  showInMainNav?: boolean;
-  showInFooter?: boolean;
-  showInSitemap?: boolean;
-
   // Hierarchy
   children?: StructureItem[];
 }

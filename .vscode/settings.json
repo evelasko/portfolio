@@ -34,6 +34,15 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "i18n-ally.localesPaths": [
-    "src/i18n"
-  ]
+    "src/messages"
+  ],
+  "i18n-ally.sourceLanguage": "en",
+  "i18n-ally.translate.engines": ["deepl"],
+  "i18n-ally.translate.deepl.apiKey": "",
+  "i18n-ally.displayLanguage": "en",
+  "i18n-ally.theme.annotation": "rgba(153, 153, 153, .8)",
+  "i18n-ally.theme.annotationBorder": "rgba(153, 153, 153, .8)",
+  "i18n-ally.theme.annotationMissing": "#d37070",
+  "i18n-ally.theme.annotationMissingBorder": "#d37070",
+  "i18n-ally.keystyle": "nested",
 }

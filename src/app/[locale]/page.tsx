@@ -15,6 +15,7 @@ import MessageSplit from "@/components/home/MessageSplit";
 import { motion } from "motion/react";
 import clsx from "clsx";
 import { TYPOGRAPHY } from "@/lib/typography";
+import { useTranslations } from "next-intl";
 
 export default function Page() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -28,6 +29,8 @@ export default function Page() {
     setShowFooter(true);
     setFooterVariant("full");
   }, [setHeroRef, setShowNavBar, setShowFooter, setFooterVariant]);
+
+  const t = useTranslations("home");
 
   // Desktop/Tablet Row 2 Content
   const desktopRow2Content = (
@@ -160,7 +163,7 @@ export default function Page() {
       <AnimatedHero
         sideTextHorizontal="2K25"
         sideTextVertical="./ PORTFOLIO"
-        subtitle="TIMELESS VISUAL STORIES FOR LEGENDARY BRANDS"
+        subtitle={t("subtitle")}
         images={[]}
         link="#documentation"
         video="/assets/videos/throwback-slo-mo.mp4"
@@ -168,20 +171,13 @@ export default function Page() {
         row2Content={desktopRow2Content}
         mobileRow1Content={mobileRow1Content}
       />
-      <Message
-        segments={[
-          "I believe in a new language.",
-          "A language where a line of code can be as elegant as a line of choreography.",
-          "Where a business model can be a work of art.",
-          "And where an artist can be the architect of their own future.",
-        ]}
-      />
+      <Message segments={t("sections.message").split("\n")} />
 
       <MessageSplit
-        initialText="Reach beyond your art"
-        leftText="The old model casts you as a performer, waiting for permission, subject to a broken system."
-        rightText="The new model empowers you as an architect: a sovereign creator who designs their own systems, builds their own value, and owns their own career."
-        finalText="Become an Architect"
+        initialText={t("sections.messageSplit.initialText")}
+        leftText={t("sections.messageSplit.leftText")}
+        rightText={t("sections.messageSplit.rightText")}
+        finalText={t("sections.messageSplit.finalText")}
         imagePath="/assets/images/backgrounds/curtain.jpg"
       />
       <TheHow />
