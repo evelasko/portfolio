@@ -5,7 +5,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import { TYPOGRAPHY } from "@/lib/typography";
 import { AlignJustify, icons, X } from "lucide-react";
 import Link from "next/link";
-import { NavigationLink, SocialLink } from "@/lib/types";
+import { NavigationLink, SocialLink } from "@/lib/types/navigation";
 import { cn } from "@/lib/utils";
 import Evelasco from "@/components/graphics/Evelasco";
 

@@ -1,4 +1,4 @@
-import { NavigationLink, SocialLink } from "./types";
+import { NavigationLink, SocialLink } from "./types/navigation";
 
 export const navigation: NavigationLink[] = [
   {

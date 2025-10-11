@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { SocialLink, NavigationLink } from "@/lib/types";
+import { SocialLink, NavigationLink } from "@/lib/types/navigation";
 import { motion } from "motion/react";
 import { TYPOGRAPHY } from "@/lib/typography";
 import Image from "next/image";

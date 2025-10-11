@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { SocialLink } from "@/lib/types";
+import { SocialLink } from "@/lib/types/navigation";
 import { TYPOGRAPHY } from "@/lib/typography";
 /**
  * Footer Component
