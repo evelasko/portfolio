@@ -1,0 +1,91 @@
+---
+title: "Hola Mundo: Construyendo con Next.js y MDX"
+description: "Una introducción a la construcción de aplicaciones web modernas con Next.js 15 y MDX para la gestión de contenido."
+publishedAt: "2025-01-15"
+author: "Enrique Velasco"
+category: "Desarrollo"
+tags: ["Next.js", "MDX", "React", "TypeScript"]
+featured: true
+draft: false
+alternateLocales:
+  en: "hello-world"
+---
+
+# Bienvenido a MDX
+
+Este es un artículo de ejemplo escrito en formato **MDX**. MDX te permite escribir JSX directamente en tus documentos markdown, haciéndolo increíblemente poderoso para crear documentación interactiva y publicaciones de blog.
+
+## ¿Qué es MDX?
+
+MDX es un formato que combina **Markdown** con **JSX**. Esto significa que puedes:
+
+- Escribir contenido en Markdown
+- Importar y usar componentes de React
+- Crear ejemplos interactivos
+- Construir contenido rico y atractivo
+
+## Ejemplos de Código
+
+Aquí hay un ejemplo simple de TypeScript:
+
+```typescript
+interface Usuario {
+  nombre: string;
+  email: string;
+}
+
+function saludarUsuario(usuario: Usuario): string {
+  return `¡Hola, ${usuario.nombre}!`;
+}
+
+const usuario: Usuario = {
+  nombre: "Enrique",
+  email: "hola@ejemplo.com"
+};
+
+console.log(saludarUsuario(usuario));
+```
+
+## Usando Componentes Personalizados
+
+Puedes usar componentes personalizados en tu contenido MDX:
+
+<Callout type="info" title="Consejo Pro">
+MDX facilita la creación de componentes de contenido reutilizables e interactivos que se pueden compartir en tu documentación o publicaciones de blog.
+</Callout>
+
+## Listas y Formato
+
+### Listas Desordenadas
+
+- Primer elemento
+- Segundo elemento
+- Tercer elemento con **texto en negrita**
+- Cuarto elemento con *texto en cursiva*
+
+### Listas Ordenadas
+
+1. Inicializar el proyecto
+2. Instalar dependencias
+3. Configurar ajustes
+4. Iniciar desarrollo
+
+## Citas en Bloque
+
+> "La mejor manera de predecir el futuro es inventarlo."
+> — Alan Kay
+
+## Tablas
+
+| Característica | MDX | Markdown Simple |
+|----------------|-----|-----------------|
+| Componentes | ✅ | ❌ |
+| Interactividad | ✅ | ❌ |
+| Estilos | ✅ | Limitado |
+| Rendimiento | ⚡ | ⚡ |
+
+## Conclusión
+
+MDX proporciona una forma poderosa de crear contenido rico e interactivo mientras se mantiene la simplicidad de Markdown. Es perfecto para documentación, blogs y cualquier aplicación con mucho contenido.
+
+¡Intenta experimentar con tu propio contenido MDX y ve qué puedes construir!

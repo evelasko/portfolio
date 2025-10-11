@@ -7,11 +7,11 @@ export const navigation: NavigationLink[] = [
   },
   {
     label: "Work",
-    href: "/work",
+    href: "/works",
   },
   {
     label: "Journal",
-    href: "/journal",
+    href: "/articles",
   },
 ];
 

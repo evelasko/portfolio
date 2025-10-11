@@ -36,6 +36,7 @@ npm run format:check # Check formatting without making changes
 
 - **Motion** (Framer Motion fork) - Animation library
 - **Lenis** - Smooth scrolling
+- **next-intl** - Internationalization (en/es locales, default: es)
 - **Vercel Speed Insights** - Performance monitoring
 - **Lucide React** - Icon library
 
@@ -88,6 +89,27 @@ Primary colors defined in `src/app/globals.css`:
 - Black scale: `black-10` through `black-100` (10 shades)
 - White scale: `white-96`, `white-98`, `white-100`
 - Accent: `orange-100` (#ff4400)
+
+### Internationalization
+
+The project uses **next-intl** for i18n:
+
+- **Supported locales**: `en` (English), `es` (Spanish)
+- **Default locale**: `es`
+- **Locale prefix**: `as-needed` (default locale has no prefix)
+- **Configuration**: `src/i18n/routing.ts`
+- **Pathnames**: Localized routes defined in `src/i18n/pathnames.ts`
+
+All page routes are under `src/app/[locale]/` and use the `useTranslations` hook for content:
+
+```tsx
+import { useTranslations } from "next-intl";
+
+export default function Page() {
+  const t = useTranslations();
+  return <h1>{t('homepage.title')}</h1>;
+}
+```
 
 ### Global Layout Context
 
@@ -173,7 +195,7 @@ import { motion } from "motion/react";
 
 ### Smooth Scrolling
 
-Lenis is configured globally in `src/app/layout.tsx` via `<ReactLenis root>`.
+Lenis is configured globally in `src/app/[locale]/layout.tsx` via `<ReactLenis root>`.
 
 ### Demo Pages
 
@@ -188,15 +210,24 @@ Component demos are available at `/demo` routes:
 ```tree
 src/
 ├── app/              # Next.js App Router pages
-│   ├── page.tsx      # Homepage
-│   ├── layout.tsx    # Root layout with fonts and providers
-│   ├── globals.css   # Tailwind and custom styles
-│   └── demo/         # Component demo pages
+│   ├── [locale]/     # Localized pages (en, es)
+│   │   ├── page.tsx      # Homepage
+│   │   ├── layout.tsx    # Locale layout with fonts and providers
+│   │   ├── articles/     # Blog/thoughts pages
+│   │   ├── works/        # Project portfolio pages
+│   │   ├── bio/          # About page
+│   │   └── legal/        # Legal pages (privacy, terms, imprint)
+│   ├── demo/         # Component demo pages
+│   └── globals.css   # Tailwind and custom styles
 ├── components/       # React components (organized by type)
 ├── contexts/         # React contexts (LayoutContext)
+├── i18n/             # Internationalization configuration
+│   ├── routing.ts    # next-intl routing configuration
+│   ├── pathnames.ts  # Localized route definitions
+│   └── navigation.ts # Localized navigation helpers
 ├── lib/              # Utilities
 │   ├── typography.ts # Typography constants
-│   ├── types.tsx     # Shared TypeScript types
+│   ├── types/        # Shared TypeScript types
 │   └── utils.ts      # Utility functions
 └── references/       # Reference implementations and examples
 ```

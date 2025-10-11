@@ -1,0 +1,153 @@
+---
+title: "Personal Portfolio Website"
+description: "A modern, responsive portfolio website built with Next.js 15, featuring MDX content management and internationalization."
+publishedAt: "2025-01-10"
+author: "Enrique Velasco"
+category: "Web Development"
+tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"]
+featured: true
+draft: false
+client: "Personal Project"
+role: "Full-Stack Developer & Designer"
+technologies: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "MDX", "next-intl"]
+duration: "2 months"
+alternateLocales:
+  es: "sitio-web-portafolio"
+---
+
+# Portfolio Website Project
+
+This project showcases a modern approach to building a personal portfolio website with a focus on performance, accessibility, and content management.
+
+## Project Overview
+
+The portfolio website was built to showcase my work and share insights through articles. The main requirements were:
+
+- **Modern design** with smooth animations
+- **Content management** using MDX for flexibility
+- **Internationalization** to reach a global audience
+- **Performance** optimized for fast loading times
+
+## Technical Stack
+
+### Frontend Framework
+
+The project is built with **Next.js 15** using the App Router architecture. This provides:
+
+- Server-side rendering for optimal SEO
+- Static site generation for fast page loads
+- Modern React 19 features
+- Built-in image optimization
+
+### Content Management
+
+Instead of using a traditional CMS, I opted for **MDX** (Markdown + JSX) which offers:
+
+```typescript
+// Example of MDX component usage
+export const components = {
+  h1: (props) => <CustomHeading {...props} />,
+  code: (props) => <CodeBlock {...props} />
+};
+```
+
+<Callout type="success" title="Why MDX?">
+MDX allows me to write content in Markdown while maintaining the flexibility to use React components for interactive elements. It's version-controlled, easy to edit, and doesn't require a database.
+</Callout>
+
+## Key Features
+
+### 1. Responsive Design
+
+The website is fully responsive, adapting seamlessly to:
+
+- Mobile devices (320px+)
+- Tablets (810px+)
+- Desktops (1200px+)
+
+### 2. Dark Mode
+
+A carefully crafted dark theme with:
+
+- Custom color palette
+- Proper contrast ratios for accessibility
+- Smooth color transitions
+
+### 3. Performance Optimization
+
+Achieved excellent performance metrics:
+
+| Metric | Score |
+|--------|-------|
+| Lighthouse Performance | 95+ |
+| First Contentful Paint | < 1.5s |
+| Time to Interactive | < 2.5s |
+| Cumulative Layout Shift | < 0.1 |
+
+## Development Process
+
+### Phase 1: Planning & Design
+
+1. Created wireframes and mockups
+2. Defined the content structure
+3. Planned the technical architecture
+
+### Phase 2: Implementation
+
+1. Set up Next.js project with TypeScript
+2. Implemented the design system
+3. Created reusable components
+4. Integrated MDX for content
+
+### Phase 3: Internationalization
+
+Implemented full i18n support using **next-intl**:
+
+- English and Spanish translations
+- Locale-aware routing
+- Content localization
+
+## Challenges & Solutions
+
+### Challenge: Content Management
+
+**Problem**: Needed a flexible content system without the complexity of a headless CMS.
+
+**Solution**: Implemented MDX with custom components, allowing Markdown writing with React component flexibility.
+
+### Challenge: Performance
+
+**Problem**: Maintaining fast load times with rich animations and images.
+
+**Solution**: Used Next.js Image optimization, code splitting, and lazy loading for non-critical resources.
+
+## Results
+
+The website successfully achieved all project goals:
+
+- ✅ Modern, engaging design
+- ✅ Fast loading times (< 2s)
+- ✅ Fully bilingual (EN/ES)
+- ✅ Easy content management
+- ✅ Excellent SEO performance
+
+## Lessons Learned
+
+1. **MDX is powerful** for content-heavy sites that need flexibility
+2. **Type safety** with TypeScript catches bugs early
+3. **Component-driven design** makes the codebase maintainable
+4. **Performance matters** - users notice even small improvements
+
+## Future Enhancements
+
+Planned improvements include:
+
+- [ ] Search functionality
+- [ ] Comment system for articles
+- [ ] Dark/light mode toggle
+- [ ] RSS feed
+- [ ] Analytics dashboard
+
+---
+
+This project demonstrates my ability to build modern, performant web applications while maintaining clean code and excellent user experience.

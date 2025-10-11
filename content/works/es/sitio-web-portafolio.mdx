@@ -1,0 +1,153 @@
+---
+title: "Sitio Web de Portafolio Personal"
+description: "Un sitio web de portafolio moderno y responsivo construido con Next.js 15, con gestión de contenido MDX e internacionalización."
+publishedAt: "2025-01-10"
+author: "Enrique Velasco"
+category: "Desarrollo Web"
+tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"]
+featured: true
+draft: false
+client: "Proyecto Personal"
+role: "Desarrollador Full-Stack y Diseñador"
+technologies: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "MDX", "next-intl"]
+duration: "2 meses"
+alternateLocales:
+  en: "portfolio-website"
+---
+
+# Proyecto de Sitio Web de Portafolio
+
+Este proyecto muestra un enfoque moderno para construir un sitio web de portafolio personal con un enfoque en rendimiento, accesibilidad y gestión de contenido.
+
+## Resumen del Proyecto
+
+El sitio web de portafolio se construyó para mostrar mi trabajo y compartir ideas a través de artículos. Los requisitos principales fueron:
+
+- **Diseño moderno** con animaciones suaves
+- **Gestión de contenido** usando MDX para flexibilidad
+- **Internacionalización** para llegar a una audiencia global
+- **Rendimiento** optimizado para tiempos de carga rápidos
+
+## Stack Técnico
+
+### Framework Frontend
+
+El proyecto está construido con **Next.js 15** usando la arquitectura App Router. Esto proporciona:
+
+- Renderizado del lado del servidor para SEO óptimo
+- Generación de sitios estáticos para cargas de página rápidas
+- Características modernas de React 19
+- Optimización de imágenes integrada
+
+### Gestión de Contenido
+
+En lugar de usar un CMS tradicional, opté por **MDX** (Markdown + JSX) que ofrece:
+
+```typescript
+// Ejemplo de uso de componentes MDX
+export const components = {
+  h1: (props) => <CustomHeading {...props} />,
+  code: (props) => <CodeBlock {...props} />
+};
+```
+
+<Callout type="success" title="¿Por qué MDX?">
+MDX me permite escribir contenido en Markdown mientras mantengo la flexibilidad de usar componentes de React para elementos interactivos. Está controlado por versiones, es fácil de editar y no requiere una base de datos.
+</Callout>
+
+## Características Clave
+
+### 1. Diseño Responsivo
+
+El sitio web es completamente responsivo, adaptándose perfectamente a:
+
+- Dispositivos móviles (320px+)
+- Tablets (810px+)
+- Escritorios (1200px+)
+
+### 2. Modo Oscuro
+
+Un tema oscuro cuidadosamente elaborado con:
+
+- Paleta de colores personalizada
+- Ratios de contraste adecuados para accesibilidad
+- Transiciones de color suaves
+
+### 3. Optimización de Rendimiento
+
+Logré excelentes métricas de rendimiento:
+
+| Métrica | Puntuación |
+|---------|------------|
+| Rendimiento Lighthouse | 95+ |
+| First Contentful Paint | < 1.5s |
+| Time to Interactive | < 2.5s |
+| Cumulative Layout Shift | < 0.1 |
+
+## Proceso de Desarrollo
+
+### Fase 1: Planificación y Diseño
+
+1. Creé wireframes y mockups
+2. Definí la estructura de contenido
+3. Planeé la arquitectura técnica
+
+### Fase 2: Implementación
+
+1. Configuré el proyecto Next.js con TypeScript
+2. Implementé el sistema de diseño
+3. Creé componentes reutilizables
+4. Integré MDX para el contenido
+
+### Fase 3: Internacionalización
+
+Implementé soporte completo de i18n usando **next-intl**:
+
+- Traducciones en inglés y español
+- Enrutamiento consciente de localización
+- Localización de contenido
+
+## Desafíos y Soluciones
+
+### Desafío: Gestión de Contenido
+
+**Problema**: Necesitaba un sistema de contenido flexible sin la complejidad de un CMS headless.
+
+**Solución**: Implementé MDX con componentes personalizados, permitiendo escritura en Markdown con flexibilidad de componentes React.
+
+### Desafío: Rendimiento
+
+**Problema**: Mantener tiempos de carga rápidos con animaciones ricas e imágenes.
+
+**Solución**: Usé optimización de imágenes de Next.js, división de código y carga perezosa para recursos no críticos.
+
+## Resultados
+
+El sitio web logró con éxito todos los objetivos del proyecto:
+
+- ✅ Diseño moderno y atractivo
+- ✅ Tiempos de carga rápidos (< 2s)
+- ✅ Completamente bilingüe (EN/ES)
+- ✅ Gestión de contenido fácil
+- ✅ Excelente rendimiento SEO
+
+## Lecciones Aprendidas
+
+1. **MDX es poderoso** para sitios con mucho contenido que necesitan flexibilidad
+2. **Seguridad de tipos** con TypeScript detecta errores temprano
+3. **Diseño basado en componentes** hace que el código sea mantenible
+4. **El rendimiento importa** - los usuarios notan incluso pequeñas mejoras
+
+## Mejoras Futuras
+
+Las mejoras planificadas incluyen:
+
+- [ ] Funcionalidad de búsqueda
+- [ ] Sistema de comentarios para artículos
+- [ ] Alternador de modo oscuro/claro
+- [ ] Feed RSS
+- [ ] Panel de analíticas
+
+---
+
+Este proyecto demuestra mi capacidad para construir aplicaciones web modernas y de alto rendimiento mientras mantengo código limpio y una excelente experiencia de usuario.

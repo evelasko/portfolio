@@ -1,0 +1,91 @@
+---
+title: "Hello World: Building with Next.js and MDX"
+description: "An introduction to building modern web applications with Next.js 15 and MDX for content management."
+publishedAt: "2025-01-15"
+author: "Enrique Velasco"
+category: "Development"
+tags: ["Next.js", "MDX", "React", "TypeScript"]
+featured: true
+draft: false
+alternateLocales:
+  es: "hola-mundo"
+---
+
+# Welcome to MDX
+
+This is an example article written in **MDX** format. MDX allows you to write JSX directly in your markdown documents, making it incredibly powerful for creating interactive documentation and blog posts.
+
+## What is MDX?
+
+MDX is a format that combines **Markdown** with **JSX**. This means you can:
+
+- Write content in Markdown
+- Import and use React components
+- Create interactive examples
+- Build rich, engaging content
+
+## Code Examples
+
+Here's a simple TypeScript example:
+
+```typescript
+interface User {
+  name: string;
+  email: string;
+}
+
+function greetUser(user: User): string {
+  return `Hello, ${user.name}!`;
+}
+
+const user: User = {
+  name: "Enrique",
+  email: "hello@example.com"
+};
+
+console.log(greetUser(user));
+```
+
+## Using Custom Components
+
+You can use custom components in your MDX content:
+
+<Callout type="info" title="Pro Tip">
+MDX makes it easy to create reusable, interactive content components that can be shared across your documentation or blog posts.
+</Callout>
+
+## Lists and Formatting
+
+### Unordered Lists
+
+- First item
+- Second item
+- Third item with **bold text**
+- Fourth item with *italic text*
+
+### Ordered Lists
+
+1. Initialize the project
+2. Install dependencies
+3. Configure settings
+4. Start development
+
+## Blockquotes
+
+> "The best way to predict the future is to invent it."
+> — Alan Kay
+
+## Tables
+
+| Feature | MDX | Plain Markdown |
+|---------|-----|----------------|
+| Components | ✅ | ❌ |
+| Interactivity | ✅ | ❌ |
+| Styling | ✅ | Limited |
+| Performance | ⚡ | ⚡ |
+
+## Conclusion
+
+MDX provides a powerful way to create rich, interactive content while maintaining the simplicity of Markdown. It's perfect for documentation, blogs, and any content-heavy application.
+
+Try experimenting with your own MDX content and see what you can build!
