@@ -98,17 +98,15 @@ export default function MessageSplit({
           }}
         />
 
-        {/* VHS Scan Lines Overlay */}
+        {/* VHS Animated Stripes/Distortion Overlay */}
         <motion.div
           className="absolute inset-0 pointer-events-none z-[3]"
           style={{
-            backgroundImage: `repeating-linear-gradient(
-              0deg,
-              rgba(0, 0, 0, 0.15),
-              rgba(0, 0, 0, 0.15) 1px,
-              transparent 1px,
-              transparent 2px
-            )`,
+            backgroundImage: "url(/assets/textures/stripes.gif)",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            mixBlendMode: "screen",
             opacity: vhsOpacity,
           }}
         />
