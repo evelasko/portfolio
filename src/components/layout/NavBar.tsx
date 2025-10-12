@@ -4,11 +4,11 @@ import { useState, useEffect, useRef, RefObject } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import { TYPOGRAPHY } from "@/lib/typography";
 import { AlignJustify, icons, X } from "lucide-react";
-import Link from "next/link";
 import { NavigationLink, SocialLink } from "@/lib/types/navigation";
 import { cn } from "@/lib/utils";
 import Evelasco from "@/components/graphics/Evelasco";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { Link, usePathname } from "@/i18n/navigation";
 
 interface NavigationBarProps {
   links: NavigationLink[];
@@ -23,6 +23,9 @@ export default function NavBar({
   heroRef,
   socialAsIcons = false,
 }: NavigationBarProps) {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isNavVisible, setIsNavVisible] = useState(true);
   const [isHeroInView, setIsHeroInView] = useState(true);
@@ -72,6 +75,13 @@ export default function NavBar({
     setIsMobileMenuOpen(false);
   };
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isHomePage) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   // Component to render dynamic icon from Lucide
   const DynamicIcon = ({
     iconName,
@@ -112,7 +122,14 @@ export default function NavBar({
             ease: "easeInOut",
           }}
         >
-          <Evelasco color="rgb(255, 255, 255)" />
+          <Link
+            href="/"
+            onClick={handleLogoClick}
+            className="block cursor-pointer"
+            aria-label="Home"
+          >
+            <Evelasco color="rgb(255, 255, 255)" />
+          </Link>
         </motion.div>
 
         {/* Navigation Links - Spread when hero in view, aligned right when hero out of view */}
@@ -184,7 +201,14 @@ export default function NavBar({
             ease: "easeInOut",
           }}
         >
-          <Evelasco color="rgb(255, 255, 255)" />
+          <Link
+            href="/"
+            onClick={handleLogoClick}
+            className="block cursor-pointer"
+            aria-label="Home"
+          >
+            <Evelasco color="rgb(255, 255, 255)" />
+          </Link>
         </motion.div>
 
         {/* Hamburger Menu Button */}
@@ -209,9 +233,14 @@ export default function NavBar({
           >
             {/* Header with Brand and Close Button */}
             <div className="flex justify-between items-center px-6 py-2 border-b border-gray-800">
-              <div className={cn("w-[120px] text-white")}>
+              <Link
+                href="/"
+                onClick={handleLogoClick}
+                className={cn("w-[120px] text-white block cursor-pointer")}
+                aria-label="Home"
+              >
                 <Evelasco color="rgb(255, 255, 255)" />
-              </div>
+              </Link>
 
               <button
                 onClick={closeMobileMenu}
