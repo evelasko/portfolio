@@ -4,16 +4,16 @@ interface PortfolioButtonProps {
   children: React.ReactNode;
   // onClick?: () => void;
   href?: string;
-  variant?: 'dark' | 'light'; // dark for dark backgrounds, light for light backgrounds
+  variant?: "dark" | "light"; // dark for dark backgrounds, light for light backgrounds
   className?: string;
 }
 
-export default function PortfolioButton({ 
-  children, 
-  href, 
+export default function PortfolioButton({
+  children,
+  href,
   // onClick,
-  variant = 'dark',
-  className = '' 
+  variant = "dark",
+  className = "",
 }: PortfolioButtonProps) {
   const baseClasses = `
     inline-flex items-center justify-center
@@ -38,25 +38,22 @@ export default function PortfolioButton({
     hover:border-white-100 hover:text-[#1E2B3A] hover:bg-white-100
   `;
 
-  const variantClasses = variant === 'dark' ? darkVariantClasses : lightVariantClasses;
+  const variantClasses =
+    variant === "dark" ? darkVariantClasses : lightVariantClasses;
   const combinedClasses = `${baseClasses} ${variantClasses}`;
 
   if (href) {
     return (
-      <a 
-        href={href} 
-        className={combinedClasses}
-        style={{ marginBottom: 0 }}
-      >
+      <a href={href} className={combinedClasses} style={{ marginBottom: 0 }}>
         {children}
       </a>
     );
   }
 
   return (
-    <Link 
-      href={href || ''}
-      // onClick={onClick} 
+    <Link
+      href={href || ""}
+      // onClick={onClick}
       className={combinedClasses}
       style={{ marginBottom: 0 }}
     >

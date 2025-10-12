@@ -19,7 +19,12 @@ import type {
  * Get the content directory path
  */
 function getContentDir(contentType: ContentType): string {
-  return path.join(process.cwd(), "src", "content", contentType === "article" ? "articles" : "works");
+  return path.join(
+    process.cwd(),
+    "src",
+    "content",
+    contentType === "article" ? "articles" : "works"
+  );
 }
 
 /**
@@ -28,7 +33,7 @@ function getContentDir(contentType: ContentType): string {
 function getContentPath(
   contentType: ContentType,
   locale: string,
-  slug: string,
+  slug: string
 ): string {
   return path.join(getContentDir(contentType), locale, `${slug}.mdx`);
 }
@@ -39,7 +44,7 @@ function getContentPath(
 export async function contentExists(
   contentType: ContentType,
   locale: string,
-  slug: string,
+  slug: string
 ): Promise<boolean> {
   try {
     const filePath = getContentPath(contentType, locale, slug);
@@ -71,19 +76,19 @@ async function readMDXFile(filePath: string): Promise<{
  */
 export async function getContentSlugs(
   contentType: ContentType,
-  locale: string,
+  locale: string
 ): Promise<string[]> {
   try {
     const contentDir = path.join(getContentDir(contentType), locale);
     const files = await fs.readdir(contentDir);
     return files
-      .filter((file) => file.endsWith(".mdx"))
-      .map((file) => file.replace(/\.mdx$/, ""))
+      .filter(file => file.endsWith(".mdx"))
+      .map(file => file.replace(/\.mdx$/, ""))
       .sort();
   } catch (error) {
     console.warn(
       `No content found for ${contentType} in locale ${locale}:`,
-      error,
+      error
     );
     return [];
   }
@@ -94,7 +99,7 @@ export async function getContentSlugs(
  */
 export async function getArticleData(
   locale: string,
-  slug: string,
+  slug: string
 ): Promise<{
   slug: string;
   locale: string;
@@ -137,7 +142,7 @@ export async function getArticleData(
  */
 export async function getWorkData(
   locale: string,
-  slug: string,
+  slug: string
 ): Promise<{
   slug: string;
   locale: string;
@@ -186,7 +191,7 @@ export async function getAllArticles(
     sortOrder?: "asc" | "desc";
     category?: string;
     featured?: boolean;
-  } = {},
+  } = {}
 ): Promise<ContentListItem<ArticleFrontmatter>[]> {
   const {
     includeDrafts = false,
@@ -199,7 +204,7 @@ export async function getAllArticles(
   const slugs = await getContentSlugs("article", locale);
 
   const articles = await Promise.all(
-    slugs.map(async (slug) => {
+    slugs.map(async slug => {
       const data = await getArticleData(locale, slug);
 
       // Generate excerpt from content (first 160 characters)
@@ -217,26 +222,26 @@ export async function getAllArticles(
         excerpt: excerpt ? `${excerpt}...` : undefined,
         readingTime: data.readingTime,
       };
-    }),
+    })
   );
 
   // Filter
   let filtered = articles;
 
   if (!includeDrafts) {
-    filtered = filtered.filter((article) => !article.frontmatter.draft);
+    filtered = filtered.filter(article => !article.frontmatter.draft);
   }
 
   if (category) {
     filtered = filtered.filter(
-      (article) =>
-        article.frontmatter.category.toLowerCase() === category.toLowerCase(),
+      article =>
+        article.frontmatter.category.toLowerCase() === category.toLowerCase()
     );
   }
 
   if (featured !== undefined) {
     filtered = filtered.filter(
-      (article) => article.frontmatter.featured === featured,
+      article => article.frontmatter.featured === featured
     );
   }
 
@@ -276,7 +281,7 @@ export async function getAllWorks(
     sortOrder?: "asc" | "desc";
     category?: string;
     featured?: boolean;
-  } = {},
+  } = {}
 ): Promise<ContentListItem<WorkFrontmatter>[]> {
   const {
     includeDrafts = false,
@@ -289,7 +294,7 @@ export async function getAllWorks(
   const slugs = await getContentSlugs("work", locale);
 
   const works = await Promise.all(
-    slugs.map(async (slug) => {
+    slugs.map(async slug => {
       const data = await getWorkData(locale, slug);
 
       // Generate excerpt
@@ -307,27 +312,24 @@ export async function getAllWorks(
         excerpt: excerpt ? `${excerpt}...` : undefined,
         readingTime: data.readingTime,
       };
-    }),
+    })
   );
 
   // Filter
   let filtered = works;
 
   if (!includeDrafts) {
-    filtered = filtered.filter((work) => !work.frontmatter.draft);
+    filtered = filtered.filter(work => !work.frontmatter.draft);
   }
 
   if (category) {
     filtered = filtered.filter(
-      (work) =>
-        work.frontmatter.category.toLowerCase() === category.toLowerCase(),
+      work => work.frontmatter.category.toLowerCase() === category.toLowerCase()
     );
   }
 
   if (featured !== undefined) {
-    filtered = filtered.filter(
-      (work) => work.frontmatter.featured === featured,
-    );
+    filtered = filtered.filter(work => work.frontmatter.featured === featured);
   }
 
   // Sort
@@ -360,7 +362,7 @@ export async function getAllWorks(
  */
 export async function getContentCategories(
   contentType: ContentType,
-  locale: string,
+  locale: string
 ): Promise<ContentCategory[]> {
   const items =
     contentType === "article"
@@ -369,7 +371,7 @@ export async function getContentCategories(
 
   const categoryMap = new Map<string, number>();
 
-  items.forEach((item) => {
+  items.forEach(item => {
     const category = item.frontmatter.category;
     categoryMap.set(category, (categoryMap.get(category) || 0) + 1);
   });
@@ -391,7 +393,7 @@ export async function getAlternateLocaleSlug(
   contentType: ContentType,
   currentLocale: string,
   currentSlug: string,
-  targetLocale: string,
+  targetLocale: string
 ): Promise<string | null> {
   try {
     const data =

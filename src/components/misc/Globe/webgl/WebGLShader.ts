@@ -1,13 +1,13 @@
-'use client';
-import type { 
-  WebGLShaderConfig, 
-  WebGLAttribute, 
-  GlobeWebGLBuffer, 
-  UniformMap, 
+"use client";
+import type {
+  WebGLShaderConfig,
+  WebGLAttribute,
+  GlobeWebGLBuffer,
+  UniformMap,
   WebGLUniform,
-  UniformValue 
-} from '../types/globe.types';
-import { createUniformMap } from './utils/uniformMapping';
+  UniformValue,
+} from "../types/globe.types";
+import { createUniformMap } from "./utils/uniformMapping";
 
 /**
  * Globe WebGL Shader class that manages individual shader programs
@@ -21,9 +21,9 @@ export class GlobeWebGLShader {
   private buffers: GlobeWebGLBuffer[] = [];
   private attributeKeys: string[] = [];
   private uniformMap: ReturnType<typeof createUniformMap>;
-  private geometry: WebGLShaderConfig['geometry'];
+  private geometry: WebGLShaderConfig["geometry"];
   private mode: number;
-  private modifiers: WebGLShaderConfig['modifiers'];
+  private modifiers: WebGLShaderConfig["modifiers"];
   private multiplier: number;
   private vertex: string;
   private fragment: string;
@@ -53,7 +53,7 @@ export class GlobeWebGLShader {
   private compileShader(type: number, source: string): WebGLShader {
     const shader = this.gl.createShader(type);
     if (!shader) {
-      throw new Error('Failed to create shader');
+      throw new Error("Failed to create shader");
     }
 
     this.gl.shaderSource(shader, source);
@@ -74,11 +74,14 @@ export class GlobeWebGLShader {
   private prepareProgram(): void {
     const program = this.gl.createProgram();
     if (!program) {
-      throw new Error('Failed to create shader program');
+      throw new Error("Failed to create shader program");
     }
 
     const vertexShader = this.compileShader(this.gl.VERTEX_SHADER, this.vertex);
-    const fragmentShader = this.compileShader(this.gl.FRAGMENT_SHADER, this.fragment);
+    const fragmentShader = this.compileShader(
+      this.gl.FRAGMENT_SHADER,
+      this.fragment
+    );
 
     this.gl.attachShader(program, vertexShader);
     this.gl.attachShader(program, fragmentShader);
@@ -116,13 +119,19 @@ export class GlobeWebGLShader {
    */
   private prepareAttributes(): void {
     // Add default position attribute if vertices exist
-    if (this.geometry.vertices && this.attributes.findIndex(attr => attr.name === 'aPosition') === -1) {
-      this.attributes.push({ name: 'aPosition', size: 3 });
+    if (
+      this.geometry.vertices &&
+      this.attributes.findIndex(attr => attr.name === "aPosition") === -1
+    ) {
+      this.attributes.push({ name: "aPosition", size: 3 });
     }
 
     // Add normal attribute if normals exist
-    if (this.geometry.normal && this.attributes.findIndex(attr => attr.name === 'aNormal') === -1) {
-      this.attributes.push({ name: 'aNormal', size: 3 });
+    if (
+      this.geometry.normal &&
+      this.attributes.findIndex(attr => attr.name === "aNormal") === -1
+    ) {
+      this.attributes.push({ name: "aNormal", size: 3 });
     }
 
     this.attributeKeys = this.attributes.map(attr => attr.name);
@@ -154,11 +163,11 @@ export class GlobeWebGLShader {
 
           if (modifier) {
             data[index] = modifier(instanceData, vertexIndex, component, this);
-          } else if (name === 'aPosition') {
-            const coords = ['x', 'y', 'z'] as const;
+          } else if (name === "aPosition") {
+            const coords = ["x", "y", "z"] as const;
             data[index] = vertices[vertexIndex][coords[component]];
-          } else if (name === 'aNormal' && normal) {
-            const coords = ['x', 'y', 'z'] as const;
+          } else if (name === "aNormal" && normal) {
+            const coords = ["x", "y", "z"] as const;
             data[index] = normal[vertexIndex][coords[component]];
           } else if (instanceData && instanceData[component] !== undefined) {
             data[index] = instanceData[component];
@@ -185,28 +194,42 @@ export class GlobeWebGLShader {
 
     const buffer = this.gl.createBuffer();
     if (!buffer) {
-      throw new Error('Failed to create buffer');
+      throw new Error("Failed to create buffer");
     }
 
     this.gl.bindBuffer(this.gl.ARRAY_BUFFER, buffer);
-    this.gl.bufferData(this.gl.ARRAY_BUFFER, attribute.data, this.gl.STATIC_DRAW);
+    this.gl.bufferData(
+      this.gl.ARRAY_BUFFER,
+      attribute.data,
+      this.gl.STATIC_DRAW
+    );
 
     const location = this.gl.getAttribLocation(this.program, attribute.name);
     this.gl.enableVertexAttribArray(location);
-    this.gl.vertexAttribPointer(location, attribute.size, this.gl.FLOAT, false, 0, 0);
+    this.gl.vertexAttribPointer(
+      location,
+      attribute.size,
+      this.gl.FLOAT,
+      false,
+      0,
+      0
+    );
 
     const attributeIndex = this.attributeKeys.indexOf(attribute.name);
     this.buffers[attributeIndex] = {
       buffer,
       location,
-      size: attribute.size
+      size: attribute.size,
     };
   }
 
   /**
    * Renders the shader with the given uniforms
    */
-  public render(engineUniforms: UniformMap, updateUniforms: Record<string, WebGLUniform> = {}): void {
+  public render(
+    engineUniforms: UniformMap,
+    updateUniforms: Record<string, WebGLUniform> = {}
+  ): void {
     if (!this.program) return;
 
     this.gl.useProgram(this.program);
@@ -216,7 +239,14 @@ export class GlobeWebGLShader {
       if (buffer && buffer.buffer) {
         this.gl.enableVertexAttribArray(buffer.location);
         this.gl.bindBuffer(this.gl.ARRAY_BUFFER, buffer.buffer);
-        this.gl.vertexAttribPointer(buffer.location, buffer.size, this.gl.FLOAT, false, 0, 0);
+        this.gl.vertexAttribPointer(
+          buffer.location,
+          buffer.size,
+          this.gl.FLOAT,
+          false,
+          0,
+          0
+        );
       }
     }
 

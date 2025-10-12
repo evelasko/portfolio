@@ -162,7 +162,7 @@ export default function NavBar({
                 : socialLink.label}
             </Link>
           ))}
-          <LanguageSwitcher locale={"en"} />
+          <LanguageSwitcher />
         </div>
       </motion.nav>
 

@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { motion } from 'motion/react';
-import { TYPOGRAPHY } from '@/lib/typography';
+import { motion } from "motion/react";
+import { TYPOGRAPHY } from "@/lib/typography";
 
 /**
  * ContentHeadingBlock component
@@ -13,49 +13,47 @@ import { TYPOGRAPHY } from '@/lib/typography';
  * @param list_label - string, TYPOGRAPHY.mono16, color black-40, uppercase
  * @param list_items - string[], TYPOGRAPHY.mono16, color black-60, uppercase
  */
-export default function ContentHeadingBlock({ 
-  overtitle, 
-  title, 
-  subtitle, 
-  date, 
-  quote, 
-  list_label, 
-  list_items
-}: { 
-  overtitle: string; 
-  title: string; 
-  subtitle: string; 
-  date: string; 
-  quote: string; 
-  list_label: string; 
-  list_items: string[]; 
+export default function ContentHeadingBlock({
+  overtitle,
+  title,
+  subtitle,
+  date,
+  quote,
+  list_label,
+  list_items,
+}: {
+  overtitle: string;
+  title: string;
+  subtitle: string;
+  date: string;
+  quote: string;
+  list_label: string;
+  list_items: string[];
 }) {
-  
   // Split text into words for word-by-word animation
-  const splitWords = (text: string) => text.split(' ');
-  
+  const splitWords = (text: string) => text.split(" ");
+
   // Split text into characters for character-by-character animation
-  const splitCharacters = (text: string) => text.split('');
+  const splitCharacters = (text: string) => text.split("");
 
   return (
     <div className="w-full space-y-0 l:space-y-12">
-      
       {/* Overtitle - Word by word fade from bottom */}
-      <motion.div 
+      <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         className="overflow-hidden mt-12 m:mb-6 l:mb-0"
       >
-        <motion.p 
+        <motion.p
           className={`${TYPOGRAPHY.mono24} text-black-40 uppercase`}
           variants={{
             hidden: {},
             visible: {
               transition: {
-                staggerChildren: 0.03
-              }
-            }
+                staggerChildren: 0.03,
+              },
+            },
           }}
         >
           {splitWords(overtitle).map((word, index) => (
@@ -63,18 +61,18 @@ export default function ContentHeadingBlock({
               key={index}
               className="inline-block mr-2"
               variants={{
-                hidden: { 
-                  opacity: 0, 
-                  y: 30 
+                hidden: {
+                  opacity: 0,
+                  y: 30,
                 },
-                visible: { 
-                  opacity: 1, 
+                visible: {
+                  opacity: 1,
                   y: 0,
                   transition: {
                     type: "spring",
-                    duration: 1
-                  }
-                }
+                    duration: 1,
+                  },
+                },
               }}
             >
               {word}
@@ -84,22 +82,22 @@ export default function ContentHeadingBlock({
       </motion.div>
 
       {/* Title - Character by character Y rotation */}
-      <motion.div 
+      <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         className="overflow-hidden  m:mb-6 l:mb-0"
       >
-        <motion.h1 
+        <motion.h1
           className={`${TYPOGRAPHY.h3} text-black-90 font-bold tracking-[-0.03em] mb-6`}
           variants={{
             hidden: {},
             visible: {
               transition: {
                 delay: 0.2,
-                staggerChildren: 0.02
-              }
-            }
+                staggerChildren: 0.02,
+              },
+            },
           }}
         >
           {splitCharacters(title).map((char, index) => (
@@ -108,43 +106,43 @@ export default function ContentHeadingBlock({
               className="inline-block"
               style={{ transformOrigin: "center bottom" }}
               variants={{
-                hidden: { 
+                hidden: {
                   rotateY: 90,
-                  opacity: 0
+                  opacity: 0,
                 },
-                visible: { 
+                visible: {
                   rotateY: 0,
                   opacity: 1,
                   transition: {
                     duration: 0.6,
-                    ease: [0.44, 0, 0.56, 1]
-                  }
-                }
+                    ease: [0.44, 0, 0.56, 1],
+                  },
+                },
               }}
             >
-              {char === ' ' ? '\u00A0' : char}
+              {char === " " ? "\u00A0" : char}
             </motion.span>
           ))}
         </motion.h1>
       </motion.div>
 
       {/* Subtitle - Word by word fade from bottom with delay */}
-      <motion.div 
+      <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         className="overflow-hidden border-b border-black-10 pb-0 mb-6"
       >
-        <motion.h6 
+        <motion.h6
           className={`${TYPOGRAPHY.h9} text-black-50 mb-6`}
           variants={{
             hidden: {},
             visible: {
               transition: {
                 delay: 0.3,
-                staggerChildren: 0.03
-              }
-            }
+                staggerChildren: 0.03,
+              },
+            },
           }}
         >
           {splitWords(subtitle).map((word, index) => (
@@ -152,18 +150,18 @@ export default function ContentHeadingBlock({
               key={index}
               className="inline-block mr-2"
               variants={{
-                hidden: { 
-                  opacity: 0, 
-                  y: 30 
+                hidden: {
+                  opacity: 0,
+                  y: 30,
                 },
-                visible: { 
-                  opacity: 1, 
+                visible: {
+                  opacity: 1,
                   y: 0,
                   transition: {
                     type: "spring",
-                    duration: 1
-                  }
-                }
+                    duration: 1,
+                  },
+                },
               }}
             >
               {word}
@@ -173,22 +171,22 @@ export default function ContentHeadingBlock({
       </motion.div>
 
       {/* Date - Same animation as subtitle with delay 0.4 */}
-      <motion.div 
+      <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         className="overflow-hidden"
       >
-        <motion.p 
+        <motion.p
           className={`${TYPOGRAPHY.mono24} text-black-40 uppercase`}
           variants={{
             hidden: {},
             visible: {
               transition: {
                 delay: 0.4,
-                staggerChildren: 0.03
-              }
-            }
+                staggerChildren: 0.03,
+              },
+            },
           }}
         >
           {splitWords(date).map((word, index) => (
@@ -196,18 +194,18 @@ export default function ContentHeadingBlock({
               key={index}
               className="inline-block mr-2"
               variants={{
-                hidden: { 
-                  opacity: 0, 
-                  y: 30 
+                hidden: {
+                  opacity: 0,
+                  y: 30,
                 },
-                visible: { 
-                  opacity: 1, 
+                visible: {
+                  opacity: 1,
                   y: 0,
                   transition: {
                     type: "spring",
-                    duration: 1
-                  }
-                }
+                    duration: 1,
+                  },
+                },
               }}
             >
               {word}
@@ -217,22 +215,22 @@ export default function ContentHeadingBlock({
       </motion.div>
 
       {/* Quote - Same animation and delay as date */}
-      <motion.div 
+      <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         className="overflow-hidden w-full l:pr-48 m:pr-32 s:pr-0"
       >
-        <motion.p 
+        <motion.p
           className={`${TYPOGRAPHY.h6} font-bold tracking-[-0.03em] leading-[1.4em] text-black-80`}
           variants={{
             hidden: {},
             visible: {
               transition: {
                 delay: 0.4,
-                staggerChildren: 0.03
-              }
-            }
+                staggerChildren: 0.03,
+              },
+            },
           }}
         >
           {splitWords(quote).map((word, index) => (
@@ -240,18 +238,18 @@ export default function ContentHeadingBlock({
               key={index}
               className="inline-block mr-2"
               variants={{
-                hidden: { 
-                  opacity: 0, 
-                  y: 30 
+                hidden: {
+                  opacity: 0,
+                  y: 30,
                 },
-                visible: { 
-                  opacity: 1, 
+                visible: {
+                  opacity: 1,
                   y: 0,
                   transition: {
                     type: "spring",
-                    duration: 1
-                  }
-                }
+                    duration: 1,
+                  },
+                },
               }}
             >
               {word}
@@ -261,21 +259,21 @@ export default function ContentHeadingBlock({
       </motion.div>
 
       {/* Services List - Two Column Layout with Borders */}
-      <motion.div 
+      <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         className="border-t border-b border-black-10 py-6 l:py-8 mb-16"
         variants={{
           hidden: { opacity: 0, y: 20 },
-          visible: { 
-            opacity: 1, 
+          visible: {
+            opacity: 1,
             y: 0,
             transition: {
               delay: 0.6,
-              duration: 0.6
-            }
-          }
+              duration: 0.6,
+            },
+          },
         }}
       >
         <div className="grid grid-cols-[auto_1fr] gap-6 l:gap-8 items-start">
@@ -286,7 +284,7 @@ export default function ContentHeadingBlock({
 
           {/* Items Column - Expands to Available Space */}
           <p className={`${TYPOGRAPHY.mono16} text-black-60 uppercase`}>
-            {list_items.join(', ')}
+            {list_items.join(", ")}
           </p>
         </div>
       </motion.div>

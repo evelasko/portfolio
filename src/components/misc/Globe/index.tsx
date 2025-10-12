@@ -1,7 +1,7 @@
-'use client';
-import React, { useEffect, useState, useCallback } from 'react';
-import { useGlobeEngine } from './hooks/useGlobeEngine';
-import type { GlobeProps } from './types/globe.types';
+"use client";
+import React, { useEffect, useState, useCallback } from "react";
+import { useGlobeEngine } from "./hooks/useGlobeEngine";
+import type { GlobeProps } from "./types/globe.types";
 
 interface GlobeComponentProps extends Partial<GlobeProps> {
   className?: string;
@@ -11,14 +11,14 @@ interface GlobeComponentProps extends Partial<GlobeProps> {
 }
 
 const Globe: React.FC<GlobeComponentProps> = ({
-  className = '',
+  className = "",
   style,
   width = 400,
   height = 400,
-  background = 'transparent',
-  baseColor = '#18181b',
-  glowColor = '#0ea5e9',
-  markerColor = '#ef4444',
+  background = "transparent",
+  baseColor = "#18181b",
+  glowColor = "#0ea5e9",
+  markerColor = "#ef4444",
   isDraggable = true,
   speed = 0.01,
   phi = 0,
@@ -30,14 +30,17 @@ const Globe: React.FC<GlobeComponentProps> = ({
   markerSize = 0.1,
   markerArray = [],
   scale = 1,
-  alignment = 'center',
+  alignment = "center",
   maxWidth = 600,
   offset,
   devicePixelRatio,
   ...props
 }) => {
   // State for rotation animation
-  const [rotation, setRotationState] = useState({ phi: phi || 0, theta: theta || 0 });
+  const [rotation, setRotationState] = useState({
+    phi: phi || 0,
+    theta: theta || 0,
+  });
   const [isAnimating, setIsAnimating] = useState(!isDraggable);
   const [isDragging, setIsDragging] = useState(false);
   const [lastPointer, setLastPointer] = useState({ x: 0, y: 0 });
@@ -53,20 +56,22 @@ const Globe: React.FC<GlobeComponentProps> = ({
     setMarkers,
     setRotation,
     isReady,
-    engine
+    engine,
   } = useGlobeEngine({
     width: containerWidth,
     height: containerHeight,
-    devicePixelRatio: devicePixelRatio || (typeof window !== 'undefined' ? window.devicePixelRatio : 1),
+    devicePixelRatio:
+      devicePixelRatio ||
+      (typeof window !== "undefined" ? window.devicePixelRatio : 1),
     phi: rotation.phi,
     theta: rotation.theta,
     dark,
     diffuse,
     mapSamples: maxSamples,
     mapBrightness,
-    baseColor: typeof baseColor === 'string' ? baseColor : undefined,
-    glowColor: typeof glowColor === 'string' ? glowColor : undefined,
-    markerColor: typeof markerColor === 'string' ? markerColor : undefined,
+    baseColor: typeof baseColor === "string" ? baseColor : undefined,
+    glowColor: typeof glowColor === "string" ? glowColor : undefined,
+    markerColor: typeof markerColor === "string" ? markerColor : undefined,
     markers: markerArray,
     markerSize,
     scale,
@@ -80,7 +85,7 @@ const Globe: React.FC<GlobeComponentProps> = ({
     const animate = () => {
       setRotationState(prev => ({
         phi: prev.phi + speed,
-        theta: prev.theta
+        theta: prev.theta,
       }));
     };
 
@@ -110,73 +115,85 @@ const Globe: React.FC<GlobeComponentProps> = ({
         diffuse,
         mapBrightness,
         scale,
-        ...(offset && { offset: [offset.offsetX, offset.offsetY] })
+        ...(offset && { offset: [offset.offsetX, offset.offsetY] }),
       });
     }
   }, [dark, diffuse, mapBrightness, scale, offset, isReady, updateUniforms]);
 
   // Drag handling
-  const handlePointerDown = useCallback((event: React.PointerEvent) => {
-    if (!isDraggable) return;
-    
-    setIsDragging(true);
-    setIsAnimating(false);
-    setLastPointer({ x: event.clientX, y: event.clientY });
-    
-    if (canvasRef.current) {
-      canvasRef.current.setPointerCapture(event.pointerId);
-    }
-  }, [isDraggable, canvasRef]);
+  const handlePointerDown = useCallback(
+    (event: React.PointerEvent) => {
+      if (!isDraggable) return;
 
-  const handlePointerMove = useCallback((event: React.PointerEvent) => {
-    if (!isDragging || !isDraggable) return;
+      setIsDragging(true);
+      setIsAnimating(false);
+      setLastPointer({ x: event.clientX, y: event.clientY });
 
-    const deltaX = event.clientX - lastPointer.x;
-    const deltaY = event.clientY - lastPointer.y;
+      if (canvasRef.current) {
+        canvasRef.current.setPointerCapture(event.pointerId);
+      }
+    },
+    [isDraggable, canvasRef]
+  );
 
-    setRotationState(prev => ({
-      phi: prev.phi + deltaX * 0.01,
-      theta: Math.max(-Math.PI / 2, Math.min(Math.PI / 2, prev.theta + deltaY * 0.01))
-    }));
+  const handlePointerMove = useCallback(
+    (event: React.PointerEvent) => {
+      if (!isDragging || !isDraggable) return;
 
-    setLastPointer({ x: event.clientX, y: event.clientY });
-  }, [isDragging, isDraggable, lastPointer]);
+      const deltaX = event.clientX - lastPointer.x;
+      const deltaY = event.clientY - lastPointer.y;
 
-  const handlePointerUp = useCallback((event: React.PointerEvent) => {
-    setIsDragging(false);
-    
-    if (canvasRef.current) {
-      canvasRef.current.releasePointerCapture(event.pointerId);
-    }
-    
-    // Resume auto-rotation after a delay if it was enabled
-    if (!isDraggable) {
-      setTimeout(() => setIsAnimating(true), 1000);
-    }
-  }, [isDraggable, canvasRef]);
+      setRotationState(prev => ({
+        phi: prev.phi + deltaX * 0.01,
+        theta: Math.max(
+          -Math.PI / 2,
+          Math.min(Math.PI / 2, prev.theta + deltaY * 0.01)
+        ),
+      }));
+
+      setLastPointer({ x: event.clientX, y: event.clientY });
+    },
+    [isDragging, isDraggable, lastPointer]
+  );
+
+  const handlePointerUp = useCallback(
+    (event: React.PointerEvent) => {
+      setIsDragging(false);
+
+      if (canvasRef.current) {
+        canvasRef.current.releasePointerCapture(event.pointerId);
+      }
+
+      // Resume auto-rotation after a delay if it was enabled
+      if (!isDraggable) {
+        setTimeout(() => setIsAnimating(true), 1000);
+      }
+    },
+    [isDraggable, canvasRef]
+  );
 
   // Container styles
   const containerStyles: React.CSSProperties = {
     width: containerWidth,
     height: containerHeight,
-    display: 'flex',
+    display: "flex",
     justifyContent: alignment,
-    alignItems: 'center',
+    alignItems: "center",
     background,
-    position: 'relative',
-    ...style
+    position: "relative",
+    ...style,
   };
 
   // Canvas styles
   const canvasStyles: React.CSSProperties = {
-    width: '100%',
-    height: '100%',
-    cursor: isDraggable ? (isDragging ? 'grabbing' : 'grab') : 'default',
-    touchAction: 'none', // Prevent default touch behaviors
+    width: "100%",
+    height: "100%",
+    cursor: isDraggable ? (isDragging ? "grabbing" : "grab") : "default",
+    touchAction: "none", // Prevent default touch behaviors
   };
 
   return (
-    <div 
+    <div
       className={`globe-container ${className}`}
       style={containerStyles}
       {...props}
@@ -189,18 +206,18 @@ const Globe: React.FC<GlobeComponentProps> = ({
         onPointerUp={handlePointerUp}
         onPointerLeave={handlePointerUp} // Handle pointer leaving canvas
       />
-      
+
       {!isReady && (
-        <div 
+        <div
           style={{
-            position: 'absolute',
+            position: "absolute",
             inset: 0,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'rgba(0, 0, 0, 0.1)',
-            color: '#666',
-            fontSize: '14px'
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "rgba(0, 0, 0, 0.1)",
+            color: "#666",
+            fontSize: "14px",
           }}
         >
           Loading Globe...

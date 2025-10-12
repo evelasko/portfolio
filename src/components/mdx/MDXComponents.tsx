@@ -53,7 +53,8 @@ export function getMDXComponents(): MDXComponents {
       const hasOnlyImage =
         childrenArray.length === 1 &&
         React.isValidElement(childrenArray[0]) &&
-        (childrenArray[0].type === "img" || (childrenArray[0].props as any)?.mdxType === "img");
+        (childrenArray[0].type === "img" ||
+          (childrenArray[0].props as any)?.mdxType === "img");
 
       if (hasOnlyImage) {
         return <>{children}</>;

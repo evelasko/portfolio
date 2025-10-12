@@ -31,7 +31,7 @@ export interface GlobeProps {
   markerSize?: number;
   markerArray?: MarkerLocation[];
   scale?: number;
-  alignment?: 'flex-start' | 'center' | 'flex-end';
+  alignment?: "flex-start" | "center" | "flex-end";
   maxWidth?: number;
   offset?: GlobeOffset;
   devicePixelRatio?: number;
@@ -49,10 +49,10 @@ export interface GlobeWebGLBuffer {
   size: number;
 }
 
-export type UniformValue = 
-  | number 
-  | [number, number] 
-  | [number, number, number] 
+export type UniformValue =
+  | number
+  | [number, number]
+  | [number, number, number]
   | [number, number, number, number]
   | Float32Array;
 
@@ -62,7 +62,15 @@ export interface WebGLUniform {
   location?: WebGLUniformLocation | null;
 }
 
-export type UniformType = 'float' | 'vec2' | 'vec3' | 'vec4' | 'mat2' | 'mat3' | 'mat4' | 'sampler2D';
+export type UniformType =
+  | "float"
+  | "vec2"
+  | "vec3"
+  | "vec4"
+  | "mat2"
+  | "mat3"
+  | "mat4"
+  | "sampler2D";
 
 export interface UniformMap {
   [key: string]: WebGLUniform;
@@ -152,7 +160,10 @@ export interface ColorRGB {
 
 // Forward declarations
 export interface GlobeWebGLShader {
-  render: (engineUniforms: UniformMap, updateUniforms?: Record<string, WebGLUniform>) => void;
+  render: (
+    engineUniforms: UniformMap,
+    updateUniforms?: Record<string, WebGLUniform>
+  ) => void;
   updateUniform: (name: string, value: UniformValue) => void;
   getUniform: (name: string) => UniformValue | undefined;
   destroy: () => void;

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'motion/react';
-import { TYPOGRAPHY } from '@/lib/typography';
-import clsx from 'clsx';
+import { motion } from "motion/react";
+import { TYPOGRAPHY } from "@/lib/typography";
+import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,22 +16,22 @@ import Link from "next/link";
  * @param image - string, image url
  * @param link - string, link url
  */
-export default function ThoughtCard({ 
-  title, 
-  publishedAt, 
-  readingTime, 
+export default function ThoughtCard({
+  title,
+  publishedAt,
+  readingTime,
   image,
-  link
+  link,
 }: {
-  title: string; 
-  publishedAt: string; 
-  readingTime: number; 
+  title: string;
+  publishedAt: string;
+  readingTime: number;
   image: string;
   link: string;
 }) {
   return (
     <Link href={link} className="block">
-      <motion.article 
+      <motion.article
         className="bg-white-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 group"
         whileHover={{ y: -4 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
@@ -46,7 +46,7 @@ export default function ThoughtCard({
             sizes="(max-width: 810px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
-        
+
         {/* Content */}
         <div className="px-5 py-3 l:px-10 l:py-5 m:px-10 m:py-5">
           {/* Title */}
@@ -56,7 +56,7 @@ export default function ThoughtCard({
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.5,
-              ease: "easeOut"
+              ease: "easeOut",
             }}
             viewport={{ once: true }}
           >
@@ -71,7 +71,7 @@ export default function ThoughtCard({
             transition={{
               duration: 0.5,
               delay: 0.1,
-              ease: "easeOut"
+              ease: "easeOut",
             }}
             viewport={{ once: true }}
           >
@@ -91,7 +91,7 @@ export default function ThoughtCard({
                 Reading Time
               </span>
               <span className={clsx(TYPOGRAPHY.text16, "text-black-90")}>
-                {readingTime} min{readingTime > 1 ? 's' : ''}
+                {readingTime} min{readingTime > 1 ? "s" : ""}
               </span>
             </div>
           </motion.div>

@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowDown } from "lucide-react";
-import { useState, useEffect } from 'react';
-import clsx from 'clsx';
-import { TYPOGRAPHY } from '@/lib/typography';
+import { useState, useEffect } from "react";
+import clsx from "clsx";
+import { TYPOGRAPHY } from "@/lib/typography";
 
 /**
  * MainHero
- * 
- * The sideTextHorizontal and sideTextVertical are animated upon scroll to a Y offset of -404px with an ease In Out of bezier 0.44, 0, 0.56, 1, time 1 (these are treated as one block) 
+ *
+ * The sideTextHorizontal and sideTextVertical are animated upon scroll to a Y offset of -404px with an ease In Out of bezier 0.44, 0, 0.56, 1, time 1 (these are treated as one block)
  * The background can be either a video (if video prop is provided) or a carrousel of images (without any indicators) animated as a sideways transitioning slideshow
- * @param topText - string, TYPOGRAPHY.h1, color white-100, uppercase, animates on appear per character with a delay of 0.6 from a blur of 10px and a Y offset of 150px using an ease In Out with bezier 0.44, 0, 0.56, 1 time 0.6 
+ * @param topText - string, TYPOGRAPHY.h1, color white-100, uppercase, animates on appear per character with a delay of 0.6 from a blur of 10px and a Y offset of 150px using an ease In Out with bezier 0.44, 0, 0.56, 1 time 0.6
  * @param bottomText - string, same style and animation as topText
  * @param sideTextHorizontal - string, TYPOGRAPHY.mono24, color white-100, uppercase
  * @param sideTextVertical - string, TYPOGRAPHY.mono24, color white-100, uppercase
@@ -27,30 +27,30 @@ import { TYPOGRAPHY } from '@/lib/typography';
  * @param stayDuration - number, how long each image stays visible in milliseconds, default 4000 (4 seconds) - only applies to image carousel
  * @param transitionSpeed - number, how fast the slide transition happens in seconds, default 1.2 - only applies to image carousel
  */
-export default function MainHero({ 
-  topText, 
-  bottomText, 
-  sideTextHorizontal = "2K25", 
-  sideTextVertical = "./portfolio", 
-  graphic, 
-  graphicHeight = 100, 
-  graphicWidth = 100, 
-  subtitle, 
-  images, 
+export default function MainHero({
+  topText,
+  bottomText,
+  sideTextHorizontal = "2K25",
+  sideTextVertical = "./portfolio",
+  graphic,
+  graphicHeight = 100,
+  graphicWidth = 100,
+  subtitle,
+  images,
   link,
   video,
   stayDuration = 4000,
-  transitionSpeed = 1.2
-}: { 
-  topText: string; 
-  bottomText: string; 
-  sideTextHorizontal: string; 
-  sideTextVertical: string; 
-  graphic: string; 
-  graphicHeight: number; 
-  graphicWidth: number; 
-  subtitle: string; 
-  images: string[]; 
+  transitionSpeed = 1.2,
+}: {
+  topText: string;
+  bottomText: string;
+  sideTextHorizontal: string;
+  sideTextVertical: string;
+  graphic: string;
+  graphicHeight: number;
+  graphicWidth: number;
+  subtitle: string;
+  images: string[];
   link: string;
   video?: string;
   stayDuration?: number;
@@ -62,15 +62,13 @@ export default function MainHero({
   useEffect(() => {
     if (!video && images.length > 1) {
       const interval = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => 
+        setCurrentImageIndex(prevIndex =>
           prevIndex === images.length - 1 ? 0 : prevIndex + 1
         );
       }, stayDuration);
       return () => clearInterval(interval);
     }
   }, [video, images.length, stayDuration]);
-
-
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
@@ -85,10 +83,10 @@ export default function MainHero({
             playsInline
             preload="metadata"
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover" }}
           >
             <source src={video} type="video/mp4" />
-            <source src={video.replace('.mp4', '.webm')} type="video/webm" />
+            <source src={video.replace(".mp4", ".webm")} type="video/webm" />
             {/* Fallback for browsers that don't support video */}
             <div className="absolute inset-0 bg-gray-800" />
           </video>
@@ -100,9 +98,9 @@ export default function MainHero({
               initial={{ x: "100%" }}
               animate={{ x: "0%" }}
               exit={{ x: "-100%" }}
-              transition={{ 
-                duration: transitionSpeed, 
-                ease: [0.44, 0, 0.56, 1] 
+              transition={{
+                duration: transitionSpeed,
+                ease: [0.44, 0, 0.56, 1],
               }}
               className="absolute inset-0"
             >
@@ -123,40 +121,38 @@ export default function MainHero({
 
       {/* Content */}
       <div className="relative z-20 w-full h-full">
-        
         {/* DESKTOP/TABLET LAYOUT (M & L) */}
         <div className="hidden m:flex l:flex flex-col h-full px-8 m:px-12 l:px-20">
-          
           {/* Row 1: topText only (fixed height based on content) */}
           <div className="flex-shrink-0 flex items-start justify-start pt-12 m:pt-16 l:pt-20">
             <motion.h1
               className="text-h1-s m:text-h1-m l:text-h1-l font-bold uppercase tracking-tight"
-              style={{ 
-                color: 'var(--color-white-100)',
-                lineHeight: '0.85em',
-                letterSpacing: '-0.05em'
+              style={{
+                color: "var(--color-white-100)",
+                lineHeight: "0.85em",
+                letterSpacing: "-0.05em",
               }}
               initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ 
+              transition={{
                 delay: 0.6,
                 duration: 0.6,
-                ease: "easeOut"
+                ease: "easeOut",
               }}
             >
-              {topText.split('').map((char, i) => (
+              {topText.split("").map((char, i) => (
                 <motion.span
                   key={i}
                   initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ 
-                    delay: 0.6 + (i * 0.05),
+                  transition={{
+                    delay: 0.6 + i * 0.05,
                     duration: 0.6,
-                    ease: "easeOut"
+                    ease: "easeOut",
                   }}
                   className="inline-block"
                 >
-                  {char === ' ' ? '\u00A0' : char}
+                  {char === " " ? "\u00A0" : char}
                 </motion.span>
               ))}
             </motion.h1>
@@ -170,24 +166,32 @@ export default function MainHero({
                 initial={{ opacity: 0, y: -404 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ 
+                transition={{
                   duration: 1,
-                  ease: "easeOut"
+                  ease: "easeOut",
                 }}
                 className="space-y-2"
               >
-                <div className={clsx(TYPOGRAPHY.mono24, 'uppercase tracking-wider text-white-100')}>
+                <div
+                  className={clsx(
+                    TYPOGRAPHY.mono24,
+                    "uppercase tracking-wider text-white-100"
+                  )}
+                >
                   {sideTextHorizontal}
                 </div>
                 <div
-                  className={clsx(TYPOGRAPHY.mono24, 'uppercase tracking-wider')}
-                  style={{ 
-                    color: 'var(--color-white-100)',
-                    lineHeight: '1.2em',
-                    letterSpacing: '0.05em',
-                    writingMode: 'vertical-rl',
-                    textOrientation: 'mixed',
-                    transform: 'rotate(180deg)'
+                  className={clsx(
+                    TYPOGRAPHY.mono24,
+                    "uppercase tracking-wider"
+                  )}
+                  style={{
+                    color: "var(--color-white-100)",
+                    lineHeight: "1.2em",
+                    letterSpacing: "0.05em",
+                    writingMode: "vertical-rl",
+                    textOrientation: "mixed",
+                    transform: "rotate(180deg)",
                   }}
                 >
                   {sideTextVertical}
@@ -200,24 +204,26 @@ export default function MainHero({
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ 
+                transition={{
                   delay: 0.8,
                   duration: 0.8,
-                  ease: "easeOut"
+                  ease: "easeOut",
                 }}
                 className="relative ml-8"
               >
-                {graphic && <Image
-                  src={graphic}
-                  alt="Signature"
-                  width={graphicWidth}
-                  height={graphicHeight}
-                  className="object-contain filter invert"
-                  style={{
-                    maxWidth: '200px',
-                    height: 'auto'
-                  }}
-                />}
+                {graphic && (
+                  <Image
+                    src={graphic}
+                    alt="Signature"
+                    width={graphicWidth}
+                    height={graphicHeight}
+                    className="object-contain filter invert"
+                    style={{
+                      maxWidth: "200px",
+                      height: "auto",
+                    }}
+                  />
+                )}
               </motion.div>
             </div>
           </div>
@@ -229,42 +235,45 @@ export default function MainHero({
               {/* Subtitle row - aligned to top baseline of bottomText */}
               <div className="flex-shrink-0 overflow-hidden flex items-start mt-2">
                 <motion.div
-                  className={clsx(TYPOGRAPHY.mono24, 'uppercase tracking-wider')}
-                  style={{ 
-                    color: 'var(--color-white-100)',
-                    lineHeight: '1.2em',
-                    letterSpacing: '0.05em',
-                    overflow: 'hidden'
+                  className={clsx(
+                    TYPOGRAPHY.mono24,
+                    "uppercase tracking-wider"
+                  )}
+                  style={{
+                    color: "var(--color-white-100)",
+                    lineHeight: "1.2em",
+                    letterSpacing: "0.05em",
+                    overflow: "hidden",
                   }}
                   initial={{ opacity: 0, x: 100, filter: "blur(10px)" }}
                   animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                  transition={{ 
+                  transition={{
                     delay: 1.8,
                     duration: 0.6,
-                    ease: "easeOut"
+                    ease: "easeOut",
                   }}
                 >
                   {subtitle}
                 </motion.div>
               </div>
-              
+
               {/* Button row - aligned to bottom baseline of bottomText */}
               <div className="flex-shrink-0 flex items-baseline-last">
                 <Link href={link} className="group">
                   <motion.div
-                    animate={{ 
-                      y: [0, 10, 0] 
+                    animate={{
+                      y: [0, 10, 0],
                     }}
-                    transition={{ 
+                    transition={{
                       duration: 2,
                       repeat: Infinity,
-                      ease: "easeInOut"
+                      ease: "easeInOut",
                     }}
                   >
-                    <ArrowDown 
+                    <ArrowDown
                       size={32}
                       className="group-hover:scale-110 transition-transform duration-300"
-                      style={{ color: 'var(--color-white-100)' }}
+                      style={{ color: "var(--color-white-100)" }}
                     />
                   </motion.div>
                 </Link>
@@ -275,32 +284,32 @@ export default function MainHero({
             <div className="flex-shrink-0 flex items-start ml-8">
               <motion.h1
                 className="text-h1-s m:text-h1-m l:text-h1-l font-bold uppercase tracking-tight text-right"
-                style={{ 
-                  color: 'var(--color-white-100)',
-                  lineHeight: '0.85em',
-                  letterSpacing: '-0.05em'
+                style={{
+                  color: "var(--color-white-100)",
+                  lineHeight: "0.85em",
+                  letterSpacing: "-0.05em",
                 }}
                 initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ 
+                transition={{
                   delay: 1.2,
                   duration: 0.6,
-                  ease: "easeOut"
+                  ease: "easeOut",
                 }}
               >
-                {bottomText.split('').map((char, i) => (
+                {bottomText.split("").map((char, i) => (
                   <motion.span
                     key={i}
                     initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
                     animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    transition={{ 
-                      delay: 1.2 + (i * 0.05),
+                    transition={{
+                      delay: 1.2 + i * 0.05,
                       duration: 0.6,
-                      ease: "easeOut"
+                      ease: "easeOut",
                     }}
                     className="inline-block"
                   >
-                    {char === ' ' ? '\u00A0' : char}
+                    {char === " " ? "\u00A0" : char}
                   </motion.span>
                 ))}
               </motion.h1>
@@ -310,31 +319,35 @@ export default function MainHero({
 
         {/* MOBILE LAYOUT (S) */}
         <div className="flex m:hidden l:hidden flex-col h-full px-4">
-          
           {/* Row 1: sideText block (can expand, pushes others down) */}
           <div className="flex-1 flex items-start justify-start pt-24 min-h-0">
             <motion.div
               initial={{ opacity: 0, y: -404 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ 
+              transition={{
                 duration: 1,
                 ease: "easeOut",
-                delay: 0.3
+                delay: 0.3,
               }}
               className="space-y-2"
             >
-              <div className={clsx(TYPOGRAPHY.mono24, 'uppercase tracking-wider text-white-100')}>
+              <div
+                className={clsx(
+                  TYPOGRAPHY.mono24,
+                  "uppercase tracking-wider text-white-100"
+                )}
+              >
                 {sideTextHorizontal}
               </div>
               <div
-                className={clsx(TYPOGRAPHY.mono24, 'uppercase tracking-wider')}
-                style={{ 
-                  color: 'var(--color-white-100)',
-                  lineHeight: '1.2em',
-                  letterSpacing: '0.05em',
-                  writingMode: 'vertical-rl',
-                  textOrientation: 'mixed',
-                  transform: 'rotate(180deg)'
+                className={clsx(TYPOGRAPHY.mono24, "uppercase tracking-wider")}
+                style={{
+                  color: "var(--color-white-100)",
+                  lineHeight: "1.2em",
+                  letterSpacing: "0.05em",
+                  writingMode: "vertical-rl",
+                  textOrientation: "mixed",
+                  transform: "rotate(180deg)",
                 }}
               >
                 {`${sideTextVertical} ————————`}
@@ -345,29 +358,29 @@ export default function MainHero({
           {/* Row 2: subtitle (full width, no cutting) */}
           <div className="flex-shrink-0 py-4">
             <motion.div
-              className={clsx(TYPOGRAPHY.mono24, 'uppercase tracking-wider')}
-              style={{ 
-                color: 'var(--color-white-100)',
-                lineHeight: '1.6em',
-                letterSpacing: '0.05em'
+              className={clsx(TYPOGRAPHY.mono24, "uppercase tracking-wider")}
+              style={{
+                color: "var(--color-white-100)",
+                lineHeight: "1.6em",
+                letterSpacing: "0.05em",
               }}
               initial={{ opacity: 0, x: 100, filter: "blur(10px)" }}
               animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-              transition={{ 
+              transition={{
                 delay: 1.8,
                 duration: 0.6,
-                ease: "easeOut"
+                ease: "easeOut",
               }}
             >
-              {subtitle.split('\n').map((line, i) => (
+              {subtitle.split("\n").map((line, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 0, filter: "blur(10px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ 
-                    delay: 1.8 + (i * 0.05),
+                  transition={{
+                    delay: 1.8 + i * 0.05,
                     duration: 0.6,
-                    ease: "easeOut"
+                    ease: "easeOut",
                   }}
                 >
                   {line}
@@ -378,96 +391,98 @@ export default function MainHero({
 
           {/* Row 3: topText + bottomText concatenated (bottom-aligned with margin) */}
           <div className="flex-shrink-0 pb-8">
-              <div className="flex flex-row gap-4">
-                <motion.h1
-                  className="text-h1-s font-bold uppercase tracking-tight"
-                  style={{ 
-                    color: 'var(--color-white-100)',
-                    lineHeight: '0.85em',
-                    letterSpacing: '-0.05em'
-                  }}
-                  initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ 
-                    delay: 0.6,
-                    duration: 0.6,
-                    ease: "easeOut"
-                  }}
-                >
-                  {(topText.length > 5 ? `${topText.slice(0, 1)}.` : topText).split('').map((char, i) => (
+            <div className="flex flex-row gap-4">
+              <motion.h1
+                className="text-h1-s font-bold uppercase tracking-tight"
+                style={{
+                  color: "var(--color-white-100)",
+                  lineHeight: "0.85em",
+                  letterSpacing: "-0.05em",
+                }}
+                initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{
+                  delay: 0.6,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
+              >
+                {(topText.length > 5 ? `${topText.slice(0, 1)}.` : topText)
+                  .split("")
+                  .map((char, i) => (
                     <motion.span
                       key={i}
                       initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
                       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                      transition={{ 
-                        delay: 0.6 + (i * 0.05),
+                      transition={{
+                        delay: 0.6 + i * 0.05,
                         duration: 0.6,
-                        ease: "easeOut"
+                        ease: "easeOut",
                       }}
                       className="inline-block"
                     >
-                      {char === ' ' ? '\u00A0' : char}
+                      {char === " " ? "\u00A0" : char}
                     </motion.span>
                   ))}
-                </motion.h1>
-                
-                <motion.h1
-                  className="text-h1-s font-bold uppercase tracking-tight"
-                  style={{ 
-                    color: 'var(--color-white-100)',
-                    lineHeight: '0.85em',
-                    letterSpacing: '-0.05em'
-                  }}
-                  initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ 
-                    delay: 1.2,
-                    duration: 0.6,
-                    ease: "easeOut"
-                  }}
-                >
-                  {bottomText.split('').map((char, i) => (
-                    <motion.span
-                      key={i}
-                      initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
-                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                      transition={{ 
-                        delay: 1.2 + (i * 0.05),
-                        duration: 0.6,
-                        ease: "easeOut"
-                      }}
-                      className="inline-block"
-                    >
-                      {char === ' ' ? '\u00A0' : char}
-                    </motion.span>
-                  ))}
-                </motion.h1>
-              </div>
+              </motion.h1>
 
-              {/* Arrow for mobile */}
-              <div className="flex justify-center">
-                <Link href={link} className="group">
-                  <motion.div
-                    animate={{ 
-                      y: [0, 10, 0] 
+              <motion.h1
+                className="text-h1-s font-bold uppercase tracking-tight"
+                style={{
+                  color: "var(--color-white-100)",
+                  lineHeight: "0.85em",
+                  letterSpacing: "-0.05em",
+                }}
+                initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{
+                  delay: 1.2,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
+              >
+                {bottomText.split("").map((char, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ opacity: 0, y: 150, filter: "blur(10px)" }}
+                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    transition={{
+                      delay: 1.2 + i * 0.05,
+                      duration: 0.6,
+                      ease: "easeOut",
                     }}
-                    transition={{ 
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
+                    className="inline-block"
                   >
-                    <ArrowDown 
-                      size={32}
-                      className="group-hover:scale-110 transition-transform duration-300"
-                      style={{ color: 'var(--color-white-100)' }}
-                    />
-                  </motion.div>
-                </Link>
-              </div>
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+              </motion.h1>
+            </div>
+
+            {/* Arrow for mobile */}
+            <div className="flex justify-center">
+              <Link href={link} className="group">
+                <motion.div
+                  animate={{
+                    y: [0, 10, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <ArrowDown
+                    size={32}
+                    className="group-hover:scale-110 transition-transform duration-300"
+                    style={{ color: "var(--color-white-100)" }}
+                  />
+                </motion.div>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
-}   
+}

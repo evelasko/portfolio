@@ -1,6 +1,6 @@
 onlyBuiltDependencies:
-  - '@scarf/scarf'
-  - '@tailwindcss/oxide'
-  - '@vercel/speed-insights'
+  - "@scarf/scarf"
+  - "@tailwindcss/oxide"
+  - "@vercel/speed-insights"
   - sharp
   - unrs-resolver

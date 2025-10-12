@@ -21,7 +21,7 @@ export default async function WorkPage({
   // Compile MDX content
   const { content } = await compileMDXContent(
     workData.content,
-    getMDXComponents(),
+    getMDXComponents()
   );
 
   const work = {
@@ -43,7 +43,7 @@ export async function generateStaticParams() {
 
   for (const locale of routing.locales) {
     const slugs = await getContentSlugs("work", locale);
-    params.push(...slugs.map((slug) => ({ locale, slug })));
+    params.push(...slugs.map(slug => ({ locale, slug })));
   }
 
   return params;
@@ -70,8 +70,7 @@ export async function generateMetadata({
       openGraph: {
         title: work.frontmatter.title,
         description:
-          work.frontmatter.seo?.ogDescription ||
-          work.frontmatter.description,
+          work.frontmatter.seo?.ogDescription || work.frontmatter.description,
         images: work.frontmatter.seo?.ogImage
           ? [work.frontmatter.seo.ogImage]
           : work.frontmatter.coverImage
@@ -83,8 +82,7 @@ export async function generateMetadata({
         card: "summary_large_image",
         title: work.frontmatter.title,
         description:
-          work.frontmatter.seo?.ogDescription ||
-          work.frontmatter.description,
+          work.frontmatter.seo?.ogDescription || work.frontmatter.description,
         images: work.frontmatter.seo?.ogImage
           ? [work.frontmatter.seo.ogImage]
           : work.frontmatter.coverImage

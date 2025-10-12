@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { motion } from 'motion/react';
-import { TYPOGRAPHY } from '@/lib/typography';
+import { motion } from "motion/react";
+import { TYPOGRAPHY } from "@/lib/typography";
 
 /**
  * Skills Item Component
@@ -10,38 +10,38 @@ import { TYPOGRAPHY } from '@/lib/typography';
  * @param description - string, TYPOGRAPHY.text16, color black-50
  * @param itemNumber - number, tag p style TYPOGRAPHY.mono16, color black-40
  * @param skills - array of strings, tag span style TYPOGRAPHY.mono16, color black-90, uppercase
- * @returns 
+ * @returns
  */
-export default function SkillsItem({ 
-  title, 
-  description, 
-  itemNumber, 
-  skills 
-}: { 
-  title: string; 
-  description: string; 
-  itemNumber: number; 
-  skills: string[]; 
+export default function SkillsItem({
+  title,
+  description,
+  itemNumber,
+  skills,
+}: {
+  title: string;
+  description: string;
+  itemNumber: number;
+  skills: string[];
 }) {
   return (
     <motion.div
       className="grid grid-cols-1 l:grid-cols-[70%_30%] gap-6 l:gap-8"
-      initial={{ 
-        opacity: 0, 
+      initial={{
+        opacity: 0,
         y: 170,
-        filter: "blur(10px)" 
+        filter: "blur(10px)",
       }}
-      whileInView={{ 
-        opacity: 1, 
+      whileInView={{
+        opacity: 1,
         y: 0,
-        filter: "blur(0px)" 
+        filter: "blur(0px)",
       }}
       transition={{
         type: "spring",
         stiffness: 300,
         damping: 60,
         mass: 1,
-        duration: 0.8
+        duration: 0.8,
       }}
       viewport={{ once: true, margin: "-100px" }}
     >
@@ -49,22 +49,20 @@ export default function SkillsItem({
       <div className="space-y-6 l:space-y-8 text-left">
         {/* Item Number */}
         <p className={`${TYPOGRAPHY.mono16} text-black-40`}>
-          /.{itemNumber.toString().padStart(2, '0')}
+          /.{itemNumber.toString().padStart(2, "0")}
         </p>
 
         {/* Title */}
-        <h6 className={`${TYPOGRAPHY.h6} text-black-90`} >
-          {title}
-        </h6>
+        <h6 className={`${TYPOGRAPHY.h6} text-black-90`}>{title}</h6>
 
         {/* Description */}
         <p
           className={`${TYPOGRAPHY.text16} text-black-50`}
           style={{
-            fontWeight: 'var(--font-weight-regular)',
-            lineHeight: '1.6em',
-            letterSpacing: '-0.02em',
-            marginBottom: '0'
+            fontWeight: "var(--font-weight-regular)",
+            lineHeight: "1.6em",
+            letterSpacing: "-0.02em",
+            marginBottom: "0",
           }}
         >
           {description}
@@ -73,9 +71,7 @@ export default function SkillsItem({
 
       {/* Right Column: Skills List */}
       <div>
-        <ul
-          className="space-y-2"
-        >
+        <ul className="space-y-2">
           {skills.map((skill, index) => (
             <li
               key={index}

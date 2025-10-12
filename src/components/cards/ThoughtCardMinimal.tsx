@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'motion/react';
+import { motion } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
 /**
@@ -11,26 +11,26 @@ import Image from "next/image";
  * @param image - string, image url
  * @param link - string, link url
  */
-export default function ThoughtCardMinimal({ 
-  title, 
-  publishedAt, 
-  image, 
-  link
+export default function ThoughtCardMinimal({
+  title,
+  publishedAt,
+  image,
+  link,
 }: {
-  title: string; 
-  publishedAt: string; 
-  image: string; 
+  title: string;
+  publishedAt: string;
+  image: string;
   link: string;
 }) {
   return (
     <Link href={link} className="block group">
-      <motion.article 
+      <motion.article
         className="w-full"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ 
+        transition={{
           duration: 0.6,
-          ease: "easeOut"
+          ease: "easeOut",
         }}
         viewport={{ once: true }}
       >
@@ -44,25 +44,25 @@ export default function ThoughtCardMinimal({
             sizes="(max-width: 810px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
-        
+
         {/* Content */}
         <div className="px-5 py-3 l:px-10 l:py-5 m:px-10 m:py-5">
           {/* Published Date */}
           <motion.p
             className="text-16-s m:text-16-m l:text-16-l uppercase tracking-wider mb-4"
-            style={{ 
-              color: 'var(--color-black-40)',
-              fontWeight: 'var(--font-weight-regular)',
-              lineHeight: '1.6em',
-              letterSpacing: '0.1em',
-              marginBottom: '16px'
+            style={{
+              color: "var(--color-black-40)",
+              fontWeight: "var(--font-weight-regular)",
+              lineHeight: "1.6em",
+              letterSpacing: "0.1em",
+              marginBottom: "16px",
             }}
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
+            transition={{
               duration: 0.5,
               delay: 0.1,
-              ease: "easeOut"
+              ease: "easeOut",
             }}
             viewport={{ once: true }}
           >
@@ -72,19 +72,19 @@ export default function ThoughtCardMinimal({
           {/* Title */}
           <motion.h6
             className="text-h6-s m:text-h6-m l:text-h6-l group-hover:text-black-60 transition-colors duration-300"
-            style={{ 
-              color: 'var(--color-black-80)',
-              fontWeight: 'var(--font-weight-bold)',
-              lineHeight: '1.4em',
-              letterSpacing: '-0.03em',
-              marginBottom: '0'
+            style={{
+              color: "var(--color-black-80)",
+              fontWeight: "var(--font-weight-bold)",
+              lineHeight: "1.4em",
+              letterSpacing: "-0.03em",
+              marginBottom: "0",
             }}
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ 
+            transition={{
               duration: 0.5,
               delay: 0.2,
-              ease: "easeOut"
+              ease: "easeOut",
             }}
             viewport={{ once: true }}
           >

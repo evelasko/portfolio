@@ -15,10 +15,10 @@ export class FrontmatterValidationError extends Error {
     public slug: string,
     public locale: string,
     public contentType: ContentType,
-    public zodError: ZodError,
+    public zodError: ZodError
   ) {
     super(
-      `Frontmatter validation failed for ${contentType} "${slug}" (${locale}):\n${zodError.message}`,
+      `Frontmatter validation failed for ${contentType} "${slug}" (${locale}):\n${zodError.message}`
     );
     this.name = "FrontmatterValidationError";
   }
@@ -30,7 +30,7 @@ export class FrontmatterValidationError extends Error {
 export function validateArticleFrontmatter(
   data: unknown,
   slug: string,
-  locale: string,
+  locale: string
 ): ArticleFrontmatter {
   try {
     return ArticleFrontmatterSchema.parse(data);
@@ -48,7 +48,7 @@ export function validateArticleFrontmatter(
 export function validateWorkFrontmatter(
   data: unknown,
   slug: string,
-  locale: string,
+  locale: string
 ): WorkFrontmatter {
   try {
     return WorkFrontmatterSchema.parse(data);
@@ -66,8 +66,10 @@ export function validateWorkFrontmatter(
 export function safeValidateArticleFrontmatter(
   data: unknown,
   slug: string,
-  locale: string,
-): { success: true; data: ArticleFrontmatter } | { success: false; error: FrontmatterValidationError } {
+  locale: string
+):
+  | { success: true; data: ArticleFrontmatter }
+  | { success: false; error: FrontmatterValidationError } {
   try {
     const validated = validateArticleFrontmatter(data, slug, locale);
     return { success: true, data: validated };
@@ -85,8 +87,10 @@ export function safeValidateArticleFrontmatter(
 export function safeValidateWorkFrontmatter(
   data: unknown,
   slug: string,
-  locale: string,
-): { success: true; data: WorkFrontmatter } | { success: false; error: FrontmatterValidationError } {
+  locale: string
+):
+  | { success: true; data: WorkFrontmatter }
+  | { success: false; error: FrontmatterValidationError } {
   try {
     const validated = validateWorkFrontmatter(data, slug, locale);
     return { success: true, data: validated };

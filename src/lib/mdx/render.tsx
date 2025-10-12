@@ -16,7 +16,7 @@ export async function compileMDXContent<
   T extends ArticleFrontmatter | WorkFrontmatter,
 >(
   source: string,
-  components?: MDXComponents,
+  components?: MDXComponents
 ): Promise<{
   content: React.ReactElement;
 }> {

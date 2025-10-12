@@ -1,9 +1,9 @@
-import React from 'react';
-import ProjectCard from '@/components/cards/ProjectCard';
-import ThoughtCard from '@/components/cards/ThoughtCard';
-import ThoughtCardMinimal from '@/components/cards/ThoughtCardMinimal';
-import { TYPOGRAPHY } from '@/lib/typography';
-import { CodeExample, ComponentSection } from '../utilities';
+import React from "react";
+import ProjectCard from "@/components/cards/ProjectCard";
+import ThoughtCard from "@/components/cards/ThoughtCard";
+import ThoughtCardMinimal from "@/components/cards/ThoughtCardMinimal";
+import { TYPOGRAPHY } from "@/lib/typography";
+import { CodeExample, ComponentSection } from "../utilities";
 
 export default function CardsComponentsDemo() {
   return (
@@ -12,16 +12,16 @@ export default function CardsComponentsDemo() {
       <header className="border-b border-gray-200 pb-8">
         <h1 className={`${TYPOGRAPHY.h1} text-black`}>Cards Showcase</h1>
         <p className={`${TYPOGRAPHY.text18} mt-4`}>
-          Interactive demonstrations of the card components with various configurations.
+          Interactive demonstrations of the card components with various
+          configurations.
         </p>
       </header>
 
       {/* ProjectCard Component */}
       <ComponentSection title="ProjectCard Component">
         <div className="space-y-12">
-          
           {/* Basic Example */}
-          <CodeExample 
+          <CodeExample
             title="Project Card Example"
             code={`<ProjectCard
   overtitle="PHOTOGRAPHY"
@@ -43,7 +43,7 @@ export default function CardsComponentsDemo() {
           </CodeExample>
 
           {/* Multiple Cards Grid */}
-          <CodeExample 
+          <CodeExample
             title="Multiple Project Cards Grid"
             code={`<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
   <ProjectCard
@@ -95,7 +95,7 @@ export default function CardsComponentsDemo() {
           </CodeExample>
 
           {/* Alternative Content */}
-          <CodeExample 
+          <CodeExample
             title="Alternative Project Card"
             code={`<ProjectCard
   overtitle="DEVELOPMENT"
@@ -123,11 +123,21 @@ export default function CardsComponentsDemo() {
               <div>
                 <h5 className="font-semibold text-sm mb-2">Props:</h5>
                 <ul className="text-sm space-y-1 font-mono">
-                  <li><strong>overtitle:</strong> string</li>
-                  <li><strong>title:</strong> string</li>
-                  <li><strong>subtitle:</strong> string</li>
-                  <li><strong>image:</strong> string</li>
-                  <li><strong>link:</strong> string</li>
+                  <li>
+                    <strong>overtitle:</strong> string
+                  </li>
+                  <li>
+                    <strong>title:</strong> string
+                  </li>
+                  <li>
+                    <strong>subtitle:</strong> string
+                  </li>
+                  <li>
+                    <strong>image:</strong> string
+                  </li>
+                  <li>
+                    <strong>link:</strong> string
+                  </li>
                 </ul>
               </div>
               <div>
@@ -148,12 +158,25 @@ export default function CardsComponentsDemo() {
           <div className="bg-gray-50 p-6 rounded-lg">
             <h4 className={`${TYPOGRAPHY.h5} mb-4`}>Animation Details</h4>
             <div className="space-y-3 text-sm">
-              <div><strong>Hover Effect:</strong> Scale 1.02x with smooth easing</div>
-              <div><strong>Content Animation:</strong> Fade in from bottom with staggered delays</div>
-              <div><strong>Overtitle:</strong> 0.1s delay, ease-out transition</div>
-              <div><strong>Title:</strong> 0.2s delay, ease-out transition</div>
-              <div><strong>Subtitle:</strong> 0.3s delay, ease-out transition</div>
-              <div><strong>Overlay:</strong> Background opacity changes on hover</div>
+              <div>
+                <strong>Hover Effect:</strong> Scale 1.02x with smooth easing
+              </div>
+              <div>
+                <strong>Content Animation:</strong> Fade in from bottom with
+                staggered delays
+              </div>
+              <div>
+                <strong>Overtitle:</strong> 0.1s delay, ease-out transition
+              </div>
+              <div>
+                <strong>Title:</strong> 0.2s delay, ease-out transition
+              </div>
+              <div>
+                <strong>Subtitle:</strong> 0.3s delay, ease-out transition
+              </div>
+              <div>
+                <strong>Overlay:</strong> Background opacity changes on hover
+              </div>
             </div>
           </div>
 
@@ -161,9 +184,18 @@ export default function CardsComponentsDemo() {
           <div className="bg-gray-50 p-6 rounded-lg">
             <h4 className={`${TYPOGRAPHY.h5} mb-4`}>Typography Classes Used</h4>
             <div className="space-y-2 text-sm font-mono">
-              <div><strong>overtitle:</strong> mono-16-s m:mono-16-m l:mono-16-l (white-98, uppercase)</div>
-              <div><strong>title:</strong> text-h4-s m:text-h4-m l:text-h4-l (white-100)</div>
-              <div><strong>subtitle:</strong> text-16-s m:text-16-m l:text-16-l (white-98)</div>
+              <div>
+                <strong>overtitle:</strong> mono-16-s m:mono-16-m l:mono-16-l
+                (white-98, uppercase)
+              </div>
+              <div>
+                <strong>title:</strong> text-h4-s m:text-h4-m l:text-h4-l
+                (white-100)
+              </div>
+              <div>
+                <strong>subtitle:</strong> text-16-s m:text-16-m l:text-16-l
+                (white-98)
+              </div>
             </div>
           </div>
 
@@ -171,11 +203,23 @@ export default function CardsComponentsDemo() {
           <div className="bg-gray-50 p-6 rounded-lg">
             <h4 className={`${TYPOGRAPHY.h5} mb-4`}>Responsive Behavior</h4>
             <div className="space-y-2 text-sm">
-              <div><strong>Desktop (L):</strong> 40px padding, largest text sizes</div>
-              <div><strong>Tablet (M):</strong> 40px padding, medium text sizes</div>
-              <div><strong>Mobile (S):</strong> 20px padding, smallest text sizes</div>
-              <div><strong>Images:</strong> Responsive sizes with Next.js optimization</div>
-              <div><strong>Layout:</strong> Maintains 4:3 aspect ratio across all devices</div>
+              <div>
+                <strong>Desktop (L):</strong> 40px padding, largest text sizes
+              </div>
+              <div>
+                <strong>Tablet (M):</strong> 40px padding, medium text sizes
+              </div>
+              <div>
+                <strong>Mobile (S):</strong> 20px padding, smallest text sizes
+              </div>
+              <div>
+                <strong>Images:</strong> Responsive sizes with Next.js
+                optimization
+              </div>
+              <div>
+                <strong>Layout:</strong> Maintains 4:3 aspect ratio across all
+                devices
+              </div>
             </div>
           </div>
         </div>
@@ -184,9 +228,8 @@ export default function CardsComponentsDemo() {
       {/* ThoughtCard Component */}
       <ComponentSection title="ThoughtCard Component">
         <div className="space-y-12">
-          
           {/* Basic Example */}
-          <CodeExample 
+          <CodeExample
             title="Thought Card Example"
             code={`<ThoughtCard
   title="Making of Stellar Odyssey"
@@ -208,7 +251,7 @@ export default function CardsComponentsDemo() {
           </CodeExample>
 
           {/* Multiple Cards Grid */}
-          <CodeExample 
+          <CodeExample
             title="Multiple Thought Cards Grid"
             code={`<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
   <ThoughtCard
@@ -260,7 +303,7 @@ export default function CardsComponentsDemo() {
           </CodeExample>
 
           {/* Alternative Format */}
-          <CodeExample 
+          <CodeExample
             title="Alternative Date Format"
             code={`<ThoughtCard
   title="The Art of Minimalist Design"
@@ -288,11 +331,21 @@ export default function CardsComponentsDemo() {
               <div>
                 <h5 className="font-semibold text-sm mb-2">Props:</h5>
                 <ul className="text-sm space-y-1 font-mono">
-                  <li><strong>title:</strong> string</li>
-                  <li><strong>publishedAt:</strong> string</li>
-                  <li><strong>readingTime:</strong> number</li>
-                  <li><strong>image:</strong> string</li>
-                  <li><strong>link:</strong> string</li>
+                  <li>
+                    <strong>title:</strong> string
+                  </li>
+                  <li>
+                    <strong>publishedAt:</strong> string
+                  </li>
+                  <li>
+                    <strong>readingTime:</strong> number
+                  </li>
+                  <li>
+                    <strong>image:</strong> string
+                  </li>
+                  <li>
+                    <strong>link:</strong> string
+                  </li>
                 </ul>
               </div>
               <div>
@@ -313,12 +366,27 @@ export default function CardsComponentsDemo() {
           <div className="bg-gray-50 p-6 rounded-lg">
             <h4 className={`${TYPOGRAPHY.h5} mb-4`}>Animation Details</h4>
             <div className="space-y-3 text-sm">
-              <div><strong>Hover Effect:</strong> Lift up by 4px with shadow enhancement</div>
-              <div><strong>Image Animation:</strong> Scale 1.05x on hover with smooth transition</div>
-              <div><strong>Content Animation:</strong> Fade in from bottom</div>
-              <div><strong>Title:</strong> Immediate animation on scroll into view</div>
-              <div><strong>Metadata:</strong> 0.1s delay for staggered effect</div>
-              <div><strong>Card Shadow:</strong> Transitions from subtle to medium on hover</div>
+              <div>
+                <strong>Hover Effect:</strong> Lift up by 4px with shadow
+                enhancement
+              </div>
+              <div>
+                <strong>Image Animation:</strong> Scale 1.05x on hover with
+                smooth transition
+              </div>
+              <div>
+                <strong>Content Animation:</strong> Fade in from bottom
+              </div>
+              <div>
+                <strong>Title:</strong> Immediate animation on scroll into view
+              </div>
+              <div>
+                <strong>Metadata:</strong> 0.1s delay for staggered effect
+              </div>
+              <div>
+                <strong>Card Shadow:</strong> Transitions from subtle to medium
+                on hover
+              </div>
             </div>
           </div>
 
@@ -326,9 +394,18 @@ export default function CardsComponentsDemo() {
           <div className="bg-gray-50 p-6 rounded-lg">
             <h4 className={`${TYPOGRAPHY.h5} mb-4`}>Typography Classes Used</h4>
             <div className="space-y-2 text-sm font-mono">
-              <div><strong>title:</strong> text-h6-s m:text-h6-m l:text-h6-l (black-80)</div>
-              <div><strong>labels:</strong> text-16-s m:text-16-m l:text-16-l (black-40)</div>
-              <div><strong>values:</strong> text-16-s m:text-16-m l:text-16-l (black-90)</div>
+              <div>
+                <strong>title:</strong> text-h6-s m:text-h6-m l:text-h6-l
+                (black-80)
+              </div>
+              <div>
+                <strong>labels:</strong> text-16-s m:text-16-m l:text-16-l
+                (black-40)
+              </div>
+              <div>
+                <strong>values:</strong> text-16-s m:text-16-m l:text-16-l
+                (black-90)
+              </div>
             </div>
           </div>
 
@@ -336,11 +413,26 @@ export default function CardsComponentsDemo() {
           <div className="bg-gray-50 p-6 rounded-lg">
             <h4 className={`${TYPOGRAPHY.h5} mb-4`}>Responsive Behavior</h4>
             <div className="space-y-2 text-sm">
-              <div><strong>Desktop (L):</strong> 40px horizontal, 20px vertical padding</div>
-              <div><strong>Tablet (M):</strong> 40px horizontal, 20px vertical padding</div>
-              <div><strong>Mobile (S):</strong> 20px horizontal, 10px vertical padding</div>
-              <div><strong>Metadata Layout:</strong> Stacked on mobile, horizontal on desktop</div>
-              <div><strong>Images:</strong> Maintains 16:9 aspect ratio across all devices</div>
+              <div>
+                <strong>Desktop (L):</strong> 40px horizontal, 20px vertical
+                padding
+              </div>
+              <div>
+                <strong>Tablet (M):</strong> 40px horizontal, 20px vertical
+                padding
+              </div>
+              <div>
+                <strong>Mobile (S):</strong> 20px horizontal, 10px vertical
+                padding
+              </div>
+              <div>
+                <strong>Metadata Layout:</strong> Stacked on mobile, horizontal
+                on desktop
+              </div>
+              <div>
+                <strong>Images:</strong> Maintains 16:9 aspect ratio across all
+                devices
+              </div>
             </div>
           </div>
         </div>
@@ -349,9 +441,8 @@ export default function CardsComponentsDemo() {
       {/* ThoughtCardMinimal Component */}
       <ComponentSection title="ThoughtCardMinimal Component">
         <div className="space-y-12">
-          
           {/* Basic Example */}
-          <CodeExample 
+          <CodeExample
             title="Minimal Thought Card Example"
             code={`<ThoughtCardMinimal
   title="Visualizing the Future: Crafting 'Last Journey to Mars'"
@@ -371,7 +462,7 @@ export default function CardsComponentsDemo() {
           </CodeExample>
 
           {/* Multiple Cards Grid */}
-          <CodeExample 
+          <CodeExample
             title="Multiple Minimal Cards Grid"
             code={`<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
   <ThoughtCardMinimal
@@ -417,7 +508,7 @@ export default function CardsComponentsDemo() {
           </CodeExample>
 
           {/* Alternative Format */}
-          <CodeExample 
+          <CodeExample
             title="Alternative Date Format"
             code={`<ThoughtCardMinimal
   title="Minimalism in Modern Web Design"
@@ -438,15 +529,25 @@ export default function CardsComponentsDemo() {
 
           {/* Component Properties */}
           <div className="bg-blue-50 p-6 rounded-lg">
-            <h4 className={`${TYPOGRAPHY.h5} mb-4`}>ThoughtCardMinimal Properties</h4>
+            <h4 className={`${TYPOGRAPHY.h5} mb-4`}>
+              ThoughtCardMinimal Properties
+            </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <h5 className="font-semibold text-sm mb-2">Props:</h5>
                 <ul className="text-sm space-y-1 font-mono">
-                  <li><strong>title:</strong> string</li>
-                  <li><strong>publishedAt:</strong> string</li>
-                  <li><strong>image:</strong> string</li>
-                  <li><strong>link:</strong> string</li>
+                  <li>
+                    <strong>title:</strong> string
+                  </li>
+                  <li>
+                    <strong>publishedAt:</strong> string
+                  </li>
+                  <li>
+                    <strong>image:</strong> string
+                  </li>
+                  <li>
+                    <strong>link:</strong> string
+                  </li>
                 </ul>
               </div>
               <div>
@@ -467,12 +568,27 @@ export default function CardsComponentsDemo() {
           <div className="bg-gray-50 p-6 rounded-lg">
             <h4 className={`${TYPOGRAPHY.h5} mb-4`}>Animation Details</h4>
             <div className="space-y-3 text-sm">
-              <div><strong>Entry Animation:</strong> Fade in from bottom with 20px offset</div>
-              <div><strong>Image Hover:</strong> Scale 1.05x with smooth transition</div>
-              <div><strong>Content Animation:</strong> Staggered fade in for date and title</div>
-              <div><strong>Date:</strong> 0.1s delay, ease-out transition</div>
-              <div><strong>Title:</strong> 0.2s delay with color change on hover</div>
-              <div><strong>Duration:</strong> 0.5-0.6s for smooth, professional feel</div>
+              <div>
+                <strong>Entry Animation:</strong> Fade in from bottom with 20px
+                offset
+              </div>
+              <div>
+                <strong>Image Hover:</strong> Scale 1.05x with smooth transition
+              </div>
+              <div>
+                <strong>Content Animation:</strong> Staggered fade in for date
+                and title
+              </div>
+              <div>
+                <strong>Date:</strong> 0.1s delay, ease-out transition
+              </div>
+              <div>
+                <strong>Title:</strong> 0.2s delay with color change on hover
+              </div>
+              <div>
+                <strong>Duration:</strong> 0.5-0.6s for smooth, professional
+                feel
+              </div>
             </div>
           </div>
 
@@ -480,8 +596,14 @@ export default function CardsComponentsDemo() {
           <div className="bg-gray-50 p-6 rounded-lg">
             <h4 className={`${TYPOGRAPHY.h5} mb-4`}>Typography Classes Used</h4>
             <div className="space-y-2 text-sm font-mono">
-              <div><strong>title:</strong> text-h6-s m:text-h6-m l:text-h6-l (black-80)</div>
-              <div><strong>publishedAt:</strong> text-16-s m:text-16-m l:text-16-l (black-40, uppercase)</div>
+              <div>
+                <strong>title:</strong> text-h6-s m:text-h6-m l:text-h6-l
+                (black-80)
+              </div>
+              <div>
+                <strong>publishedAt:</strong> text-16-s m:text-16-m l:text-16-l
+                (black-40, uppercase)
+              </div>
             </div>
           </div>
 
@@ -489,11 +611,26 @@ export default function CardsComponentsDemo() {
           <div className="bg-gray-50 p-6 rounded-lg">
             <h4 className={`${TYPOGRAPHY.h5} mb-4`}>Responsive Behavior</h4>
             <div className="space-y-2 text-sm">
-              <div><strong>Desktop (L):</strong> 40px horizontal, 20px vertical padding</div>
-              <div><strong>Tablet (M):</strong> 40px horizontal, 20px vertical padding</div>
-              <div><strong>Mobile (S):</strong> 20px horizontal, 10px vertical padding</div>
-              <div><strong>Layout:</strong> Maintains vertical stack across all devices</div>
-              <div><strong>Images:</strong> Maintains 16:9 aspect ratio with rounded corners</div>
+              <div>
+                <strong>Desktop (L):</strong> 40px horizontal, 20px vertical
+                padding
+              </div>
+              <div>
+                <strong>Tablet (M):</strong> 40px horizontal, 20px vertical
+                padding
+              </div>
+              <div>
+                <strong>Mobile (S):</strong> 20px horizontal, 10px vertical
+                padding
+              </div>
+              <div>
+                <strong>Layout:</strong> Maintains vertical stack across all
+                devices
+              </div>
+              <div>
+                <strong>Images:</strong> Maintains 16:9 aspect ratio with
+                rounded corners
+              </div>
             </div>
           </div>
 
@@ -501,11 +638,25 @@ export default function CardsComponentsDemo() {
           <div className="bg-yellow-50 p-6 rounded-lg">
             <h4 className={`${TYPOGRAPHY.h5} mb-4`}>vs. Regular ThoughtCard</h4>
             <div className="space-y-2 text-sm">
-              <div><strong>Background:</strong> No card background vs. white card background</div>
-              <div><strong>Content:</strong> Only date and title vs. date, title, and reading time</div>
-              <div><strong>Labels:</strong> No &quot;Published&quot; label vs. explicit labels</div>
-              <div><strong>Layout:</strong> Simpler, more minimal approach</div>
-              <div><strong>Use Case:</strong> Better for galleries and minimalist layouts</div>
+              <div>
+                <strong>Background:</strong> No card background vs. white card
+                background
+              </div>
+              <div>
+                <strong>Content:</strong> Only date and title vs. date, title,
+                and reading time
+              </div>
+              <div>
+                <strong>Labels:</strong> No &quot;Published&quot; label vs.
+                explicit labels
+              </div>
+              <div>
+                <strong>Layout:</strong> Simpler, more minimal approach
+              </div>
+              <div>
+                <strong>Use Case:</strong> Better for galleries and minimalist
+                layouts
+              </div>
             </div>
           </div>
         </div>
@@ -517,26 +668,68 @@ export default function CardsComponentsDemo() {
           <div>
             <h4 className={`${TYPOGRAPHY.h5} mb-3`}>Import Components</h4>
             <div className="bg-gray-900 p-4 rounded font-mono text-sm text-green-400">
-              <div>import ProjectCard from &apos;@/components/cards/ProjectCard&apos;;</div>
-              <div>import ThoughtCard from &apos;@/components/cards/ThoughtCard&apos;;</div>
-              <div>import ThoughtCardMinimal from &apos;@/components/cards/ThoughtCardMinimal&apos;;</div>
+              <div>
+                import ProjectCard from
+                &apos;@/components/cards/ProjectCard&apos;;
+              </div>
+              <div>
+                import ThoughtCard from
+                &apos;@/components/cards/ThoughtCard&apos;;
+              </div>
+              <div>
+                import ThoughtCardMinimal from
+                &apos;@/components/cards/ThoughtCardMinimal&apos;;
+              </div>
             </div>
           </div>
-          
+
           <div>
             <h4 className={`${TYPOGRAPHY.h5} mb-3`}>Best Practices</h4>
             <ul className={`${TYPOGRAPHY.text16} space-y-2`}>
-              <li>• <strong>ProjectCard Images:</strong> Use high-quality images with 4:3 aspect ratio for best results</li>
-              <li>• <strong>ThoughtCard Images:</strong> Use 16:9 aspect ratio images for blog-style layout</li>
-              <li>• <strong>ProjectCard Content:</strong> Keep overtitle short, title compelling, subtitle descriptive</li>
-              <li>• <strong>ThoughtCard Content:</strong> Use clear titles and consistent date formatting</li>
-              <li>• <strong>ThoughtCardMinimal:</strong> Perfect for gallery layouts and minimal design approaches</li>
-              <li>• <strong>Reading Time:</strong> Calculate accurately for better user expectations</li>
-              <li>• <strong>Links:</strong> Ensure all href props point to valid project/article pages</li>
-              <li>• <strong>Grid Layout:</strong> Use CSS Grid or Flexbox for responsive card grids</li>
-              <li>• <strong>Content:</strong> Keep text concise as space is limited on smaller screens</li>
-              <li>• <strong>Accessibility:</strong> Images include proper alt text for screen readers</li>
-              <li>• <strong>Consistency:</strong> Use consistent date formats across all cards</li>
+              <li>
+                • <strong>ProjectCard Images:</strong> Use high-quality images
+                with 4:3 aspect ratio for best results
+              </li>
+              <li>
+                • <strong>ThoughtCard Images:</strong> Use 16:9 aspect ratio
+                images for blog-style layout
+              </li>
+              <li>
+                • <strong>ProjectCard Content:</strong> Keep overtitle short,
+                title compelling, subtitle descriptive
+              </li>
+              <li>
+                • <strong>ThoughtCard Content:</strong> Use clear titles and
+                consistent date formatting
+              </li>
+              <li>
+                • <strong>ThoughtCardMinimal:</strong> Perfect for gallery
+                layouts and minimal design approaches
+              </li>
+              <li>
+                • <strong>Reading Time:</strong> Calculate accurately for better
+                user expectations
+              </li>
+              <li>
+                • <strong>Links:</strong> Ensure all href props point to valid
+                project/article pages
+              </li>
+              <li>
+                • <strong>Grid Layout:</strong> Use CSS Grid or Flexbox for
+                responsive card grids
+              </li>
+              <li>
+                • <strong>Content:</strong> Keep text concise as space is
+                limited on smaller screens
+              </li>
+              <li>
+                • <strong>Accessibility:</strong> Images include proper alt text
+                for screen readers
+              </li>
+              <li>
+                • <strong>Consistency:</strong> Use consistent date formats
+                across all cards
+              </li>
             </ul>
           </div>
         </div>

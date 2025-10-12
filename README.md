@@ -403,7 +403,7 @@ A list item component for displaying client testimonials.
   Get In Touch
 </PortfolioButton>
 
-<ProjectCard 
+<ProjectCard
   overtitle="Web Design"
   title="Portfolio Website"
   subtitle="A modern portfolio showcasing creative work"

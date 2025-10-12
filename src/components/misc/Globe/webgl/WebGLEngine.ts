@@ -1,38 +1,39 @@
-'use client';
-import type { 
-  WebGLEngineConfig, 
-  UniformMap, 
+"use client";
+import type {
+  WebGLEngineConfig,
+  UniformMap,
   WebGLUniform,
   UniformValue,
   GlobeWebGLShader,
-  WebGLShaderConfig
-} from '../types/globe.types';
-import { createUniformMap } from './utils/uniformMapping';
-import { GlobeWebGLShader as ShaderClass } from './WebGLShader';
-import { 
-  calculateProjectionMatrix, 
-  calculateModelMatrix, 
-  createViewMatrix 
-} from './utils/sphereUtils';
+  WebGLShaderConfig,
+} from "../types/globe.types";
+import { createUniformMap } from "./utils/uniformMapping";
+import { GlobeWebGLShader as ShaderClass } from "./WebGLShader";
+import {
+  calculateProjectionMatrix,
+  calculateModelMatrix,
+  createViewMatrix,
+} from "./utils/sphereUtils";
 
 /**
  * Deep clone function that preserves typed arrays like Float32Array
  */
 function deepCloneUniforms(uniforms: UniformMap): UniformMap {
   const cloned: UniformMap = {};
-  
+
   for (const [key, uniform] of Object.entries(uniforms)) {
     cloned[key] = {
       type: uniform.type,
-      value: uniform.value instanceof Float32Array 
-        ? new Float32Array(uniform.value)
-        : Array.isArray(uniform.value)
-        ? [...uniform.value]
-        : uniform.value,
-      location: uniform.location
+      value:
+        uniform.value instanceof Float32Array
+          ? new Float32Array(uniform.value)
+          : Array.isArray(uniform.value)
+            ? [...uniform.value]
+            : uniform.value,
+      location: uniform.location,
     };
   }
-  
+
   return cloned;
 }
 
@@ -58,19 +59,22 @@ export class WebGLEngine {
 
   constructor(config: WebGLEngineConfig) {
     this.canvas = config.canvas;
-    
+
     // Get WebGL context
-    const contextType = config.contextType ?? 'webgl';
+    const contextType = config.contextType ?? "webgl";
     const contextAttributes = {
       alpha: false,
       antialias: false,
-      ...config.context
+      ...config.context,
     };
 
-    const gl = this.canvas.getContext(contextType, contextAttributes) as WebGLRenderingContext | null;
-    
+    const gl = this.canvas.getContext(
+      contextType,
+      contextAttributes
+    ) as WebGLRenderingContext | null;
+
     if (!gl) {
-      throw new Error('WebGL not supported or failed to create context');
+      throw new Error("WebGL not supported or failed to create context");
     }
 
     this.gl = gl;
@@ -123,8 +127,8 @@ export class WebGLEngine {
    * Sets up automatic resize handling
    */
   private setupResizeHandler(): void {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', () => this.resize());
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", () => this.resize());
     }
   }
 
@@ -147,24 +151,29 @@ export class WebGLEngine {
 
     // Calculate matrices
     const fieldOfView = 45; // degrees
-    const projectionMatrix = calculateProjectionMatrix(aspectRatio, fieldOfView, clip[0], clip[1]);
+    const projectionMatrix = calculateProjectionMatrix(
+      aspectRatio,
+      fieldOfView,
+      clip[0],
+      clip[1]
+    );
     const modelMatrix = calculateModelMatrix(position, aspectRatio);
     const viewMatrix = createViewMatrix();
 
     // Update engine uniforms
     this.uniforms.uProjectionMatrix = {
-      type: 'mat4',
-      value: projectionMatrix
+      type: "mat4",
+      value: projectionMatrix,
     };
 
     this.uniforms.uModelMatrix = {
-      type: 'mat4',
-      value: modelMatrix
+      type: "mat4",
+      value: modelMatrix,
     };
 
     this.uniforms.uViewMatrix = {
-      type: 'mat4',
-      value: viewMatrix
+      type: "mat4",
+      value: viewMatrix,
     };
   }
 
@@ -172,11 +181,12 @@ export class WebGLEngine {
    * Toggles rendering on/off
    */
   public toggle(shouldRender?: boolean): void {
-    const newState = shouldRender !== undefined ? shouldRender : !this.shouldRender;
-    
+    const newState =
+      shouldRender !== undefined ? shouldRender : !this.shouldRender;
+
     if (newState !== this.shouldRender) {
       this.shouldRender = newState;
-      
+
       if (this.shouldRender) {
         this.render();
       } else if (this.animationFrameId) {
@@ -212,18 +222,23 @@ export class WebGLEngine {
   /**
    * Adds a new shader instance to the engine
    */
-  public add(name: string, config: Omit<WebGLShaderConfig, 'gl' | 'uniforms'> & { uniforms?: UniformMap }): GlobeWebGLShader {
+  public add(
+    name: string,
+    config: Omit<WebGLShaderConfig, "gl" | "uniforms"> & {
+      uniforms?: UniformMap;
+    }
+  ): GlobeWebGLShader {
     // Properly clone engine uniforms preserving typed arrays
     const shaderUniforms = {
       ...deepCloneUniforms(this.uniforms),
-      ...config.uniforms
+      ...config.uniforms,
     };
 
     // Create shader configuration
     const shaderConfig: WebGLShaderConfig = {
       ...config,
       gl: this.gl,
-      uniforms: shaderUniforms
+      uniforms: shaderUniforms,
     };
 
     // Create and store shader instance
@@ -273,7 +288,7 @@ export class WebGLEngine {
   public getSize(): { width: number; height: number } {
     return {
       width: this.canvas.width,
-      height: this.canvas.height
+      height: this.canvas.height,
     };
   }
 
@@ -298,8 +313,8 @@ export class WebGLEngine {
     this.instances.clear();
 
     // Remove resize listener
-    if (typeof window !== 'undefined') {
-      window.removeEventListener('resize', () => this.resize());
+    if (typeof window !== "undefined") {
+      window.removeEventListener("resize", () => this.resize());
     }
 
     // Clear uniforms
