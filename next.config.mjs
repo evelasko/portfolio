@@ -16,6 +16,9 @@ const nextConfig = {
     "/[locale]/works/[slug]": ["./src/content/works/**/*"],
     "/[locale]/articles": ["./src/content/articles/**/*"],
     "/[locale]/works": ["./src/content/works/**/*"],
+    "/[locale]/(legal)/privacy": ["./src/content/legal/**/*"],
+    "/[locale]/(legal)/terms": ["./src/content/legal/**/*"],
+    "/[locale]/(legal)/imprint": ["./src/content/legal/**/*"],
   },
   async headers() {
     return [

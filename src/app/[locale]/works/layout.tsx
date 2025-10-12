@@ -11,12 +11,11 @@ export default function WorksPageLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const heroRef = useRef<HTMLDivElement>(null);
   const { setHeroRef, setShowNavBar, setShowFooter, setFooterVariant } =
     useLayout();
 
   useEffect(() => {
-    setHeroRef(heroRef);
+    setHeroRef(null); // No hero section: disable logo hiding on scroll
     setShowNavBar(true);
     setShowFooter(true);
     setFooterVariant("simple");

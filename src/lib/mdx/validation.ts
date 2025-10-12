@@ -2,8 +2,10 @@ import { ZodError } from "zod";
 import {
   ArticleFrontmatterSchema,
   WorkFrontmatterSchema,
+  LegalFrontmatterSchema,
   type ArticleFrontmatter,
   type WorkFrontmatter,
+  type LegalFrontmatter,
   type ContentType,
 } from "./types";
 
@@ -93,6 +95,45 @@ export function safeValidateWorkFrontmatter(
   | { success: false; error: FrontmatterValidationError } {
   try {
     const validated = validateWorkFrontmatter(data, slug, locale);
+    return { success: true, data: validated };
+  } catch (error) {
+    if (error instanceof FrontmatterValidationError) {
+      return { success: false, error };
+    }
+    throw error;
+  }
+}
+
+/**
+ * Validate legal frontmatter
+ */
+export function validateLegalFrontmatter(
+  data: unknown,
+  slug: string,
+  locale: string
+): LegalFrontmatter {
+  try {
+    return LegalFrontmatterSchema.parse(data);
+  } catch (error) {
+    if (error instanceof ZodError) {
+      throw new FrontmatterValidationError(slug, locale, "legal", error);
+    }
+    throw error;
+  }
+}
+
+/**
+ * Safe validation for legal frontmatter
+ */
+export function safeValidateLegalFrontmatter(
+  data: unknown,
+  slug: string,
+  locale: string
+):
+  | { success: true; data: LegalFrontmatter }
+  | { success: false; error: FrontmatterValidationError } {
+  try {
+    const validated = validateLegalFrontmatter(data, slug, locale);
     return { success: true, data: validated };
   } catch (error) {
     if (error instanceof FrontmatterValidationError) {

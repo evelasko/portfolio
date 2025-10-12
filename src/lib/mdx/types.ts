@@ -59,9 +59,25 @@ export type WorkFrontmatter = z.infer<typeof WorkFrontmatterSchema>;
 export type ContentFrontmatter = ArticleFrontmatter | WorkFrontmatter;
 
 /**
+ * Legal-specific frontmatter schema
+ */
+export const LegalFrontmatterSchema = z.object({
+  contentType: z.literal("legal").default("legal"),
+  title: z.string(),
+  description: z.string(),
+  updatedAt: z.string(),
+  author: z.string().default("Enrique Velasco"),
+  seo: SEOMetadataSchema.optional(),
+  alternateLocales: z.record(z.string(), z.string()).optional(),
+});
+
+// Legal frontmatter TypeScript type
+export type LegalFrontmatter = z.infer<typeof LegalFrontmatterSchema>;
+
+/**
  * Content type discriminator
  */
-export type ContentType = "article" | "work";
+export type ContentType = "article" | "work" | "legal";
 
 /**
  * MDX content with metadata

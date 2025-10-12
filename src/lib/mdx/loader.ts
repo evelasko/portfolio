@@ -6,10 +6,12 @@ import { notFound } from "next/navigation";
 import {
   validateArticleFrontmatter,
   validateWorkFrontmatter,
+  validateLegalFrontmatter,
 } from "./validation";
 import type {
   ArticleFrontmatter,
   WorkFrontmatter,
+  LegalFrontmatter,
   ContentListItem,
   ContentCategory,
   ContentType,
@@ -19,12 +21,12 @@ import type {
  * Get the content directory path
  */
 function getContentDir(contentType: ContentType): string {
-  return path.join(
-    process.cwd(),
-    "src",
-    "content",
-    contentType === "article" ? "articles" : "works"
-  );
+  const dirMap = {
+    article: "articles",
+    work: "works",
+    legal: "legal",
+  };
+  return path.join(process.cwd(), "src", "content", dirMap[contentType]);
 }
 
 /**
@@ -387,6 +389,37 @@ export async function getContentCategories(
 }
 
 /**
+ * Get raw legal data (frontmatter + content)
+ */
+export async function getLegalData(
+  locale: string,
+  slug: string
+): Promise<{
+  slug: string;
+  locale: string;
+  frontmatter: LegalFrontmatter;
+  content: string;
+}> {
+  const exists = await contentExists("legal", locale, slug);
+  if (!exists) {
+    notFound();
+  }
+
+  const filePath = getContentPath("legal", locale, slug);
+  const { content, data } = await readMDXFile(filePath);
+
+  // Validate frontmatter
+  const frontmatter = validateLegalFrontmatter(data, slug, locale);
+
+  return {
+    slug,
+    locale,
+    frontmatter,
+    content,
+  };
+}
+
+/**
  * Get alternate locale slug for content
  */
 export async function getAlternateLocaleSlug(
@@ -396,10 +429,14 @@ export async function getAlternateLocaleSlug(
   targetLocale: string
 ): Promise<string | null> {
   try {
-    const data =
-      contentType === "article"
-        ? await getArticleData(currentLocale, currentSlug)
-        : await getWorkData(currentLocale, currentSlug);
+    let data;
+    if (contentType === "article") {
+      data = await getArticleData(currentLocale, currentSlug);
+    } else if (contentType === "work") {
+      data = await getWorkData(currentLocale, currentSlug);
+    } else {
+      data = await getLegalData(currentLocale, currentSlug);
+    }
 
     return data.frontmatter.alternateLocales?.[targetLocale] || null;
   } catch {

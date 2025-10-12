@@ -1,16 +1,17 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { useLayout } from "@/contexts/LayoutContext";
+import { useEffect } from "react";
+
+interface LegalPageLayoutProps {
+  children: React.ReactNode;
+}
 
 /**
- * Client component wrapper for articles listing page layout configuration
+ * Client component wrapper for legal pages
+ * Manages layout context (NavBar, Footer settings)
  */
-export default function ArticlesPageLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function LegalPageLayout({ children }: LegalPageLayoutProps) {
   const { setHeroRef, setShowNavBar, setShowFooter, setFooterVariant } =
     useLayout();
 
