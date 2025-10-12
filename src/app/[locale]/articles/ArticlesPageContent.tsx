@@ -1,13 +1,14 @@
 import { TYPOGRAPHY } from "@/lib/typography";
-import { Link } from "@/i18n/navigation";
 import clsx from "clsx";
-import dayjs from "dayjs";
 import type { ContentListItem, ArticleFrontmatter } from "@/lib/mdx";
+import ImageCard from "@/components/cards/ImageCard";
 
 interface ArticlesPageContentProps {
   articles: ContentListItem<ArticleFrontmatter>[];
   locale: string;
 }
+
+const ARTICLE_PLACEHOLDER = "/assets/placeholders/article-placeholder.jpg";
 
 /**
  * Server component for articles listing page content
@@ -69,100 +70,19 @@ export function ArticlesPageContent({
                   {/* Articles Grid */}
                   <div className="grid grid-cols-1 m:grid-cols-2 l:grid-cols-3 gap-8">
                     {articlesByCategory[category].map(article => (
-                      <Link
+                      <ImageCard
                         key={article.slug}
-                        href={`/articles/${article.slug}`}
-                        className="group block"
-                      >
-                        {/* Card */}
-                        <article className="h-full flex flex-col">
-                          {/* Cover Image */}
-                          {article.frontmatter.coverImage && (
-                            <div className="mb-4 overflow-hidden rounded-lg bg-black-10 aspect-video">
-                              <img
-                                src={article.frontmatter.coverImage}
-                                alt={article.frontmatter.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                              />
-                            </div>
-                          )}
-
-                          {/* Content */}
-                          <div className="flex-1 flex flex-col">
-                            {/* Featured Badge */}
-                            {article.frontmatter.featured && (
-                              <div className="mb-2">
-                                <span
-                                  className={clsx(
-                                    TYPOGRAPHY.text14,
-                                    "text-orange-100 uppercase tracking-wide"
-                                  )}
-                                >
-                                  Featured
-                                </span>
-                              </div>
-                            )}
-
-                            {/* Title */}
-                            <h3
-                              className={clsx(
-                                TYPOGRAPHY.h5,
-                                "mb-3 group-hover:text-orange-100 transition-colors"
-                              )}
-                            >
-                              {article.frontmatter.title}
-                            </h3>
-
-                            {/* Excerpt */}
-                            {article.excerpt && (
-                              <p
-                                className={clsx(
-                                  TYPOGRAPHY.text16,
-                                  "text-black-96 mb-4 flex-1"
-                                )}
-                              >
-                                {article.excerpt}
-                              </p>
-                            )}
-
-                            {/* Metadata */}
-                            <div className="flex items-center gap-3 text-black-96/60">
-                              <time className={TYPOGRAPHY.text14}>
-                                {dayjs(article.frontmatter.publishedAt).format(
-                                  "MMM D, YYYY"
-                                )}
-                              </time>
-                              {article.readingTime && (
-                                <>
-                                  <span>•</span>
-                                  <span className={TYPOGRAPHY.text14}>
-                                    {article.readingTime.text}
-                                  </span>
-                                </>
-                              )}
-                            </div>
-
-                            {/* Tags */}
-                            {article.frontmatter.tags.length > 0 && (
-                              <div className="flex flex-wrap gap-2 mt-4">
-                                {article.frontmatter.tags
-                                  .slice(0, 3)
-                                  .map(tag => (
-                                    <span
-                                      key={tag}
-                                      className={clsx(
-                                        TYPOGRAPHY.text14,
-                                        "px-2 py-0.5 bg-black-10 rounded text-black-96/80"
-                                      )}
-                                    >
-                                      {tag}
-                                    </span>
-                                  ))}
-                              </div>
-                            )}
-                          </div>
-                        </article>
-                      </Link>
+                        image={
+                          article.frontmatter.coverImage || ARTICLE_PLACEHOLDER
+                        }
+                        imageAlt={article.frontmatter.title}
+                        label={
+                          article.frontmatter.featured ? "Featured" : undefined
+                        }
+                        title={article.frontmatter.title}
+                        description={article.excerpt}
+                        link={`/articles/${article.slug}`}
+                      />
                     ))}
                   </div>
                 </div>

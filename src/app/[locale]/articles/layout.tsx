@@ -16,7 +16,7 @@ export default function ArticlesPageLayout({
     useLayout();
 
   useEffect(() => {
-    setHeroRef(heroRef);
+    // setHeroRef(heroRef);
     setShowNavBar(true);
     setShowFooter(true);
     setFooterVariant("simple");

@@ -43,7 +43,7 @@ export default function ProjectCard({
         />
 
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-50 transition-all duration-300" />
+        <div className="absolute inset-0 bg-black/50 group-hover:bg-opacity-50 transition-all duration-300" />
 
         {/* Content Overlay */}
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-5 l:p-10 m:p-10">

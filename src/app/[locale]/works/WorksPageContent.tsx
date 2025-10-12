@@ -1,13 +1,15 @@
 import { TYPOGRAPHY } from "@/lib/typography";
-import { Link } from "@/i18n/navigation";
 import clsx from "clsx";
-import dayjs from "dayjs";
 import type { ContentListItem, WorkFrontmatter } from "@/lib/mdx";
+import ProjectItem from "@/components/list_items/ProjectItem";
+import ProjectCard from "@/components/cards/ProjectCard";
 
 interface WorksPageContentProps {
   works: ContentListItem<WorkFrontmatter>[];
   locale: string;
 }
+
+const WORK_PLACEHOLDER = "/assets/placeholders/work-placeholder.jpg";
 
 /**
  * Server component for works listing page content
@@ -67,121 +69,36 @@ export function WorksPageContent({ works, locale }: WorksPageContentProps) {
                   {/* Works Grid */}
                   <div className="grid grid-cols-1 m:grid-cols-2 gap-8">
                     {worksByCategory[category].map(work => (
-                      <Link
-                        key={work.slug}
-                        href={`/works/${work.slug}`}
-                        className="group block"
-                      >
-                        {/* Card */}
-                        <article className="h-full flex flex-col">
-                          {/* Cover Image */}
-                          {work.frontmatter.coverImage && (
-                            <div className="mb-4 overflow-hidden rounded-lg bg-black-10 aspect-video">
-                              <img
-                                src={work.frontmatter.coverImage}
-                                alt={work.frontmatter.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                              />
-                            </div>
-                          )}
-
-                          {/* Content */}
-                          <div className="flex-1 flex flex-col">
-                            {/* Category + Featured */}
-                            <div className="flex items-center gap-2 mb-2">
-                              <span
-                                className={clsx(
-                                  TYPOGRAPHY.text14,
-                                  "text-orange-100 uppercase tracking-wide"
-                                )}
-                              >
-                                {work.frontmatter.category}
-                              </span>
-                              {work.frontmatter.featured && (
-                                <>
-                                  <span className="text-black-90">•</span>
-                                  <span
-                                    className={clsx(
-                                      TYPOGRAPHY.text14,
-                                      "text-black-90 uppercase tracking-wide"
-                                    )}
-                                  >
-                                    Featured
-                                  </span>
-                                </>
-                              )}
-                            </div>
-
-                            {/* Title */}
-                            <h3
-                              className={clsx(
-                                TYPOGRAPHY.h4,
-                                "mb-3 group-hover:text-orange-100 transition-colors"
-                              )}
-                            >
-                              {work.frontmatter.title}
-                            </h3>
-
-                            {/* Excerpt */}
-                            {work.excerpt && (
-                              <p
-                                className={clsx(
-                                  TYPOGRAPHY.text16,
-                                  "text-black-90 mb-4 flex-1"
-                                )}
-                              >
-                                {work.excerpt}
-                              </p>
-                            )}
-
-                            {/* Client & Role */}
-                            <div className="flex flex-wrap items-center gap-3 text-black-90/60 mb-4">
-                              {work.frontmatter.client && (
-                                <span className={TYPOGRAPHY.text14}>
-                                  {work.frontmatter.client}
-                                </span>
-                              )}
-                              {work.frontmatter.client &&
-                                work.frontmatter.role && <span>•</span>}
-                              {work.frontmatter.role && (
-                                <span className={TYPOGRAPHY.text14}>
-                                  {work.frontmatter.role}
-                                </span>
-                              )}
-                            </div>
-
-                            {/* Technologies */}
-                            {work.frontmatter.technologies.length > 0 && (
-                              <div className="flex flex-wrap gap-2 mt-auto">
-                                {work.frontmatter.technologies
-                                  .slice(0, 4)
-                                  .map(tech => (
-                                    <span
-                                      key={tech}
-                                      className={clsx(
-                                        TYPOGRAPHY.text14,
-                                        "px-2 py-0.5 bg-black-10 rounded text-black-90/80"
-                                      )}
-                                    >
-                                      {tech}
-                                    </span>
-                                  ))}
-                                {work.frontmatter.technologies.length > 4 && (
-                                  <span
-                                    className={clsx(
-                                      TYPOGRAPHY.text14,
-                                      "px-2 py-0.5 text-black-90/60"
-                                    )}
-                                  >
-                                    +{work.frontmatter.technologies.length - 4}{" "}
-                                    more
-                                  </span>
-                                )}
-                              </div>
-                            )}
-                          </div>
-                        </article>
-                      </Link>
+                      <div key={work.slug}>
+                        <div className="hidden l:block">
+                          <ProjectCard
+                            key={work.slug}
+                            overtitle={work.frontmatter.category}
+                            title={work.frontmatter.title}
+                            subtitle={
+                              work.excerpt || work.frontmatter.description
+                            }
+                            image={
+                              work.frontmatter.coverImage || WORK_PLACEHOLDER
+                            }
+                            link={`/works/${work.slug}`}
+                          />
+                        </div>
+                        <div className="l:hidden">
+                          <ProjectItem
+                            key={work.slug}
+                            label={work.frontmatter.category}
+                            title={work.frontmatter.title}
+                            description={
+                              work.excerpt || work.frontmatter.description
+                            }
+                            image={
+                              work.frontmatter.coverImage || WORK_PLACEHOLDER
+                            }
+                            link={`/works/${work.slug}`}
+                          />
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>
