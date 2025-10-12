@@ -6,7 +6,7 @@ const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ["ts", "tsx", "md", "mdx"],
   images: {
-    domains: ["res.cloudinary.com"],
+    remotePatterns: [{ hostname: "res.cloudinary.com" }],
   },
   eslint: {
     ignoreDuringBuilds: true,

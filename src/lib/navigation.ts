@@ -2,8 +2,8 @@ import { NavigationLink, SocialLink } from "./types/navigation";
 
 export const navigation: NavigationLink[] = [
   {
-    label: "Principles",
-    href: "/principles",
+    label: "Journey",
+    href: "/bio",
   },
   {
     label: "Work",
