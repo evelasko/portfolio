@@ -12,8 +12,8 @@ import {
 
 // Layout configuration interface
 interface LayoutConfig {
-  // Hero reference for NavBar scroll detection
-  heroRef: RefObject<HTMLDivElement | null>;
+  // Hero reference for NavBar scroll detection (null means no hero section)
+  heroRef: RefObject<HTMLDivElement | null> | null;
 
   // NavBar configuration
   showNavBar: boolean;
@@ -26,7 +26,7 @@ interface LayoutConfig {
 // Context value interface
 interface LayoutContextValue {
   config: LayoutConfig;
-  setHeroRef: (ref: RefObject<HTMLDivElement | null>) => void;
+  setHeroRef: (ref: RefObject<HTMLDivElement | null> | null) => void;
   setShowNavBar: (show: boolean) => void;
   setShowFooter: (show: boolean) => void;
   setFooterVariant: (variant: "full" | "simple" | "minimal") => void;
@@ -37,18 +37,19 @@ const LayoutContext = createContext<LayoutContextValue | undefined>(undefined);
 
 // Provider component
 export function LayoutProvider({ children }: { children: ReactNode }) {
-  const defaultHeroRef = useRef<HTMLDivElement | null>(null);
-
   const [config, setConfig] = useState<LayoutConfig>({
-    heroRef: defaultHeroRef,
+    heroRef: null,
     showNavBar: true,
     showFooter: true,
     footerVariant: "full",
   });
 
-  const setHeroRef = useCallback((ref: RefObject<HTMLDivElement | null>) => {
-    setConfig(prev => ({ ...prev, heroRef: ref }));
-  }, []);
+  const setHeroRef = useCallback(
+    (ref: RefObject<HTMLDivElement | null> | null) => {
+      setConfig(prev => ({ ...prev, heroRef: ref }));
+    },
+    []
+  );
 
   const setShowNavBar = useCallback((show: boolean) => {
     setConfig(prev => ({ ...prev, showNavBar: show }));
@@ -93,7 +94,7 @@ export function useLayout() {
 
 // Optional: Hook for pages to easily configure their layout
 export function useLayoutConfig(options?: {
-  heroRef?: RefObject<HTMLDivElement | null>;
+  heroRef?: RefObject<HTMLDivElement | null> | null;
   showNavBar?: boolean;
   showFooter?: boolean;
   footerVariant?: "full" | "simple" | "minimal";
@@ -102,7 +103,7 @@ export function useLayoutConfig(options?: {
     useLayout();
 
   // Apply configuration when options change
-  if (options?.heroRef) {
+  if (options?.heroRef !== undefined) {
     setHeroRef(options.heroRef);
   }
   if (options?.showNavBar !== undefined) {

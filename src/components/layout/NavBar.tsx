@@ -13,7 +13,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 interface NavigationBarProps {
   links: NavigationLink[];
   socialLinks?: SocialLink[];
-  heroRef?: RefObject<HTMLDivElement | null>;
+  heroRef?: RefObject<HTMLDivElement | null> | null;
   socialAsIcons?: boolean;
 }
 
@@ -43,11 +43,14 @@ export default function NavBar({
       }
 
       // Check if hero is in view
-      if (heroRef?.current) {
+      if (heroRef && heroRef.current) {
         const heroRect = heroRef.current.getBoundingClientRect();
         const heroBottom = heroRect.bottom;
         // Hero is out of view when its bottom is above the nav height
         setIsHeroInView(heroBottom > 70);
+      } else {
+        // No hero ref means always show logo
+        setIsHeroInView(false);
       }
 
       lastScrollYRef.current = currentScrollY;
