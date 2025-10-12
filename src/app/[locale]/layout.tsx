@@ -4,6 +4,7 @@ import { routing } from "../../i18n/routing";
 import { notFound } from "next/navigation";
 import LayoutContent from "@/components/layout/LayoutContent";
 import { LayoutProvider } from "@/contexts/LayoutContext";
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default async function LocaleLayout({
@@ -24,6 +25,7 @@ export default async function LocaleLayout({
         <LayoutProvider>
           <LayoutContent>
             {children}
+            <Analytics />
             <SpeedInsights />
           </LayoutContent>
         </LayoutProvider>

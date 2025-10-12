@@ -22,7 +22,8 @@
       "mcp__exa__*",
       "mcp__deepl__*",
       "mcp__chrome-devtools__*",
-      "mcp__context7__*"
+      "mcp__context7__*",
+      "Bash(pnpm build:*)"
     ],
     "deny": [],
     "ask": []
