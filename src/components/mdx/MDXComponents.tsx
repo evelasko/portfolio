@@ -5,6 +5,7 @@ import { MDXImage } from "./MDXImage";
 import { MDXLink } from "./MDXLink";
 import { CodeBlock } from "./CodeBlock";
 import { Callout } from "./Callout";
+import React from "react";
 
 /**
  * Custom MDX components for rendering MDX content
@@ -45,11 +46,25 @@ export function getMDXComponents(): MDXComponents {
     ),
 
     // Paragraphs and text
-    p: ({ children, ...props }) => (
-      <p className={clsx(TYPOGRAPHY.text18, "my-4 text-black-96")} {...props}>
-        {children}
-      </p>
-    ),
+    p: ({ children, ...props }) => {
+      // Check if children contains only an img element (which gets mapped to MDXImage)
+      // This prevents the hydration error of div-in-p
+      const childrenArray = React.Children.toArray(children);
+      const hasOnlyImage =
+        childrenArray.length === 1 &&
+        React.isValidElement(childrenArray[0]) &&
+        (childrenArray[0].type === "img" || (childrenArray[0].props as any)?.mdxType === "img");
+
+      if (hasOnlyImage) {
+        return <>{children}</>;
+      }
+
+      return (
+        <p className={clsx(TYPOGRAPHY.text18, "my-4 text-black-96")} {...props}>
+          {children}
+        </p>
+      );
+    },
 
     // Links
     a: props => <MDXLink {...props} />,

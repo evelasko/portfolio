@@ -19,7 +19,7 @@ import type {
  * Get the content directory path
  */
 function getContentDir(contentType: ContentType): string {
-  return path.join(process.cwd(), "content", contentType === "article" ? "articles" : "works");
+  return path.join(process.cwd(), "src", "content", contentType === "article" ? "articles" : "works");
 }
 
 /**
