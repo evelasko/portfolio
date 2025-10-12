@@ -3,7 +3,7 @@ import clsx from "clsx";
 import dayjs from "dayjs";
 import { ExternalLink } from "lucide-react";
 import type { WorkFrontmatter } from "@/lib/mdx";
-import { WorkPageLayout } from "./WorkPageLayout";
+import MinimalHero from "@/components/heroes/MinimalHero";
 
 interface WorkPageContentProps {
   work: {
@@ -24,8 +24,16 @@ interface WorkPageContentProps {
  */
 export function WorkPageContent({ work }: WorkPageContentProps) {
   return (
-    <WorkPageLayout>
+    <>
       {/* Hero Section */}
+      {work.frontmatter.coverImage && (
+        <MinimalHero
+          title={work.frontmatter.title}
+          subtitle={work.frontmatter.description}
+          image={work.frontmatter.coverImage}
+          link={`/works/${work.slug}`}
+        />
+      )}
       <section className="min-h-[60vh] flex items-center justify-center px-6 py-24">
         <div className="max-w-4xl w-full">
           {/* Category */}
@@ -164,25 +172,12 @@ export function WorkPageContent({ work }: WorkPageContentProps) {
         </div>
       </section>
 
-      {/* Cover Image */}
-      {work.frontmatter.coverImage && (
-        <section className="px-6 mb-12">
-          <div className="max-w-5xl mx-auto">
-            <img
-              src={work.frontmatter.coverImage}
-              alt={work.frontmatter.title}
-              className="w-full rounded-lg"
-            />
-          </div>
-        </section>
-      )}
-
       {/* Work Content */}
       <article className="px-6 pb-24">
         <div className="max-w-3xl mx-auto prose prose-invert">
           {work.content}
         </div>
       </article>
-    </WorkPageLayout>
+    </>
   );
 }

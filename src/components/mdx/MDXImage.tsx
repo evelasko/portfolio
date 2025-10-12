@@ -12,7 +12,11 @@ export function MDXImage({
   ...props
 }: ImageProps & { src: string; alt: string }) {
   // Handle relative paths
-  const imageSrc = src.startsWith("/") ? src : `/${src}`;
+  const imageSrc = src.startsWith("/")
+    ? src
+    : src.includes("cloudinary") || src.includes("https")
+      ? src
+      : `/${src}`;
 
   // If width and height are provided, use them
   if (width && height) {

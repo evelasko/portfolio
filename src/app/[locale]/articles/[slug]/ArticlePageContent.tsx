@@ -2,7 +2,6 @@ import { TYPOGRAPHY } from "@/lib/typography";
 import clsx from "clsx";
 import dayjs from "dayjs";
 import type { ArticleFrontmatter } from "@/lib/mdx";
-import { ArticlePageLayout } from "./ArticlePageLayout";
 
 interface ArticlePageContentProps {
   article: {
@@ -23,7 +22,7 @@ interface ArticlePageContentProps {
  */
 export function ArticlePageContent({ article }: ArticlePageContentProps) {
   return (
-    <ArticlePageLayout>
+    <>
       {/* Hero Section */}
       <section className="min-h-[60vh] flex items-center justify-center px-6 py-24">
         <div className="max-w-4xl w-full">
@@ -114,6 +113,6 @@ export function ArticlePageContent({ article }: ArticlePageContentProps) {
           </div>
         </section>
       )}
-    </ArticlePageLayout>
+    </>
   );
 }

@@ -6,7 +6,11 @@ import { useLayout } from "@/contexts/LayoutContext";
 /**
  * Client component wrapper for works listing page layout configuration
  */
-export function WorksPageLayout({ children }: { children: React.ReactNode }) {
+export default function WorksPageLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const heroRef = useRef<HTMLDivElement>(null);
   const { setHeroRef, setShowNavBar, setShowFooter, setFooterVariant } =
     useLayout();
@@ -15,7 +19,7 @@ export function WorksPageLayout({ children }: { children: React.ReactNode }) {
     setHeroRef(heroRef);
     setShowNavBar(true);
     setShowFooter(true);
-    setFooterVariant("full");
+    setFooterVariant("simple");
   }, [setHeroRef, setShowNavBar, setShowFooter, setFooterVariant]);
 
   return <>{children}</>;

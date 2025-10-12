@@ -3,7 +3,6 @@ import { Link } from "@/i18n/navigation";
 import clsx from "clsx";
 import dayjs from "dayjs";
 import type { ContentListItem, ArticleFrontmatter } from "@/lib/mdx";
-import { ArticlesPageLayout } from "./ArticlesPageLayout";
 
 interface ArticlesPageContentProps {
   articles: ContentListItem<ArticleFrontmatter>[];
@@ -33,7 +32,7 @@ export function ArticlesPageContent({
   const categories = Object.keys(articlesByCategory).sort();
 
   return (
-    <ArticlesPageLayout>
+    <>
       {/* Hero Section */}
       <section className="min-h-[50vh] flex items-center justify-center px-6 py-24">
         <div className="max-w-4xl w-full text-center">
@@ -172,6 +171,6 @@ export function ArticlesPageContent({
           )}
         </div>
       </section>
-    </ArticlesPageLayout>
+    </>
   );
 }

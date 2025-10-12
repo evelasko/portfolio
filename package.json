@@ -28,6 +28,7 @@
     "lucide-react": "^0.544.0",
     "motion": "^12.19.1",
     "next": "15.5.4",
+    "next-cloudinary": "^6.16.0",
     "next-intl": "^4.3.12",
     "next-mdx-remote": "^5.0.0",
     "react": "^19.0.0",

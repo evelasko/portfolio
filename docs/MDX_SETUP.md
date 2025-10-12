@@ -5,6 +5,7 @@ This document describes the MDX-based content management system implemented for 
 ## Overview
 
 The MDX system provides a powerful, file-based content management solution that:
+
 - ✅ Supports internationalization (English & Spanish)
 - ✅ Type-safe frontmatter validation with Zod
 - ✅ Automatic reading time calculation
@@ -16,7 +17,7 @@ The MDX system provides a powerful, file-based content management solution that:
 
 ## Directory Structure
 
-```
+```tree
 content/
 ├── articles/
 │   ├── en/
@@ -103,19 +104,19 @@ The system provides several custom components you can use in your MDX content:
 
 ```mdx
 <Callout type="info" title="Note">
-This is an informational callout box.
+  This is an informational callout box.
 </Callout>
 
 <Callout type="warning" title="Warning">
-Be careful with this!
+  Be careful with this!
 </Callout>
 
 <Callout type="success" title="Success">
-Great job!
+  Great job!
 </Callout>
 
 <Callout type="error" title="Error">
-Something went wrong.
+  Something went wrong.
 </Callout>
 ```
 
@@ -132,7 +133,7 @@ interface User {
 
 const user: User = {
   name: "Enrique",
-  email: "hello@example.com"
+  email: "hello@example.com",
 };
 ```
 ````
@@ -268,7 +269,7 @@ import { getAllArticles, getAllWorks } from "@/lib/mdx";
 const articles = await getAllArticles("en");
 const works = await getAllWorks("en");
 
-const searchIndex = [...articles, ...works].map((item) => ({
+const searchIndex = [...articles, ...works].map(item => ({
   type: item.frontmatter.contentType,
   slug: item.slug,
   title: item.frontmatter.title,
@@ -286,10 +287,12 @@ const searchIndex = [...articles, ...works].map((item) => ({
 The MDX system creates the following routes:
 
 ### Articles
+
 - `/articles` or `/es/articles` - Listing page
 - `/articles/[slug]` or `/es/articles/[slug]` - Article detail
 
 ### Works
+
 - `/works` or `/es/works` - Listing page
 - `/works/[slug]` or `/es/works/[slug]` - Work detail
 
@@ -315,7 +318,7 @@ All routes support both locales with appropriate prefixes.
 
 ## File Organization Tips
 
-```
+```tree
 content/
 ├── articles/
 │   ├── en/
@@ -400,6 +403,7 @@ Set `featured: true` in frontmatter to highlight content in listings.
 ---
 
 For more information, see the implementation files:
+
 - [src/lib/mdx/](../src/lib/mdx/) - Core MDX utilities
 - [src/components/mdx/](../src/components/mdx/) - MDX components
 - [content/](../content/) - Example content files

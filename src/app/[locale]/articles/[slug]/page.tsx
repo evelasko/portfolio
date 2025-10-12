@@ -21,7 +21,7 @@ export default async function ArticlePage({
   // Compile MDX content
   const { content } = await compileMDXContent(
     articleData.content,
-    getMDXComponents(),
+    getMDXComponents()
   );
 
   const article = {
@@ -43,7 +43,7 @@ export async function generateStaticParams() {
 
   for (const locale of routing.locales) {
     const slugs = await getContentSlugs("article", locale);
-    params.push(...slugs.map((slug) => ({ locale, slug })));
+    params.push(...slugs.map(slug => ({ locale, slug })));
   }
 
   return params;

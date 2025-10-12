@@ -4,9 +4,13 @@ import { useEffect, useRef } from "react";
 import { useLayout } from "@/contexts/LayoutContext";
 
 /**
- * Client component wrapper for article page layout configuration
+ * Client component wrapper for articles listing page layout configuration
  */
-export function ArticlePageLayout({ children }: { children: React.ReactNode }) {
+export default function ArticlesPageLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const heroRef = useRef<HTMLDivElement>(null);
   const { setHeroRef, setShowNavBar, setShowFooter, setFooterVariant } =
     useLayout();
@@ -15,7 +19,7 @@ export function ArticlePageLayout({ children }: { children: React.ReactNode }) {
     setHeroRef(heroRef);
     setShowNavBar(true);
     setShowFooter(true);
-    setFooterVariant("full");
+    setFooterVariant("simple");
   }, [setHeroRef, setShowNavBar, setShowFooter, setFooterVariant]);
 
   return <>{children}</>;

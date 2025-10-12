@@ -6,7 +6,7 @@ Quick reference for creating and managing MDX content.
 
 **File**: `content/articles/en/my-article.mdx`
 
-```mdx
+````mdx
 ---
 title: "Article Title"
 description: "Brief description"
@@ -22,7 +22,7 @@ alternateLocales:
 
 # Heading
 
-Your content here with **markdown** and *formatting*.
+Your content here with **markdown** and _formatting_.
 
 ## Subheading
 
@@ -30,13 +30,13 @@ Your content here with **markdown** and *formatting*.
 - List item 2
 
 <Callout type="info" title="Note">
-Important information
+  Important information
 </Callout>
 
 ```typescript
 const example = "code";
 ```
-```
+````
 
 ## Create New Work
 
@@ -72,7 +72,7 @@ Project details...
 
 ```mdx
 <Callout type="info|warning|success|error" title="Title">
-Content
+  Content
 </Callout>
 ```
 
@@ -130,6 +130,7 @@ npm run build
 ## Required Frontmatter Fields
 
 ### Articles & Works
+
 - `title` (string)
 - `description` (string)
 - `publishedAt` (YYYY-MM-DD)
@@ -139,6 +140,7 @@ npm run build
 - `draft` (boolean)
 
 ### Works Only
+
 - `client` (string, optional)
 - `role` (string, optional)
 - `technologies` (array)
@@ -148,10 +150,12 @@ npm run build
 ## URLs Generated
 
 ### Articles
+
 - English: `/articles/slug` or `/en/articles/slug`
 - Spanish: `/es/articles/slug`
 
 ### Works
+
 - English: `/works/slug` or `/en/works/slug`
 - Spanish: `/es/works/slug`
 
