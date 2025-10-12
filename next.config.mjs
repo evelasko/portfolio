@@ -11,6 +11,12 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  outputFileTracingIncludes: {
+    "/[locale]/articles/[slug]": ["./src/content/articles/**/*"],
+    "/[locale]/works/[slug]": ["./src/content/works/**/*"],
+    "/[locale]/articles": ["./src/content/articles/**/*"],
+    "/[locale]/works": ["./src/content/works/**/*"],
+  },
   async headers() {
     return [
       {

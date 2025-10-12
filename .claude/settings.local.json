@@ -3,8 +3,26 @@
     "allow": [
       "Bash(tree:*)",
       "Bash(pnpm add:*)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm remove:*)",
+      "Bash(pnpm update:*)",
       "Bash(npm run build:*)",
-      "Bash(node:*)"
+      "Bash(npm run dev:*)",
+      "Bash(npm run start:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm run format:*)",
+      "Bash(node:*)",
+      "Bash(cat:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git branch:*)",
+      "Bash(ls:*)",
+      "Bash(pwd:*)",
+      "mcp__exa__*",
+      "mcp__deepl__*",
+      "mcp__chrome-devtools__*",
+      "mcp__context7__*"
     ],
     "deny": [],
     "ask": []

@@ -4,23 +4,33 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Development Commands
 
+**Package Manager**: This project uses **pnpm** (not npm or yarn).
+
 ### Running the Application
 
 ```bash
-npm run dev          # Start development server with debugging and Turbopack
-npm run build        # Build for production
-npm start            # Run production build
-npm run clean        # Remove .next build artifacts
+pnpm dev             # Start development server with debugging and Turbopack (port 3000)
+pnpm build           # Build for production
+pnpm start           # Run production build
+pnpm clean           # Remove .next build artifacts
 ```
 
 ### Code Quality
 
 ```bash
-npm run lint         # Run ESLint
-npm run lint:fix     # Run ESLint and auto-fix issues
-npm run format       # Format all files with Prettier
-npm run format:check # Check formatting without making changes
+pnpm lint            # Run ESLint
+pnpm lint:fix        # Run ESLint and auto-fix issues
+pnpm format          # Format all files with Prettier
+pnpm format:check    # Check formatting without making changes
 ```
+
+**Prettier Configuration:**
+
+- Double quotes for strings
+- Semicolons required
+- 2 spaces for indentation
+- 80 character line width
+- Arrow functions without parentheses when possible
 
 ## High-Level Architecture
 
@@ -107,7 +117,7 @@ import { useTranslations } from "next-intl";
 
 export default function Page() {
   const t = useTranslations();
-  return <h1>{t('homepage.title')}</h1>;
+  return <h1>{t("homepage.title")}</h1>;
 }
 ```
 
@@ -155,6 +165,7 @@ Components are organized by type in `src/components/`:
 - **`misc/`** - Miscellaneous (Globe WebGL component, BioBlock)
 - **`home/`** - Home page specific components
 - **`graphics/`** - SVG graphic components
+- **`mdx/`** - MDX-specific components for article/work content
 - **`ui/`** - shadcn/ui components
 
 ### WebGL Globe Component
@@ -197,6 +208,57 @@ import { motion } from "motion/react";
 
 Lenis is configured globally in `src/app/[locale]/layout.tsx` via `<ReactLenis root>`.
 
+### MDX Content System
+
+The project uses MDX for blog articles and portfolio work content:
+
+- **Content location**: `src/content/articles/` and `src/content/works/`
+- **Structure**: Organized by locale (`en/`, `es/`) with `.mdx` files
+- **Frontmatter**: YAML frontmatter with metadata (title, description, publishedAt, etc.)
+- **Loading**: Custom MDX loader at `src/lib/mdx/loader.ts`
+- **Rendering**: MDX rendering utilities at `src/lib/mdx/render.tsx`
+- **Validation**: Zod schemas in `src/lib/mdx/validation.ts`
+
+**Example content structure:**
+
+```tree
+src/content/
+├── articles/
+│   ├── en/
+│   │   └── hello-world.mdx
+│   └── es/
+│       └── hola-mundo.mdx
+└── works/
+    ├── en/
+    │   └── portfolio-website.mdx
+    └── es/
+        └── sitio-web-portafolio.mdx
+```
+
+**MDX frontmatter example:**
+
+```yaml
+---
+title: "Article Title"
+description: "Article description"
+publishedAt: "2025-01-15"
+author: "Enrique Velasco"
+category: "Development"
+tags: ["Next.js", "MDX", "React"]
+featured: true
+draft: false
+alternateLocales:
+  en: "slug-in-english"
+---
+```
+
+### Image Management
+
+- **Cloudinary Integration**: Images hosted on Cloudinary
+- **Remote patterns**: Configured in `next.config.mjs` to allow `res.cloudinary.com`
+- **next-cloudinary**: Library for optimized image delivery
+- **Local images**: Static images in `public/` directory
+
 ### Demo Pages
 
 Component demos are available at `/demo` routes:
@@ -220,15 +282,20 @@ src/
 │   ├── demo/         # Component demo pages
 │   └── globals.css   # Tailwind and custom styles
 ├── components/       # React components (organized by type)
+├── content/          # MDX content files
+│   ├── articles/     # Blog articles (en/, es/)
+│   └── works/        # Portfolio work items (en/, es/)
 ├── contexts/         # React contexts (LayoutContext)
 ├── i18n/             # Internationalization configuration
 │   ├── routing.ts    # next-intl routing configuration
 │   ├── pathnames.ts  # Localized route definitions
 │   └── navigation.ts # Localized navigation helpers
 ├── lib/              # Utilities
+│   ├── mdx/          # MDX loading and rendering utilities
 │   ├── typography.ts # Typography constants
 │   ├── types/        # Shared TypeScript types
 │   └── utils.ts      # Utility functions
+├── messages/         # Translation files (en.json, es.json)
 └── references/       # Reference implementations and examples
 ```
 
