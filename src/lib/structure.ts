@@ -31,18 +31,18 @@ const structure: SiteStructure = {
   external: [],
   utility: [
     {
-      key: "/legal/privacy",
-      href: { en: "/legal/privacy", es: "/legal/privacidad" },
+      key: "/privacy",
+      href: { en: "/privacy", es: "/privacidad" },
       label: { en: "privacy policy", es: "política de privacidad" },
     },
     {
-      key: "/legal/terms",
-      href: { en: "/legal/terms", es: "/legal/terminos" },
+      key: "/terms",
+      href: { en: "/terms", es: "/terminos" },
       label: { en: "terms of service", es: "términos de servicio" },
     },
     {
-      key: "/legal/imprint",
-      href: { en: "/legal/imprint", es: "/legal/aviso" },
+      key: "/imprint",
+      href: { en: "/imprint", es: "/aviso" },
       label: { en: "imprint", es: "aviso legal" },
     },
   ],

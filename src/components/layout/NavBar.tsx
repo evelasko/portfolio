@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import Evelasco from "@/components/graphics/Evelasco";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { Link, usePathname } from "@/i18n/navigation";
+import DynamicIcon from "./DynamicIcon";
 
 interface NavigationBarProps {
   links: NavigationLink[];
@@ -80,18 +81,6 @@ export default function NavBar({
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  };
-
-  // Component to render dynamic icon from Lucide
-  const DynamicIcon = ({
-    iconName,
-    className,
-  }: {
-    iconName: string;
-    className?: string;
-  }) => {
-    const LucideIcon = icons[iconName as keyof typeof icons];
-    return LucideIcon ? <LucideIcon className={className} /> : null;
   };
 
   return (

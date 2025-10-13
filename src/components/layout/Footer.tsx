@@ -4,6 +4,12 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { SocialLink } from "@/lib/types/navigation";
 import { TYPOGRAPHY } from "@/lib/typography";
+import { navigation, socialLinks as navSocialLinks } from "@/lib/navigation";
+import EnriqueVelasco from "../graphics/EnriqueVelasco";
+import Evelasco from "../graphics/Evelasco";
+import { ClipboardCopy, Mail, Phone } from "lucide-react";
+import clsx from "clsx";
+import DynamicIcon from "./DynamicIcon";
 /**
  * Footer Component
  * @param heading - string, p tag style TYPOGRAPHY.h1, color black-90
@@ -58,93 +64,89 @@ export default function Footer({
 
   return (
     <footer className="bg-white border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6 m:px-8 l:px-12">
-        {/* Heading Row - Independent */}
-        <div className="py-16 m:py-20 l:py-24">
-          <p
-            className={`${TYPOGRAPHY.h1} text-black-90 font-bold tracking-tight`}
-          >
-            {heading}
-          </p>
+      {/* Heading Row - Independent */}
+      <div className="px-2 py-16 m:py-20 l:py-24 w-full flex justify-center">
+        <div className="md:hidden w-full">
+          <Evelasco color="var(--color-black-90)" />
         </div>
-
-        {/* Content Row - Dynamic columns based on showCurrentTime */}
-        <div
-          className={`grid grid-cols-1 ${showCurrentTime ? "m:grid-cols-4 l:grid-cols-4" : "m:grid-cols-3 l:grid-cols-3"} gap-8 m:gap-12 l:gap-16 pb-16 m:pb-20 l:pb-24`}
-        >
-          {/* Column 1: Email and Phone Links */}
+        <div className="hidden md:block w-full">
+          <EnriqueVelasco color="var(--color-black-90)" />
+        </div>
+      </div>
+      <div className="mx-auto px-6 m:px-8 l:px-12">
+        {/* Content Row - 4 columns */}
+        <div className="grid grid-cols-1 m:grid-cols-2 l:grid-cols-4 gap-8 m:gap-12 l:gap-24 pb-16 m:pb-20 l:pb-24">
+          {/* Column 1: Contact Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <p className={`${TYPOGRAPHY.text18} text-black-90`}>{email}</p>
+              <Mail className="text-black-70" />
+              <p className={`${TYPOGRAPHY.text18} text-black-90`}>
+                info@evelas.co
+              </p>
               <button
-                onClick={() => navigator.clipboard.writeText(email)}
+                onClick={() => navigator.clipboard.writeText("info@evelas.co")}
                 className="opacity-40 hover:opacity-70 transition-opacity"
                 aria-label="Copy email"
               >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="currentColor"
-                >
-                  <path d="M4 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
-                </svg>
+                <ClipboardCopy size={16} />
               </button>
             </div>
 
             <div className="flex items-center space-x-2">
-              <p className={`${TYPOGRAPHY.text18} text-black-90`}>{phone}</p>
+              <Phone className="text-black-70" />
+              <p className={`${TYPOGRAPHY.text18} text-black-90`}>
+                +34 609 971 307
+              </p>
               <button
-                onClick={() => navigator.clipboard.writeText(phone)}
+                onClick={() => navigator.clipboard.writeText("+34 609 971 307")}
                 className="opacity-40 hover:opacity-70 transition-opacity"
                 aria-label="Copy phone"
               >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="currentColor"
-                >
-                  <path d="M4 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
-                </svg>
+                <ClipboardCopy size={16} />
               </button>
             </div>
           </div>
 
-          {/* Column 2: Current Time or Empty */}
-          <div>
-            {showCurrentTime && (
-              <div>
-                <p className={`${TYPOGRAPHY.text14} text-black-50 mb-1`}>
-                  My current time
-                </p>
-                <p className={`${TYPOGRAPHY.text18} text-black-90 font-medium`}>
-                  {currentTime} {currentLocation}
-                </p>
-              </div>
-            )}
+          {/* Column 2: Physical Address */}
+          <div className="space-y-4">
+            <p className={`${TYPOGRAPHY.text18} text-black-90`}>
+              Calle Eduardo Rivas 14
+            </p>
+            <p className={`${TYPOGRAPHY.text18} text-black-90`}>28019 Madrid</p>
+            <p className={`${TYPOGRAPHY.text18} text-black-90`}>Spain</p>
           </div>
 
-          {/* Column 3: Physical Address */}
-          <div className="space-y-2">
-            {address.map((line, index) => (
-              <p key={index} className={`${TYPOGRAPHY.text18} text-black-50`}>
-                {line}
-              </p>
-            ))}
-          </div>
-
-          {/* Column 4: Social Links (Icons Only) */}
-          <div className="space-y-3">
-            {socialLinks.map((link, index) => (
+          {/* Column 3: Navigation Links */}
+          <div className="space-y-4 l:text-right">
+            {navigation.map((link, index) => (
               <Link
                 key={index}
                 href={link.href}
-                className={`${TYPOGRAPHY.text18} text-black-90 hover:text-black-50 transition-colors block`}
+                className={clsx(
+                  TYPOGRAPHY.text18,
+                  "font-bold",
+                  "text-black-90 hover:text-orange-100 hover:underline transition-all duration-200 block"
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Column 4: Social Links */}
+          <div className="space-y-4">
+            {navSocialLinks.map((link, index) => (
+              <Link
+                key={index}
+                href={link.href}
+                className={`${TYPOGRAPHY.text18} text-black-90 hover:text-orange-100 transition-colors block`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {link.icon}
+                {(link.icon && (
+                  <DynamicIcon iconName={link.icon} className="w-6 h-6" />
+                )) ||
+                  link.label}
               </Link>
             ))}
           </div>
@@ -158,19 +160,19 @@ export default function Footer({
             {/* Legal Links */}
             <div className="flex flex-col space-y-4 m:space-y-0 m:flex-row m:items-center m:space-x-8">
               <Link
-                href="/legal/privacy-policy"
+                href="/privacy"
                 className={`${TYPOGRAPHY.text14} text-black-90 hover:text-black-50 transition-colors`}
               >
                 Privacy Policy
               </Link>
               <Link
-                href="/legal/terms-and-conditions"
+                href="/terms"
                 className={`${TYPOGRAPHY.text14} text-black-90 hover:text-black-50 transition-colors`}
               >
                 Terms & Conditions
               </Link>
               <Link
-                href="/legal/imprint"
+                href="/imprint"
                 className={`${TYPOGRAPHY.text14} text-black-90 hover:text-black-50 transition-colors`}
               >
                 Imprint
