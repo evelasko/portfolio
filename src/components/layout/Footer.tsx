@@ -51,8 +51,10 @@ export default function Footer({
             {/* Column 1: Contact Info */}
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
-                <Mail className="text-black-70" />
-                <p className={`${TYPOGRAPHY.text18} text-black-90`}>
+                <Mail className="text-black-70 w-4 h-4 m:w-6 m:h-6" />
+                <p
+                  className={`${TYPOGRAPHY.text16} m:${TYPOGRAPHY.text18} text-black-90`}
+                >
                   {INFO.email}
                 </p>
                 <button
@@ -65,8 +67,10 @@ export default function Footer({
               </div>
 
               <div className="flex items-center space-x-2">
-                <Phone className="text-black-70" />
-                <p className={`${TYPOGRAPHY.text18} text-black-90`}>
+                <Phone className="text-black-70 w-4 h-4 m:w-6 m:h-6" />
+                <p
+                  className={`${TYPOGRAPHY.text16} m:${TYPOGRAPHY.text18} text-black-90`}
+                >
                   {INFO.phone}
                 </p>
                 <button
@@ -81,7 +85,9 @@ export default function Footer({
 
             {/* Column 2: Physical Address */}
             <div className="space-y-4">
-              <p className={`${TYPOGRAPHY.text18} text-black-90`}>
+              <p
+                className={`${TYPOGRAPHY.text16} m:${TYPOGRAPHY.text18} text-black-90`}
+              >
                 {INFO.address.split("\n").map((line, index) => (
                   <Fragment key={index}>
                     {line}
