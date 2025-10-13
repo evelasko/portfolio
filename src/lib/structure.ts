@@ -2,10 +2,11 @@ import {
   type SiteStructure,
   type StructureItem,
   type NavigationItem,
+  NavigationLink,
 } from "./types";
 import { type Pathnames } from "next-intl/routing";
 
-const structure: SiteStructure = {
+export const structure: SiteStructure = {
   routes: [
     {
       key: "/",
@@ -33,20 +34,32 @@ const structure: SiteStructure = {
     {
       key: "/privacy",
       href: { en: "/privacy", es: "/privacidad" },
-      label: { en: "privacy policy", es: "política de privacidad" },
+      label: { en: "Privacy Policy", es: "Política de Privacidad" },
     },
     {
       key: "/terms",
       href: { en: "/terms", es: "/terminos" },
-      label: { en: "terms of service", es: "términos de servicio" },
+      label: { en: "Terms of Service", es: "Términos de Servicio" },
     },
     {
       key: "/imprint",
       href: { en: "/imprint", es: "/aviso" },
-      label: { en: "imprint", es: "aviso legal" },
+      label: { en: "Imprint", es: "Aviso Legal" },
     },
   ],
 };
+
+export const navigation: NavigationLink[] = structure.routes
+  .filter(route => route.key !== "/")
+  .map(route => ({
+    label: route.label,
+    href: route.key,
+  }));
+
+export const legalLinks: NavigationLink[] = structure.utility.map(route => ({
+  label: route.label,
+  href: route.key,
+}));
 
 // Generator function for pathnames
 export function generatePathnames(

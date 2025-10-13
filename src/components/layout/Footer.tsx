@@ -1,182 +1,154 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import Link from "next/link";
-import { SocialLink } from "@/lib/types/navigation";
 import { TYPOGRAPHY } from "@/lib/typography";
-import { navigation, socialLinks as navSocialLinks } from "@/lib/navigation";
+import { legalLinks, navigation } from "@/lib/structure";
+import { INFO } from "@/content/info";
 import EnriqueVelasco from "../graphics/EnriqueVelasco";
 import Evelasco from "../graphics/Evelasco";
 import { ClipboardCopy, Mail, Phone } from "lucide-react";
 import clsx from "clsx";
 import DynamicIcon from "./DynamicIcon";
+import { LocaleString } from "@/lib/types/intl";
+import { Fragment } from "react";
 /**
  * Footer Component
- * @param heading - string, p tag style TYPOGRAPHY.h1, color black-90
- * @param email - string, TYPOGRAPHY.text18, color black-90
- * @param phone - string, TYPOGRAPHY.text18, color black-90
- * @param address - string[], TYPOGRAPHY.text18, color black-50
- * @param showCurrentTime - boolean, show current time
- * @param socialLinks - SocialLink[], TYPOGRAPHY.text18, color black-90
+ * @param variant - "full" | "simple" | "minimal" - Controls footer layout
  * @param copyrightText - string, TYPOGRAPHY.text14, color black-50
  * @returns Footer component
  */
 export default function Footer({
-  heading,
-  email,
-  phone,
-  address,
-  showCurrentTime,
-  socialLinks,
+  locale,
+  variant = "full",
   copyrightText,
 }: {
-  heading: string;
-  email: string;
-  phone: string;
-  address: string[];
-  showCurrentTime: boolean;
-  socialLinks: SocialLink[];
+  locale: LocaleString;
+  variant?: "full" | "simple" | "minimal";
   copyrightText: string;
 }) {
-  const [currentTime, setCurrentTime] = useState<string>("");
-  const [currentLocation, setCurrentLocation] = useState<string>("");
-
-  useEffect(() => {
-    if (showCurrentTime) {
-      const updateTime = () => {
-        const now = new Date();
-        const timeString = now.toLocaleTimeString("en-GB", {
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-        });
-        const locationString = `London (GMT)`;
-        setCurrentTime(timeString);
-        setCurrentLocation(locationString);
-      };
-
-      updateTime();
-      const interval = setInterval(updateTime, 1000);
-
-      return () => clearInterval(interval);
-    }
-  }, [showCurrentTime]);
+  const showHeading = variant === "full";
+  const showContent = variant === "full" || variant === "simple";
+  const contentBgClass =
+    variant === "simple" ? "bg-white-98 pt-24 mt-24" : "bg-white";
+  const borderClass = variant === "full" ? "border-t" : "border-t-0";
 
   return (
-    <footer className="bg-white border-t border-gray-100">
+    <footer className={clsx("bg-white mt-24 border-gray-100", borderClass)}>
       {/* Heading Row - Independent */}
-      <div className="px-2 py-16 m:py-20 l:py-24 w-full flex justify-center">
-        <div className="md:hidden w-full">
-          <Evelasco color="var(--color-black-90)" />
+      {showHeading && (
+        <div className="px-2 py-16 m:py-20 l:py-24 w-full flex justify-center">
+          <div className="md:hidden w-full">
+            <Evelasco color="var(--color-black-90)" />
+          </div>
+          <div className="hidden md:block w-full">
+            <EnriqueVelasco color="var(--color-black-90)" />
+          </div>
         </div>
-        <div className="hidden md:block w-full">
-          <EnriqueVelasco color="var(--color-black-90)" />
-        </div>
-      </div>
-      <div className="mx-auto px-6 m:px-8 l:px-12">
-        {/* Content Row - 4 columns */}
-        <div className="grid grid-cols-1 m:grid-cols-2 l:grid-cols-4 gap-8 m:gap-12 l:gap-24 pb-16 m:pb-20 l:pb-24">
-          {/* Column 1: Contact Info */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <Mail className="text-black-70" />
-              <p className={`${TYPOGRAPHY.text18} text-black-90`}>
-                info@evelas.co
-              </p>
-              <button
-                onClick={() => navigator.clipboard.writeText("info@evelas.co")}
-                className="opacity-40 hover:opacity-70 transition-opacity"
-                aria-label="Copy email"
-              >
-                <ClipboardCopy size={16} />
-              </button>
+      )}
+      {/* Content Area - Contact Info, Physical Address, Navigation Links, Social Links */}
+      {showContent && (
+        <div className={clsx("mx-auto px-6 m:px-8 l:px-12", contentBgClass)}>
+          {/* Content Row - 4 columns */}
+          <div className="grid grid-cols-2 m:grid-cols-2 l:grid-cols-4 gap-8 m:gap-12 l:gap-24 space-y-6 m:space-y-0 pb-16 m:pb-20 l:pb-24">
+            {/* Column 1: Contact Info */}
+            <div className="space-y-4">
+              <div className="flex items-center space-x-2">
+                <Mail className="text-black-70" />
+                <p className={`${TYPOGRAPHY.text18} text-black-90`}>
+                  {INFO.email}
+                </p>
+                <button
+                  onClick={() => navigator.clipboard.writeText(INFO.email)}
+                  className="opacity-40 hover:opacity-70 transition-opacity"
+                  aria-label="Copy email"
+                >
+                  <ClipboardCopy size={16} />
+                </button>
+              </div>
+
+              <div className="flex items-center space-x-2">
+                <Phone className="text-black-70" />
+                <p className={`${TYPOGRAPHY.text18} text-black-90`}>
+                  {INFO.phone}
+                </p>
+                <button
+                  onClick={() => navigator.clipboard.writeText(INFO.phone)}
+                  className="opacity-40 hover:opacity-70 transition-opacity"
+                  aria-label="Copy phone"
+                >
+                  <ClipboardCopy size={16} />
+                </button>
+              </div>
             </div>
 
-            <div className="flex items-center space-x-2">
-              <Phone className="text-black-70" />
+            {/* Column 2: Physical Address */}
+            <div className="space-y-4">
               <p className={`${TYPOGRAPHY.text18} text-black-90`}>
-                +34 609 971 307
+                {INFO.address.split("\n").map((line, index) => (
+                  <Fragment key={index}>
+                    {line}
+                    <br />
+                  </Fragment>
+                ))}
               </p>
-              <button
-                onClick={() => navigator.clipboard.writeText("+34 609 971 307")}
-                className="opacity-40 hover:opacity-70 transition-opacity"
-                aria-label="Copy phone"
-              >
-                <ClipboardCopy size={16} />
-              </button>
+            </div>
+
+            {/* Column 3: Navigation Links */}
+            <div className="space-y-4 mr-6 m:mr-0 text-right">
+              {navigation.map((link, index) => (
+                <Link
+                  key={index}
+                  href={link.href}
+                  className={clsx(
+                    TYPOGRAPHY.mono18,
+                    "uppercase",
+                    "text-black-90 hover:text-orange-100 hover:underline transition-all duration-200 block"
+                  )}
+                >
+                  {link.label?.[locale]}
+                </Link>
+              ))}
+            </div>
+
+            {/* Column 4: Social Links */}
+            <div className="space-y-4">
+              {INFO.social.map((link, index) => (
+                <Link
+                  key={index}
+                  href={link.href}
+                  className={`${TYPOGRAPHY.text18} text-black-90 hover:text-orange-100 transition-colors block`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {(link.icon && (
+                    <DynamicIcon iconName={link.icon} className="w-6 h-6" />
+                  )) ||
+                    link.label?.[locale]}
+                </Link>
+              ))}
             </div>
           </div>
-
-          {/* Column 2: Physical Address */}
-          <div className="space-y-4">
-            <p className={`${TYPOGRAPHY.text18} text-black-90`}>
-              Calle Eduardo Rivas 14
-            </p>
-            <p className={`${TYPOGRAPHY.text18} text-black-90`}>28019 Madrid</p>
-            <p className={`${TYPOGRAPHY.text18} text-black-90`}>Spain</p>
-          </div>
-
-          {/* Column 3: Navigation Links */}
-          <div className="space-y-4 l:text-right">
-            {navigation.map((link, index) => (
-              <Link
-                key={index}
-                href={link.href}
-                className={clsx(
-                  TYPOGRAPHY.text18,
-                  "font-bold",
-                  "text-black-90 hover:text-orange-100 hover:underline transition-all duration-200 block"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Column 4: Social Links */}
-          <div className="space-y-4">
-            {navSocialLinks.map((link, index) => (
-              <Link
-                key={index}
-                href={link.href}
-                className={`${TYPOGRAPHY.text18} text-black-90 hover:text-orange-100 transition-colors block`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {(link.icon && (
-                  <DynamicIcon iconName={link.icon} className="w-6 h-6" />
-                )) ||
-                  link.label}
-              </Link>
-            ))}
-          </div>
         </div>
-      </div>
+      )}
 
       {/* Bottom Section with white-98 background */}
-      <div className="bg-white-98 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 m:px-8 l:px-12 py-8">
+      <div className="bg-white-98 border-gray-100">
+        <div
+          className={clsx(
+            "max-w-7xl mx-auto px-6 m:px-8 l:px-12 py-8",
+            variant === "simple" ? "border-t border-t-black-10" : "border-t-0"
+          )}
+        >
           <div className="flex flex-col space-y-6 m:space-y-0 m:flex-row m:items-center m:justify-between">
             {/* Legal Links */}
             <div className="flex flex-col space-y-4 m:space-y-0 m:flex-row m:items-center m:space-x-8">
-              <Link
-                href="/privacy"
-                className={`${TYPOGRAPHY.text14} text-black-90 hover:text-black-50 transition-colors`}
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
-                className={`${TYPOGRAPHY.text14} text-black-90 hover:text-black-50 transition-colors`}
-              >
-                Terms & Conditions
-              </Link>
-              <Link
-                href="/imprint"
-                className={`${TYPOGRAPHY.text14} text-black-90 hover:text-black-50 transition-colors`}
-              >
-                Imprint
-              </Link>
+              {legalLinks.map((link, index) => (
+                <Link
+                  key={index}
+                  href={link.href}
+                  className={`${TYPOGRAPHY.text14} text-black-90 hover:text-black-50 transition-colors`}
+                >
+                  {link.label?.[locale]}
+                </Link>
+              ))}
             </div>
 
             {/* Copyright and Back to Top */}

@@ -1,5 +1,10 @@
+type LocalizedLabel = {
+  en: string;
+  es: string;
+};
+
 export type NavigationLink = {
-  label?: string;
+  label?: LocalizedLabel;
   href: string;
 };
 

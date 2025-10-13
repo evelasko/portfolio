@@ -1,4 +1,4 @@
-import { socialLinks } from "@/lib/navigation";
+import { INFO } from "@/content/info";
 import BioBlock from "../misc/BioBlock";
 import TestimonialCarousel from "../lists_and_grids/TestimonialCarousel";
 import MainHeading from "../headings/MainHeading";
@@ -9,15 +9,15 @@ export default function TheWho() {
       <BioBlock
         photo_path="/assets/images/photos/photo_2.jpg"
         short_bio="My journey wasn't in one world, but at the intersection of two. From the stages of the **Netherlands Dans Theatre** to the command line of a programming terminal, I discovered the same core truth: **the most powerful creations come from a harmony of logic and soul**. I don't teach theory; I share a methodology I've lived. **My goal is to give you the compass I built for myself.**"
-        social_links={socialLinks}
+        social_links={INFO.social}
         other_links={[
           {
             href: "/",
-            label: "Read more",
+            label: { en: "Read more", es: "Leer más" },
           },
           {
             href: "/",
-            label: "Contact me",
+            label: { en: "Contact me", es: "Contactarme" },
           },
         ]}
         margin={60}

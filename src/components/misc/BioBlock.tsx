@@ -7,6 +7,8 @@ import { TYPOGRAPHY } from "@/lib/typography";
 import Image from "next/image";
 import { icons } from "lucide-react";
 import Link from "next/link";
+import { useLocale } from "next-intl";
+import { LocaleString } from "@/lib/types/intl";
 
 export default function BioBlock({
   photo_path,
@@ -29,6 +31,8 @@ export default function BioBlock({
   other_links: NavigationLink[];
   margin?: number;
 }) {
+  const locale = useLocale();
+  const localeString = locale as LocaleString;
   // Component to render dynamic icon from Lucide
   const DynamicIcon = ({
     iconName,
@@ -329,7 +333,7 @@ export default function BioBlock({
                       href={link.href}
                       className={`${TYPOGRAPHY.mono18} uppercase text-black-30 hover:text-white transition-colors duration-200`}
                     >
-                      {link.label || "LINK"}
+                      {link.label?.[localeString] || "LINK"}
                     </Link>
                   )}
                 </motion.div>

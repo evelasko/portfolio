@@ -10,8 +10,10 @@ import Evelasco from "@/components/graphics/Evelasco";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { Link, usePathname } from "@/i18n/navigation";
 import DynamicIcon from "./DynamicIcon";
+import { LocaleString } from "@/lib/types/intl";
 
 interface NavigationBarProps {
+  locale: LocaleString;
   links: NavigationLink[];
   socialLinks?: SocialLink[];
   heroRef?: RefObject<HTMLDivElement | null> | null;
@@ -19,6 +21,7 @@ interface NavigationBarProps {
 }
 
 export default function NavBar({
+  locale,
   links,
   socialLinks = [],
   heroRef,
@@ -143,7 +146,7 @@ export default function NavBar({
               )}
               style={{ color: "rgb(255, 255, 255)" }}
             >
-              {link.label || "Link"}
+              {link.label?.[locale] || "Link"}
             </Link>
           ))}
         </motion.div>
@@ -167,8 +170,8 @@ export default function NavBar({
                       className="w-5 h-5"
                     />
                   )) ||
-                  socialLink.label
-                : socialLink.label}
+                  socialLink.label?.[locale]
+                : socialLink.label?.[locale]}
             </Link>
           ))}
           <LanguageSwitcher />
@@ -264,7 +267,7 @@ export default function NavBar({
                         "text-white uppercase tracking-wider"
                       )}
                     >
-                      {link.label || "Link"}
+                      {link.label?.[locale] || "Link"}
                     </Link>
                   </motion.div>
                 ))}
@@ -294,7 +297,7 @@ export default function NavBar({
                           className="w-6 h-6"
                         />
                       ) : (
-                        socialLink.label || "Link"
+                        socialLink.label?.[locale] || "Link"
                       )}
                     </Link>
                   ))}
