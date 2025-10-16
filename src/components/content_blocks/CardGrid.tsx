@@ -1,6 +1,7 @@
 "use client";
 
 import SimpleCard from "@/components/cards/SimpleCard";
+import clsx from "clsx";
 import * as LucideIcons from "lucide-react";
 
 interface SimpleCardData {
@@ -10,10 +11,13 @@ interface SimpleCardData {
   bodyText: string;
   buttonLabel: string;
   buttonLink: string;
+  className?: string;
 }
 
 interface CardGridProps {
   cards: SimpleCardData[];
+  className?: string;
+  cardClassName?: string;
 }
 
 /**
@@ -23,9 +27,18 @@ interface CardGridProps {
  * Mobile: Single column layout
  * @param cards - Array of card data objects
  */
-export default function CardGrid({ cards }: CardGridProps) {
+export default function CardGrid({
+  cards,
+  className,
+  cardClassName,
+}: CardGridProps) {
   return (
-    <div className="w-full py-12 m:py-16 l:py-20 px-5 m:px-10 l:px-20">
+    <div
+      className={clsx(
+        "w-full",
+        className || "py-12 m:py-16 l:py-20 px-5 m:px-10 l:px-20"
+      )}
+    >
       {/* Bento Grid */}
       <div className="grid grid-cols-1 m:grid-cols-2 l:grid-cols-4 gap-4 m:gap-6 l:gap-6 max-w-[1400px] mx-auto">
         {cards.map((card, index) => (
@@ -37,6 +50,7 @@ export default function CardGrid({ cards }: CardGridProps) {
             bodyText={card.bodyText}
             buttonLabel={card.buttonLabel}
             buttonLink={card.buttonLink}
+            className={cardClassName}
           />
         ))}
       </div>

@@ -130,9 +130,11 @@ export default function ConnectBanner({
           }}
           viewport={{ once: true }}
         >
-          <PortfolioButton variant="light" href={cta_link}>
-            {cta_label}
-          </PortfolioButton>
+          <div className="!mix-blend-soft-light">
+            <PortfolioButton variant="dark" href={cta_link}>
+              {cta_label}
+            </PortfolioButton>
+          </div>
         </motion.div>
       </div>
 

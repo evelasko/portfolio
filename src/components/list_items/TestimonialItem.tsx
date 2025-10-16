@@ -1,11 +1,15 @@
 import Image from "next/image";
 import { TYPOGRAPHY } from "@/lib/typography";
+import clsx from "clsx";
 
 export interface TestimonialItemProps {
   name: string;
   title: string;
   message: string;
   avatar: string;
+  className?: string;
+  textClassName?: string;
+  variant?: "light" | "dark";
 }
 
 /**
@@ -20,12 +24,26 @@ export default function TestimonialItem({
   title,
   message,
   avatar,
+  className,
+  textClassName,
+  variant = "light",
 }: TestimonialItemProps) {
   return (
-    <div className="bg-black/[0.02] p-8 m:p-10 l:p-12 rounded-lg shadow-sm border border-gray-100">
+    <div
+      className={clsx(
+        "bg-black/[0.02] p-8 m:p-10 l:p-12 rounded-lg shadow-sm border border-gray-100",
+        className
+      )}
+    >
       {/* Testimonial Message */}
       <div className="mb-8 l:mb-10">
-        <p className={`${TYPOGRAPHY.h9} text-black-70 leading-relaxed`}>
+        <p
+          className={clsx(
+            `${TYPOGRAPHY.h9} text-black-70 leading-relaxed`,
+            textClassName,
+            variant === "dark" ? "text-white" : "text-black-70"
+          )}
+        >
           {message}
         </p>
       </div>
@@ -47,10 +65,20 @@ export default function TestimonialItem({
 
         {/* Name and Title */}
         <div className="flex flex-col space-y-1">
-          <p className={`${TYPOGRAPHY.mono18} text-black-90 uppercase`}>
+          <p
+            className={clsx(
+              `${TYPOGRAPHY.mono18} uppercase`,
+              variant === "dark" ? "text-white/70" : "text-black-90"
+            )}
+          >
             {name}
           </p>
-          <p className={`${TYPOGRAPHY.mono16} text-black-50 uppercase`}>
+          <p
+            className={clsx(
+              `${TYPOGRAPHY.mono16} text-black-50 uppercase`,
+              variant === "dark" ? "text-white" : "text-black-50"
+            )}
+          >
             {title}
           </p>
         </div>

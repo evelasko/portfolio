@@ -1,4 +1,5 @@
 import Link from "next/link";
+import clsx from "clsx";
 
 interface PortfolioButtonProps {
   children: React.ReactNode;
@@ -25,7 +26,6 @@ export default function PortfolioButton({
     transition-all duration-200 ease-in-out
     font-medium
     no-underline
-    ${className}
   `;
 
   const darkVariantClasses = `
@@ -44,7 +44,11 @@ export default function PortfolioButton({
 
   if (href) {
     return (
-      <a href={href} className={combinedClasses} style={{ marginBottom: 0 }}>
+      <a
+        href={href}
+        className={clsx(combinedClasses, className)}
+        style={{ marginBottom: 0 }}
+      >
         {children}
       </a>
     );

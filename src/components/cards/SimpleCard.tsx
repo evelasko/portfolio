@@ -5,6 +5,7 @@ import Link from "next/link";
 import * as LucideIcons from "lucide-react";
 import { TYPOGRAPHY } from "@/lib/typography";
 import { Button } from "@/components/ui/button";
+import clsx from "clsx";
 
 interface SimpleCardProps {
   icon: keyof typeof LucideIcons;
@@ -13,6 +14,7 @@ interface SimpleCardProps {
   bodyText: string;
   buttonLabel: string;
   buttonLink: string;
+  className?: string;
 }
 
 /**
@@ -33,6 +35,7 @@ export default function SimpleCard({
   bodyText,
   buttonLabel,
   buttonLink,
+  className,
 }: SimpleCardProps) {
   // Dynamically get the icon component
   const IconComponent = LucideIcons[icon] as LucideIcons.LucideIcon;
@@ -54,7 +57,10 @@ export default function SimpleCard({
 
   return (
     <motion.div
-      className="relative flex flex-col p-6 m:p-8 l:p-10 rounded-2xl bg-white-98 border border-black-10 hover:border-black-20 transition-colors duration-300"
+      className={clsx(
+        "relative flex flex-col p-6 m:p-8 l:p-10 rounded-2xl bg-white-98 border border-black-10 hover:border-black-20 transition-colors duration-300",
+        className
+      )}
       style={{
         backgroundColor: "var(--color-white-98)",
         borderColor: "var(--color-black-10)",

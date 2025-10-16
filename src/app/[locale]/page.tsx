@@ -187,6 +187,7 @@ export default function Page() {
         key_text="The path of an architect begins with a single, intentional step."
         cta_label="ENTER CENIE →"
         cta_link="https://www.cenie.org"
+        background_image_path="/assets/images/backgrounds/fabric-folds-orange-2.jpg"
       />
       <TheWorks />
       <TheThoughts />
