@@ -1,5 +1,6 @@
 import Link from "next/link";
 import clsx from "clsx";
+import { TYPOGRAPHY } from "@/lib/typography";
 
 interface PortfolioButtonProps {
   children: React.ReactNode;
@@ -18,7 +19,6 @@ export default function PortfolioButton({
 }: PortfolioButtonProps) {
   const baseClasses = `
     inline-flex items-center justify-center
-    text-14-s m:text-14-m l:text-14-l
     uppercase
     h-[54px] px-6
     rounded-full
@@ -38,15 +38,16 @@ export default function PortfolioButton({
     hover:border-white-100 hover:text-[#1E2B3A] hover:bg-white-100
   `;
 
-  const variantClasses =
-    variant === "dark" ? darkVariantClasses : lightVariantClasses;
-  const combinedClasses = `${baseClasses} ${variantClasses}`;
-
   if (href) {
     return (
       <a
         href={href}
-        className={clsx(combinedClasses, className)}
+        className={clsx(
+          TYPOGRAPHY.mono18,
+          baseClasses,
+          variant === "dark" ? darkVariantClasses : lightVariantClasses,
+          className
+        )}
         style={{ marginBottom: 0 }}
       >
         {children}
@@ -58,7 +59,12 @@ export default function PortfolioButton({
     <Link
       href={href || ""}
       // onClick={onClick}
-      className={combinedClasses}
+      className={clsx(
+        TYPOGRAPHY.mono18,
+        baseClasses,
+        variant === "dark" ? darkVariantClasses : lightVariantClasses,
+        className
+      )}
       style={{ marginBottom: 0 }}
     >
       {children}

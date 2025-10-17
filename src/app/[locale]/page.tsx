@@ -16,6 +16,7 @@ import { motion } from "motion/react";
 import clsx from "clsx";
 import { TYPOGRAPHY } from "@/lib/typography";
 import { useTranslations } from "next-intl";
+import CenieBanner from "@/components/home/CenieBanner";
 
 export default function Page() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -182,13 +183,16 @@ export default function Page() {
       />
       <TheHow />
       <TheWho />
-      <ConnectBanner
+      <div className="mb-28 m:mb-12">
+        <CenieBanner />
+      </div>
+      {/* <ConnectBanner
         primary_text="Start Exploring"
         key_text="The path of an architect begins with a single, intentional step."
         cta_label="ENTER CENIE →"
         cta_link="https://www.cenie.org"
-        background_image_path="/assets/images/backgrounds/fabric-folds-orange-2.jpg"
-      />
+        background_image_path="/assets/images/backgrounds/fabric-folds-orange-3.jpg"
+      /> */}
       <TheWorks />
       <TheThoughts />
     </>
