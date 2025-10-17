@@ -23,7 +23,10 @@
       "mcp__deepl__*",
       "mcp__chrome-devtools__*",
       "mcp__context7__*",
-      "Bash(pnpm build:*)"
+      "Bash(pnpm build:*)",
+      "Bash(grep:*)",
+      "Bash(curl -s http://localhost:3000/sitemap.xml)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []

@@ -12,7 +12,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "format:staged": "prettier --write --ignore-unknown",
-    "slicemachine": "start-slicemachine"
+    "slicemachine": "start-slicemachine",
+    "validate:sitemap": "tsx scripts/validate-sitemap.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
