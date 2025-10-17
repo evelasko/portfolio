@@ -14,7 +14,7 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
-          "border bg-background shadow-xs hover:bg-black-100 hover:text-white-100 dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+          "border bg-background shadow-xs dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
         secondary:
           "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
         ghost:
@@ -27,10 +27,29 @@ const buttonVariants = cva(
         lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
         icon: "size-9",
       },
+      brightness: {
+        light: "",
+        dark: "",
+      },
     },
+    compoundVariants: [
+      {
+        variant: "outline",
+        brightness: "light",
+        class:
+          "bg-transparent text-black-100 border-black-100 hover:bg-black-100 hover:text-white-100",
+      },
+      {
+        variant: "outline",
+        brightness: "dark",
+        class:
+          "bg-transparent text-white-100 border-white-100 hover:bg-white-100 hover:text-black-100",
+      },
+    ],
     defaultVariants: {
       variant: "default",
       size: "default",
+      brightness: undefined,
     },
   }
 );
@@ -39,6 +58,7 @@ function Button({
   className,
   variant,
   size,
+  brightness,
   asChild = false,
   ...props
 }: React.ComponentProps<"button"> &
@@ -50,7 +70,7 @@ function Button({
   return (
     <Comp
       data-slot="button"
-      className={clsx(buttonVariants({ variant, size }), className)}
+      className={clsx(buttonVariants({ variant, size, brightness }), className)}
       {...props}
     />
   );

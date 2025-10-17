@@ -1,5 +1,7 @@
 import MainHeading from "../headings/MainHeading";
 import ThoughtCard from "../cards/ThoughtCard";
+import clsx from "clsx";
+import { TYPOGRAPHY } from "@/lib/typography";
 
 export default function TheThoughts() {
   const thoughts = [
@@ -38,8 +40,16 @@ export default function TheThoughts() {
       <div className="w-full max-w-7xl mx-auto px-4 m:px-8 l:px-12">
         <MainHeading
           title="The Thoughts"
+          subtitle="Reflections on two worlds intertwined"
           className="text-center mb-12 m:mb-16 l:mb-20"
         />
+        <div
+          className={clsx(TYPOGRAPHY.text20, "text-center px-4 m:px-12 mb-12")}
+        >
+          A journey is only as rich as the stories it tells.
+          <br />
+          Here are the reflections of a journey across two worlds.
+        </div>
 
         <div className="grid grid-cols-1 m:grid-cols-2 l:grid-cols-2 gap-6 m:gap-8 l:gap-10">
           {thoughts.map((thought, index) => (

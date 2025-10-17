@@ -4,7 +4,8 @@ import clsx from "clsx";
 import { TYPOGRAPHY } from "@/lib/typography";
 import CenieFullLogo from "../graphics/CenieFullLogo";
 import { Button } from "../ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export default function TheHow() {
   return (
@@ -74,18 +75,21 @@ export default function TheHow() {
           <div className="w-2/3 mb-24">
             <CenieFullLogo color="rgba(255, 255, 255, 0.9)" />
           </div>
-          <Button
-            variant="outline"
-            size="lg"
-            className={clsx(
-              "text-white hover:text-orange-100 bg-transparent",
-              TYPOGRAPHY.mono18,
-              "uppercase"
-            )}
+          <Link
+            href="https://cenie.org"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Explore the CENIE Ecosystem
-            <ArrowRight className="w-4 h-4" />
-          </Button>
+            <Button
+              variant="outline"
+              brightness="dark"
+              size="lg"
+              className={clsx(TYPOGRAPHY.mono18, "uppercase")}
+            >
+              Explore the CENIE Ecosystem
+              <ArrowUpRight className="w-4 h-4" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

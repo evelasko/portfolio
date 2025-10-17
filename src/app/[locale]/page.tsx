@@ -15,10 +15,10 @@ import MessageSplit from "@/components/home/MessageSplit";
 import { motion } from "motion/react";
 import clsx from "clsx";
 import { TYPOGRAPHY } from "@/lib/typography";
-import { useTranslations } from "next-intl";
-import CenieBanner from "@/components/home/CenieBanner";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function Page() {
+  const locale = useLocale();
   const heroRef = useRef<HTMLDivElement>(null);
   const { setHeroRef, setShowNavBar, setShowFooter, setFooterVariant } =
     useLayout();
@@ -182,7 +182,7 @@ export default function Page() {
         imagePath="/assets/images/backgrounds/curtain.jpg"
       />
       <TheHow />
-      <TheWho />
+      <TheWho locale={locale} />
       <TheWorks />
       <TheThoughts />
     </>
