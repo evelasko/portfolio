@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://enriquevelasco.com/schemas/article-categories.json",
+  "title": "Article Categories Schema",
+  "description": "Schema for article category definitions with multi-locale support",
+  "type": "object",
+  "required": ["categories", "metadata"],
+  "properties": {
+    "categories": {
+      "type": "object",
+      "description": "Category definitions keyed by category identifier",
+      "patternProperties": {
+        "^[a-z][a-z0-9-]*$": {
+          "type": "object",
+          "required": ["key", "slug", "translations"],
+          "properties": {
+            "key": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]*$",
+              "description": "Unique identifier for the category"
+            },
+            "slug": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]*$",
+              "description": "URL-friendly slug for the category"
+            },
+            "translations": {
+              "type": "object",
+              "description": "Localized category names",
+              "patternProperties": {
+                "^[a-z]{2}$": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            "description": {
+              "type": "string",
+              "description": "English description of the category"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["version", "lastUpdated", "supportedLocales"],
+      "properties": {
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "description": "Semantic version of the category definitions"
+        },
+        "lastUpdated": {
+          "type": "string",
+          "format": "date",
+          "description": "Last update date in YYYY-MM-DD format"
+        },
+        "supportedLocales": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z]{2}$"
+          },
+          "minItems": 1,
+          "uniqueItems": true,
+          "description": "Supported locale codes"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

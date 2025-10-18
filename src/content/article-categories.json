@@ -1,0 +1,154 @@
+{
+  "$schema": "../lib/categories/schema.json",
+  "categories": {
+    "art-technology": {
+      "key": "art-technology",
+      "slug": "art-technology",
+      "translations": {
+        "en": "Art + Technology",
+        "es": "Arte + Tecnología"
+      },
+      "description": "Exploring the intersection of artistic expression and technological innovation"
+    },
+    "creative-process": {
+      "key": "creative-process",
+      "slug": "creative-process",
+      "translations": {
+        "en": "Creative Process",
+        "es": "Proceso Creativo"
+      },
+      "description": "Insights into creative workflows, methodologies, and practices"
+    },
+    "business-strategy": {
+      "key": "business-strategy",
+      "slug": "business-strategy",
+      "translations": {
+        "en": "Business Strategy",
+        "es": "Estrategia de Negocio"
+      },
+      "description": "Strategic approaches to building and growing creative businesses"
+    },
+    "business-growth": {
+      "key": "business-growth",
+      "slug": "business-growth",
+      "translations": {
+        "en": "Business Growth",
+        "es": "Crecimiento de Negocio"
+      },
+      "description": "Scaling creative businesses and managing growth"
+    },
+    "career-business": {
+      "key": "career-business",
+      "slug": "career-business",
+      "translations": {
+        "en": "Career & Business",
+        "es": "Carrera + Negocio"
+      },
+      "description": "Building sustainable creative careers and businesses"
+    },
+    "client-management": {
+      "key": "client-management",
+      "slug": "client-management",
+      "translations": {
+        "en": "Client Management",
+        "es": "Gestión de Clientes"
+      },
+      "description": "Effective client communication and relationship management"
+    },
+    "community-collaboration": {
+      "key": "community-collaboration",
+      "slug": "community-collaboration",
+      "translations": {
+        "en": "Community & Collaboration",
+        "es": "Comunidad + Colaboración"
+      },
+      "description": "Building and nurturing creative communities"
+    },
+    "creative-thinking": {
+      "key": "creative-thinking",
+      "slug": "creative-thinking",
+      "translations": {
+        "en": "Creative Thinking",
+        "es": "Pensamiento Creativo"
+      },
+      "description": "Approaches to creative problem-solving and ideation"
+    },
+    "growth-learning": {
+      "key": "growth-learning",
+      "slug": "growth-learning",
+      "translations": {
+        "en": "Growth & Learning",
+        "es": "Crecimiento + Aprendizaje"
+      },
+      "description": "Personal and professional development in creative fields"
+    },
+    "methodology": {
+      "key": "methodology",
+      "slug": "methodology",
+      "translations": {
+        "en": "Methodology",
+        "es": "Metodología"
+      },
+      "description": "Systematic approaches to creative and technical work"
+    },
+    "philosophy-mindset": {
+      "key": "philosophy-mindset",
+      "slug": "philosophy-mindset",
+      "translations": {
+        "en": "Philosophy & Mindset",
+        "es": "Filosofía + Mentalidad"
+      },
+      "description": "Core beliefs and mental frameworks for creative work"
+    },
+    "philosophy-values": {
+      "key": "philosophy-values",
+      "slug": "philosophy-values",
+      "translations": {
+        "en": "Philosophy & Values",
+        "es": "Filosofía + Valores"
+      },
+      "description": "Foundational values and principles for creative practice"
+    },
+    "technical-guide": {
+      "key": "technical-guide",
+      "slug": "technical-guide",
+      "translations": {
+        "en": "Technical Guide",
+        "es": "Guía Técnica"
+      },
+      "description": "In-depth technical tutorials and guides"
+    },
+    "tools-resources": {
+      "key": "tools-resources",
+      "slug": "tools-resources",
+      "translations": {
+        "en": "Tools & Resources",
+        "es": "Herramientas + Recursos"
+      },
+      "description": "Software, tools, and resources for creative technologists"
+    },
+    "demo": {
+      "key": "demo",
+      "slug": "demo",
+      "translations": {
+        "en": "Demo",
+        "es": "Demo"
+      },
+      "description": "Demonstration and example content"
+    },
+    "development": {
+      "key": "development",
+      "slug": "development",
+      "translations": {
+        "en": "Development",
+        "es": "Desarrollo"
+      },
+      "description": "Software development and engineering topics"
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-01-18",
+    "supportedLocales": ["en", "es"]
+  }
+}

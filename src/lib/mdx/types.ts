@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { getValidCategoryNames } from "@/lib/categories";
 
 /**
  * SEO metadata schema for MDX content
@@ -10,6 +11,23 @@ export const SEOMetadataSchema = z.object({
 });
 
 /**
+ * Get valid category names for both English and Spanish
+ * This is used to create the Zod enum for category validation
+ */
+const getValidCategories = (): [string, ...string[]] => {
+  const enCategories = getValidCategoryNames("en");
+  const esCategories = getValidCategoryNames("es");
+  const allCategories = [...new Set([...enCategories, ...esCategories])];
+
+  if (allCategories.length === 0) {
+    // Fallback in case categories aren't loaded
+    return ["Art + Technology"];
+  }
+
+  return allCategories as [string, ...string[]];
+};
+
+/**
  * Base frontmatter schema shared by all content types
  */
 export const BaseFrontmatterSchema = z.object({
@@ -18,7 +36,12 @@ export const BaseFrontmatterSchema = z.object({
   publishedAt: z.string(),
   updatedAt: z.string().optional(),
   author: z.string().default("Enrique Velasco"),
-  category: z.string(),
+  category: z.enum(getValidCategories(), {
+    errorMap: () => ({
+      message:
+        "Invalid category. Must be a valid category from article-categories.json",
+    }),
+  }),
   tags: z.array(z.string()).default([]),
   featured: z.boolean().default(false),
   draft: z.boolean().default(false),
