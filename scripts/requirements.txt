@@ -1,0 +1,13 @@
+# Translation Script Dependencies
+
+# DeepL API client
+deepl==1.19.1
+
+# YAML frontmatter parsing
+python-frontmatter==1.1.0
+
+# Environment variable management
+python-dotenv==1.0.1
+
+# Beautiful terminal output
+rich==13.9.4

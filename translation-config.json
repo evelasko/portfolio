@@ -1,0 +1,41 @@
+{
+  "nonTranslatableTerms": [
+    "CENIE",
+    "CENIE Agency",
+    "OpenPose",
+    "MediaPipe",
+    "TouchDesigner",
+    "Ableton Live",
+    "Max for Live",
+    "TensorFlow",
+    "PyTorch",
+    "Python",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "MDX",
+    "GitHub",
+    "Cloudinary",
+    "Vercel",
+    "VSCode",
+    "Claude",
+    "Claude Code",
+    "AI",
+    "API",
+    "SDK",
+    "WebGL",
+    "CSS",
+    "HTML",
+    "JSON",
+    "YAML",
+    "npm",
+    "pnpm",
+    "yarn"
+  ],
+  "translationSettings": {
+    "formality": "default",
+    "preserveFormatting": true,
+    "targetLanguage": "es"
+  }
+}

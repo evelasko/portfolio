@@ -324,3 +324,43 @@ import clsx from "clsx";
 // Links
 <a className={TYPOGRAPHY.linkWhiteToOrange}>Hover effect link</a>
 ```
+
+## Translation Agents
+
+Two specialized agents are available for translating articles from English to Spanish:
+
+### 1. Single Article Translator (.claude/agents/translate-single-article.md)
+Translates ONE specific article. Use for individual article translation.
+
+**When to invoke:** User asks to translate a specific article.
+
+**How to invoke:**
+```typescript
+Task(
+  description: "Translate article: {slug}",
+  subagent_type: "general-purpose",
+  prompt: "Follow .claude/agents/translate-single-article.md to translate '{slug}' from English to Spanish. Config: translation-config.json. Report Spanish slug generated."
+)
+```
+
+### 2. Translation Orchestrator (.claude/agents/article-translator.md)
+Identifies all untranslated articles and orchestrates their translation by calling the single-article translator for each one.
+
+**When to invoke:** User asks to:
+- "update article translations"
+- "translate missing articles"
+- "translate all articles to Spanish"
+- "sync article translations"
+
+**How to invoke:**
+```typescript
+Task(
+  description: "Translate all missing articles",
+  subagent_type: "general-purpose",
+  prompt: "Follow .claude/agents/article-translator.md to identify and translate all missing Spanish articles using the single-article translator."
+)
+```
+
+**Key principle:** One agent call = one article translation (prevents wasteful DeepL API calls)
+
+**Documentation:** See [TRANSLATION-GUIDE.md](TRANSLATION-GUIDE.md) for details.
