@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { TYPOGRAPHY } from "@/lib/typography";
+import { CloudinaryThumbnail } from "@/components/mdx/CloudinaryImage";
 
 /**
  * Project Item Component
@@ -45,7 +45,7 @@ export default function ProjectItem({
 
           {/* Image Column - Second on mobile, first on large */}
           <div className="order-1 l:order-2 relative overflow-hidden h-[200px] m:h-full l:h-full flex items-center justify-center">
-            <Image
+            <CloudinaryThumbnail
               src={image}
               alt={title}
               fill

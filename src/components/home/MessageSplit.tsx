@@ -91,7 +91,8 @@ export default function MessageSplit({
         <motion.div
           className="absolute inset-0 pointer-events-none z-[2]"
           style={{
-            backgroundImage: "url(/assets/ui/noise.png)",
+            backgroundImage:
+              "url(https://res.cloudinary.com/misfitcoders/image/upload/v1760882825/eVelasco/ui/noise.png)",
             backgroundRepeat: "repeat",
             mixBlendMode: "overlay",
             opacity: vhsOpacity,
@@ -102,7 +103,8 @@ export default function MessageSplit({
         <motion.div
           className="absolute inset-0 pointer-events-none z-[3]"
           style={{
-            backgroundImage: "url(/assets/ui/stripes.gif)",
+            backgroundImage:
+              "url(https://res.cloudinary.com/misfitcoders/image/upload/v1760882832/eVelasco/ui/stripes.gif)",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center",

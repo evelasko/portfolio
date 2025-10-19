@@ -22,12 +22,13 @@ export default function TheWorks({
     return null;
   }
 
-  const projects = featuredWorks.map((work) => ({
+  const projects = featuredWorks.map(work => ({
     label: work.frontmatter.category,
     title: work.frontmatter.title,
     description: work.frontmatter.description,
     image:
-      work.frontmatter.coverImage || "/assets/placeholders/work-placeholder.jpg",
+      work.frontmatter.coverImage ||
+      "https://res.cloudinary.com/misfitcoders/image/upload/v1760912222/eVelasco/covers/work-placeholder.jpg",
     link: `/${locale}/works/${work.slug}`,
   }));
 

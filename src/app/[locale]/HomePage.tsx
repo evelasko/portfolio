@@ -176,7 +176,7 @@ export default function HomePage({
         subtitle={t("subtitle")}
         images={[]}
         link="#documentation"
-        video="/assets/videos/throwback-slo-mo.mp4"
+        video="https://res.cloudinary.com/misfitcoders/video/upload/v1760882884/eVelasco/videos/throwback-slo-mo_b1sycx.mp4"
         heroRef={heroRef}
         row2Content={desktopRow2Content}
         mobileRow1Content={mobileRow1Content}
@@ -188,7 +188,7 @@ export default function HomePage({
         leftText={t("sections.messageSplit.leftText")}
         rightText={t("sections.messageSplit.rightText")}
         finalText={t("sections.messageSplit.finalText")}
-        imagePath="/assets/backgrounds/curtain.jpg"
+        imagePath="https://res.cloudinary.com/misfitcoders/image/upload/v1760882564/eVelasco/backgrounds/curtain.jpg"
       />
       <TheHow />
       <TheWho locale={locale} />

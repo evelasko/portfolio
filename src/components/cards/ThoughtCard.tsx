@@ -3,8 +3,8 @@
 import { motion } from "motion/react";
 import { TYPOGRAPHY } from "@/lib/typography";
 import clsx from "clsx";
-import Image from "next/image";
 import Link from "next/link";
+import { CloudinaryThumbnail } from "@/components/mdx/CloudinaryImage";
 
 /**
  * ThoughtCard
@@ -38,12 +38,12 @@ export default function ThoughtCard({
       >
         {/* Image */}
         <div className="relative w-full aspect-[16/9] overflow-hidden">
-          <Image
+          <CloudinaryThumbnail
             src={image}
             alt={title}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
             sizes="(max-width: 810px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            fill
           />
         </div>
 

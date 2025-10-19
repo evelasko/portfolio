@@ -1,8 +1,10 @@
-import Image from "next/image";
+import { CloudinaryImage } from "./CloudinaryImage";
 import type { ImageProps } from "next/image";
 
 /**
  * Optimized image component for MDX content
+ * Automatically uses Cloudinary optimization for Cloudinary URLs
+ * Falls back to Next.js Image for local files
  */
 export function MDXImage({
   src,
@@ -21,12 +23,14 @@ export function MDXImage({
   // If width and height are provided, use them
   if (width && height) {
     return (
-      <Image
+      <CloudinaryImage
         src={imageSrc}
         alt={alt}
         width={Number(width)}
         height={Number(height)}
         className="rounded-lg my-8"
+        quality="auto:best"
+        gravity="auto"
         {...props}
       />
     );
@@ -35,11 +39,14 @@ export function MDXImage({
   // Otherwise use fill mode with aspect ratio container
   return (
     <div className="relative w-full my-8" style={{ aspectRatio: "16/9" }}>
-      <Image
+      <CloudinaryImage
         src={imageSrc}
         alt={alt}
-        fill
+        width={1600}
+        height={900}
         className="rounded-lg object-cover"
+        quality="auto:best"
+        gravity="auto"
         {...props}
       />
     </div>

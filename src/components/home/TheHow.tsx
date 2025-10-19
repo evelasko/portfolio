@@ -29,7 +29,7 @@ export default function TheHow() {
         className="w-full aspect-[16/18] bg-cover bg-center !mt-0 !mb-0 !pt-0  bg-black"
         style={{
           backgroundImage:
-            "url('/assets/backgrounds/fabric-folds-orange-1.jpg')",
+            "url('https://res.cloudinary.com/misfitcoders/image/upload/v1760882567/eVelasco/backgrounds/fabric-folds-orange-1.jpg')",
         }}
       >
         <CardGrid

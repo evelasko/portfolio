@@ -12,7 +12,7 @@ export default function CenieBanner() {
       {/* Background Image Container - Square aspect ratio */}
       <div className="relative w-full aspect-square -mt-px">
         <Image
-          src="/assets/backgrounds/fabric-folds-orange-3.jpg"
+          src="https://res.cloudinary.com/misfitcoders/image/upload/v1760882574/eVelasco/backgrounds/fabric-folds-orange-3.jpg"
           alt=""
           fill
           className="object-cover"
