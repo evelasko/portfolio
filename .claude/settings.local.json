@@ -33,7 +33,10 @@
       "Bash(done)",
       "Bash(python3:*)",
       "Bash(chmod:*)",
-      "Bash(pip install:*)"
+      "Bash(pip install:*)",
+      "Bash(pnpm dev:*)",
+      "Bash(git checkout:*)",
+      "Bash(xargs cat:*)"
     ],
     "deny": [],
     "ask": []

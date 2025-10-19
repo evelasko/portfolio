@@ -1,44 +1,35 @@
+"use client";
+
 import { TYPOGRAPHY } from "@/lib/typography";
 import MainHeading from "../headings/MainHeading";
 import ProjectItem from "../list_items/ProjectItem";
 import clsx from "clsx";
 import BentoGrid from "../cards/BentoGrid";
+import type { ContentListItem, WorkFrontmatter } from "@/lib/mdx/types";
 
-export default function TheWorks() {
-  const projects = [
-    {
-      label: "Web Development",
-      title: "E-Commerce Platform Redesign",
-      description:
-        "Complete redesign and development of a modern e-commerce platform with seamless user experience and increased conversion rates.",
-      image: "/assets/images/cards/card_1.jpg",
-      link: "/works/ecommerce-platform",
-    },
-    {
-      label: "Choreography",
-      title: "Hey Siri, do you love me?",
-      description:
-        "Comprehensive brand identity design including logo, color palette, typography, and brand guidelines for a SaaS startup.",
-      image: "/assets/images/cards/card_2.jpg",
-      link: "/works/tech-startup-branding",
-    },
-    {
-      label: "Mobile App",
-      title: "Alicialonso Campus App",
-      description:
-        "Native mobile app design and development for iOS and Android, featuring workout tracking and personalized fitness plans.",
-      image: "/assets/images/cards/card_3.jpg",
-      link: "/works/fitness-app",
-    },
-    {
-      label: "Show Control",
-      title: "Qlab Automation Scripts",
-      description:
-        "Intuitive dashboard design for data visualization and analytics, helping businesses make data-driven decisions.",
-      image: "/assets/images/cards/card_4.jpg",
-      link: "/works/dashboard-analytics",
-    },
-  ];
+export default function TheWorks({
+  locale,
+  works,
+}: {
+  locale: string;
+  works: ContentListItem<WorkFrontmatter>[];
+}) {
+  // Take first 4 works for display
+  const featuredWorks = works.slice(0, 4);
+
+  // If no works, don't render the section
+  if (featuredWorks.length === 0) {
+    return null;
+  }
+
+  const projects = featuredWorks.map((work) => ({
+    label: work.frontmatter.category,
+    title: work.frontmatter.title,
+    description: work.frontmatter.description,
+    image:
+      work.frontmatter.coverImage || "/assets/placeholders/work-placeholder.jpg",
+    link: `/${locale}/works/${work.slug}`,
+  }));
 
   return (
     <section id="the-works" className="w-full py-12 m:py-16 l:py-20">

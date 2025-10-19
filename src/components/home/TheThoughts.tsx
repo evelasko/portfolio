@@ -1,39 +1,26 @@
+"use client";
+
 import MainHeading from "../headings/MainHeading";
 import ThoughtCard from "../cards/ThoughtCard";
 import clsx from "clsx";
 import { TYPOGRAPHY } from "@/lib/typography";
+import { formatArticleDate } from "@/lib/utils";
+import type { ContentListItem, ArticleFrontmatter } from "@/lib/mdx/types";
 
-export default function TheThoughts() {
-  const thoughts = [
-    {
-      title: "The Future of Web Design: Embracing Minimalism and Functionality",
-      publishedAt: "Oct 5, 2025",
-      readingTime: 5,
-      image: "/assets/images/thoughts/thought_1.jpg",
-      link: "/thoughts/future-web-design",
-    },
-    {
-      title: "Building Scalable Design Systems: Lessons from the Field",
-      publishedAt: "Sep 28, 2025",
-      readingTime: 8,
-      image: "/assets/images/thoughts/thought_2.jpg",
-      link: "/thoughts/scalable-design-systems",
-    },
-    {
-      title: "The Art of Creative Problem Solving in UX Design",
-      publishedAt: "Sep 15, 2025",
-      readingTime: 6,
-      image: "/assets/images/thoughts/thought_3.jpg",
-      link: "/thoughts/creative-problem-solving",
-    },
-    {
-      title: "Why Motion Design Matters in Modern User Interfaces",
-      publishedAt: "Sep 1, 2025",
-      readingTime: 4,
-      image: "/assets/images/thoughts/thought_4.jpg",
-      link: "/thoughts/motion-design-matters",
-    },
-  ];
+export default function TheThoughts({
+  locale,
+  articles,
+}: {
+  locale: string;
+  articles: ContentListItem<ArticleFrontmatter>[];
+}) {
+  // Take first 4 featured articles
+  const featuredArticles = articles.slice(0, 4);
+
+  // If no featured articles, don't render the section
+  if (featuredArticles.length === 0) {
+    return null;
+  }
 
   return (
     <section id="the-thoughts" className="py-12 m:py-16 l:py-20 bg-white-90">
@@ -52,14 +39,20 @@ export default function TheThoughts() {
         </div>
 
         <div className="grid grid-cols-1 m:grid-cols-2 l:grid-cols-2 gap-6 m:gap-8 l:gap-10">
-          {thoughts.map((thought, index) => (
+          {featuredArticles.map((article) => (
             <ThoughtCard
-              key={index}
-              title={thought.title}
-              publishedAt={thought.publishedAt}
-              readingTime={thought.readingTime}
-              image={thought.image}
-              link={thought.link}
+              key={article.slug}
+              title={article.frontmatter.title}
+              publishedAt={formatArticleDate(
+                article.frontmatter.publishedAt,
+                locale
+              )}
+              readingTime={article.readingTime?.minutes || 5}
+              image={
+                article.frontmatter.coverImage ||
+                "/assets/placeholders/article-placeholder.jpg"
+              }
+              link={`/${locale}/articles/${article.slug}`}
             />
           ))}
         </div>
