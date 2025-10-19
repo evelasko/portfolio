@@ -91,7 +91,7 @@ export default function MessageSplit({
         <motion.div
           className="absolute inset-0 pointer-events-none z-[2]"
           style={{
-            backgroundImage: "url(/assets/textures/noise.png)",
+            backgroundImage: "url(/assets/ui/noise.png)",
             backgroundRepeat: "repeat",
             mixBlendMode: "overlay",
             opacity: vhsOpacity,
@@ -102,7 +102,7 @@ export default function MessageSplit({
         <motion.div
           className="absolute inset-0 pointer-events-none z-[3]"
           style={{
-            backgroundImage: "url(/assets/textures/stripes.gif)",
+            backgroundImage: "url(/assets/ui/stripes.gif)",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center",

@@ -7,7 +7,7 @@ export default function BioPage() {
         <PhotoHero
           title="Creative Insights & Design Journeys —"
           subtitle="Welcome to my Thoughts, where you'll get an inside look at my latest projects and product ideas. Explore, discover, and stay updated on what my team and I have been working on recently."
-          backgroundImage="/assets/images/backgrounds/abstract_neutral_1.jpg"
+          backgroundImage="/assets/backgrounds/abstract_neutral_1.jpg"
           photo="/assets/images/photos/photo_1.jpg"
           link="#documentation"
         />

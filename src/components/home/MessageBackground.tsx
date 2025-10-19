@@ -106,7 +106,7 @@ export default function MessageBackground({
         <motion.div
           className="absolute inset-0 pointer-events-none z-[2]"
           style={{
-            backgroundImage: "url(/assets/textures/noise.png)",
+            backgroundImage: "url(/assets/ui/noise.png)",
             backgroundRepeat: "repeat",
             mixBlendMode: "overlay",
             opacity: vhsOpacity,

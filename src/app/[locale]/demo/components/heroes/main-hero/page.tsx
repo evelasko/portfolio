@@ -59,7 +59,7 @@ export default function MainHeroComponentsDemo() {
   graphicWidth={250}
   subtitle="TIMELESS VISUAL STORIES FOR LEGENDARY BRANDS"
   images={[
-    "/assets/images/backgrounds/abstract_neutral_1.jpg",
+    "/assets/backgrounds/abstract_neutral_1.jpg",
     "/assets/images/cards/card_1.jpg",
     "/assets/images/thoughts/thought_1.jpg"
   ]}

@@ -35,7 +35,7 @@ export default function ConnectBanner({
         paddingRight: "60px",
         paddingBottom: "200px",
         paddingLeft: "60px",
-        backgroundImage: `url(${background_image_path ? background_image_path : "/assets/images/backgrounds/abstract_neutral_1.jpg"})`,
+        backgroundImage: `url(${background_image_path ? background_image_path : "/assets/backgrounds/abstract_neutral_1.jpg"})`,
       }}
     >
       {/* Desktop Layout (L) */}

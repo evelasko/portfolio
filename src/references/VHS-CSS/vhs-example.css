@@ -22,8 +22,8 @@
     #6f5d79,
     #4e779a
   );
-  --noise-texture: url(/assets/textures/noise.png);
-  --gif-texture: url(/assets/textures/stripes.gif);
+  --noise-texture: url(/assets/ui/noise.png);
+  --gif-texture: url(/assets/ui/stripes.gif);
   --mulish: "Mulish", sans-serif;
   --playfair: "Playfair Display", serif;
   --dm: "DM Serif Display", serif;

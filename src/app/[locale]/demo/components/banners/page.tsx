@@ -134,7 +134,7 @@ export default function BannersComponentsDemo() {
             code={`<div 
   className="relative"
   style={{
-    backgroundImage: 'url(/assets/images/backgrounds/abstract_neutral_1.jpg)',
+    backgroundImage: 'url(/assets/backgrounds/abstract_neutral_1.jpg)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat'
@@ -152,7 +152,7 @@ export default function BannersComponentsDemo() {
               className="relative rounded-lg overflow-hidden"
               style={{
                 backgroundImage:
-                  "url(/assets/images/backgrounds/abstract_neutral_1.jpg)",
+                  "url(/assets/backgrounds/abstract_neutral_1.jpg)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",

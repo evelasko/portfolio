@@ -18,7 +18,7 @@ export function LegalHeader({ title, description }: LegalHeaderProps) {
       id="header"
       className="my-32 px-16 bg-cover bg-center bg-no-repeat relative"
     >
-      <div className="absolute inset-0 bg-[url('/assets/images/backgrounds/abstract_neutral_1.jpg')] bg-cover bg-center bg-no-repeat opacity-20"></div>
+      <div className="absolute inset-0 bg-[url('/assets/backgrounds/abstract_neutral_1.jpg')] bg-cover bg-center bg-no-repeat opacity-20"></div>
       <div className="relative grid grid-cols-[auto_1fr] gap-8 py-16">
         <div className="mt-6">
           <button

@@ -188,7 +188,7 @@ export default function HomePage({
         leftText={t("sections.messageSplit.leftText")}
         rightText={t("sections.messageSplit.rightText")}
         finalText={t("sections.messageSplit.finalText")}
-        imagePath="/assets/images/backgrounds/curtain.jpg"
+        imagePath="/assets/backgrounds/curtain.jpg"
       />
       <TheHow />
       <TheWho locale={locale} />

@@ -58,7 +58,7 @@ export default function MinimalHeroComponentsDemo() {
               code={`<MinimalHero 
   title="Crafting Digital Experiences"
   subtitle="Where creativity meets functionality in modern web design."
-  image="/assets/images/backgrounds/abstract_neutral_1.jpg"
+  image="/assets/backgrounds/abstract_neutral_1.jpg"
   link="#portfolio"
 />`}
             >
