@@ -12,6 +12,9 @@ import type { ContentListItem, WorkFrontmatter } from "@/lib/mdx";
 import ProjectItem from "@/components/list_items/ProjectItem";
 import ProjectCard from "@/components/cards/ProjectCard";
 import { useState, useMemo } from "react";
+import { CldImage } from "next-cloudinary";
+import { ArrowDownNarrowWide, ArrowUpNarrowWide } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface WorksPageContentProps {
   works: ContentListItem<WorkFrontmatter>[];
@@ -71,52 +74,94 @@ export function WorksPageContent({ works, locale }: WorksPageContentProps) {
 
   const categoryKeys = Object.keys(worksByCategory).sort() as WorkCategoryKey[];
 
+  const t = useTranslations();
+
   return (
-    <>
+    <div className="relative">
+      {/* Background Image */}
+      {/* <div className="absolute top-0 left-0 w-full overflow-hidden pointer-events-none z-0">
+        <CldImage
+          src="eVelasco/backgrounds/fabric-folds-orange-4"
+          alt=""
+          width={1920}
+          height={600}
+          className="w-full h-auto object-cover object-top"
+          priority
+        />
+      </div> */}
+
       {/* Hero Section */}
-      <section className="min-h-[50vh] flex items-center justify-center px-6 py-24">
+      <section className="relative z-10 min-h-[25vh] md:min-h-[50vh] flex items-start md:items-center justify-center px-6 py-24">
         <div className="max-w-4xl w-full text-center">
-          <h1 className={clsx(TYPOGRAPHY.h1, "mb-6")}>Works</h1>
-          <p className={clsx(TYPOGRAPHY.text20, "text-black-90")}>
-            Selected projects and case studies showcasing design and development
-            work
+          <h1
+            className={clsx(
+              TYPOGRAPHY.h1,
+              "mt-3 md:mt-0 mb-6 text-black-100 tracking-tight"
+            )}
+          >
+            {t("works.heading")}
+          </h1>
+          <p className={clsx(TYPOGRAPHY.h9, "mt-12 text-black-100")}>
+            {t("works.subtitle")}
           </p>
         </div>
       </section>
 
       {/* Filter and Sort Controls */}
-      <section className="px-6 pb-8">
+      <section className="relative z-10 px-6 pb-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col m:flex-row gap-6 items-start m:items-center justify-between">
-            {/* Category Filters */}
-            <div className="flex flex-wrap gap-2">
-              <button
-                onClick={() => setSelectedCategory("all")}
+            {/* Category Filters - Dropdown on small screens */}
+            <div className="w-full m:w-auto">
+              {/* Mobile Dropdown */}
+              <select
+                value={selectedCategory}
+                onChange={e =>
+                  setSelectedCategory(e.target.value as WorkCategoryKey | "all")
+                }
                 className={clsx(
-                  TYPOGRAPHY.text16,
-                  "px-4 py-2 rounded-full transition-colors",
-                  selectedCategory === "all"
-                    ? "bg-orange-100 text-white-100"
-                    : "bg-black-10 text-black-100 hover:bg-black-20"
+                  TYPOGRAPHY.text14,
+                  "m:hidden w-full px-4 py-2 rounded-full transition-colors backdrop-blur-md bg-gray-300/40 border border-white/15 text-black-100 appearance-none cursor-pointer"
                 )}
               >
-                All
-              </button>
-              {availableCategories.map(category => (
+                <option value="all">{t("common.all")}</option>
+                {availableCategories.map(category => (
+                  <option key={category.key} value={category.key}>
+                    {category.getName(locale as Locale)}
+                  </option>
+                ))}
+              </select>
+
+              {/* Desktop Chips */}
+              <div className="hidden m:flex flex-wrap gap-2">
                 <button
-                  key={category.key}
-                  onClick={() => setSelectedCategory(category.key)}
+                  onClick={() => setSelectedCategory("all")}
                   className={clsx(
-                    TYPOGRAPHY.text16,
-                    "px-4 py-2 rounded-full transition-colors",
-                    selectedCategory === category.key
-                      ? "bg-orange-100 text-white-100"
+                    TYPOGRAPHY.text14,
+                    "px-4 py-2 rounded-full transition-colors backdrop-blur-md",
+                    selectedCategory === "all"
+                      ? "bg-orange-100 text-white-100 hover:bg-orange-700 transition-colors"
                       : "bg-black-10 text-black-100 hover:bg-black-20"
                   )}
                 >
-                  {category.getName(locale as Locale)}
+                  {t("common.all")}
                 </button>
-              ))}
+                {availableCategories.map(category => (
+                  <button
+                    key={category.key}
+                    onClick={() => setSelectedCategory(category.key)}
+                    className={clsx(
+                      TYPOGRAPHY.text14,
+                      "px-4 py-2 rounded-full transition-colors backdrop-blur-md",
+                      selectedCategory === category.key
+                        ? "bg-orange-100 text-white-100"
+                        : "bg-gray-300/40 border border-white/15 text-black-100 hover:bg-black-20"
+                    )}
+                  >
+                    {category.getName(locale as Locale)}
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* Sort Toggle */}
@@ -126,10 +171,19 @@ export function WorksPageContent({ works, locale }: WorksPageContentProps) {
               }
               className={clsx(
                 TYPOGRAPHY.text16,
-                "px-4 py-2 rounded-full bg-black-10 text-black-100 hover:bg-black-20 transition-colors whitespace-nowrap"
+                "px-4 py-2 rounded-md bg-orange-100 border border-white/15 text-white-100 hover:bg-orange-700 transition-colors whitespace-nowrap backdrop-blur-md flex items-center gap-2 self-end"
               )}
             >
-              {sortOrder === "desc" ? "Newest First" : "Oldest First"}
+              {sortOrder === "desc" ? (
+                <ArrowDownNarrowWide className="w-4 h-4" />
+              ) : (
+                <ArrowUpNarrowWide className="w-4 h-4" />
+              )}
+              <span>
+                {sortOrder === "desc"
+                  ? t("common.sort.newest")
+                  : t("common.sort.oldest")}
+              </span>
             </button>
           </div>
         </div>
@@ -236,6 +290,6 @@ export function WorksPageContent({ works, locale }: WorksPageContentProps) {
           )}
         </div>
       </section>
-    </>
+    </div>
   );
 }

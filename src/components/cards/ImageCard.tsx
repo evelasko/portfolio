@@ -6,7 +6,11 @@ import { TYPOGRAPHY } from "@/lib/typography";
 import { useState, useMemo } from "react";
 import clsx from "clsx";
 import { CloudinaryThumbnail } from "@/components/mdx/CloudinaryImage";
-import { getOptimizedImageUrl, isCloudinaryUrl } from "@/lib/cloudinary";
+import {
+  getOptimizedImageUrl,
+  isCloudinaryUrl,
+  extractPublicId,
+} from "@/lib/cloudinary";
 
 interface ImageCardProps {
   image: string;
@@ -32,7 +36,9 @@ export default function ImageCard({
   // Generate optimized background URL for CSS background-image
   const backgroundImageUrl = useMemo(() => {
     if (isCloudinaryUrl(image)) {
-      return getOptimizedImageUrl(image, {
+      // Extract public ID from full URL to avoid double-stacking URLs
+      const publicId = extractPublicId(image);
+      return getOptimizedImageUrl(publicId, {
         width: 800,
         height: 600,
         crop: "fill",

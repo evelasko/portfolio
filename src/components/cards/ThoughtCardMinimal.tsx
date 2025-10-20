@@ -2,13 +2,16 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import Image from "next/image";
+import { CloudinaryThumbnail } from "@/components/mdx/CloudinaryImage";
+import clsx from "clsx";
+import { TYPOGRAPHY } from "@/lib/typography";
 /**
  * ThoughtCardMinimal
  * padding: L & M: 40px horizontal, 20px vertical, S: 20px horizontal, 10px vertical
  * @param title - string, TYPOGRAPHY.h6, color black-80
  * @param publishedAt - string, TYPOGRAPHY.text16, color black-40
- * @param image - string, image url
+ * @param readingTime - string (optional), TYPOGRAPHY.text16, color black-40
+ * @param image - string, image url (Cloudinary URL or public ID)
  * @param link - string, link url
  */
 export default function ThoughtCardMinimal({
@@ -16,11 +19,13 @@ export default function ThoughtCardMinimal({
   publishedAt,
   image,
   link,
+  readingTime,
 }: {
   title: string;
   publishedAt: string;
   image: string;
   link: string;
+  readingTime?: string;
 }) {
   return (
     <Link href={link} className="block group">
@@ -36,7 +41,7 @@ export default function ThoughtCardMinimal({
       >
         {/* Image */}
         <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg mb-6">
-          <Image
+          <CloudinaryThumbnail
             src={image}
             alt={title}
             fill
@@ -46,17 +51,10 @@ export default function ThoughtCardMinimal({
         </div>
 
         {/* Content */}
-        <div className="px-5 py-3 l:px-10 l:py-5 m:px-10 m:py-5">
-          {/* Published Date */}
-          <motion.p
-            className="text-16-s m:text-16-m l:text-16-l uppercase tracking-wider mb-4"
-            style={{
-              color: "var(--color-black-40)",
-              fontWeight: "var(--font-weight-regular)",
-              lineHeight: "1.6em",
-              letterSpacing: "0.1em",
-              marginBottom: "16px",
-            }}
+        <div className="px-0 py-0">
+          {/* Published Date & Reading Time Row */}
+          <motion.div
+            className="flex justify-between items-center mb-4"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
@@ -66,12 +64,42 @@ export default function ThoughtCardMinimal({
             }}
             viewport={{ once: true }}
           >
-            {publishedAt}
-          </motion.p>
+            {/* Published Date */}
+            <p
+              className={clsx(TYPOGRAPHY.mono14, "uppercase tracking-wider")}
+              style={{
+                color: "var(--color-black-40)",
+                fontWeight: "var(--font-weight-regular)",
+                lineHeight: "1.6em",
+                letterSpacing: "0.1em",
+              }}
+            >
+              {publishedAt}
+            </p>
+
+            {/* Reading Time */}
+            {readingTime && (
+              <p
+                className={clsx(TYPOGRAPHY.mono14, "uppercase tracking-wider")}
+                style={{
+                  color: "var(--color-black-40)",
+                  fontWeight: "var(--font-weight-regular)",
+                  lineHeight: "1.6em",
+                  letterSpacing: "0.1em",
+                }}
+              >
+                {readingTime}
+              </p>
+            )}
+          </motion.div>
 
           {/* Title */}
           <motion.h6
-            className="text-h6-s m:text-h6-m l:text-h6-l group-hover:text-black-60 transition-colors duration-300"
+            className={clsx(
+              TYPOGRAPHY.h9,
+              "!font-extrabold",
+              "group-hover:text-black-60 transition-colors duration-300"
+            )}
             style={{
               color: "var(--color-black-80)",
               fontWeight: "var(--font-weight-bold)",

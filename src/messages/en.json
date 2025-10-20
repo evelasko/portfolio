@@ -34,12 +34,17 @@
     "subtitle": "Thoughts, ideas, and insights on design, development, and creativity",
     "none-found": "No articles found. Try adjusting your filters."
   },
+  "works": {
+    "heading": "Works",
+    "subtitle": "Selected projects and case studies showcasing design and development work"
+  },
   "common": {
     "all": "All",
     "sort": {
       "newest": "Newest First",
       "oldest": "Oldest First"
     },
-    "featured": "Featured"
+    "featured": "Featured",
+    "reading-time": "read"
   }
 }

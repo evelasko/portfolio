@@ -35,11 +35,16 @@
       "newest": "Recientes Primero",
       "oldest": "Antiguos Primero"
     },
-    "featured": "Destacado"
+    "featured": "Destacado",
+    "reading-time": "de lectura"
   },
   "articles": {
     "heading": "Artículos",
     "subtitle": "Pensamientos, ideas y conocimientos sobre diseño, desarrollo y creatividad.",
     "none-found": "No se encontraron artículos. Intente ajustar sus filtros."
+  },
+  "works": {
+    "heading": "Trabajos",
+    "subtitle": "Proyectos seleccionados y estudios de caso que muestran trabajo de diseño y desarrollo"
   }
 }
