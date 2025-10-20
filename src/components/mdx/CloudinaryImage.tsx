@@ -47,6 +47,7 @@ export interface CloudinaryImageProps extends Omit<ImageProps, "src" | "quality"
   gravity?: "auto" | "auto:subject" | "center" | "face" | "faces";
   quality?: "auto" | "auto:best" | "auto:good" | "auto:eco" | "auto:low";
   format?: "auto";
+  effects?: string[]; // Array of Cloudinary effects (e.g., ["grayscale", "blur:300"])
 }
 
 /**
@@ -62,6 +63,7 @@ export function CloudinaryImage({
   gravity = "auto",
   quality = "auto",
   format = "auto",
+  effects = [],
   className = "",
   sizes,
   priority = false,
@@ -71,6 +73,9 @@ export function CloudinaryImage({
   // Handle Cloudinary URLs
   if (isCloudinaryUrl(src)) {
     const publicId = extractPublicId(src);
+
+    // Build effects object for CldImage
+    const effectsObj = effects.length > 0 ? effects.map(e => ({ [e.split(':')[0]]: e.includes(':') ? e.split(':')[1] : true })) : undefined;
 
     // Handle fill mode
     if (fill) {
@@ -83,6 +88,7 @@ export function CloudinaryImage({
           gravity={gravity}
           quality={quality}
           format={format}
+          effects={effectsObj}
           loading={priority ? undefined : "lazy"}
           sizes={sizes}
           className={className}
@@ -101,6 +107,7 @@ export function CloudinaryImage({
         gravity={gravity}
         quality={quality}
         format={format}
+        effects={effectsObj}
         loading={priority ? undefined : "lazy"}
         sizes={sizes}
         className={className}

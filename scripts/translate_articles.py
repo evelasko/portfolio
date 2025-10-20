@@ -62,7 +62,7 @@ class TranslationConfig:
     formality: str
     preserve_formatting: bool
     target_language: str
-    category_translations: Dict[str, str]  # English -> Spanish category mapping
+    # Note: Categories are now locale-independent keys, no translation needed
 
 
 @dataclass
@@ -281,17 +281,11 @@ class ArticleTranslator:
         if "description" in translated:
             translated["description"] = self.translate_text(translated["description"])
 
-        # Translate category using lookup table
+        # Category is now a key (locale-independent), so it doesn't need translation
+        # It remains the same across all locales (e.g., "art-technology")
         if "category" in translated:
-            english_category = translated["category"]
-            # Try to find in category translations first
-            if english_category in self.config.category_translations:
-                translated["category"] = self.config.category_translations[english_category]
-                logger.debug(f"Category translated via lookup: {english_category} → {translated['category']}")
-            else:
-                # Fallback to DeepL if not in lookup table
-                logger.warning(f"Category not in lookup table, using DeepL: {english_category}")
-                translated["category"] = self.translate_text(english_category)
+            logger.debug(f"Category key preserved: {translated['category']}")
+            # No translation needed - category is already a key
 
         if "tags" in translated and isinstance(translated["tags"], list):
             # Translate each tag individually
@@ -514,22 +508,8 @@ class TranslationOrchestrator:
             with open(config_path, "r", encoding="utf-8") as f:
                 config_data = json.load(f)
 
-        # Load category translations
-        category_translations = {}
-        if categories_path.exists():
-            with open(categories_path, "r", encoding="utf-8") as f:
-                categories_data = json.load(f)
-
-            # Build English -> Spanish mapping from categories
-            for category_key, category_def in categories_data.get("categories", {}).items():
-                en_name = category_def.get("translations", {}).get("en")
-                es_name = category_def.get("translations", {}).get("es")
-                if en_name and es_name:
-                    category_translations[en_name] = es_name
-
-            logger.info(f"Loaded {len(category_translations)} category translations")
-        else:
-            logger.warning(f"article-categories.json not found at {categories_path}")
+        # Categories are now locale-independent keys, so no translation mapping needed
+        logger.info("Categories use keys (no translation needed)")
 
         return TranslationConfig(
             non_translatable_terms=config_data.get("nonTranslatableTerms", []),
@@ -542,7 +522,6 @@ class TranslationOrchestrator:
             target_language=config_data.get("translationSettings", {}).get(
                 "targetLanguage", "es"
             ),
-            category_translations=category_translations,
         )
 
     def translate_article(self, article: ArticleMetadata) -> bool:

@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import ImageSimpleStripe from "./ImageSimpleStripe";
-import Image from "next/image";
+import { CloudinaryImage } from "@/components/mdx/CloudinaryImage";
 
 /**
  * LongStripe component
@@ -150,10 +150,13 @@ export default function LongStripe({
                 },
               }}
             >
-              <Image
+              <CloudinaryImage
                 src={row.images[0]}
                 alt="Featured image"
                 fill
+                crop="fill"
+                gravity="auto"
+                quality="auto"
                 className="object-cover"
                 sizes="100vw"
               />

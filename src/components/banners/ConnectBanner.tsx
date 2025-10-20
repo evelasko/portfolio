@@ -4,6 +4,8 @@ import { motion } from "motion/react";
 import { TYPOGRAPHY } from "@/lib/typography";
 import clsx from "clsx";
 import PortfolioButton from "../buttons/PortfolioButton";
+import { useMemo } from "react";
+import { getOptimizedImageUrl, isCloudinaryUrl } from "@/lib/cloudinary";
 
 /**
  * Connect Banner
@@ -27,6 +29,21 @@ export default function ConnectBanner({
   cta_link: string;
   background_image_path?: string;
 }) {
+  const backgroundUrl = useMemo(() => {
+    const imagePath = background_image_path || "/assets/backgrounds/abstract_neutral_1.jpg";
+
+    if (isCloudinaryUrl(imagePath)) {
+      return getOptimizedImageUrl(imagePath, {
+        width: 2400,
+        crop: "fill",
+        gravity: "auto",
+        quality: "auto",
+        format: "auto",
+      });
+    }
+    return imagePath;
+  }, [background_image_path]);
+
   return (
     <section
       className="w-full relative bg-cover bg-center bg-no-repeat"
@@ -35,7 +52,7 @@ export default function ConnectBanner({
         paddingRight: "60px",
         paddingBottom: "200px",
         paddingLeft: "60px",
-        backgroundImage: `url(${background_image_path ? background_image_path : "/assets/backgrounds/abstract_neutral_1.jpg"})`,
+        backgroundImage: `url(${backgroundUrl})`,
       }}
     >
       {/* Desktop Layout (L) */}

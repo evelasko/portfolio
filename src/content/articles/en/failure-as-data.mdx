@@ -3,11 +3,11 @@ title: "Failure as Data: Reframing Mistakes as Learning Opportunities"
 description: "How changing my relationship with failure—from shame to curiosity—accelerated my growth and made creative work less terrifying."
 publishedAt: "2025-02-11"
 author: "Enrique Velasco"
-category: "Growth & Learning"
+category: growth-learning
 tags: ["Failure", "Learning", "Growth Mindset", "Resilience", "Experimentation"]
 featured: false
 draft: false
-coverImage: "/assets/placeholders/article-placeholder.jpg"
+coverImage: "https://res.cloudinary.com/misfitcoders/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg"
 alternateLocales:
   es: "fracaso-como-datos"
 ---
@@ -17,12 +17,14 @@ I broke a client's production website at 4 PM on a Friday.
 A rushed deployment, a missing environment variable, a database connection string pointing to the wrong server. Within minutes, their site was showing error pages instead of content.
 
 Old me would have:
+
 - Panicked
 - Felt like a fraud
 - Questioned my competence
 - Spent the weekend in shame spiral
 
 Current me:
+
 - Rolled back the deployment (5 minutes)
 - Fixed the config issue (10 minutes)
 - Documented what happened (15 minutes)
@@ -40,9 +42,11 @@ The difference? I treat failure as **data**, not as **identity**.
 ## The Two Types of Failure
 
 ### **Type 1: Execution Failure**
+
 **What it is**: You made a mistake, lacked knowledge, or exercised poor judgment
 
 **Examples**:
+
 - Buggy code
 - Missed deadline
 - Technical approach that didn't work
@@ -53,9 +57,11 @@ The difference? I treat failure as **data**, not as **identity**.
 **Reality**: This is **information about what doesn't work**
 
 ### **Type 2: Experimental Failure**
+
 **What it is**: You tried something new and it didn't work as hoped
 
 **Examples**:
+
 - Novel technique that didn't achieve desired effect
 - Creative risk that audience didn't connect with
 - Business model that didn't find market fit
@@ -110,21 +116,27 @@ I keep a documented record of things that don't work.
 ## [Date] - [Project/Context]
 
 ### What I tried:
+
 [Specific approach or decision]
 
 ### What I expected:
+
 [Hypothesis about what would happen]
 
 ### What actually happened:
+
 [Observed results]
 
 ### Why it didn't work:
+
 [Analysis of root cause]
 
 ### What I learned:
+
 [Extractable insight]
 
 ### What I'll try instead:
+
 [Next hypothesis to test]
 ```
 
@@ -134,23 +146,29 @@ I keep a documented record of things that don't work.
 ## 2024-09-15 - Interactive Installation Performance
 
 ### What I tried:
+
 Used TouchDesigner's particle GPU for real-time motion-reactive visuals
 
 ### What I expected:
+
 Smooth 60fps performance with 100K particles
 
 ### What actually happened:
+
 System dropped to 20fps when particle count exceeded 50K
 
 ### Why it didn't work:
+
 GPU was bottlenecked by particle emission rate, not rendering.
 Emission logic was on CPU, creating pipeline stall.
 
 ### What I learned:
+
 Particle emission needs to be GPU-based for high counts.
 Always profile to identify actual bottleneck, not assumed one.
 
 ### What I'll try instead:
+
 Use GPU-based particle emission via compute shaders.
 Test at target particle count BEFORE final week.
 ```
@@ -179,21 +197,25 @@ When something significant fails, I run a formal post-mortem:
 ### **The Questions**:
 
 **What happened?**
+
 - Timeline of events
 - Who was involved
 - What was the impact
 
 **Why did it happen?**
+
 - Immediate cause
 - Contributing factors
 - Root cause (ask "why" 5 times)
 
 **How do we prevent recurrence?**
+
 - Process changes
 - Technical safeguards
 - Knowledge gaps to address
 
 **What went right?**
+
 - What limited the damage
 - What we handled well
 - What we should keep doing
@@ -201,6 +223,7 @@ When something significant fails, I run a formal post-mortem:
 ### **Example: The Production Website Incident**
 
 **What happened**:
+
 - 4:03 PM: Deployed to production
 - 4:05 PM: Client reported site down
 - 4:10 PM: Identified incorrect database config
@@ -209,18 +232,21 @@ When something significant fails, I run a formal post-mortem:
 - 5:00 PM: Fixed config, redeployed successfully
 
 **Why did it happen**:
+
 - Rushed Friday afternoon deployment (immediate cause)
 - Environment variables not version-controlled (contributing factor)
 - No staging environment that matched production (contributing factor)
 - No deployment checklist (root cause: lack of process)
 
 **Prevention**:
+
 - ✅ Created deployment checklist
 - ✅ Version-controlled environment configs (with secrets encrypted)
 - ✅ Set up staging environment matching production
 - ✅ Policy: No Friday afternoon deployments without emergency justification
 
 **What went right**:
+
 - Quick identification of issue (good error logging)
 - Clean rollback process worked
 - Transparent communication with client
@@ -239,6 +265,7 @@ Borrowed from psychology: before starting a project, imagine it has failed catas
 **Write**: What went wrong? Be specific. Be pessimistic.
 
 **Examples**:
+
 - "We underestimated complexity by 3×, ran out of budget halfway"
 - "Client hated the creative direction, we had to start over"
 - "Performance problems made it unusable at scale"
@@ -253,6 +280,7 @@ Borrowed from psychology: before starting a project, imagine it has failed catas
 ## Categories of Useful Failure
 
 ### **1. Technical Failures**
+
 **Example**: Your code doesn't work, system crashes, performance is terrible
 
 **Value**: Reveals gaps in understanding, identifies edge cases
@@ -260,6 +288,7 @@ Borrowed from psychology: before starting a project, imagine it has failed catas
 **Response**: Debug, learn, document, prevent
 
 ### **2. Creative Failures**
+
 **Example**: The artistic concept doesn't resonate, visual design feels off
 
 **Value**: Clarifies what your audience responds to, refines taste
@@ -267,6 +296,7 @@ Borrowed from psychology: before starting a project, imagine it has failed catas
 **Response**: Iterate, test, get feedback, adjust
 
 ### **3. Communication Failures**
+
 **Example**: Client misunderstood scope, team member missed deadline
 
 **Value**: Exposes assumptions, reveals process gaps
@@ -274,6 +304,7 @@ Borrowed from psychology: before starting a project, imagine it has failed catas
 **Response**: Improve documentation, clarity, systems
 
 ### **4. Planning Failures**
+
 **Example**: Timeline was unrealistic, budget was insufficient
 
 **Value**: Calibrates estimation, teaches planning
@@ -287,11 +318,13 @@ Borrowed from psychology: before starting a project, imagine it has failed catas
 Carol Dweck's research on growth vs. fixed mindset applies directly:
 
 **Fixed mindset**: "Failure means I lack ability"
+
 - Avoids challenges
 - Gives up easily
 - Threatened by others' success
 
 **Growth mindset**: "Failure means I'm learning"
+
 - Embraces challenges
 - Persists through setbacks
 - Inspired by others' success
@@ -384,12 +417,14 @@ The faster you can fail safely, the faster you learn.
 Not all failures mean "give up." Knowing when to persist vs. pivot is crucial.
 
 **Persist when**:
+
 - Core premise is sound, execution needs refinement
 - Feedback is "almost there, but tweak X"
 - You're learning and improving with each iteration
 - Resources/time remain
 
 **Pivot when**:
+
 - Fundamental premise is flawed
 - Repeated attempts yield same result
 - Cost of continuing exceeds potential value
@@ -402,11 +437,13 @@ Not all failures mean "give up." Knowing when to persist vs. pivot is crucial.
 Create environments where failure is safe:
 
 **For myself**:
+
 - Budget "experiment time" with no outcome requirement
 - Keep projects that failed, study them later
 - Celebrate learning, not just success
 
 **For teams**:
+
 - Blameless post-mortems
 - "What did we learn?" instead of "Who screwed up?"
 - Reward smart risk-taking, even when it fails
@@ -447,9 +484,11 @@ At CENIE, we maintain a "Lessons Library"—documented failures and learnings:
 **This week**:
 
 **1. Try something you might fail at**
+
 - New technique, stretch project, creative risk
 
 **2. When it doesn't work (it probably won't first try)**:
+
 - Don't judge yourself
 - Write what you learned
 - Identify next iteration
@@ -462,4 +501,4 @@ At CENIE, we maintain a "Lessons Library"—documented failures and learnings:
 
 ---
 
-*Want to build resilience and learn from failures? [CENIE community normalizes experimentation](https://cenie.io) and treats failures as learning opportunities.*
+_Want to build resilience and learn from failures? [CENIE community normalizes experimentation](https://cenie.io) and treats failures as learning opportunities._

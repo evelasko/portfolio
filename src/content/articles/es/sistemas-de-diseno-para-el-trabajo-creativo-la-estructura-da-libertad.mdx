@@ -3,20 +3,21 @@ alternateLocales:
   en: design-systems-for-creative-work
   es: sistemas-de-diseno-para-trabajo-creativo
 author: Enrique Velasco
-category: Metodología
-coverImage: /assets/placeholders/article-placeholder.jpg
-description: Cómo la creación de marcos personales y sistemas de diseño no limita
+category: methodology
+coverImage: https://res.cloudinary.com/misfitcoders/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg
+description:
+  Cómo la creación de marcos personales y sistemas de diseño no limita
   la creatividad, sino que la amplifica al eliminar decisiones innecesarias.
 draft: false
 featured: false
-publishedAt: '2025-01-14'
+publishedAt: "2025-01-14"
 tags:
-- Sistemas de diseño
-- Proceso creativo
-- Marcos
-- Productividad
-- Metodología
-title: 'Sistemas de diseño para el trabajo creativo: La estructura da libertad'
+  - Sistemas de diseño
+  - Proceso creativo
+  - Marcos
+  - Productividad
+  - Metodología
+title: "Sistemas de diseño para el trabajo creativo: La estructura da libertad"
 ---
 
 Todos los proyectos web empiezan de la misma manera: mirando un lienzo en blanco y tomando miles de pequeñas decisiones.
@@ -37,12 +38,12 @@ La mayoría de los creativos se resisten a los sistemas. "Los sistemas son rígi
 
 Pero observa a un maestro en cualquier campo creativo:
 
-- Los músicos de jazz improvisan *dentro* de estructuras armónicas
-- Los coreógrafos crean *dentro* de limitaciones físicas
-- Los escritores crean *dentro* de convenciones de género
-- Los pintores componen *dentro* de teorías del color
+- Los músicos de jazz improvisan _dentro_ de estructuras armónicas
+- Los coreógrafos crean _dentro_ de limitaciones físicas
+- Los escritores crean _dentro_ de convenciones de género
+- Los pintores componen _dentro_ de teorías del color
 
-**La estructura no mata la creatividad. La estructura no mata la creatividad
+\*\*La estructura no mata la creatividad. La estructura no mata la creatividad
 
 La cuestión no es "sistema o no sistema" Es "**¿qué sistema permite la creatividad que quieres?**"
 
@@ -53,6 +54,7 @@ Un sistema de diseño no es sólo para interfaces web/app. Es **un conjunto de d
 Para diferentes prácticas:
 
 ### **Para el desarrollo web**:
+
 - Paletas de colores
 - Escalas tipográficas
 - Espaciado/rejillas de disposición
@@ -60,12 +62,14 @@ Para diferentes prácticas:
 - Convenciones de nomenclatura
 
 ### **Para el diseño visual**:
+
 - Directrices de marca
 - Diseños de plantillas
 - Bibliotecas de recursos
 - Guías de estilo
 
 ### **Para tecnología creativa**:
+
 - Marcos de código
 - Patrones de comunicación OSC
 - Bibliotecas de sombreadores
@@ -73,12 +77,14 @@ Para diferentes prácticas:
 - Configuraciones de hardware
 
 ### **Para la creación de contenidos**:
+
 - Calendarios editoriales
 - Plantillas de contenidos
 - Marcos SEO
 - Organización de activos
 
 ### **Para cualquier práctica creativa**:
+
 - Flujos de trabajo y procesos
 - Listas de control de calidad
 - Configuraciones de herramientas
@@ -89,16 +95,17 @@ Para diferentes prácticas:
 Este es el sistema que utilizo para los proyectos web:
 
 ### **Sistema Tipográfico** (Escala Modular)
+
 ```css
 /* Base size: 16px, Ratio: 1.25 (Major Third) */
---text-xs: 0.64rem;    /* 10.24px */
---text-sm: 0.8rem;     /* 12.8px */
---text-base: 1rem;     /* 16px */
---text-lg: 1.25rem;    /* 20px */
---text-xl: 1.563rem;   /* 25px */
---text-2xl: 1.953rem;  /* 31.25px */
---text-3xl: 2.441rem;  /* 39px */
---text-4xl: 3.052rem;  /* 48.8px */
+--text-xs: 0.64rem; /* 10.24px */
+--text-sm: 0.8rem; /* 12.8px */
+--text-base: 1rem; /* 16px */
+--text-lg: 1.25rem; /* 20px */
+--text-xl: 1.563rem; /* 25px */
+--text-2xl: 1.953rem; /* 31.25px */
+--text-3xl: 2.441rem; /* 39px */
+--text-4xl: 3.052rem; /* 48.8px */
 ```
 
 **Antes del sistema**: "Hmm, ¿debería este encabezado tener 32px o 34px o 36px?"
@@ -108,14 +115,15 @@ Este es el sistema que utilizo para los proyectos web:
 **Decisiones eliminadas**: Decenas por proyecto.
 
 ### **Sistema de espaciado** (Cuadrícula de 8 puntos)
+
 ```css
---space-1: 0.5rem;  /* 8px */
---space-2: 1rem;    /* 16px */
---space-3: 1.5rem;  /* 24px */
---space-4: 2rem;    /* 32px */
---space-6: 3rem;    /* 48px */
---space-8: 4rem;    /* 64px */
---space-12: 6rem;   /* 96px */
+--space-1: 0.5rem; /* 8px */
+--space-2: 1rem; /* 16px */
+--space-3: 1.5rem; /* 24px */
+--space-4: 2rem; /* 32px */
+--space-6: 3rem; /* 48px */
+--space-8: 4rem; /* 64px */
+--space-12: 6rem; /* 96px */
 ```
 
 **Antes del sistema**: "¿Debería este margen ser 18px o 20px o 22px?"
@@ -125,15 +133,16 @@ Este es el sistema que utilizo para los proyectos web:
 **Resultado**: Ritmo coherente en todos los diseños.
 
 ### **Sistema de colores** (denominación semántica)
+
 ```css
---color-background: #FAFAFA;
---color-surface: #FFFFFF;
---color-text-primary: #1A1A1A;
+--color-background: #fafafa;
+--color-surface: #ffffff;
+--color-text-primary: #1a1a1a;
 --color-text-secondary: #666666;
---color-accent: #FF4400;
---color-success: #00AA66;
---color-warning: #FFAA00;
---color-error: #DD0000;
+--color-accent: #ff4400;
+--color-success: #00aa66;
+--color-warning: #ffaa00;
+--color-error: #dd0000;
 ```
 
 **Antes del sistema**: Uso directo de códigos hexadecimales, tonos incoherentes en todo el proyecto
@@ -141,7 +150,9 @@ Este es el sistema que utilizo para los proyectos web:
 **Con el sistema**: Nombres semánticos, temas intercambiables, aplicación coherente
 
 ### Biblioteca de componentes
+
 Componentes preconstruidos y reutilizables:
+
 - Botones (primario, secundario, fantasma)
 - Formularios (texto, selección, casilla de verificación)
 - Tarjetas (artículo, proyecto, testimonio)
@@ -160,6 +171,7 @@ Componentes preconstruidos y reutilizables:
 Cada nuevo proyecto TouchDesigner comienza con:
 
 **Estructura de carpetas**:
+
 ```
 /operators
   /input        (camera, sensors, data sources)
@@ -174,12 +186,14 @@ Cada nuevo proyecto TouchDesigner comienza con:
 ```
 
 **Organización de la red**:
+
 - Grupos de nodos codificados por colores (entrada=azul, procesamiento=verde, salida=rojo)
 - Nomenclatura coherente (`input_camera_01`, `proc_blur_gaussian`, `out_projector_main`)
 - Cuadros de comentarios para cada sección
 - Panel de control maestro en cada proyecto
 
 **Patrones de comunicación**:
+
 - Entrada OSC siempre en el puerto 7400
 - Salida WebSocket siempre en el puerto 8080
 - MQTT para dispositivos IoT
@@ -194,6 +208,7 @@ Incluso la escritura se beneficia de los sistemas:
 ### **Mi Plantilla de Artículo**
 
 **Estructura** (cada artículo):
+
 1. **Gancho** (historia/escenario que ilustra el problema)
 2. **Contexto** (por qué es importante)
 3. **Marco/Concepto** (la idea principal)
@@ -204,11 +219,12 @@ Incluso la escritura se beneficia de los sistemas:
 
 **Antes del sistema**: Los artículos serpenteaban, algunos eran fuertes, otros débiles
 
-**Con el sistema Calidad constante, redacción más rápida, los lectores saben qué esperar
+\*\*Con el sistema Calidad constante, redacción más rápida, los lectores saben qué esperar
 
 ### **Marco del Calendario de Contenidos**
 
 **Temas mensuales** alineados con los pilares de contenido:
+
 - Semana 1: Harmonious Engineer (integración de tecnología y arte)
 - Semana 2: Emprendedor resiliente (negocio/sostenibilidad)
 - Semana 3: Arquitecto de intenciones (artesanía/metodología)
@@ -221,7 +237,9 @@ Incluso la escritura se beneficia de los sistemas:
 Cada nuevo proyecto sigue el mismo proceso inicial:
 
 ### **Fase 1: Recopilación del contexto** (Semana 1)
+
 **Lista de comprobación**:
+
 - [ ] Investigación de antecedentes del cliente
 - [ ] Llamada de descubrimiento inicial (preguntas estandarizadas)
 - [ ] Documento de síntesis del proyecto (plantilla)
@@ -231,7 +249,9 @@ Cada nuevo proyecto sigue el mismo proceso inicial:
 **Resultado**: Documento de entendimiento compartido
 
 ### **Fase 2: Exploración creativa** (Semana 2)
+
 **Lista de control**:
+
 - [ ] Referencias visuales/conceptuales
 - [ ] 3-5 bocetos de dirección
 - [ ] Pruebas de viabilidad técnica
@@ -240,7 +260,9 @@ Cada nuevo proyecto sigue el mismo proceso inicial:
 **Resultado**: Dirección creativa aprobada
 
 ### **Fase 3: Planificación** (Semana 3)
+
 **Lista de control**:
+
 - [ ] Calendario detallado con hitos
 - [ ] Diagrama de arquitectura técnica
 - [ ] Requisitos de recursos
@@ -251,7 +273,7 @@ Cada nuevo proyecto sigue el mismo proceso inicial:
 
 **Antes del sistema**: Todos los proyectos eran caóticos e inciertos
 
-**Con el sistema Previsible, profesional, seguro
+\*\*Con el sistema Previsible, profesional, seguro
 
 ## El sistema de conocimiento personal
 
@@ -260,21 +282,25 @@ Cómo organizo todo lo que aprendo:
 ### **Estructura de la base de datos de nociones**
 
 **Recursos** (artículos, vídeos, herramientas):
+
 - Etiquetas: Categoría, tema, medio
 - Estado: Para revisar, revisado, referencia
 - Valoración: Imprescindible, útil, interesante
 
 **Notas** (percepciones del trabajo/aprendizaje):
+
 - Proyecto: ¿Qué proyecto provocó esto?
 - Tema: ¿En qué ámbito?
 - Tipo de proyecto: Técnico, creativo, empresarial, filosófico
 
 **Frameworks** (sistemas reutilizables):
+
 - Caso de uso: Cuándo aplicar
 - Pasos: Cómo utilizar
 - Ejemplos: Dónde lo he utilizado
 
 **Proyectos** (archivo de trabajo):
+
 - Calendario, presupuesto, colaboradores
 - Documentación del proceso
 - Lecciones aprendidas
@@ -289,36 +315,42 @@ Antes de entregar nada, repaso las listas de comprobación específicas del proy
 ### **Lista de comprobación para la entrega de proyectos web**
 
 **Funcionalidad**:
+
 - [ ] Todos los enlaces funcionan
 - [ ] Los formularios se envían correctamente
 - [ ] No hay errores de consola
 - [ ] Conexiones de base de datos seguras
 
 **Rendimiento**:
+
 - [ ] Imágenes optimizadas
 - [ ] Código minificado
 - [ ] Carga perezosa implementada
 - [ ] Puntuación de Lighthouse >90
 
 **Accesibilidad**:
+
 - [ ] Semántica HTML
 - [ ] Etiquetas ARIA cuando es necesario
 - [ ] La navegación por teclado funciona
 - [ ] Lector de pantalla probado
 
 **Capacidad de respuesta**:
+
 - [ ] Los diseños para móviles funcionan
 - [ ] Puntos de interrupción para tabletas probados
 - [ ] Optimizado para ordenadores de sobremesa
 - [ ] Objetivos táctiles adecuados
 
 **SEO**:
+
 - [ ] Metaetiquetas completas
 - [ ] Mapa del sitio generado
 - [ ] Datos estructurados añadidos
 - [ ] Analítica configurada
 
-**[ ] Documentación completa
+\*\*[ ] Documentación completa
+
 - [ ] Documentación completa
 - [Formación de clientes programada
 - [ ] Credenciales documentadas
@@ -333,6 +365,7 @@ Antes de entregar nada, repaso las listas de comprobación específicas del proy
 ### **Paso 1: Auditar sus decisiones repetidas**
 
 Durante una semana, haga un seguimiento:
+
 - ¿Qué decisiones tomas una y otra vez?
 - ¿Qué busca repetidamente en Google?
 - ¿Qué le paraliza a la hora de tomar decisiones?
@@ -347,6 +380,7 @@ Elija la decisión más frecuente y cree un marco:
 Ejemplo: "¿Qué tipografía debo utilizar?"
 
 **Crear un sistema**:
+
 - Define una escala modular
 - Elige 2-3 combinaciones de fuentes que te gusten
 - Establece reglas sobre cuándo usar cada una
@@ -358,6 +392,7 @@ Ejemplo: "¿Qué tipografía debo utilizar?"
 ### **Paso 3: Iterar el Sistema**
 
 Después de usarlo 2-3 veces:
+
 - ¿Qué funcionó?
 - ¿Qué te limitaba?
 - ¿Qué falta?
@@ -369,6 +404,7 @@ Después de usarlo 2-3 veces:
 No intentes sistematizarlo todo a la vez.
 
 **Añade un nuevo sistema al mes**:
+
 - Mes 1: Tipografía
 - Mes 2: Color
 - Mes 3: Espaciado
@@ -381,14 +417,17 @@ No intentes sistematizarlo todo a la vez.
 Los sistemas pueden calcificarse en dogmas. Esté atento:
 
 ### **Señal de Advertencia 1: Sigues el Sistema Ciegamente**
+
 **Problema**: El sistema anula el contexto y el juicio
 **Solución**: Los sistemas son valores por defecto, no reglas. Rómpelos cuando esté justificado.
 
 ### **Signo de advertencia 2: El sistema no ha evolucionado**
+
 **Problema**: Tus habilidades crecieron, el sistema no
 **Solución**: Revisiones y actualizaciones trimestrales del sistema
 
 ### **Signo de advertencia 3: Se resiste a experimentar**
+
 **Problema**: El sistema crea una zona de confort que no quiere abandonar
 **Solución**: Dedica un 10-20% del trabajo a la experimentación sistemática
 
@@ -410,7 +449,7 @@ Esto es lo que te dan los sistemas
 
 **Escalabilidad** (otros pueden utilizar su sistema)
 
-Los sistemas no matan la creatividad. **Son amplificadores de la creatividad
+Los sistemas no matan la creatividad. \*\*Son amplificadores de la creatividad
 
 ## Lo que CENIE ofrece
 
@@ -427,4 +466,4 @@ Porque no deberías tener que reinventar las decisiones fundamentales cada vez.
 
 ---
 
-*¿Quieres acceder a sistemas y marcos creativos probados? [CENIE Creations Hub ofrece plantillas y herramientas](https://cenie.io) para sistematizar tu práctica creativa.*
+_¿Quieres acceder a sistemas y marcos creativos probados? [CENIE Creations Hub ofrece plantillas y herramientas](https://cenie.io) para sistematizar tu práctica creativa._

@@ -28,5 +28,18 @@
         "description": "Descripción de la página de thoughts"
       }
     }
+  },
+  "common": {
+    "all": "Todos",
+    "sort": {
+      "newest": "Recientes Primero",
+      "oldest": "Antiguos Primero"
+    },
+    "featured": "Destacado"
+  },
+  "articles": {
+    "heading": "Artículos",
+    "subtitle": "Pensamientos, ideas y conocimientos sobre diseño, desarrollo y creatividad.",
+    "none-found": "No se encontraron artículos. Intente ajustar sus filtros."
   }
 }

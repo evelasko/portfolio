@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import Image from "next/image";
 import Link from "next/link";
+import { CloudinaryThumbnail } from "@/components/mdx/CloudinaryImage";
 /**
  * ProjectCard
  * padding: L & M: 40px, S: 20px
@@ -34,7 +34,7 @@ export default function ProjectCard({
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
         {/* Background Image */}
-        <Image
+        <CloudinaryThumbnail
           src={image}
           alt={title}
           fill

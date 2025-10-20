@@ -1,5 +1,4 @@
 {
-  "$schema": "../lib/categories/schema.json",
   "categories": {
     "art-technology": {
       "key": "art-technology",

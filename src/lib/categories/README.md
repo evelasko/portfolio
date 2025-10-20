@@ -5,6 +5,7 @@ Centralized category management for portfolio articles with multi-locale support
 ## Overview
 
 The category system provides:
+
 - **Consistent translations** across English and Spanish
 - **Type-safe** category handling in TypeScript
 - **Validation** via Zod schemas
@@ -12,7 +13,7 @@ The category system provides:
 
 ## File Structure
 
-```
+```tree
 src/
 ├── content/
 │   └── article-categories.json    # Category definitions (source of truth)
@@ -33,7 +34,7 @@ import {
   getCategory,
   getCategoryByKey,
   getAllCategories,
-  getCategoryName
+  getCategoryName,
 } from "@/lib/categories";
 
 // Get category by localized name
@@ -55,28 +56,28 @@ const spanishName = getCategoryName("art-technology", "es");
 
 ### In MDX Articles
 
-Article frontmatter must use exact category names from the definitions:
+Article frontmatter must use category **keys** (not translated names):
 
 ```yaml
 ---
 title: "Article Title"
-category: "Art + Technology"  # Must match article-categories.json
+category: art-technology # Must be a valid key from article-categories.json
 tags: ["AI", "Dance"]
 ---
 ```
 
-The category will be validated against the Zod schema, which pulls valid values from `article-categories.json`.
+The category will be validated against the Zod schema, which validates against category keys from `article-categories.json`.
 
 ### In Translation Scripts
 
-The Python translation script automatically loads categories:
+The translation scripts work with category keys:
 
 ```python
-# Automatically loads from article-categories.json
-# Categories are translated via lookup table (no DeepL API calls)
+# Categories use keys in frontmatter (locale-independent)
+# Keys remain the same across translations
 
-# English: "Art + Technology"
-# Spanish: "Arte + Tecnología"  (from lookup)
+# Frontmatter (both en and es): category: art-technology
+# Display name is looked up based on locale when rendering
 ```
 
 ## Adding New Categories
@@ -108,20 +109,18 @@ export type CategoryKey =
   | "art-technology"
   | "creative-process"
   // ... existing categories
-  | "your-category-key";  // Add your new category
+  | "your-category-key"; // Add your new category
 ```
 
 ### 3. Use in Articles
 
 ```yaml
 ---
-category: "Your Category Name"  # English
-# or
-category: "Tu Categoría"        # Spanish
+category: your-category-key  # Use the key (same for all locales)
 ---
 ```
 
-Both are valid and will be recognized.
+Use the category key regardless of locale.
 
 ## Category Guidelines
 
@@ -134,10 +133,10 @@ Both are valid and will be recognized.
 
 ### Examples
 
-| Key | English | Spanish |
-|-----|---------|---------|
-| `art-technology` | Art + Technology | Arte + Tecnología |
-| `creative-process` | Creative Process | Proceso Creativo |
+| Key                 | English           | Spanish               |
+| ------------------- | ----------------- | --------------------- |
+| `art-technology`    | Art + Technology  | Arte + Tecnología     |
+| `creative-process`  | Creative Process  | Proceso Creativo      |
 | `business-strategy` | Business Strategy | Estrategia de Negocio |
 
 ### Best Practices
@@ -154,6 +153,7 @@ Categories are validated at multiple levels:
 ### 1. JSON Schema Validation
 
 `article-categories.json` is validated against `schema.json`:
+
 - Keys match pattern: `^[a-z][a-z0-9-]*$`
 - All required fields present
 - Translations exist for all supported locales
@@ -161,8 +161,9 @@ Categories are validated at multiple levels:
 ### 2. Zod Schema Validation
 
 MDX frontmatter validation (in [src/lib/mdx/types.ts](../mdx/types.ts)):
-- Category must be a valid name from `article-categories.json`
-- Works for both English and Spanish names
+
+- Category must be a valid key from `article-categories.json`
+- Keys are locale-independent
 - Provides clear error messages
 
 ### 3. Runtime Validation
@@ -263,15 +264,16 @@ interface Category {
 
 ### "Invalid category" validation error
 
-**Cause**: Category name doesn't match any entry in `article-categories.json`
+**Cause**: Category key doesn't match any entry in `article-categories.json`
 
-**Solution**: Use exact category name from the file:
+**Solution**: Use the category key from the file:
+
 ```yaml
 # ❌ Wrong
-category: "Art and Technology"
+category: "Art + Technology"  # Using translated name instead of key
 
 # ✅ Correct
-category: "Art + Technology"
+category: art-technology  # Using the key
 ```
 
 ### Category not found in translation
@@ -293,6 +295,7 @@ category: "Art + Technology"
 If you have existing articles with free-text categories:
 
 1. **Audit existing categories:**
+
    ```bash
    grep -h "^category:" src/content/articles/en/*.mdx | sort -u
    ```
@@ -304,11 +307,13 @@ If you have existing articles with free-text categories:
    Add any new categories needed
 
 4. **Update articles:**
+
    ```bash
    # Use find/replace or script to update frontmatter
    ```
 
 5. **Validate:**
+
    ```bash
    pnpm build  # Should fail if invalid categories remain
    ```

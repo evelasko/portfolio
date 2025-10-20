@@ -1,4 +1,5 @@
 import { TYPOGRAPHY } from "@/lib/typography";
+import { getWorkCategoryName, type Locale } from "@/lib/categories";
 import clsx from "clsx";
 import dayjs from "dayjs";
 import { ExternalLink } from "lucide-react";
@@ -23,6 +24,11 @@ interface WorkPageContentProps {
  * Server component for work page content
  */
 export function WorkPageContent({ work }: WorkPageContentProps) {
+  const categoryName = getWorkCategoryName(
+    work.frontmatter.category,
+    work.locale as Locale
+  );
+
   return (
     <>
       {/* Hero Section */}
@@ -44,7 +50,7 @@ export function WorkPageContent({ work }: WorkPageContentProps) {
                 "text-orange-100 uppercase tracking-wide"
               )}
             >
-              {work.frontmatter.category}
+              {categoryName}
             </span>
           </div>
 

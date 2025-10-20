@@ -1,0 +1,135 @@
+{
+  "categories": {
+    "direction": {
+      "key": "direction",
+      "slug": "direction",
+      "translations": {
+        "en": "Direction",
+        "es": "Dirección"
+      },
+      "description": "Direction and choreography"
+    },
+    "choreography": {
+      "key": "choreography",
+      "slug": "choreography",
+      "translations": {
+        "en": "Choreography",
+        "es": "Coreografía"
+      },
+      "description": "Dance choreography and performance"
+    },
+    "interactive-art": {
+      "key": "interactive-art",
+      "slug": "interactive-art",
+      "translations": {
+        "en": "Interactive Art",
+        "es": "Arte Interactivo"
+      },
+      "description": "Interactive installations and experiences combining art and technology"
+    },
+    "web-development": {
+      "key": "web-development",
+      "slug": "web-development",
+      "translations": {
+        "en": "Web Development",
+        "es": "Desarrollo Web"
+      },
+      "description": "Websites, web applications, and digital platforms"
+    },
+    "graphic-design": {
+      "key": "graphic-design",
+      "slug": "graphic-design",
+      "translations": {
+        "en": "Graphic Design",
+        "es": "Diseño Gráfico"
+      },
+      "description": "Graphic design and branding"
+    },
+    "creative-technology": {
+      "key": "creative-technology",
+      "slug": "creative-technology",
+      "translations": {
+        "en": "Creative Technology",
+        "es": "Tecnología Creativa"
+      },
+      "description": "Technology-driven creative projects and experiments"
+    },
+    "performance-art": {
+      "key": "performance-art",
+      "slug": "performance-art",
+      "translations": {
+        "en": "Performance Art",
+        "es": "Arte Performático"
+      },
+      "description": "Live performances integrating technology and artistic expression"
+    },
+    "installation": {
+      "key": "installation",
+      "slug": "installation",
+      "translations": {
+        "en": "Installation",
+        "es": "Instalación"
+      },
+      "description": "Physical installations and immersive environments"
+    },
+    "digital-experience": {
+      "key": "digital-experience",
+      "slug": "digital-experience",
+      "translations": {
+        "en": "Digital Experience",
+        "es": "Experiencia Digital"
+      },
+      "description": "Interactive digital experiences and user interfaces"
+    },
+    "motion-graphics": {
+      "key": "motion-graphics",
+      "slug": "motion-graphics",
+      "translations": {
+        "en": "Motion Graphics",
+        "es": "Gráficos en Movimiento"
+      },
+      "description": "Animated graphics and visual effects"
+    },
+    "ai-ml": {
+      "key": "ai-ml",
+      "slug": "ai-ml",
+      "translations": {
+        "en": "AI + Machine Learning",
+        "es": "IA + Aprendizaje Automático"
+      },
+      "description": "Projects utilizing artificial intelligence and machine learning"
+    },
+    "demo": {
+      "key": "demo",
+      "slug": "demo",
+      "translations": {
+        "en": "Demo",
+        "es": "Demo"
+      },
+      "description": "Demonstration and example projects"
+    },
+    "development": {
+      "key": "development",
+      "slug": "development",
+      "translations": {
+        "en": "Development",
+        "es": "Desarrollo"
+      },
+      "description": "Software development and engineering projects"
+    },
+    "lighting-design": {
+      "key": "lighting-design",
+      "slug": "lighting-design",
+      "translations": {
+        "en": "Lighting Design",
+        "es": "Diseño de Iluminación"
+      },
+      "description": "Lighting design and implementation"
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-01-20",
+    "supportedLocales": ["en", "es"]
+  }
+}

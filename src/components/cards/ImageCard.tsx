@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "motion/react";
-import Image from "next/image";
 import Link from "next/link";
 import { TYPOGRAPHY } from "@/lib/typography";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import clsx from "clsx";
+import { CloudinaryThumbnail } from "@/components/mdx/CloudinaryImage";
+import { getOptimizedImageUrl, isCloudinaryUrl } from "@/lib/cloudinary";
 
 interface ImageCardProps {
   image: string;
@@ -28,6 +29,20 @@ export default function ImageCard({
 }: ImageCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
+  // Generate optimized background URL for CSS background-image
+  const backgroundImageUrl = useMemo(() => {
+    if (isCloudinaryUrl(image)) {
+      return getOptimizedImageUrl(image, {
+        width: 800,
+        height: 600,
+        crop: "fill",
+        gravity: "auto:subject",
+        quality: "auto",
+      });
+    }
+    return image;
+  }, [image]);
+
   const CardContent = (
     <motion.article
       className="relative bg-white-100 rounded-xl overflow-hidden shadow-md"
@@ -43,7 +58,7 @@ export default function ImageCard({
     >
       {/* Base Image - Static, only visible */}
       <div className="relative w-full aspect-[4/3]">
-        <Image
+        <CloudinaryThumbnail
           src={image}
           alt={imageAlt || title}
           fill
@@ -55,7 +70,7 @@ export default function ImageCard({
       {/* Hover Image Overlay - Expands to fill entire card height on hover */}
       <motion.div
         className="absolute top-0 left-0 right-0 bg-cover bg-center bg-no-repeat rounded-t-xl"
-        style={{ backgroundImage: `url(${image})` }}
+        style={{ backgroundImage: `url(${backgroundImageUrl})` }}
         animate={{
           height: isHovered ? "100%" : "235px",
         }}

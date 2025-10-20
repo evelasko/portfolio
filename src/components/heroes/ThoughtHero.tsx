@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import Image from "next/image";
 import { TYPOGRAPHY } from "@/lib/typography";
+import { ResponsiveCloudinaryImage } from "@/components/mdx/CloudinaryImage";
 
 /**
  * Thought Hero Component
@@ -124,13 +124,12 @@ export default function ThoughtHero({
             ease: "easeOut",
           }}
         >
-          <Image
+          <ResponsiveCloudinaryImage
             src={coverImage}
             alt={title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
+            aspectRatio="16/9"
             priority
+            className="object-cover rounded-xl"
           />
         </motion.div>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { TYPOGRAPHY } from "@/lib/typography";
+import { getWorkCategoryName, type Locale } from "@/lib/categories";
 import MainHeading from "../headings/MainHeading";
 import ProjectItem from "../list_items/ProjectItem";
 import clsx from "clsx";
@@ -23,7 +24,7 @@ export default function TheWorks({
   }
 
   const projects = featuredWorks.map(work => ({
-    label: work.frontmatter.category,
+    label: getWorkCategoryName(work.frontmatter.category, locale as Locale),
     title: work.frontmatter.title,
     description: work.frontmatter.description,
     image:

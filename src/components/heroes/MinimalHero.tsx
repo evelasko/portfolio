@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "motion/react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown } from "lucide-react";
 import { TYPOGRAPHY } from "@/lib/typography";
+import { CloudinaryImage } from "@/components/mdx/CloudinaryImage";
 
 /**
  * Minimal Hero Component
@@ -32,12 +32,15 @@ export default function MinimalHero({
     <div className="relative w-full h-screen overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <Image
+        <CloudinaryImage
           src={image}
           alt={title}
           fill
-          className="object-cover"
+          crop="fill"
+          gravity="auto"
+          quality="auto:best"
           priority
+          className="object-cover"
           sizes="100vw"
         />
         {/* Dark overlay for text readability */}

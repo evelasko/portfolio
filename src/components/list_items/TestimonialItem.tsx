@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { TYPOGRAPHY } from "@/lib/typography";
 import clsx from "clsx";
+import { CloudinaryImage } from "@/components/mdx/CloudinaryImage";
 
 export interface TestimonialItemProps {
   name: string;
@@ -53,10 +53,14 @@ export default function TestimonialItem({
         {/* Avatar */}
         <div className="flex-shrink-0">
           <div className="relative w-[42px] h-[42px] rounded-full overflow-hidden">
-            <Image
+            <CloudinaryImage
               src={avatar}
               alt={name}
-              fill
+              width={42}
+              height={42}
+              crop="thumb"
+              gravity="face"
+              quality="auto"
               className="object-cover"
               sizes="42px"
             />

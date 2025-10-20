@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "motion/react";
 import { TYPOGRAPHY } from "@/lib/typography";
+import { CloudinaryImage } from "@/components/mdx/CloudinaryImage";
 
 /**
  * InfoImageBlock component
@@ -76,10 +76,13 @@ export default function InfoImageBlock({
             }}
           >
             <div className="relative w-full aspect-[4/3] overflow-hidden rounded-sm">
-              <Image
+              <CloudinaryImage
                 src={image_path}
                 alt={image_caption}
                 fill
+                crop="fill"
+                gravity="auto"
+                quality="auto"
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />

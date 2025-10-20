@@ -1,6 +1,7 @@
 import { TYPOGRAPHY } from "@/lib/typography";
 import clsx from "clsx";
 import ArrowButton from "../buttons/ArrowButton";
+import { CloudinaryImage } from "@/components/mdx/CloudinaryImage";
 
 function BentoGrid({
   bentoClass,
@@ -92,11 +93,16 @@ function BentoImageRow({
   gridBox: string;
 }) {
   return (
-    <div style={{ gridArea: gridBox }} className="rounded-4xl overflow-hidden">
-      <img
+    <div style={{ gridArea: gridBox }} className="rounded-4xl overflow-hidden relative">
+      <CloudinaryImage
         src={imagePath}
         alt={imageAlt}
-        className="w-full h-full object-cover transition-transform duration-300 ease-out hover:scale-110"
+        fill
+        crop="fill"
+        gravity="auto:subject"
+        quality="auto"
+        className="object-cover transition-transform duration-300 ease-out hover:scale-110"
+        sizes="(max-width: 810px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
     </div>
   );

@@ -36,7 +36,9 @@
       "Bash(pip install:*)",
       "Bash(pnpm dev:*)",
       "Bash(git checkout:*)",
-      "Bash(xargs cat:*)"
+      "Bash(xargs cat:*)",
+      "Bash(do)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

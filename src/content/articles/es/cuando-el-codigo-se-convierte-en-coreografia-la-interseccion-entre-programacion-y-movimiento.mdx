@@ -3,21 +3,23 @@ alternateLocales:
   en: when-code-becomes-choreography
   es: cuando-el-codigo-se-vuelve-coreografia
 author: Enrique Velasco
-category: Proceso Creativo
-coverImage: /assets/placeholders/article-placeholder.jpg
-description: Explora los sorprendentes paralelismos entre escribir código y crear
+category: creative-process
+coverImage: https://res.cloudinary.com/misfitcoders/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg
+description:
+  Explora los sorprendentes paralelismos entre escribir código y crear
   danza, y cómo pensar como un coreógrafo te convierte en mejor programador.
 draft: false
 featured: false
-publishedAt: '2024-09-30'
+publishedAt: "2024-09-30"
 tags:
-- Programación
-- Danza
-- Pensamiento creativo
-- Metodología
-- Artesanía
-title: 'Cuando el código se convierte en coreografía: La intersección entre programación
-  y movimiento'
+  - Programación
+  - Danza
+  - Pensamiento creativo
+  - Metodología
+  - Artesanía
+title:
+  "Cuando el código se convierte en coreografía: La intersección entre programación
+  y movimiento"
 ---
 
 Hay un momento en la coreografía -generalmente sobre las 3 de la madrugada, tras horas de experimentación- en el que una secuencia por fin hace **clic**. Los movimientos fluyen, las transiciones parecen inevitables, la estructura se aclara.
@@ -31,15 +33,18 @@ Comprender este paralelismo me ha hecho mejorar en ambas.
 ## Patrón 1: Composición modular
 
 ### En Danza:
+
 Un coreógrafo no crea piezas enteras desde cero. Construimos **frases** -secuencias cortas de movimiento que funcionan como unidades- y luego las combinamos y desarrollamos en composiciones completas.
 
 Una frase simple podría ser:
+
 1. Cambio de peso a la pierna izquierda
 2. Brazo derecho barre por encima de la cabeza
 3. Pivote 180 grados
 4. Estocada hacia adelante
 
 Esta frase puede ser:
+
 - **Repetida** (bucle)
 - **Invertida** (retrógrada)
 - **Acelerada** (manipulación del tiempo)
@@ -47,11 +52,12 @@ Esta frase puede ser:
 - **Combinación** con otras frases
 
 ### En Código:
+
 ```javascript
 // A "phrase" of code
 function fadeInElement(element, duration = 300) {
   element.style.opacity = 0;
-  element.style.display = 'block';
+  element.style.display = "block";
 
   const startTime = performance.now();
 
@@ -71,6 +77,7 @@ function fadeInElement(element, duration = 300) {
 ```
 
 Esta función puede ser:
+
 - **Reutilizada** a través de diferentes elementos
 - **Compuesta** con otras funciones de animación
 - **Modificada** con parámetros
@@ -81,6 +88,7 @@ El principio es idéntico: **construir pequeñas unidades componibles; combinarl
 ## Patrón 2: El poder de las restricciones
 
 ### En danza:
+
 Algunas de mis mejores coreografías surgieron de severas restricciones:
 
 - "Crea una pieza de 3 minutos usando sólo movimientos de brazos"
@@ -90,6 +98,7 @@ Algunas de mis mejores coreografías surgieron de severas restricciones:
 Las restricciones fuerzan la creatividad. Eliminan la parálisis de la posibilidad infinita.
 
 ### En Código:
+
 ```typescript
 // Constraint: No external dependencies, pure functions only
 class AnimationSequencer {
@@ -109,9 +118,9 @@ class AnimationSequencer {
 
 // Usage
 new AnimationSequencer()
-  .add(() => fadeElement('header'))
-  .add(() => slideElement('nav'))
-  .add(() => scaleElement('content'))
+  .add(() => fadeElement("header"))
+  .add(() => slideElement("nav"))
+  .add(() => scaleElement("content"))
   .run(200);
 ```
 
@@ -120,17 +129,20 @@ La limitación (sin dependencias, funciones puras) llevó a un API limpio y enca
 ## Patrón 3: Ritmo y sincronización
 
 ### En Danza:
+
 La coreografía no consiste sólo en **qué** movimientos se producen, sino en **cuándo** se producen.
 
 Un movimiento rápido se percibe como brusco y agresivo. El mismo movimiento ejecutado lentamente se lee como sensual, deliberado. El tiempo cambia el significado.
 
 Los coreógrafos profesionales piensan en:
+
 - **Cuentas** (frases de 8 cuentas)
 - **Fraseo musical** (verso, estribillo, puente)
 - **Ritmo de respiración** (tiempo natural de inhalación/exhalación)
 - **Sincopación** (sincronización intencionada fuera de compás)
 
 ### En Código:
+
 ```javascript
 // Choreographing timing in code
 class PerformanceOrchestrator {
@@ -148,7 +160,7 @@ class PerformanceOrchestrator {
     Promise.all([
       this.actionA(300),
       this.delay(150).then(() => this.actionB(300)),
-      this.delay(300).then(() => this.actionC(300))
+      this.delay(300).then(() => this.actionC(300)),
     ]);
   }
 
@@ -163,7 +175,9 @@ Cronometraje de animaciones, operaciones asíncronas, secuencias de carga: todos
 ## Patrón 4: Razonamiento espacial
 
 ### En Danza:
+
 Los coreógrafos piensan en el espacio 3D:
+
 - **Geometría del escenario** (arriba, abajo, centro, alas)
 - **Niveles** (trabajo de suelo, de pie, saltos)
 - **Formaciones** (líneas, grupos, diagonales)
@@ -172,6 +186,7 @@ Los coreógrafos piensan en el espacio 3D:
 Un ejercicio habitual: Dibujar el patrón del suelo. Si trazas el recorrido de cada bailarín por la pieza, ¿tiene interés visual la imagen resultante?
 
 ### En código:
+
 ```css
 /* Choreographing layout in 3D space */
 .performance-space {
@@ -200,9 +215,16 @@ Un ejercicio habitual: Dibujar el patrón del suelo. Si trazas el recorrido de c
 
 /* Pathway animation */
 @keyframes traverse-stage {
-  0%   { grid-area: downstage-left; }
-  50%  { grid-area: center; transform: translateY(-20px); }
-  100% { grid-area: upstage-right; }
+  0% {
+    grid-area: downstage-left;
+  }
+  50% {
+    grid-area: center;
+    transform: translateY(-20px);
+  }
+  100% {
+    grid-area: upstage-right;
+  }
 }
 ```
 
@@ -211,6 +233,7 @@ Los sistemas de diseño, las animaciones, las transformaciones 3D... todo requie
 ## Patrón 5: Iteración y refinamiento
 
 ### En danza:
+
 Los primeros borradores siempre son terribles. El proceso se parece a:
 
 1. **Improvisar** - Exploración libre, probarlo todo
@@ -223,26 +246,27 @@ Los primeros borradores siempre son terribles. El proceso se parece a:
 Este ciclo se repite docenas de veces por pieza.
 
 ### En Código:
+
 ```javascript
 // First draft (improvisation)
 function processData(data) {
   let result = [];
-  for(let i = 0; i < data.length; i++) {
-    if(data[i].value > 10) {
-      result.push({...data[i], processed: true});
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].value > 10) {
+      result.push({ ...data[i], processed: true });
     }
   }
   return result;
 }
 
 // Refined version (after iteration)
-const processData = (data) =>
+const processData = data =>
   data
     .filter(item => item.value > 10)
     .map(item => ({ ...item, processed: true }));
 
 // Production version (performant, clear)
-const processData = (data) => {
+const processData = data => {
   const threshold = 10;
   return data.reduce((acc, item) => {
     if (item.value > threshold) {
@@ -258,6 +282,7 @@ La estructura es idéntica: empezar desordenado, refinar a través de la iteraci
 ## Patrón 6: Espacio Negativo
 
 ### En danza:
+
 Lo que **no** haces es tan importante como lo que haces.
 
 Una pausa es un movimiento. La quietud crea contraste. El espacio escénico vacío hace que el espacio activo sea más poderoso.
@@ -265,9 +290,12 @@ Una pausa es un movimiento. La quietud crea contraste. El espacio escénico vac�
 Los maestros coreógrafos utilizan el silencio, la quietud y el vacío como elementos compositivos deliberados.
 
 ### En código:
+
 ```javascript
 // Cluttered (no negative space)
-function calculate(x,y,z){return x*y+z*2-Math.sqrt(x)/y;}
+function calculate(x, y, z) {
+  return x * y + z * 2 - Math.sqrt(x) / y;
+}
 
 // Spacious (intentional negative space)
 function calculate(x, y, z) {
@@ -284,17 +312,21 @@ Espacios en blanco, líneas vacías, respiro en el código: opciones coreográfi
 ## Lo que el pensamiento coreográfico enseña a los programadores
 
 ### 1. 1. Pensar en sistemas
+
 Un coreógrafo no piensa "mueve el brazo aquí, luego la pierna allí" Piensan en **sistemas**: "¿Cómo se desplaza el peso? ¿Cómo fluyen los movimientos? ¿Cuál es la lógica subyacente?"
 
 Esto es pensamiento arquitectónico. Se aplica directamente al diseño de software.
 
 ### 2. Aceptar las restricciones como herramientas creativas
+
 Las restricciones no son limitaciones, son **marcos para la creatividad**. ¿Trabajar con código heredado? Es una restricción coreográfica. Construye dentro de ella.
 
 ### 3. La iteración es el proceso
+
 Nadie coreografía una obra maestra de una sentada. Nadie escribe un código de producción en un solo borrador. El arte está en el refinamiento.
 
 ### 4. La interpretación importa
+
 Un baile que sólo existe en notación ha fracasado. Un código que no se ejecuta ha fracasado. Ambos requieren **ejecución**.
 
 Pero ambos requieren también que la ejecución sea **hermosa**: elegante, clara, elaborada.
@@ -302,17 +334,21 @@ Pero ambos requieren también que la ejecución sea **hermosa**: elegante, clara
 ## Lo que la programación enseña a los coreógrafos
 
 ### 1. Notación explícita
+
 El código te obliga a ser explícito. En programación no existe el "más o menos así": debes definir exactamente lo que quieres decir.
 
 Esta disciplina mejora la notación coreográfica y la comunicación.
 
 ### 2. Mentalidad de depuración
+
 Cuando un programa se rompe, se depura metódicamente. Cuando la coreografía no funciona, se aplica el mismo enfoque: aislar el problema, probar variaciones, encontrar la solución.
 
 ### 3. Control de versiones
+
 `git` para coreografía no existe (todavía), pero el concepto se aplica: rastrear cambios, experimentar en ramas, fusionar variaciones exitosas, revertir errores.
 
 ### 4. Composición sobre herencia
+
 La programación moderna favorece la composición de pequeñas funciones frente a las jerarquías de herencia. La coreografía moderna hace lo mismo: componer frases de movimiento en lugar de una rígida herencia estilística.
 
 ## Un ejercicio práctico
@@ -320,6 +356,7 @@ La programación moderna favorece la composición de pequeñas funciones frente 
 Pruebe esto: **Coreografía tu próxima función**.
 
 Antes de escribir el código:
+
 1. Define las "frases" (sub-funciones)
 2. Esbozar el "timing" (secuencia de operaciones)
 3. Considerar la "disposición espacial" (ámbito de las variables, estructura)
@@ -335,12 +372,13 @@ En CENIE, enseñamos metodologías creativas a personas técnicas y metodología
 Porque las mejores soluciones surgen en la intersección.
 
 Estamos desarrollando
+
 - **Talleres** que enseñan pensamiento coreográfico a desarrolladores
 - **Marcos de trabajo** para concebir el código como un espectáculo
 - **Herramientas** para visualizar espacialmente la estructura del código
 
-**¿Cómo cambiaría tu código si lo vieras como una coreografía?
+\*\*¿Cómo cambiaría tu código si lo vieras como una coreografía?
 
 ---
 
-*¿Te interesan las metodologías creativas para el trabajo técnico? la Academia [CENIE ofrece cursos](https://cenie.io) que tienden puentes entre el arte y las prácticas de ingeniería.*
+_¿Te interesan las metodologías creativas para el trabajo técnico? la Academia [CENIE ofrece cursos](https://cenie.io) que tienden puentes entre el arte y las prácticas de ingeniería._

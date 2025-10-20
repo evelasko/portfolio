@@ -2,20 +2,21 @@
 alternateLocales:
   es: sistemas-de-diseno-para-el-trabajo-creativo-la-estructura-da-libertad
 author: Enrique Velasco
-category: Methodology
-coverImage: /assets/placeholders/article-placeholder.jpg
-description: How creating personal frameworks and design systems doesn't constrain
+category: methodology
+coverImage: https://res.cloudinary.com/misfitcoders/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg
+description:
+  How creating personal frameworks and design systems doesn't constrain
   creativity—it amplifies it by removing unnecessary decisions.
 draft: false
 featured: false
-publishedAt: '2025-01-14'
+publishedAt: "2025-01-14"
 tags:
-- Design Systems
-- Creative Process
-- Frameworks
-- Productivity
-- Methodology
-title: 'Design Systems for Creative Work: Structure Enables Freedom'
+  - Design Systems
+  - Creative Process
+  - Frameworks
+  - Productivity
+  - Methodology
+title: "Design Systems for Creative Work: Structure Enables Freedom"
 ---
 
 Every web project started the same way: staring at a blank canvas, making thousands of tiny decisions.
@@ -36,10 +37,10 @@ Most creatives resist systems. "Systems are rigid. Creativity requires freedom."
 
 But watch a master in any creative field:
 
-- Jazz musicians improvise *within* harmonic structures
-- Choreographers create *within* physical constraints
-- Writers craft *within* genre conventions
-- Painters compose *within* color theories
+- Jazz musicians improvise _within_ harmonic structures
+- Choreographers create _within_ physical constraints
+- Writers craft _within_ genre conventions
+- Painters compose _within_ color theories
 
 **Structure doesn't kill creativity. It focuses it.**
 
@@ -52,6 +53,7 @@ A design system isn't just for web/app interfaces. It's **a set of reusable deci
 For different practices:
 
 ### **For Web Development**:
+
 - Color palettes
 - Typography scales
 - Spacing/layout grids
@@ -59,12 +61,14 @@ For different practices:
 - Naming conventions
 
 ### **For Visual Design**:
+
 - Brand guidelines
 - Template layouts
 - Asset libraries
 - Style guides
 
 ### **For Creative Technology**:
+
 - Code frameworks/boilerplates
 - OSC communication patterns
 - Shader libraries
@@ -72,12 +76,14 @@ For different practices:
 - Hardware configurations
 
 ### **For Content Creation**:
+
 - Editorial calendars
 - Content templates
 - SEO frameworks
 - Asset organization
 
 ### **For Any Creative Practice**:
+
 - Workflows and processes
 - Quality checklists
 - Tool configurations
@@ -88,16 +94,17 @@ For different practices:
 Here's the actual system I use for web projects:
 
 ### **Typography System** (Modular Scale)
+
 ```css
 /* Base size: 16px, Ratio: 1.25 (Major Third) */
---text-xs: 0.64rem;    /* 10.24px */
---text-sm: 0.8rem;     /* 12.8px */
---text-base: 1rem;     /* 16px */
---text-lg: 1.25rem;    /* 20px */
---text-xl: 1.563rem;   /* 25px */
---text-2xl: 1.953rem;  /* 31.25px */
---text-3xl: 2.441rem;  /* 39px */
---text-4xl: 3.052rem;  /* 48.8px */
+--text-xs: 0.64rem; /* 10.24px */
+--text-sm: 0.8rem; /* 12.8px */
+--text-base: 1rem; /* 16px */
+--text-lg: 1.25rem; /* 20px */
+--text-xl: 1.563rem; /* 25px */
+--text-2xl: 1.953rem; /* 31.25px */
+--text-3xl: 2.441rem; /* 39px */
+--text-4xl: 3.052rem; /* 48.8px */
 ```
 
 **Before system**: "Hmm, should this heading be 32px or 34px or 36px?"
@@ -107,14 +114,15 @@ Here's the actual system I use for web projects:
 **Decisions eliminated**: Dozens per project.
 
 ### **Spacing System** (8-Point Grid)
+
 ```css
---space-1: 0.5rem;  /* 8px */
---space-2: 1rem;    /* 16px */
---space-3: 1.5rem;  /* 24px */
---space-4: 2rem;    /* 32px */
---space-6: 3rem;    /* 48px */
---space-8: 4rem;    /* 64px */
---space-12: 6rem;   /* 96px */
+--space-1: 0.5rem; /* 8px */
+--space-2: 1rem; /* 16px */
+--space-3: 1.5rem; /* 24px */
+--space-4: 2rem; /* 32px */
+--space-6: 3rem; /* 48px */
+--space-8: 4rem; /* 64px */
+--space-12: 6rem; /* 96px */
 ```
 
 **Before system**: "Should this margin be 18px or 20px or 22px?"
@@ -124,15 +132,16 @@ Here's the actual system I use for web projects:
 **Result**: Consistent rhythm across all designs.
 
 ### **Color System** (Semantic Naming)
+
 ```css
---color-background: #FAFAFA;
---color-surface: #FFFFFF;
---color-text-primary: #1A1A1A;
+--color-background: #fafafa;
+--color-surface: #ffffff;
+--color-text-primary: #1a1a1a;
 --color-text-secondary: #666666;
---color-accent: #FF4400;
---color-success: #00AA66;
---color-warning: #FFAA00;
---color-error: #DD0000;
+--color-accent: #ff4400;
+--color-success: #00aa66;
+--color-warning: #ffaa00;
+--color-error: #dd0000;
 ```
 
 **Before system**: Using hex codes directly, inconsistent shades across project
@@ -140,7 +149,9 @@ Here's the actual system I use for web projects:
 **With system**: Semantic names, swappable themes, consistent application
 
 ### **Component Library**
+
 Pre-built, reusable components:
+
 - Buttons (primary, secondary, ghost)
 - Form inputs (text, select, checkbox)
 - Cards (article, project, testimonial)
@@ -159,6 +170,7 @@ Pre-built, reusable components:
 Every new TouchDesigner project starts with:
 
 **Folder Structure**:
+
 ```
 /operators
   /input        (camera, sensors, data sources)
@@ -173,12 +185,14 @@ Every new TouchDesigner project starts with:
 ```
 
 **Network Organization**:
+
 - Color-coded node groups (input=blue, processing=green, output=red)
 - Consistent naming (`input_camera_01`, `proc_blur_gaussian`, `out_projector_main`)
 - Comment boxes for each section
 - Master control panel on every project
 
 **Communication Patterns**:
+
 - OSC input always on port 7400
 - WebSocket output always on port 8080
 - MQTT for IoT devices
@@ -193,6 +207,7 @@ Even writing benefits from systems:
 ### **My Article Template**
 
 **Structure** (every article):
+
 1. **Hook** (story/scenario that illustrates problem)
 2. **Context** (why this matters)
 3. **Framework/Concept** (the main idea)
@@ -208,6 +223,7 @@ Even writing benefits from systems:
 ### **Content Calendar Framework**
 
 **Monthly themes** aligned with content pillars:
+
 - Week 1: Harmonious Engineer (tech + art integration)
 - Week 2: Resilient Entrepreneur (business/sustainability)
 - Week 3: Intention Architect (craft/methodology)
@@ -220,7 +236,9 @@ Even writing benefits from systems:
 Every new project follows the same initial process:
 
 ### **Phase 1: Context Gathering** (Week 1)
+
 **Checklist**:
+
 - [ ] Client background research
 - [ ] Initial discovery call (standardized questions)
 - [ ] Project brief document (template)
@@ -230,7 +248,9 @@ Every new project follows the same initial process:
 **Output**: Shared understanding document
 
 ### **Phase 2: Creative Exploration** (Week 2)
+
 **Checklist**:
+
 - [ ] Visual/conceptual references
 - [ ] 3-5 direction sketches
 - [ ] Technical feasibility tests
@@ -239,7 +259,9 @@ Every new project follows the same initial process:
 **Output**: Approved creative direction
 
 ### **Phase 3: Planning** (Week 3)
+
 **Checklist**:
+
 - [ ] Detailed timeline with milestones
 - [ ] Technical architecture diagram
 - [ ] Resource requirements
@@ -259,21 +281,25 @@ How I organize everything I learn:
 ### **Notion Database Structure**
 
 **Resources** (articles, videos, tools):
+
 - Tags: Category, topic, medium
 - Status: To review, reviewed, reference
 - Rating: Essential, useful, interesting
 
 **Notes** (insights from work/learning):
+
 - Project: Which project sparked this?
 - Topic: What domain?
 - Type: Technical, creative, business, philosophical
 
 **Frameworks** (reusable systems):
+
 - Use case: When to apply
 - Steps: How to use
 - Examples: Where I've used it
 
 **Projects** (work archive):
+
 - Timeline, budget, collaborators
 - Process documentation
 - Lessons learned
@@ -288,36 +314,42 @@ Before delivering anything, I run through project-specific checklists:
 ### **Web Project Delivery Checklist**
 
 **Functionality**:
+
 - [ ] All links work
 - [ ] Forms submit correctly
 - [ ] No console errors
 - [ ] Database connections secure
 
 **Performance**:
+
 - [ ] Images optimized
 - [ ] Code minified
 - [ ] Lazy loading implemented
 - [ ] Lighthouse score >90
 
 **Accessibility**:
+
 - [ ] Semantic HTML
 - [ ] ARIA labels where needed
 - [ ] Keyboard navigation works
 - [ ] Screen reader tested
 
 **Responsiveness**:
+
 - [ ] Mobile layouts work
 - [ ] Tablet breakpoints tested
 - [ ] Desktop optimized
 - [ ] Touch targets appropriate
 
 **SEO**:
+
 - [ ] Meta tags complete
 - [ ] Sitemap generated
 - [ ] Structured data added
 - [ ] Analytics configured
 
 **Handoff**:
+
 - [ ] Documentation complete
 - [ ] Client training scheduled
 - [ ] Credentials documented
@@ -332,6 +364,7 @@ Before delivering anything, I run through project-specific checklists:
 ### **Step 1: Audit Your Repeated Decisions**
 
 For one week, track:
+
 - What decisions do you make over and over?
 - What do you Google repeatedly?
 - What causes decision paralysis?
@@ -346,6 +379,7 @@ Pick the highest-frequency decision and create a framework:
 Example: "What typography should I use?"
 
 **Create a system**:
+
 - Define a modular scale
 - Choose 2-3 font pairings you love
 - Set rules for when to use each
@@ -357,6 +391,7 @@ Example: "What typography should I use?"
 ### **Step 3: Iterate the System**
 
 After using it 2-3 times:
+
 - What worked?
 - What felt constraining?
 - What's missing?
@@ -368,6 +403,7 @@ After using it 2-3 times:
 Don't try to systematize everything at once.
 
 **Add one new system per month**:
+
 - Month 1: Typography
 - Month 2: Color
 - Month 3: Spacing
@@ -380,14 +416,17 @@ Don't try to systematize everything at once.
 Systems can calcify into dogma. Watch for:
 
 ### **Warning Sign 1: You Follow the System Blindly**
+
 **Problem**: System overrides context and judgment
 **Solution**: Systems are defaults, not rules. Break them when justified.
 
 ### **Warning Sign 2: The System Hasn't Evolved**
+
 **Problem**: Your skills grew, system didn't
 **Solution**: Quarterly system reviews and updates
 
 ### **Warning Sign 3: You Resist Experimenting**
+
 **Problem**: System creates comfort zone you won't leave
 **Solution**: Dedicate 10-20% of work to systematic experimentation
 
@@ -426,4 +465,4 @@ Because you shouldn't have to reinvent foundational decisions every time.
 
 ---
 
-*Want access to proven creative systems and frameworks? [CENIE Creations Hub offers templates and tools](https://cenie.io) for systematizing your creative practice.*
+_Want access to proven creative systems and frameworks? [CENIE Creations Hub offers templates and tools](https://cenie.io) for systematizing your creative practice._

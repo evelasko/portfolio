@@ -1,5 +1,8 @@
 import { TYPOGRAPHY } from "@/lib/typography";
+import { getArticleCategoryName, type Locale } from "@/lib/categories";
 import clsx from "clsx";
+import "dayjs/locale/es";
+import "dayjs/locale/en";
 import dayjs from "dayjs";
 import type { ArticleFrontmatter } from "@/lib/mdx";
 
@@ -21,6 +24,11 @@ interface ArticlePageContentProps {
  * Server component for article page content
  */
 export function ArticlePageContent({ article }: ArticlePageContentProps) {
+  const categoryName = getArticleCategoryName(
+    article.frontmatter.category,
+    article.locale as Locale
+  );
+
   return (
     <>
       {/* Hero Section */}
@@ -34,12 +42,12 @@ export function ArticlePageContent({ article }: ArticlePageContentProps) {
                 "text-orange-100 uppercase tracking-wide"
               )}
             >
-              {article.frontmatter.category}
+              {categoryName}
             </span>
           </div>
 
           {/* Title */}
-          <h1 className={clsx(TYPOGRAPHY.h1, "mb-6")}>
+          <h1 className={clsx(TYPOGRAPHY.h2, "font-extrabold mb-6")}>
             {article.frontmatter.title}
           </h1>
 
@@ -55,7 +63,9 @@ export function ArticlePageContent({ article }: ArticlePageContentProps) {
             </span>
             <span className={TYPOGRAPHY.text16}>•</span>
             <time className={TYPOGRAPHY.text16}>
-              {dayjs(article.frontmatter.publishedAt).format("MMMM D, YYYY")}
+              {dayjs(article.frontmatter.publishedAt)
+                .locale(article.locale as Locale)
+                .format("MMMM D, YYYY")}
             </time>
             <span className={TYPOGRAPHY.text16}>•</span>
             <span className={TYPOGRAPHY.text16}>

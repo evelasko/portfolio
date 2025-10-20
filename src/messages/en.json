@@ -28,5 +28,18 @@
         "description": "Description of the thoughts page"
       }
     }
+  },
+  "articles": {
+    "heading": "Articles",
+    "subtitle": "Thoughts, ideas, and insights on design, development, and creativity",
+    "none-found": "No articles found. Try adjusting your filters."
+  },
+  "common": {
+    "all": "All",
+    "sort": {
+      "newest": "Newest First",
+      "oldest": "Oldest First"
+    },
+    "featured": "Featured"
   }
 }

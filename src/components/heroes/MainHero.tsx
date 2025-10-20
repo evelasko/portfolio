@@ -7,6 +7,7 @@ import { ArrowDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 import { TYPOGRAPHY } from "@/lib/typography";
+import { CloudinaryImage } from "@/components/mdx/CloudinaryImage";
 
 /**
  * MainHero
@@ -104,12 +105,15 @@ export default function MainHero({
               }}
               className="absolute inset-0"
             >
-              <Image
+              <CloudinaryImage
                 src={images[currentImageIndex]}
                 alt="Hero background"
                 fill
+                crop="fill"
+                gravity="auto"
+                quality="auto:best"
+                priority={currentImageIndex === 0}
                 className="object-cover"
-                priority
                 sizes="100vw"
               />
             </motion.div>

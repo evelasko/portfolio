@@ -1,8 +1,8 @@
 /**
- * Article Category System - Type Definitions
+ * Generalized Category System - Type Definitions
  *
- * This module provides TypeScript types for the article category system.
- * Categories are defined in src/content/article-categories.json and provide
+ * This module provides TypeScript types for the category system.
+ * Supports multiple category types (articles, works, etc.) with
  * consistent, localized category names across the portfolio.
  */
 
@@ -12,10 +12,10 @@
 export type Locale = "en" | "es";
 
 /**
- * Category key identifiers
+ * Article category key identifiers
  * These match the keys in article-categories.json
  */
-export type CategoryKey =
+export type ArticleCategoryKey =
   | "art-technology"
   | "creative-process"
   | "business-strategy"
@@ -34,11 +34,32 @@ export type CategoryKey =
   | "development";
 
 /**
- * Category definition structure
+ * Work category key identifiers
+ * These match the keys in work-categories.json
  */
-export interface CategoryDefinition {
+export type WorkCategoryKey =
+  | "interactive-art"
+  | "web-development"
+  | "creative-technology"
+  | "performance-art"
+  | "installation"
+  | "digital-experience"
+  | "motion-graphics"
+  | "ai-ml"
+  | "demo"
+  | "development";
+
+/**
+ * Union of all category keys
+ */
+export type CategoryKey = ArticleCategoryKey | WorkCategoryKey;
+
+/**
+ * Category definition structure (generic)
+ */
+export interface CategoryDefinition<K extends string = string> {
   /** Unique identifier for the category */
-  key: CategoryKey;
+  key: K;
 
   /** URL-friendly slug */
   slug: string;
@@ -51,11 +72,11 @@ export interface CategoryDefinition {
 }
 
 /**
- * Complete category configuration
+ * Complete category configuration (generic)
  */
-export interface ArticleCategoriesConfig {
+export interface CategoriesConfig<K extends string = string> {
   /** Category definitions keyed by category key */
-  categories: Record<CategoryKey, CategoryDefinition>;
+  categories: Record<K, CategoryDefinition<K>>;
 
   /** Metadata about the category system */
   metadata: {
@@ -66,12 +87,28 @@ export interface ArticleCategoriesConfig {
 }
 
 /**
- * Category with computed properties
+ * Article categories configuration
  */
-export interface Category extends CategoryDefinition {
+export type ArticleCategoriesConfig = CategoriesConfig<ArticleCategoryKey>;
+
+/**
+ * Work categories configuration
+ */
+export type WorkCategoriesConfig = CategoriesConfig<WorkCategoryKey>;
+
+/**
+ * Category with computed properties (generic)
+ */
+export interface Category<K extends string = string>
+  extends CategoryDefinition<K> {
   /** Get the category name for a specific locale */
   getName: (locale: Locale) => string;
 
   /** Check if this category matches a given string */
   matches: (value: string) => boolean;
 }
+
+/**
+ * Category type discriminator
+ */
+export type CategoryType = "article" | "work";

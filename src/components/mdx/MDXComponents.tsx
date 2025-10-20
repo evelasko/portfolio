@@ -15,32 +15,32 @@ export function getMDXComponents(): MDXComponents {
   return {
     // Headings
     h1: ({ children, ...props }) => (
-      <h1 className={clsx(TYPOGRAPHY.h1, "mt-12 mb-6")} {...props}>
+      <h1 className={clsx(TYPOGRAPHY.h2, "mt-12 mb-6")} {...props}>
         {children}
       </h1>
     ),
     h2: ({ children, ...props }) => (
-      <h2 className={clsx(TYPOGRAPHY.h2, "mt-10 mb-5")} {...props}>
+      <h2 className={clsx(TYPOGRAPHY.h3, "mt-10 mb-5")} {...props}>
         {children}
       </h2>
     ),
     h3: ({ children, ...props }) => (
-      <h3 className={clsx(TYPOGRAPHY.h3, "mt-8 mb-4")} {...props}>
+      <h3 className={clsx(TYPOGRAPHY.h4, "mt-8 mb-4")} {...props}>
         {children}
       </h3>
     ),
     h4: ({ children, ...props }) => (
-      <h4 className={clsx(TYPOGRAPHY.h4, "mt-6 mb-3")} {...props}>
+      <h4 className={clsx(TYPOGRAPHY.h5, "mt-6 mb-3")} {...props}>
         {children}
       </h4>
     ),
     h5: ({ children, ...props }) => (
-      <h5 className={clsx(TYPOGRAPHY.h5, "mt-6 mb-3")} {...props}>
+      <h5 className={clsx(TYPOGRAPHY.h6, "mt-6 mb-3")} {...props}>
         {children}
       </h5>
     ),
     h6: ({ children, ...props }) => (
-      <h6 className={clsx(TYPOGRAPHY.h6, "mt-6 mb-3")} {...props}>
+      <h6 className={clsx(TYPOGRAPHY.h7, "mt-6 mb-3")} {...props}>
         {children}
       </h6>
     ),

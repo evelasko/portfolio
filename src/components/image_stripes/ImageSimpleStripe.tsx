@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "motion/react";
+import { CloudinaryImage } from "@/components/mdx/CloudinaryImage";
 
 /**
  * ImageSimpleStripe component
@@ -67,10 +67,13 @@ export default function ImageSimpleStripe({
               },
             }}
           >
-            <Image
+            <CloudinaryImage
               src={image}
               alt={`Image ${index + 1}`}
               fill
+              crop="fill"
+              gravity="auto"
+              quality="auto"
               className="object-cover"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />

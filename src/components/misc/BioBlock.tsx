@@ -9,6 +9,7 @@ import { icons } from "lucide-react";
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { LocaleString } from "@/lib/types/intl";
+import { CloudinaryImage } from "@/components/mdx/CloudinaryImage";
 
 export default function BioBlock({
   photo_path,
@@ -180,11 +181,15 @@ export default function BioBlock({
           className="relative w-full m:w-[40%] l:w-[40%] aspect-[1/1.5] overflow-hidden rounded-lg"
         >
           {/* Main Photo with Black & White Effect */}
-          <Image
+          <CloudinaryImage
             src={photo_path}
             alt="Bio photo"
             fill
-            className="object-cover grayscale"
+            crop="fill"
+            gravity="face"
+            quality="auto"
+            effects={["grayscale"]}
+            className="object-cover"
             sizes="(max-width: 768px) 100vw, 40vw"
           />
 

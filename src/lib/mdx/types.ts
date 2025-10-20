@@ -1,5 +1,9 @@
 import { z } from "zod";
-import { getValidCategoryNames } from "@/lib/categories";
+import type { ArticleCategoryKey, WorkCategoryKey } from "@/lib/categories";
+import {
+  getValidArticleCategoryKeys,
+  getValidWorkCategoryKeys,
+} from "@/lib/categories";
 
 /**
  * SEO metadata schema for MDX content
@@ -11,37 +15,30 @@ export const SEOMetadataSchema = z.object({
 });
 
 /**
- * Get valid category names for both English and Spanish
- * This is used to create the Zod enum for category validation
+ * Get valid article category keys for validation
  */
-const getValidCategories = (): [string, ...string[]] => {
-  const enCategories = getValidCategoryNames("en");
-  const esCategories = getValidCategoryNames("es");
-  const allCategories = [...new Set([...enCategories, ...esCategories])];
-
-  if (allCategories.length === 0) {
-    // Fallback in case categories aren't loaded
-    return ["Art + Technology"];
-  }
-
-  return allCategories as [string, ...string[]];
+const getArticleCategoryKeysForZod = (): [string, ...string[]] => {
+  const keys = getValidArticleCategoryKeys();
+  return keys as [string, ...string[]];
 };
 
 /**
- * Base frontmatter schema shared by all content types
+ * Get valid work category keys for validation
  */
-export const BaseFrontmatterSchema = z.object({
+const getWorkCategoryKeysForZod = (): [string, ...string[]] => {
+  const keys = getValidWorkCategoryKeys();
+  return keys as [string, ...string[]];
+};
+
+/**
+ * Base frontmatter schema (without category - to be extended)
+ */
+const BaseWithoutCategorySchema = z.object({
   title: z.string(),
   description: z.string(),
   publishedAt: z.string(),
   updatedAt: z.string().optional(),
   author: z.string().default("Enrique Velasco"),
-  category: z.enum(getValidCategories(), {
-    errorMap: () => ({
-      message:
-        "Invalid category. Must be a valid category from article-categories.json",
-    }),
-  }),
   tags: z.array(z.string()).default([]),
   featured: z.boolean().default(false),
   draft: z.boolean().default(false),
@@ -54,16 +51,24 @@ export const BaseFrontmatterSchema = z.object({
 /**
  * Article-specific frontmatter schema
  */
-export const ArticleFrontmatterSchema = BaseFrontmatterSchema.extend({
+export const ArticleFrontmatterSchema = BaseWithoutCategorySchema.extend({
   contentType: z.literal("article").default("article"),
+  category: z.enum(getArticleCategoryKeysForZod(), {
+    message:
+      "Invalid category. Must be a valid article category key from article-categories.json",
+  }) as z.ZodType<ArticleCategoryKey>,
   // Article-specific fields can be added here
 });
 
 /**
  * Work/Project-specific frontmatter schema
  */
-export const WorkFrontmatterSchema = BaseFrontmatterSchema.extend({
+export const WorkFrontmatterSchema = BaseWithoutCategorySchema.extend({
   contentType: z.literal("work").default("work"),
+  category: z.enum(getWorkCategoryKeysForZod(), {
+    message:
+      "Invalid category. Must be a valid work category key from work-categories.json",
+  }) as z.ZodType<WorkCategoryKey>,
   // Work-specific fields
   client: z.string().optional(),
   projectUrl: z.string().url().optional(),
@@ -74,7 +79,6 @@ export const WorkFrontmatterSchema = BaseFrontmatterSchema.extend({
 
 // TypeScript types derived from Zod schemas
 export type SEOMetadata = z.infer<typeof SEOMetadataSchema>;
-export type BaseFrontmatter = z.infer<typeof BaseFrontmatterSchema>;
 export type ArticleFrontmatter = z.infer<typeof ArticleFrontmatterSchema>;
 export type WorkFrontmatter = z.infer<typeof WorkFrontmatterSchema>;
 

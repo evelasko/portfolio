@@ -1,49 +1,54 @@
 /**
- * Article Category System
+ * Generalized Category System
  *
- * This module provides utilities for working with article categories.
- * Categories are centrally defined and provide consistent translations
- * across all locales.
+ * This module provides utilities for working with categories across different content types.
+ * Supports articles, works, and potentially other content types with consistent APIs.
  *
  * @example
  * ```ts
- * import { getCategory, getCategoryByKey, getAllCategories } from "@/lib/categories";
+ * import { getCategoryName, getArticleCategories, getWorkCategories } from "@/lib/categories";
  *
- * // Get category by English or Spanish name
- * const category = getCategory("Art + Technology");
- * console.log(category.getName("es")); // "Arte + Tecnología"
+ * // Get category name for any category type
+ * const articleCat = getCategoryName("art-technology", "es", "article");
+ * const workCat = getCategoryName("interactive-art", "en", "work");
  *
- * // Get category by key
- * const category = getCategoryByKey("art-technology");
- *
- * // Get all categories
- * const categories = getAllCategories();
+ * // Get all categories of a specific type
+ * const articles = getArticleCategories();
+ * const works = getWorkCategories();
  * ```
  */
 
-import categoriesData from "@/content/article-categories.json";
+import articleCategoriesData from "@/content/article-categories.json";
+import workCategoriesData from "@/content/work-categories.json";
 import type {
   ArticleCategoriesConfig,
+  WorkCategoriesConfig,
   Category,
   CategoryDefinition,
-  CategoryKey,
+  ArticleCategoryKey,
+  WorkCategoryKey,
   Locale,
+  CategoryType,
 } from "./types";
 
 /**
- * Validated and typed category configuration
+ * Validated and typed category configurations
  */
-const config = categoriesData as ArticleCategoriesConfig;
+const articleConfig = articleCategoriesData as ArticleCategoriesConfig;
+const workConfig = workCategoriesData as WorkCategoriesConfig;
 
 /**
  * Cache for enhanced category objects
  */
-const categoryCache = new Map<CategoryKey, Category>();
+const articleCategoryCache = new Map<ArticleCategoryKey, Category<ArticleCategoryKey>>();
+const workCategoryCache = new Map<WorkCategoryKey, Category<WorkCategoryKey>>();
 
 /**
  * Create an enhanced category object with helper methods
  */
-function createCategory(definition: CategoryDefinition): Category {
+function createCategory<K extends string>(
+  definition: CategoryDefinition<K>
+): Category<K> {
   return {
     ...definition,
     getName: (locale: Locale): string => {
@@ -58,213 +63,173 @@ function createCategory(definition: CategoryDefinition): Category {
 }
 
 /**
- * Get a category by its key
- *
- * @param key - The category key
- * @returns The category object, or undefined if not found
- *
- * @example
- * ```ts
- * const category = getCategoryByKey("art-technology");
- * console.log(category?.getName("es")); // "Arte + Tecnología"
- * ```
+ * Get an article category by its key
  */
-export function getCategoryByKey(key: CategoryKey): Category | undefined {
-  if (categoryCache.has(key)) {
-    return categoryCache.get(key);
+export function getArticleCategoryByKey(
+  key: ArticleCategoryKey
+): Category<ArticleCategoryKey> | undefined {
+  if (articleCategoryCache.has(key)) {
+    return articleCategoryCache.get(key);
   }
 
-  const definition = config.categories[key];
+  const definition = articleConfig.categories[key];
   if (!definition) {
     return undefined;
   }
 
   const category = createCategory(definition);
-  categoryCache.set(key, category);
+  articleCategoryCache.set(key, category);
   return category;
 }
 
 /**
- * Get a category by its localized name (English or Spanish)
- *
- * @param name - The category name in any supported locale
- * @returns The category object, or undefined if not found
- *
- * @example
- * ```ts
- * const category = getCategory("Art + Technology");
- * // or
- * const category = getCategory("Arte + Tecnología");
- * ```
+ * Get a work category by its key
  */
-export function getCategory(name: string): Category | undefined {
-  const key = Object.keys(config.categories).find((k) => {
-    const def = config.categories[k as CategoryKey];
-    return Object.values(def.translations).includes(name);
-  }) as CategoryKey | undefined;
+export function getWorkCategoryByKey(
+  key: WorkCategoryKey
+): Category<WorkCategoryKey> | undefined {
+  if (workCategoryCache.has(key)) {
+    return workCategoryCache.get(key);
+  }
 
-  if (!key) {
+  const definition = workConfig.categories[key];
+  if (!definition) {
     return undefined;
   }
 
-  return getCategoryByKey(key);
+  const category = createCategory(definition);
+  workCategoryCache.set(key, category);
+  return category;
 }
 
 /**
- * Get all categories
- *
- * @returns Array of all category objects
- *
- * @example
- * ```ts
- * const categories = getAllCategories();
- * categories.forEach(cat => {
- *   console.log(`${cat.getName("en")} / ${cat.getName("es")}`);
- * });
- * ```
+ * Get a category by its key (generic - auto-detects type)
  */
-export function getAllCategories(): Category[] {
-  return Object.keys(config.categories).map((key) =>
-    getCategoryByKey(key as CategoryKey)
-  ) as Category[];
+export function getCategoryByKey(
+  key: ArticleCategoryKey | WorkCategoryKey,
+  type?: CategoryType
+): Category<string> | undefined {
+  // If type is specified, use the specific getter
+  if (type === "article") {
+    return getArticleCategoryByKey(key as ArticleCategoryKey);
+  }
+  if (type === "work") {
+    return getWorkCategoryByKey(key as WorkCategoryKey);
+  }
+
+  // Try article categories first, then work categories
+  const articleCat = getArticleCategoryByKey(key as ArticleCategoryKey);
+  if (articleCat) return articleCat;
+
+  return getWorkCategoryByKey(key as WorkCategoryKey);
+}
+
+/**
+ * Get all article categories
+ */
+export function getArticleCategories(): Category<ArticleCategoryKey>[] {
+  return Object.keys(articleConfig.categories).map(
+    (key) => getArticleCategoryByKey(key as ArticleCategoryKey)!
+  );
+}
+
+/**
+ * Get all work categories
+ */
+export function getWorkCategories(): Category<WorkCategoryKey>[] {
+  return Object.keys(workConfig.categories).map(
+    (key) => getWorkCategoryByKey(key as WorkCategoryKey)!
+  );
 }
 
 /**
  * Get category name for a specific locale
  *
- * @param key - The category key
- * @param locale - The target locale
- * @returns The localized category name
- *
  * @example
  * ```ts
- * getCategoryName("art-technology", "es"); // "Arte + Tecnología"
+ * getCategoryName("art-technology", "es", "article"); // "Arte + Tecnología"
+ * getCategoryName("interactive-art", "en", "work"); // "Interactive Art"
  * ```
  */
-export function getCategoryName(key: CategoryKey, locale: Locale): string {
-  const category = getCategoryByKey(key);
+export function getCategoryName(
+  key: ArticleCategoryKey | WorkCategoryKey,
+  locale: Locale,
+  type?: CategoryType
+): string {
+  const category = getCategoryByKey(key, type);
   return category?.getName(locale) || key;
 }
 
 /**
- * Get category translation (for use in translation scripts)
- *
- * @param englishName - The English category name
- * @param targetLocale - The target locale
- * @returns The translated category name, or undefined if not found
- *
- * @example
- * ```ts
- * getCategoryTranslation("Art + Technology", "es"); // "Arte + Tecnología"
- * ```
+ * Get article category name
  */
-export function getCategoryTranslation(
-  englishName: string,
-  targetLocale: Locale
-): string | undefined {
-  const category = getCategory(englishName);
-  return category?.translations[targetLocale];
+export function getArticleCategoryName(
+  key: ArticleCategoryKey,
+  locale: Locale
+): string {
+  const category = getArticleCategoryByKey(key);
+  return category?.getName(locale) || key;
 }
 
 /**
- * Validate if a string is a valid category name
- *
- * @param name - The category name to validate
- * @param locale - Optional locale to validate against
- * @returns True if the name is a valid category
- *
- * @example
- * ```ts
- * isValidCategory("Art + Technology"); // true
- * isValidCategory("Invalid Category"); // false
- * isValidCategory("Arte + Tecnología", "es"); // true
- * ```
+ * Get work category name
  */
-export function isValidCategory(name: string, locale?: Locale): boolean {
-  if (!locale) {
-    // Check if valid in any locale
-    return getCategory(name) !== undefined;
-  }
-
-  // Check if valid in specific locale
-  return getAllCategories().some(
-    (cat) => cat.translations[locale] === name
-  );
+export function getWorkCategoryName(
+  key: WorkCategoryKey,
+  locale: Locale
+): string {
+  const category = getWorkCategoryByKey(key);
+  return category?.getName(locale) || key;
 }
 
 /**
- * Get category key from localized name
- *
- * @param name - The category name in any locale
- * @returns The category key, or undefined if not found
- *
- * @example
- * ```ts
- * getCategoryKey("Art + Technology"); // "art-technology"
- * getCategoryKey("Arte + Tecnología"); // "art-technology"
- * ```
+ * Validate if a string is a valid article category key
  */
-export function getCategoryKey(name: string): CategoryKey | undefined {
-  const category = getCategory(name);
-  return category?.key;
+export function isValidArticleCategory(key: string): key is ArticleCategoryKey {
+  return key in articleConfig.categories;
 }
 
 /**
- * Get all valid category names for a specific locale
- *
- * @param locale - The target locale
- * @returns Array of all category names in the specified locale
- *
- * @example
- * ```ts
- * getValidCategoryNames("en");
- * // ["Art + Technology", "Creative Process", ...]
- *
- * getValidCategoryNames("es");
- * // ["Arte + Tecnología", "Proceso Creativo", ...]
- * ```
+ * Validate if a string is a valid work category key
  */
-export function getValidCategoryNames(locale: Locale): string[] {
-  return getAllCategories().map((cat) => cat.getName(locale));
+export function isValidWorkCategory(key: string): key is WorkCategoryKey {
+  return key in workConfig.categories;
 }
 
 /**
- * Get categories grouped by a custom criteria
- *
- * @param groupBy - Function to determine group key
- * @returns Object with categories grouped by the criteria
- *
- * @example
- * ```ts
- * // Group by first letter
- * const grouped = getGroupedCategories(cat =>
- *   cat.getName("en")[0].toUpperCase()
- * );
- * ```
+ * Get all valid article category keys
  */
-export function getGroupedCategories(
-  groupBy: (category: Category) => string
-): Record<string, Category[]> {
-  const categories = getAllCategories();
-  const grouped: Record<string, Category[]> = {};
+export function getValidArticleCategoryKeys(): ArticleCategoryKey[] {
+  return Object.keys(articleConfig.categories) as ArticleCategoryKey[];
+}
 
-  categories.forEach((category) => {
-    const key = groupBy(category);
-    if (!grouped[key]) {
-      grouped[key] = [];
-    }
-    grouped[key].push(category);
-  });
-
-  return grouped;
+/**
+ * Get all valid work category keys
+ */
+export function getValidWorkCategoryKeys(): WorkCategoryKey[] {
+  return Object.keys(workConfig.categories) as WorkCategoryKey[];
 }
 
 /**
  * Export types for consumers
  */
-export type { Category, CategoryDefinition, CategoryKey, Locale } from "./types";
+export type {
+  Category,
+  CategoryDefinition,
+  ArticleCategoryKey,
+  WorkCategoryKey,
+  CategoryType,
+  Locale,
+} from "./types";
 
 /**
- * Export raw configuration for advanced use cases
+ * Export raw configurations for advanced use cases
  */
-export { config as categoryConfig };
+export { articleConfig as articleCategoryConfig, workConfig as workCategoryConfig };
+
+/**
+ * Legacy exports for backward compatibility
+ * @deprecated Use specific getArticleCategories() or getWorkCategories() instead
+ */
+export const getAllCategories = getArticleCategories;
+export const getCategoryByKey_Legacy = getArticleCategoryByKey;

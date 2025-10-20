@@ -3,11 +3,18 @@ title: "El fracaso como dato: Reformular los errores como oportunidades de apren
 description: "Cómo cambiar mi relación con el fracaso -de la vergüenza a la curiosidad- aceleró mi crecimiento e hizo que el trabajo creativo fuera menos aterrador."
 publishedAt: "2025-02-11"
 author: "Enrique Velasco"
-category: "Crecimiento + Aprendizaje"
-tags: ["Fallo", "Aprender", "Mentalidad de crecimiento", "Resiliencia", "Experimentación"]
+category: growth-learning
+tags:
+  [
+    "Fallo",
+    "Aprender",
+    "Mentalidad de crecimiento",
+    "Resiliencia",
+    "Experimentación",
+  ]
 featured: false
 draft: false
-coverImage: "/assets/placeholders/article-placeholder.jpg"
+coverImage: "https://res.cloudinary.com/misfitcoders/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg"
 alternateLocales:
   en: "failure-as-data"
 ---
@@ -17,12 +24,14 @@ Rompí el sitio web de producción de un cliente a las 4 de la tarde de un viern
 Un despliegue apresurado, una variable de entorno que faltaba, una cadena de conexión de base de datos que apuntaba al servidor equivocado. En cuestión de minutos, su sitio estaba mostrando páginas de error en lugar de contenido.
 
 El viejo yo lo habría hecho:
+
 - entrado en pánico
 - Sentido como un fraude
 - Cuestionado mi competencia
 - Pasado el fin de semana en una espiral de vergüenza
 
 Yo actual:
+
 - Deshice el despliegue (5 minutos)
 - Arreglado el problema de configuración (10 minutos)
 - Documentación de lo sucedido (15 minutos)
@@ -40,9 +49,11 @@ Yo actual:
 ## Los dos tipos de fracaso
 
 ### **Tipo 1: Fallo de Ejecución**
+
 **Qué es**: Cometiste un error, carecías de conocimientos o ejerciste mal tu juicio
 
 **Ejemplos**:
+
 - Código con errores
 - Incumplimiento de plazos
 - Enfoque técnico que no funcionó
@@ -53,9 +64,11 @@ Yo actual:
 **Realidad**: Es información sobre lo que no funciona.
 
 ### **Tipo 2: Fracaso Experimental**
+
 **Qué es**: Has probado algo nuevo y no ha funcionado como esperabas
 
 **Ejemplos**:
+
 - Técnica novedosa que no logró el efecto deseado
 - Riesgo creativo con el que el público no conectó
 - Modelo de negocio que no encajó en el mercado
@@ -110,21 +123,27 @@ Llevo un registro documentado de las cosas que no funcionan.
 ## [Fecha] - [Proyecto/Contexto]
 
 ### What I tried:
+
 [Enfoque o decisión específica]
 
 ### Lo que esperaba:
+
 [Hipótesis sobre lo que ocurriría]
 
 ### Lo que ocurrió en realidad:
+
 [Resultados observados]
 
 ### Por qué no funcionó:
+
 [Análisis de la causa raíz]
 
 ### Lo que aprendí:
+
 [Perspectiva extraíble]
 
 ### Lo que intentaré en su lugar:
+
 [Próxima hipótesis a probar]
 ```
 
@@ -134,23 +153,29 @@ Llevo un registro documentado de las cosas que no funcionan.
 ## 2024-09-15 - Rendimiento de la instalación interactiva
 
 ### What I tried:
+
 Utilicé la GPU de partículas de TouchDesigner para obtener visuales reactivos al movimiento en tiempo real
 
 ### Lo que esperaba:
+
 Rendimiento suave a 60 fps con 100K partículas
 
 ### Lo que ocurrió en realidad:
+
 El sistema bajaba a 20fps cuando el número de partículas superaba los 50K
 
 ### Why it didn't work:
+
 La GPU estaba atascada por la tasa de emisión de partículas, no por el renderizado.
 La lógica de emisión estaba en la CPU, creando un atasco en el pipeline.
 
 ### Lo que aprendí:
+
 La emisión de partículas debe basarse en la GPU para recuentos altos.
 Siempre perfil para identificar el cuello de botella real, no uno asumido.
 
 ### What I'll try instead:
+
 Usar emisión de partículas basada en GPU a través de sombreadores de cálculo.
 Probar con el número de partículas objetivo ANTES de la semana final.
 ```
@@ -179,21 +204,25 @@ Cuando algo importante falla, realizo una autopsia formal:
 ### **Las Preguntas**:
 
 **¿Qué ha pasado?**
+
 - Cronología de los hechos
 - Quién estuvo implicado
 - ¿Cuál fue el impacto?
 
 **¿Por qué ocurrió?**
+
 - Causa inmediata
 - Factores contribuyentes
 - Causa raíz (pregunte "por qué" 5 veces)
 
 **¿Cómo evitar que se repita?**
+
 - Cambios en los procesos
 - Salvaguardias técnicas
 - Lagunas en los conocimientos
 
 **¿Qué salió bien?**
+
 - Qué limitó los daños
 - Lo que hicimos bien
 - Lo que debemos seguir haciendo
@@ -201,6 +230,7 @@ Cuando algo importante falla, realizo una autopsia formal:
 ### **Ejemplo: El incidente de la página web de producción**
 
 **Qué pasó**:
+
 - 4:03 PM: Desplegado a producción
 - 4:05 PM: El cliente informó de la caída del sitio
 - 4:10 PM: Identificada configuración incorrecta de la base de datos
@@ -209,18 +239,21 @@ Cuando algo importante falla, realizo una autopsia formal:
 - 17:00: Corregida la configuración, redistribuido con éxito
 
 **Por qué ha ocurrido**:
+
 - Despliegue apresurado el viernes por la tarde (causa inmediata)
 - Variables de entorno no controladas por versión (factor contribuyente)
 - No había un entorno de pruebas que se correspondiera con el de producción (factor contribuyente)
 - Sin lista de comprobación de despliegue (causa raíz: falta de proceso)
 
 **Prevención**:
+
 - ✅ Lista de comprobación de despliegue creada
 - ✅ Configuraciones del entorno controladas por versiones (con secretos encriptados)
 - ✅ Configurado el entorno de puesta en escena coincidente con el de producción
 - ✅ Política: No despliegues los viernes por la tarde sin justificación de emergencia
 
 **Lo que salió bien**:
+
 - Identificación rápida del problema (buen registro de errores)
 - Funcionó un proceso de reversión limpio
 - Comunicación transparente con el cliente
@@ -239,6 +272,7 @@ Tomada prestada de la psicología: antes de empezar un proyecto, imagine que ha 
 **Escribe**: ¿Qué salió mal? Sé concreto. Sé pesimista.
 
 **Ejemplos**:
+
 - "Subestimamos la complejidad en 3 veces, nos quedamos sin presupuesto a mitad de camino"
 - "El cliente odiaba la dirección creativa, tuvimos que empezar de nuevo"
 - "Los problemas de rendimiento lo hicieron inutilizable a gran escala"
@@ -253,6 +287,7 @@ Tomada prestada de la psicología: antes de empezar un proyecto, imagine que ha 
 ## Categorías de fallos útiles
 
 ### **1. Fallos técnicos**
+
 **Ejemplo**: Tu código no funciona, el sistema se bloquea, el rendimiento es terrible
 
 **Valor**: Revela lagunas en la comprensión, identifica casos extremos
@@ -260,6 +295,7 @@ Tomada prestada de la psicología: antes de empezar un proyecto, imagine que ha 
 **Respuesta**: Depurar, aprender, documentar, prevenir
 
 ### **2. Fracasos creativos**
+
 **Ejemplo**: El concepto artístico no resuena, el diseño visual parece apagado
 
 **Valor**: Aclara a qué responde el público, afina los gustos
@@ -267,6 +303,7 @@ Tomada prestada de la psicología: antes de empezar un proyecto, imagine que ha 
 **Respuesta**: Iterar, probar, recibir comentarios, ajustar
 
 ### **3. Fallos de comunicación**
+
 **Ejemplo**: El cliente no entiende el alcance, un miembro del equipo no cumple el plazo
 
 **Valor**: Expone suposiciones, revela lagunas en los procesos
@@ -274,6 +311,7 @@ Tomada prestada de la psicología: antes de empezar un proyecto, imagine que ha 
 **Respuesta**: Mejorar la documentación, la claridad, los sistemas
 
 ### **4. Fallos de planificación**
+
 **Ejemplo**: El calendario no era realista, el presupuesto era insuficiente
 
 **Valor**: Calibra la estimación, enseña a planificar
@@ -287,11 +325,13 @@ Tomada prestada de la psicología: antes de empezar un proyecto, imagine que ha 
 La investigación de Carol Dweck sobre la mentalidad de crecimiento frente a la fija se aplica directamente:
 
 **Mentalidad fija**: "El fracaso significa que carezco de habilidad"
+
 - Evita los retos
 - Se rinde fácilmente
 - Se siente amenazado por el éxito de los demás
 
 **Mentalidad de crecimiento**: "El fracaso significa que estoy aprendiendo"
+
 - Acepta los retos
 - Persiste a pesar de los contratiempos
 - Se inspira en el éxito de los demás
@@ -384,12 +424,14 @@ Cuanto más rápido fracases de forma segura, más rápido aprenderás.
 No todos los fracasos significan "rendirse". Saber cuándo persistir frente a pivotar es crucial.
 
 **Persistir cuando**:
+
 - La premisa central es sólida, la ejecución necesita refinarse.
 - La respuesta es "ya casi está, pero hay que retocar X".
 - Se está aprendiendo y mejorando con cada iteración.
 - Quedan recursos/tiempo
 
 **Pivota cuando**:
+
 - La premisa fundamental es errónea
 - Los intentos repetidos dan el mismo resultado
 - El coste de continuar supera el valor potencial
@@ -402,11 +444,13 @@ No todos los fracasos significan "rendirse". Saber cuándo persistir frente a pi
 Crear entornos en los que el fracaso sea seguro:
 
 **Para mí mismo**:
+
 - Presupuestar "tiempo de experimentación" sin exigir resultados
 - Conservar los proyectos que fracasaron, estudiarlos más tarde
 - Celebrar el aprendizaje, no sólo el éxito
 
 **Para los equipos**:
+
 - Post-mortems sin culpables
 - "¿Qué hemos aprendido?" en lugar de "¿Quién la ha cagado?"
 - Recompensar la asunción de riesgos inteligentes, incluso cuando fracasan
@@ -447,9 +491,11 @@ En el CENIE, mantenemos una "Biblioteca de Lecciones": fracasos y aprendizajes d
 **Esta semana**:
 
 **1. Intenta algo en lo que puedas fracasar**
+
 - Nueva técnica, proyecto ambicioso, riesgo creativo
 
 **2. Cuando no funcione (probablemente no lo hará al primer intento)**:
+
 - No te juzgues
 - Escribe lo que has aprendido
 - Identifica la siguiente iteración
@@ -462,4 +508,4 @@ En el CENIE, mantenemos una "Biblioteca de Lecciones": fracasos y aprendizajes d
 
 ---
 
-*¿Quieres construir resiliencia y aprender de los fracasos? [La comunidad CENIE normaliza la experimentación](https://cenie.io) y trata los fracasos como oportunidades de aprendizaje.*
+_¿Quieres construir resiliencia y aprender de los fracasos? [La comunidad CENIE normaliza la experimentación](https://cenie.io) y trata los fracasos como oportunidades de aprendizaje._

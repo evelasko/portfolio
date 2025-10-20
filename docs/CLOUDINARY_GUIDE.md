@@ -20,6 +20,7 @@ This guide explains how to use Cloudinary for optimized image delivery in your p
 Cloudinary is a cloud-based image management service that automatically optimizes images for web delivery.
 
 **Benefits:**
+
 - **85-90% smaller file sizes** through automatic compression
 - **Faster page loads** via global CDN (300+ edge locations)
 - **Automatic format conversion** (WebP, AVIF based on browser)
@@ -35,6 +36,7 @@ Cloudinary is a cloud-based image management service that automatically optimize
 ### 1. Upload an Image to Cloudinary
 
 **Option A: Via Cloudinary Dashboard**
+
 1. Log in to [cloudinary.com](https://cloudinary.com)
 2. Navigate to Media Library
 3. Upload your image to the appropriate folder:
@@ -43,6 +45,7 @@ Cloudinary is a cloud-based image management service that automatically optimize
 4. Copy the image URL
 
 **Option B: Via Upload API**
+
 ```bash
 # Example using curl
 curl -X POST "https://api.cloudinary.com/v1_1/misfitcoders/image/upload" \
@@ -54,6 +57,7 @@ curl -X POST "https://api.cloudinary.com/v1_1/misfitcoders/image/upload" \
 ### 2. Use the Image in Your Content
 
 **Simple reference (recommended):**
+
 ```mdx
 ---
 coverImage: "articles/my-article-cover"
@@ -63,6 +67,7 @@ coverImage: "articles/my-article-cover"
 ```
 
 **The system automatically adds:**
+
 - Quality optimization (`q_auto`)
 - Format conversion (`f_auto`)
 - Responsive sizing
@@ -75,6 +80,7 @@ coverImage: "articles/my-article-cover"
 ### Article/Work Cover Images
 
 **In frontmatter:**
+
 ```yaml
 ---
 title: "My Article"
@@ -85,6 +91,7 @@ coverImage: "https://res.cloudinary.com/misfitcoders/image/upload/v1/articles/ai
 ```
 
 **What happens:**
+
 - Automatically optimized to 800×450px for cards
 - Cropped with AI-powered subject detection
 - Converted to WebP/AVIF for modern browsers
@@ -93,17 +100,21 @@ coverImage: "https://res.cloudinary.com/misfitcoders/image/upload/v1/articles/ai
 ### Inline Images in MDX
 
 **Standard markdown syntax:**
+
 ```mdx
 ![AI Choreography Demo](https://res.cloudinary.com/misfitcoders/image/upload/demos/ai-dance.jpg)
 ```
 
 **With size specifications:**
+
 ```mdx
 ![Screenshot](https://res.cloudinary.com/misfitcoders/image/upload/demos/screenshot.jpg)
+
 <!-- width="800" height="600" -->
 ```
 
 **Local images still work:**
+
 ```mdx
 ![Local Image](/assets/images/fallback.jpg)
 ```
@@ -115,6 +126,7 @@ coverImage: "https://res.cloudinary.com/misfitcoders/image/upload/v1/articles/ai
 ### For Articles
 
 **Recommended:**
+
 ```yaml
 # Frontmatter in src/content/articles/{locale}/article-name.mdx
 coverImage: "articles/my-article"
@@ -122,13 +134,15 @@ coverImage: "articles/my-article"
 
 **Fallback:**
 If no `coverImage` is provided, the system uses:
-```
-/assets/placeholders/article-placeholder.jpg
+
+```url
+https://res.cloudinary.com/misfitcoders/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg
 ```
 
 ### For Works
 
 **Recommended:**
+
 ```yaml
 # Frontmatter in src/content/works/{locale}/work-name.mdx
 coverImage: "works/my-project"
@@ -136,8 +150,9 @@ coverImage: "works/my-project"
 
 **Fallback:**
 If no `coverImage` is provided, the system uses:
-```
-/assets/placeholders/work-placeholder.jpg
+
+```url
+https://res.cloudinary.com/misfitcoders/image/upload/v1760912222/eVelasco/covers/work-placeholder.jpg
 ```
 
 ---
@@ -147,12 +162,14 @@ If no `coverImage` is provided, the system uses:
 ### Manual Transformations
 
 **Direct URL with transformations:**
+
 ```mdx
 ![Thumbnail](https://res.cloudinary.com/misfitcoders/image/upload/
-  c_fill,w_400,h_400,g_face,q_auto,f_auto/profile/headshot.jpg)
+c_fill,w_400,h_400,g_face,q_auto,f_auto/profile/headshot.jpg)
 ```
 
 **Transformation parameters:**
+
 - `c_fill` - Crop and fill to exact dimensions
 - `w_400,h_400` - Width and height
 - `g_face` - Focus on faces when cropping
@@ -164,6 +181,7 @@ If no `coverImage` is provided, the system uses:
 ### Utility Functions
 
 **For advanced use cases, import helpers:**
+
 ```typescript
 import { cloudinaryPresets, getOptimizedImageUrl } from "@/lib/cloudinary";
 
@@ -187,11 +205,13 @@ const customUrl = getOptimizedImageUrl("articles/my-article", {
 ### Image Naming
 
 **Good:**
+
 - `articles/ai-choreographer-cover`
 - `works/hey-siri-performance`
 - `demos/webgl-globe-interaction`
 
 **Avoid:**
+
 - Generic names: `image1.jpg`, `photo.png`
 - Spaces: `my article.jpg` (use `my-article.jpg`)
 - Special characters: `article#1.jpg`
@@ -199,7 +219,8 @@ const customUrl = getOptimizedImageUrl("articles/my-article", {
 ### Folder Structure
 
 Organize images by type:
-```
+
+```tree
 cloudinary.com/misfitcoders/
 ├── articles/          # Article cover images
 │   ├── ai-choreographer
@@ -217,6 +238,7 @@ cloudinary.com/misfitcoders/
 ### Image Sizes
 
 **Upload high-quality originals:**
+
 - Minimum: 1600×900px for covers
 - Recommended: 2400×1350px
 - Maximum: 4000×2250px (diminishing returns beyond this)
@@ -226,11 +248,13 @@ cloudinary.com/misfitcoders/
 ### File Formats
 
 **Upload as:**
+
 - JPEG for photos
 - PNG for graphics with transparency
 - SVG for logos/icons (if no raster effects needed)
 
 **Cloudinary serves as:**
+
 - WebP to Chrome/Edge
 - AVIF to Safari
 - JPEG/PNG to older browsers
@@ -241,11 +265,11 @@ cloudinary.com/misfitcoders/
 
 ### Quick Reference
 
-| Use Case | Transformation | Example |
-|----------|---------------|---------|
-| Article card | `c_fill,w_800,h_450,g_auto,q_auto,f_auto` | Thumbnail |
-| Hero image | `c_fill,w_1920,h_1080,q_auto:best,f_auto` | Full-width |
-| Profile photo | `c_fill,w_400,h_400,g_face,q_auto,f_auto` | Square crop |
+| Use Case         | Transformation                            | Example      |
+| ---------------- | ----------------------------------------- | ------------ |
+| Article card     | `c_fill,w_800,h_450,g_auto,q_auto,f_auto` | Thumbnail    |
+| Hero image       | `c_fill,w_1920,h_1080,q_auto:best,f_auto` | Full-width   |
+| Profile photo    | `c_fill,w_400,h_400,g_face,q_auto,f_auto` | Square crop  |
 | Mobile thumbnail | `c_fill,w_400,h_225,g_auto,q_auto,f_auto` | Small screen |
 
 ### Quality Settings
@@ -262,18 +286,21 @@ cloudinary.com/misfitcoders/
 ### Image Not Loading
 
 **1. Check the URL format:**
-```
+
+```text
 ✅ https://res.cloudinary.com/misfitcoders/image/upload/articles/my-image
 ✅ articles/my-image
 ❌ cloudinary.com/articles/my-image
 ```
 
 **2. Verify the image exists:**
+
 - Log in to Cloudinary dashboard
 - Check Media Library
 - Confirm folder and filename match exactly
 
 **3. Check browser console:**
+
 - Open DevTools → Console
 - Look for 404 errors
 - Verify the full resolved URL
@@ -281,21 +308,25 @@ cloudinary.com/misfitcoders/
 ### Image Quality Issues
 
 **Blurry images:**
+
 - Upload a higher resolution source
 - Use `q_auto:best` instead of `q_auto`
 
 **Over-compressed:**
+
 - Check if original is already low quality
 - Try `q_80` for specific quality control
 
 ### Performance Issues
 
 **Images loading slowly:**
+
 - Cloudinary CDN should be fast globally
 - Check Network tab in DevTools
 - Verify `f_auto` is being applied (WebP/AVIF)
 
 **Large file sizes:**
+
 - Ensure `q_auto` and `f_auto` are in URL
 - Check if original upload is unnecessarily large (>5MB)
 
@@ -306,6 +337,7 @@ cloudinary.com/misfitcoders/
 ### CloudinaryImage
 
 **Basic usage:**
+
 ```tsx
 import { CloudinaryImage } from "@/components/mdx/CloudinaryImage";
 
@@ -314,10 +346,11 @@ import { CloudinaryImage } from "@/components/mdx/CloudinaryImage";
   alt="Article cover"
   width={800}
   height={450}
-/>
+/>;
 ```
 
 **With transformations:**
+
 ```tsx
 <CloudinaryImage
   src="articles/my-article"
@@ -333,13 +366,11 @@ import { CloudinaryImage } from "@/components/mdx/CloudinaryImage";
 ### CloudinaryThumbnail
 
 **Preset for cards:**
+
 ```tsx
 import { CloudinaryThumbnail } from "@/components/mdx/CloudinaryImage";
 
-<CloudinaryThumbnail
-  src="articles/my-article"
-  alt="Article cover"
-/>
+<CloudinaryThumbnail src="articles/my-article" alt="Article cover" />;
 // Automatically: 800x450, fill crop, AI focus, auto quality
 ```
 
@@ -361,12 +392,12 @@ featured: true
 # AI as Co-Choreographer
 
 ![Performance setup](https://res.cloudinary.com/misfitcoders/image/upload/
-  w_1200,h_675,c_fill,g_auto,q_auto:best,f_auto/articles/ai-setup.jpg)
+w_1200,h_675,c_fill,g_auto,q_auto:best,f_auto/articles/ai-setup.jpg)
 
 The system uses motion capture to track...
 
 ![Data visualization](https://res.cloudinary.com/misfitcoders/image/upload/
-  w_800,h_600,c_fit,q_auto,f_auto/articles/data-viz.jpg)
+w_800,h_600,c_fit,q_auto,f_auto/articles/data-viz.jpg)
 ```
 
 ### Complete Work Example
@@ -384,7 +415,7 @@ featured: true
 # Hey Siri, do you love me?
 
 ![Performance](https://res.cloudinary.com/misfitcoders/image/upload/
-  works/hey-siri-performance.jpg)
+works/hey-siri-performance.jpg)
 ```
 
 ---
@@ -400,6 +431,7 @@ featured: true
 ## Questions?
 
 For technical issues with the integration, check:
+
 1. [src/components/mdx/CloudinaryImage.tsx](../src/components/mdx/CloudinaryImage.tsx) - Component implementation
 2. [src/lib/cloudinary.ts](../src/lib/cloudinary.ts) - Utility functions
 3. [Next.js Image docs](https://nextjs.org/docs/app/api-reference/components/image) - Next.js Image component

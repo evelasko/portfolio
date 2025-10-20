@@ -2,20 +2,21 @@
 alternateLocales:
   es: cuando-el-codigo-se-convierte-en-coreografia-la-interseccion-entre-programacion-y-movimiento
 author: Enrique Velasco
-category: Creative Process
-coverImage: /assets/placeholders/article-placeholder.jpg
-description: Exploring the surprising parallels between writing code and creating
+category: creative-process
+coverImage: https://res.cloudinary.com/misfitcoders/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg
+description:
+  Exploring the surprising parallels between writing code and creating
   dance—and how thinking like a choreographer makes you a better programmer.
 draft: false
 featured: false
-publishedAt: '2024-09-30'
+publishedAt: "2024-09-30"
 tags:
-- Programming
-- Dance
-- Creative Thinking
-- Methodology
-- Craft
-title: 'When Code Becomes Choreography: The Intersection of Programming and Movement'
+  - Programming
+  - Dance
+  - Creative Thinking
+  - Methodology
+  - Craft
+title: "When Code Becomes Choreography: The Intersection of Programming and Movement"
 ---
 
 There's a moment in choreography—usually around 3 AM, after hours of experimentation—when a sequence finally **clicks**. The movements flow, the transitions feel inevitable, the structure becomes clear.
@@ -29,15 +30,18 @@ Understanding this parallel has made me better at both.
 ## Pattern 1: Modular Composition
 
 ### In Dance:
+
 A choreographer doesn't create entire pieces from scratch. We build **phrases**—short movement sequences that function as units—then combine and develop them into full compositions.
 
 A simple phrase might be:
+
 1. Weight shift to left leg
 2. Right arm sweeps overhead
 3. Pivot 180 degrees
 4. Lunge forward
 
 This phrase can be:
+
 - **Repeated** (loop)
 - **Reversed** (retrograde)
 - **Accelerated** (time manipulation)
@@ -45,11 +49,12 @@ This phrase can be:
 - **Combined** with other phrases
 
 ### In Code:
+
 ```javascript
 // A "phrase" of code
 function fadeInElement(element, duration = 300) {
   element.style.opacity = 0;
-  element.style.display = 'block';
+  element.style.display = "block";
 
   const startTime = performance.now();
 
@@ -69,6 +74,7 @@ function fadeInElement(element, duration = 300) {
 ```
 
 This function can be:
+
 - **Reused** across different elements
 - **Composed** with other animation functions
 - **Modified** with parameters
@@ -79,6 +85,7 @@ The principle is identical: **build small, composable units; combine them into c
 ## Pattern 2: The Power of Constraints
 
 ### In Dance:
+
 Some of my best choreography came from severe constraints:
 
 - "Create a 3-minute piece using only arm movements"
@@ -88,6 +95,7 @@ Some of my best choreography came from severe constraints:
 Constraints force creativity. They eliminate the paralysis of infinite possibility.
 
 ### In Code:
+
 ```typescript
 // Constraint: No external dependencies, pure functions only
 class AnimationSequencer {
@@ -107,9 +115,9 @@ class AnimationSequencer {
 
 // Usage
 new AnimationSequencer()
-  .add(() => fadeElement('header'))
-  .add(() => slideElement('nav'))
-  .add(() => scaleElement('content'))
+  .add(() => fadeElement("header"))
+  .add(() => slideElement("nav"))
+  .add(() => scaleElement("content"))
   .run(200);
 ```
 
@@ -118,17 +126,20 @@ The constraint (no dependencies, pure functions) led to a clean, chainable API. 
 ## Pattern 3: Rhythm and Timing
 
 ### In Dance:
+
 Choreography isn't just about **what** movements happen—it's about **when** they happen.
 
 A movement performed quickly reads as sharp, aggressive. The same movement performed slowly reads as sensual, deliberate. Timing changes meaning.
 
 Professional choreographers think in:
+
 - **Counts** (8-count phrases)
 - **Musical phrasing** (verse, chorus, bridge)
 - **Breath rhythm** (natural timing of inhale/exhale)
 - **Syncopation** (intentional off-beat timing)
 
 ### In Code:
+
 ```javascript
 // Choreographing timing in code
 class PerformanceOrchestrator {
@@ -146,7 +157,7 @@ class PerformanceOrchestrator {
     Promise.all([
       this.actionA(300),
       this.delay(150).then(() => this.actionB(300)),
-      this.delay(300).then(() => this.actionC(300))
+      this.delay(300).then(() => this.actionC(300)),
     ]);
   }
 
@@ -161,7 +172,9 @@ Animation timing, async operations, loading sequences—all choreographic proble
 ## Pattern 4: Spatial Reasoning
 
 ### In Dance:
+
 Choreographers think in 3D space:
+
 - **Stage geometry** (upstage, downstage, center, wings)
 - **Levels** (floor work, standing, jumps)
 - **Formations** (lines, clusters, diagonals)
@@ -170,6 +183,7 @@ Choreographers think in 3D space:
 A common exercise: Draw the floor pattern. If you trace each dancer's path through the piece, does the resulting image have visual interest?
 
 ### In Code:
+
 ```css
 /* Choreographing layout in 3D space */
 .performance-space {
@@ -198,9 +212,16 @@ A common exercise: Draw the floor pattern. If you trace each dancer's path throu
 
 /* Pathway animation */
 @keyframes traverse-stage {
-  0%   { grid-area: downstage-left; }
-  50%  { grid-area: center; transform: translateY(-20px); }
-  100% { grid-area: upstage-right; }
+  0% {
+    grid-area: downstage-left;
+  }
+  50% {
+    grid-area: center;
+    transform: translateY(-20px);
+  }
+  100% {
+    grid-area: upstage-right;
+  }
 }
 ```
 
@@ -209,6 +230,7 @@ Layout systems, animations, 3D transforms—all require spatial choreography.
 ## Pattern 5: Iteration and Refinement
 
 ### In Dance:
+
 First drafts are always terrible. The process looks like:
 
 1. **Improvise** - Free exploration, try everything
@@ -221,26 +243,27 @@ First drafts are always terrible. The process looks like:
 This cycle repeats dozens of times per piece.
 
 ### In Code:
+
 ```javascript
 // First draft (improvisation)
 function processData(data) {
   let result = [];
-  for(let i = 0; i < data.length; i++) {
-    if(data[i].value > 10) {
-      result.push({...data[i], processed: true});
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].value > 10) {
+      result.push({ ...data[i], processed: true });
     }
   }
   return result;
 }
 
 // Refined version (after iteration)
-const processData = (data) =>
+const processData = data =>
   data
     .filter(item => item.value > 10)
     .map(item => ({ ...item, processed: true }));
 
 // Production version (performant, clear)
-const processData = (data) => {
+const processData = data => {
   const threshold = 10;
   return data.reduce((acc, item) => {
     if (item.value > threshold) {
@@ -256,6 +279,7 @@ The structure is identical: start messy, refine through iteration, optimize for 
 ## Pattern 6: Negative Space
 
 ### In Dance:
+
 What you **don't** do is as important as what you do.
 
 A pause is a movement. Stillness creates contrast. Empty stage space makes active space more powerful.
@@ -263,9 +287,12 @@ A pause is a movement. Stillness creates contrast. Empty stage space makes activ
 Master choreographers use silence, stillness, and emptiness as deliberate compositional elements.
 
 ### In Code:
+
 ```javascript
 // Cluttered (no negative space)
-function calculate(x,y,z){return x*y+z*2-Math.sqrt(x)/y;}
+function calculate(x, y, z) {
+  return x * y + z * 2 - Math.sqrt(x) / y;
+}
 
 // Spacious (intentional negative space)
 function calculate(x, y, z) {
@@ -282,17 +309,21 @@ Whitespace, empty lines, breathing room in code—choreographic choices that imp
 ## What Choreographic Thinking Teaches Programmers
 
 ### 1. Think in Systems
+
 A choreographer doesn't think "move arm here, then leg there." They think in **systems**: "How does weight shift? How do movements flow? What's the underlying logic?"
 
 This is architectural thinking. It applies directly to software design.
 
 ### 2. Embrace Constraints as Creative Tools
+
 Constraints aren't limitations—they're **frameworks for creativity**. Working with legacy code? That's a choreographic constraint. Build within it.
 
 ### 3. Iteration Is the Process
+
 No one choreographs a masterpiece in one sitting. No one writes production code in one draft. The craft is in the refinement.
 
 ### 4. Performance Matters
+
 A dance that exists only in notation has failed. Code that doesn't run has failed. Both require **execution**.
 
 But both also require that the execution be **beautiful**—elegant, clear, crafted.
@@ -300,17 +331,21 @@ But both also require that the execution be **beautiful**—elegant, clear, craf
 ## What Programming Teaches Choreographers
 
 ### 1. Explicit Notation
+
 Code forces you to be explicit. There's no "kind of like this" in programming—you must define exactly what you mean.
 
 This discipline improves choreographic notation and communication.
 
 ### 2. Debugging Mindset
+
 When a program breaks, you debug methodically. When choreography doesn't work, the same approach applies: isolate the problem, test variations, find the solution.
 
 ### 3. Version Control
+
 `git` for choreography doesn't exist (yet), but the concept applies: track changes, experiment on branches, merge successful variations, revert mistakes.
 
 ### 4. Composition Over Inheritance
+
 Modern programming favors composing small functions over inheritance hierarchies. Modern choreography does the same: composing movement phrases over rigid stylistic inheritance.
 
 ## A Practical Exercise
@@ -318,6 +353,7 @@ Modern programming favors composing small functions over inheritance hierarchies
 Try this: **Choreograph your next function**.
 
 Before writing code:
+
 1. Define the "phrases" (sub-functions)
 2. Sketch the "timing" (sequence of operations)
 3. Consider the "spatial layout" (variable scope, structure)
@@ -333,6 +369,7 @@ At CENIE, we teach creative methodologies to technical people and technical meth
 Because the best solutions emerge at the intersection.
 
 We're developing:
+
 - **Workshops** teaching choreographic thinking to developers
 - **Frameworks** for thinking about code as performance
 - **Tools** for visualizing code structure spatially
@@ -341,4 +378,4 @@ We're developing:
 
 ---
 
-*Interested in creative methodologies for technical work? [CENIE Academy offers courses](https://cenie.io) bridging art and engineering practices.*
+_Interested in creative methodologies for technical work? [CENIE Academy offers courses](https://cenie.io) bridging art and engineering practices._

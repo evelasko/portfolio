@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "motion/react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown } from "lucide-react";
 import { TYPOGRAPHY } from "@/lib/typography";
+import { CloudinaryImage } from "@/components/mdx/CloudinaryImage";
 
 /**
  * Photo Hero Component
@@ -35,12 +35,15 @@ export default function PhotoHero({
     <div className="relative w-full h-screen overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <Image
+        <CloudinaryImage
           src={backgroundImage}
           alt="Background"
           fill
-          className="object-cover"
+          crop="fill"
+          gravity="auto"
+          quality="auto:best"
           priority
+          className="object-cover"
           sizes="100vw"
         />
         {/* Dark overlay for text readability */}
@@ -158,11 +161,14 @@ export default function PhotoHero({
                   ease: "easeOut",
                 }}
               >
-                <Image
+                <CloudinaryImage
                   src={photo}
                   alt="Profile photo"
                   width={400}
                   height={500}
+                  crop="fill"
+                  gravity="face"
+                  quality="auto"
                   className="object-cover rounded-lg"
                   style={{
                     maxWidth: "350px",
@@ -199,11 +205,14 @@ export default function PhotoHero({
                   ease: "easeOut",
                 }}
               >
-                <Image
+                <CloudinaryImage
                   src={photo}
                   alt="Profile photo"
                   width={280}
                   height={350}
+                  crop="fill"
+                  gravity="face"
+                  quality="auto"
                   className="object-cover rounded-lg"
                   style={{
                     maxWidth: "280px",

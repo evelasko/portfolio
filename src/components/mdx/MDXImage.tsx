@@ -12,7 +12,7 @@ export function MDXImage({
   width,
   height,
   ...props
-}: ImageProps & { src: string; alt: string }) {
+}: Omit<ImageProps, 'quality'> & { src: string; alt: string }) {
   // Handle relative paths
   const imageSrc = src.startsWith("/")
     ? src
