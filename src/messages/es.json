@@ -12,20 +12,69 @@
         "finalText": "Become an Architect"
       },
       "theHow": {
-        "title": "El Cómo",
-        "description": "Descripción de la página de how"
+        "title": "Construye tu Camino",
+        "description": "Descripción de la página de how",
+        "subtitle": "Esta transformación requiere un nuevo tipo de conjunto de herramientas. Por eso construí CENIE: un centro diseñado para proporcionar los cuatro pilares de su nueva base.",
+        "grid": {
+          "academy": {
+            "label": "Explorar",
+            "text": "Domina las herramientas de la tecnología, las finanzas y la estrategia con la **Academia CENIE**.",
+            "title": "Desarrolla tus habilidades"
+          },
+          "agency": {
+            "label": "Descubrir",
+            "text": "Implementa sistemas inteligentes para escalar tu impacto con la **Agencia CENIE**.",
+            "title": "Automatiza tu trabajo"
+          },
+          "editorial": {
+            "label": "Navegar",
+            "text": "Accede a investigaciones rigurosas e ideas pioneras a través de **CENIE Editorial**.",
+            "title": "Profundiza tu oficio"
+          },
+          "spoke": {
+            "label": "Conectar",
+            "text": "Desarrolla y muestra tu próximo gran trabajo dentro del **CENIE Creations Hub**.",
+            "title": "Incuba tu visión"
+          }
+        },
+        "intro": "Presentando",
+        "introLabel": "Explora el Ecosistema CENIE"
       },
       "theWho": {
         "title": "El Quien",
-        "description": "Descripción de la página de who"
+        "description": "Descripción de la página de who",
+        "shortBio": "Mi viaje no fue en un mundo, sino en la intersección de dos. \nDesde los escenarios del **Netherlands Dans Theatre** hasta la línea de comando de una terminal de programación, descubrí la misma verdad central: **las creaciones más poderosas provienen de una armonía de lógica y alma**. \nNo enseño teoría; \nLes comparto una metodología que he vivido. \n**Mi objetivo es brindarte la brújula que construí yo mismo.**",
+        "testimonialsHeading": "palabras sobre mi",
+        "cenieBannerLabel": "Entra Cenie",
+        "cenieBannerText": "El camino de un arquitecto comienza con un único paso intencionado."
       },
       "theWorks": {
         "title": "Trabajos",
-        "description": "Descripción de la página de works"
+        "description": "Una filosofía es tan fuerte como el trabajo que produce.|Aquí está la síntesis del arte y la tecnología en acción.",
+        "subtitle": "Prueba en la práctica",
+        "bento": {
+          "art": {
+            "description": "Diseño integral de identidad de marca que incluye logotipo, paleta de colores, tipografía y pautas de marca para una startup de SaaS.",
+            "heading": "Coreografía / Gráfica / Iluminación…",
+            "title": "Obras Artísticas"
+          },
+          "synth": {
+            "description": "Rediseño y desarrollo completo de una plataforma de comercio electrónico moderna con una experiencia de usuario perfecta y mayores tasas de conversión.",
+            "heading": "donde el escenario se encuentra con el silicio",
+            "title": "Obras sintetizadas"
+          },
+          "tech": {
+            "description": "Diseño de panel intuitivo para visualización y análisis de datos, que ayuda a las empresas a tomar decisiones basadas en datos.",
+            "heading": "Desarrollo / Automatización / Ingeniería…",
+            "title": "Trabajos de tecnología"
+          }
+        },
+        "moreButtonLabel": "Profundiza en las obras"
       },
       "theThoughts": {
         "title": "Reflexiones",
-        "description": "Descripción de la página de thoughts"
+        "description": "Un viaje es tan rico como las historias que cuenta.|Aquí están las reflexiones de un viaje a través de dos mundos.",
+        "subtitle": "Reflexiones sobre dos mundos entrelazados"
       }
     }
   },
@@ -46,5 +95,74 @@
   "works": {
     "heading": "Trabajos",
     "subtitle": "Proyectos seleccionados y estudios de caso que muestran trabajo de diseño y desarrollo"
+  },
+  "bio": {
+    "beyond": {
+      "subtitle": "Fuera del horario, todavía explorando",
+      "text": "Mi curiosidad no se detiene cuando el trabajo está terminado. El impulso de comprender y armonizar sistemas complejos es parte de quién soy.",
+      "title": "Más allá del trabajo"
+    },
+    "connect": {
+      "buttonLabel": "Iniciar una conversación →",
+      "text": "Mi viaje continúa y creo que las mejores ideas nacen de la conversación. \nSi mi historia te identifica, o si estás trabajando en algo en la intersección del arte y la tecnología, realmente me encantaría saber de ti.",
+      "title": "Conectemos"
+    },
+    "cvLabel": "Descargar CV",
+    "cvText": "Para una historia cronológica detallada, puedes ver mi Curriculum Vitae completo aquí:",
+    "milestones": {
+      "grid": {
+        "academic": {
+          "heading": "Rigor Académico",
+          "text": "Doctorado Sobresaliente Cum Laude en Artes Escénicas por la Universidad Rey Juan Carlos."
+        },
+        "automation": {
+          "heading": "AI",
+          "text": "Diseñé agentes de IA para tareas académicas complejas y desarrollé numerosas herramientas de código abierto en Typecript."
+        },
+        "creative": {
+          "heading": "Innovación creativa",
+          "text": "Es autor de 30 obras coreográficas originales y reescenificó clásicos como West Side Story."
+        },
+        "performance": {
+          "heading": "Rendimiento de clase mundial",
+          "text": "Actuó internacionalmente con el prestigioso Dans Theatre II de Holanda."
+        },
+        "recognition": {
+          "heading": "Reconocimiento de pares",
+          "text": "Honrado con elogios que incluyen un Premio de Investigación, un Premio a la Mejor Creación Artística y una nominación de la Fundación Onassis."
+        },
+        "technology": {
+          "heading": "Emprendimiento Tecnológico",
+          "text": "Fundó múltiples startups tecnológicas, incluidas Misfitcoders (Blockchain) y Kusari (Sistemas Descentralizados)."
+        }
+      },
+      "subtitle": "Una mirada a los hitos que han dado forma a mi perspectiva.",
+      "title": "Mi viaje, destilado"
+    },
+    "quote": "Desde mis primeros días como intérprete, he estado obsesionado con dos cosas: el poder visceral y emocional del movimiento humano y el poder limpio y lógico de los sistemas. \nPara muchos, estas actividades parecían estar en conflicto. \nPara mí eran dos caras de una misma moneda. \nTanto un coreógrafo como un arquitecto de software buscan crear sistemas elegantes y eficientes a partir de elementos complejos. \nEl trabajo de mi vida, y el propósito de CENIE, es proporcionar la traducción, capacitando a los artistas para que dominen ambas.",
+    "subtitle": "Creo que el futuro pertenece a los artistas que saben hablar dos idiomas: el lenguaje del escenario y el lenguaje de la máquina.",
+    "synthesis": {
+      "paragraph1": "La síntesis no fue un ejercicio teórico; \nfue forjado por necesidad profesional. \nAnte la extrema presión de coreografiar una pieza compleja, comencé a tomar prestados conceptos de programación para resolver problemas artísticos. \nEmpecé a ver las acciones dramáticas como \"secuencias funcionales\" y el arco emocional de una pieza como un \"camino algorítmico\". \nNo solo estaba usando tecnología; \nEstaba pensando en la tecnología.",
+      "paragraph2": "Me di cuenta de que estaba aplicando el mismo modelo mental a ambos mundos: un proceso que llamo \"depuración funcional\". \nYa sea una línea de código o una línea de coreografía, debes aislar la unidad de propósito más pequeña para ver si sirve al todo. \nEsto se convirtió en el puente entre todo lo que hago.",
+      "subtitle": "Donde dos mundos se convirtieron en uno",
+      "title": "Forjado con fuego y hielo"
+    },
+    "title": "Una vida de|viajes paralelos —",
+    "transference": {
+      "buttonLabel": "Descubre el Ecosistema CENIE",
+      "subtitle": "Construyendo el puente para los demás",
+      "text": "Después de décadas de construir este puente por mí mismo, reconocí una profunda necesidad. \nVi innumerables artistas brillantes que se sentían abandonados por la tecnología y abrumados por las exigencias de una carrera moderna. \nMe di cuenta de que los marcos que había construido para mi propia supervivencia y éxito podrían tener un propósito mayor. \nCENIE es la culminación de este viaje. \nEs mi respuesta a la 'injusticia sagrada'. \nEs el ecosistema que desearía haber tenido: un lugar dedicado a transformar a los artistas de artistas precarios a arquitectos empoderados de su propio futuro.",
+      "title": "Transferencia"
+    },
+    "twoCol": {
+      "machine": {
+        "heading": "El lenguaje de la máquina",
+        "text": "Mi viaje en la tecnología no comenzó en un aula, sino desde un lugar de pura curiosidad y necesidad. \nComenzó con la línea de comandos de MS-DOS y evolucionó hasta crear aplicaciones completas en Flutter, Typecript y Python. \nFundé nuevas empresas tecnológicas como Misfitcoders para explorar el potencial de blockchain y diseñé complementos de código abierto y agentes de inteligencia artificial para resolver los mismos problemas que enfrenté como creador. \nCada proyecto fue una nueva lección sobre el poder de los sistemas lógicos."
+      },
+      "stage": {
+        "heading": "El lenguaje del escenario",
+        "text": "Mi viaje en las artes ha sido uno de implacable rigor físico e intelectual. \nMe llevó de los vibrantes escenarios del Tropicana habanero al exigente y vanguardista mundo del Dans Theatre II de Holanda, donde tuve el privilegio de encarnar obras de maestros como Jiří Kylián y Ohad Naharin. \nComo profesor y coreógrafo residente, he pasado más de dos décadas diseñando emociones, creando más de treinta obras originales y deconstruyendo clásicos como West Side Story para encontrar su núcleo \\\"dramáticamente funcional\\\"."
+      }
+    }
   }
 }

@@ -6,6 +6,8 @@ import clsx from "clsx";
 import { TYPOGRAPHY } from "@/lib/typography";
 import { formatArticleDate } from "@/lib/utils";
 import type { ContentListItem, ArticleFrontmatter } from "@/lib/mdx/types";
+import { useTranslations } from "next-intl";
+import React from "react";
 
 export default function TheThoughts({
   locale,
@@ -14,6 +16,7 @@ export default function TheThoughts({
   locale: string;
   articles: ContentListItem<ArticleFrontmatter>[];
 }) {
+  const t = useTranslations("home.sections.theThoughts");
   // Take first 4 featured articles
   const featuredArticles = articles.slice(0, 4);
 
@@ -26,16 +29,21 @@ export default function TheThoughts({
     <section id="the-thoughts" className="py-12 m:py-16 l:py-20 bg-white-90">
       <div className="w-full max-w-7xl mx-auto px-4 m:px-8 l:px-12">
         <MainHeading
-          title="The Thoughts"
-          subtitle="Reflections on two worlds intertwined"
+          title={t("title")}
+          subtitle={t("subtitle")}
           className="text-center mb-12 m:mb-16 l:mb-20"
         />
         <div
           className={clsx(TYPOGRAPHY.text20, "text-center px-4 m:px-12 mb-12")}
         >
-          A journey is only as rich as the stories it tells.
-          <br />
-          Here are the reflections of a journey across two worlds.
+          {t("description")
+            .split(`|`)
+            .map((line, i) => (
+              <React.Fragment key={i}>
+                {line}
+                {i < t("description").split(`|`).length - 1 && <br />}
+              </React.Fragment>
+            ))}
         </div>
 
         <div className="grid grid-cols-1 m:grid-cols-2 l:grid-cols-2 gap-6 m:gap-8 l:gap-10">

@@ -12,20 +12,68 @@
         "finalText": "Become an Architect"
       },
       "theHow": {
-        "title": "The How",
-        "description": "Description of the how page"
+        "title": "The Architect's Ecosystem",
+        "description": "Description of the how page",
+        "subtitle": "This transformation requires a new kind of toolkit.|That's why I built CENIE: a center designed to provide the four pillars of your new foundation.",
+        "grid": {
+          "editorial": {
+            "title": "Deepen Your Craft.",
+            "text": "Access rigorous research and pioneering ideas through **CENIE Editorial**.",
+            "label": "Browse"
+          },
+          "academy": {
+            "title": "Build Your Skills.",
+            "text": "Master the tools of technology, finance, and strategy with the **CENIE Academy**.",
+            "label": "Explore"
+          },
+          "agency": {
+            "title": "Automate Your Work.",
+            "text": "Implement intelligent systems to scale your impact with the **CENIE Agency**.",
+            "label": "Discover"
+          },
+          "spoke": {
+            "title": "Incubate Your Vision.",
+            "text": "Develop and showcase your next great work within the **CENIE Creations Hub**.",
+            "label": "Connect"
+          }
+        },
+        "intro": "Introducing",
+        "introLabel": "Explore the CENIE Ecosystem"
       },
       "theWho": {
-        "title": "The Who",
-        "description": "Description of the who page"
+        "title": "About Me",
+        "shortBio": "My journey wasn't in one world, but at the intersection of two. From the stages of the **Netherlands Dans Theatre** to the command line of a programming terminal, I discovered the same core truth: **the most powerful creations come from a harmony of logic and soul**. I don't teach theory; I share a methodology I've lived. **My goal is to give you the compass I built for myself.**",
+        "testimonialsHeading": "Words about me",
+        "cenieBannerText": "The path of an architect begins with a single, intentional step.",
+        "cenieBannerLabel": "Enter Cenie"
       },
       "theWorks": {
         "title": "The Works",
-        "description": "Description of the works page"
+        "description": "A philosophy is only as strong as the work it produces.|Here is the synthesis of art and technology in action.",
+        "subtitle": "Proof in Practice",
+        "moreButtonLabel": "Dig deeper into the works",
+        "bento": {
+          "art": {
+            "heading": "Choreography / Graphic / Lighting …",
+            "title": "Artistic Works",
+            "description": "Comprehensive brand identity design including logo, color palette, typography, and brand guidelines for a SaaS startup."
+          },
+          "tech": {
+            "heading": "Development / Automation / Engineering …",
+            "title": "Technology Works",
+            "description": "Intuitive dashboard design for data visualization and analytics, helping businesses make data-driven decisions."
+          },
+          "synth": {
+            "heading": "where stage meets silicon",
+            "title": "Synthesised Works",
+            "description": "Complete redesign and development of a modern e-commerce platform with seamless user experience and increased conversion rates."
+          }
+        }
       },
       "theThoughts": {
         "title": "The Thoughts",
-        "description": "Description of the thoughts page"
+        "subtitle": "Reflections on two worlds intertwined",
+        "description": "A journey is only as rich as the stories it tells.|Here are the reflections of a journey across two worlds."
       }
     }
   },
@@ -46,5 +94,74 @@
     },
     "featured": "Featured",
     "reading-time": "read"
+  },
+  "bio": {
+    "title": "A Life of|Parallel Journeys —",
+    "subtitle": "I believe the future belongs to the artists who can speak two languages: the language of the stage and the language of the machine.",
+    "quote": "From my earliest days as a performer, I've been obsessed with two things: the visceral, emotional power of human movement and the clean, logical power of systems. To many, these pursuits seemed to be in conflict. To me, they were two sides of the same coin. Both a choreographer and a software architect seek to create elegant, efficient systems out of complex elements. My life's work, and the entire purpose of CENIE, is to provide the translation, empowering artists to become fluent in both.",
+    "twoCol": {
+      "stage": {
+        "heading": "The Language of the Stage",
+        "text": "My journey in the arts has been one of relentless physical and intellectual rigor. It took me from the vibrant stages of Havana's Tropicana to the demanding, avant-garde world of the Netherlands Dans Theatre II, where I had the privilege of embodying works by masters like Jiří Kylián and Ohad Naharin. As a Professor and Resident Choreographer, I've spent over two decades architecting emotion, creating more than thirty original works and deconstructing classics like West Side Story to find their \\\"dramatically functional\\\" core."
+      },
+      "machine": {
+        "heading": "The Language of the Machine",
+        "text": "My journey in technology began not in a classroom, but from a place of pure curiosity and necessity. It started with the command line of MS-DOS and evolved into building full-stack applications in Flutter, Typescript, and Python. I founded tech startups like Misfitcoders to explore blockchain's potential and engineered open-source plugins and AI agents to solve the very problems I faced as a creator. Each project was a new lesson in the power of logical systems."
+      }
+    },
+    "synthesis": {
+      "title": "Forged with Fire and Ice",
+      "subtitle": "Where Two Worlds Became One",
+      "paragraph1": "The synthesis wasn't a theoretical exercise; it was forged out of professional necessity. Faced with the extreme pressure of choreographing a complex piece, I started borrowing concepts from programming to solve artistic problems. I began to see dramatic actions as 'functional sequences' and the emotional arc of a piece as an 'algorithmic path.' I wasn't just using tech; I was thinking through technology.",
+      "paragraph2": "I realized I was applying the same mental model to both worlds: a process I call 'Functional Debugging.' Whether it's a line of code or a line of choreography, you must isolate the smallest unit of purpose to see if it serves the whole. This became the bridge between everything I do."
+    },
+    "milestones": {
+      "title": "My Journey, Distilled",
+      "subtitle": "A look at the milestones that have shaped my perspective",
+      "grid": {
+        "academic": {
+          "heading": "Academic Rigor",
+          "text": "Awarded an Outstanding Cum Laude PhD in Performing Arts from Rey Juan Carlos University."
+        },
+        "performance": {
+          "heading": "World-Class Performance",
+          "text": "Performed internationally with the prestigious Netherlands Dans Theatre II."
+        },
+        "creative": {
+          "heading": "Creative Innovation",
+          "text": "Authored 30+ original choreographic works and restaged classics like West Side Story."
+        },
+        "technology": {
+          "heading": "Technological Entrepreneurship",
+          "text": "Founded mdivtiple tech startups, including Misfitcoders (Blockchain) and Kusari (Decentralized Systems)."
+        },
+        "automation": {
+          "heading": "AI &|Automation",
+          "text": "Engineered AI agents for complex academic tasks and developed numerous open-source tools in Typescript & Python."
+        },
+        "recognition": {
+          "heading": "Peer Recognition",
+          "text": "Honored with accolades including a Research   Award, Best Artistic Creation Award, and a nomination from the Onassis Foundation."
+        }
+      }
+    },
+    "cvText": "For a detailed chronological history,|you can view my full Curriculum Vitae here:",
+    "cvLabel": "Download CV",
+    "transference": {
+      "title": "Transference",
+      "subtitle": "Building the Bridge for Others",
+      "text": "After decades of building this bridge for myself, I recognized a profound need. I saw countless brilliant artists feeling left behind by technology and overwhelmed by the demands of a modern career. I realized the frameworks I had built for my own survival and success could serve a greater purpose. CENIE is the culmination of this journey. It is my answer to the 'sacred injustice.' It is the ecosystem I wish I'd had—a place dedicated to transforming artists from precarious performers into empowered architects of their own future.",
+      "buttonLabel": "Discover the CENIE Ecosystem"
+    },
+    "beyond": {
+      "title": "Beyond the work",
+      "subtitle": "Off the Clock, Still Exploring",
+      "text": "My curiosity doesn't stop when the work is done.|The drive to understand and harmonize with complex systems is a part of who I am."
+    },
+    "connect": {
+      "title": "Let's Connect",
+      "text": "My journey is ongoing, and I believe the best ideas are born from conversation. If my story resonates with you, or if you're working on something at the intersection of art and technology, I would genuinely love to hear from you.",
+      "buttonLabel": "Start a Conversation →"
+    }
   }
 }

@@ -6,24 +6,24 @@ import CenieFullLogo from "../graphics/CenieFullLogo";
 import { Button } from "../ui/button";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function TheHow() {
+  const t = useTranslations("home.sections.theHow");
   return (
     <section id="the-how" className="w-full bg-white">
-      <MainHeading
-        title="The Architect's Ecosystem"
-        className="text-center mb-0"
-      />
+      <MainHeading title={t("title")} className="text-center mb-0" />
       <div
         className={clsx(
           TYPOGRAPHY.h7,
           "text-center px-12 !mb-0 !pb-0 leading-tight"
         )}
       >
-        This transformation requires a new kind of toolkit.
-        <br />
-        That's why I built CENIE: a center designed to provide the four pillars
-        of your new foundation.
+        {t("subtitle")
+          .split(`|`)
+          .map((line, i) => (
+            <div key={i}>{line}</div>
+          ))}
       </div>
       <div
         className="w-full aspect-[16/18] bg-cover bg-center !mt-0 !mb-0 !pt-0  bg-black"
@@ -38,40 +38,36 @@ export default function TheHow() {
           cards={[
             {
               icon: "Book",
-              title: "Deepen Your Craft.",
-              bodyText:
-                "Access rigorous research and pioneering ideas through **CENIE Editorial**.",
-              buttonLabel: "browse",
-              buttonLink: "https://cenie.org",
+              title: t("grid.editorial.title"),
+              bodyText: t("grid.editorial.text"),
+              buttonLabel: t("grid.editorial.label"),
+              buttonLink: "https://editorial.cenie.org",
             },
             {
               icon: "DraftingCompass",
-              title: "Build Your Skills.",
-              bodyText:
-                "Master the tools of technology, finance, and strategy with the **CENIE Academy**.",
-              buttonLabel: "explore",
-              buttonLink: "https://cenie.org",
+              title: t("grid.academy.title"),
+              bodyText: t("grid.academy.text"),
+              buttonLabel: t("grid.academy.label"),
+              buttonLink: "https://academia.cenie.org",
             },
             {
               icon: "Bot",
-              title: "Automate Your Work.",
-              bodyText:
-                "Implement intelligent systems to scale your impact with the **CENIE Agency**.",
-              buttonLabel: "discover",
-              buttonLink: "https://cenie.org",
+              title: t("grid.agency.title"),
+              bodyText: t("grid.agency.text"),
+              buttonLabel: t("grid.agency.label"),
+              buttonLink: "https://agencia.cenie.org",
             },
             {
               icon: "Drama",
-              title: "Incubate Your Vision.",
-              bodyText:
-                "Develop and showcase your next great work within the **CENIE Creations Hub**.",
-              buttonLabel: "connect",
+              title: t("grid.spoke.title"),
+              bodyText: t("grid.spoke.text"),
+              buttonLabel: t("grid.spoke.label"),
               buttonLink: "https://cenie.org",
             },
           ]}
         />
         <div className="flex flex-col items-center justify-center">
-          <MainHeading title="introducing" className="text-center text-white" />
+          <MainHeading title={t("intro")} className="text-center text-white" />
           <div className="w-2/3 mb-24">
             <CenieFullLogo color="rgba(255, 255, 255, 0.9)" />
           </div>
@@ -86,7 +82,7 @@ export default function TheHow() {
               size="lg"
               className={clsx(TYPOGRAPHY.mono18, "uppercase")}
             >
-              Explore the CENIE Ecosystem
+              {t("introLabel")}
               <ArrowUpRight className="w-4 h-4" />
             </Button>
           </Link>

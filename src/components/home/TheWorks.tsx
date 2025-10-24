@@ -7,6 +7,8 @@ import ProjectItem from "../list_items/ProjectItem";
 import clsx from "clsx";
 import BentoGrid from "../cards/BentoGrid";
 import type { ContentListItem, WorkFrontmatter } from "@/lib/mdx/types";
+import { useTranslations } from "next-intl";
+import React from "react";
 
 export default function TheWorks({
   locale,
@@ -15,6 +17,7 @@ export default function TheWorks({
   locale: string;
   works: ContentListItem<WorkFrontmatter>[];
 }) {
+  const t = useTranslations("home.sections.theWorks");
   // Take first 4 works for display
   const featuredWorks = works.slice(0, 4);
 
@@ -37,16 +40,21 @@ export default function TheWorks({
     <section id="the-works" className="w-full py-12 m:py-16 l:py-20">
       <div className="w-full max-w-7xl mx-auto px-4 m:px-6">
         <MainHeading
-          title="The Works"
-          subtitle="Proof in Practice"
+          title={t("title")}
+          subtitle={t("subtitle")}
           className="text-center mb-12"
         />
         <div
           className={clsx(TYPOGRAPHY.text20, "text-center px-4 m:px-12 mb-12")}
         >
-          A philosophy is only as strong as the work it produces.
-          <br />
-          Here is the synthesis of art and technology in action.
+          {t("description")
+            .split(`|`)
+            .map((line, i) => (
+              <React.Fragment key={i}>
+                {line}
+                {i < t("description").split(`|`).length - 1 && <br />}
+              </React.Fragment>
+            ))}
         </div>
 
         <div className="space-y-0">
@@ -62,7 +70,7 @@ export default function TheWorks({
           ))}
         </div>
         <MainHeading
-          subtitle="Dig deeper into the works"
+          subtitle={t("moreButtonLabel")}
           className="text-center pt-12"
         />
         <BentoGrid
@@ -74,9 +82,9 @@ export default function TheWorks({
           )}
         >
           <BentoGrid.ContentRow
-            heading="Choreography / Graphic / Lighting …"
-            title="Artistic Works"
-            description="Comprehensive brand identity design including logo, color palette, typography, and brand guidelines for a SaaS startup."
+            heading={t("bento.art.heading")}
+            title={t("bento.art.title")}
+            description={t("bento.art.description")}
             link="/works"
             gridBox="box-1"
           />
@@ -91,9 +99,9 @@ export default function TheWorks({
             gridBox="box-3"
           />
           <BentoGrid.ContentRow
-            heading="Development / Automation / Engineering …"
-            title="Technology Works"
-            description="Intuitive dashboard design for data visualization and analytics, helping businesses make data-driven decisions."
+            heading={t("bento.tech.heading")}
+            title={t("bento.tech.title")}
+            description={t("bento.tech.description")}
             link="/works"
             gridBox="box-4"
           />
@@ -108,9 +116,9 @@ export default function TheWorks({
             gridBox="box-6"
           />
           <BentoGrid.ContentRow
-            heading="where stage meets silicon"
-            title="Synthesised Works"
-            description="Complete redesign and development of a modern e-commerce platform with seamless user experience and increased conversion rates."
+            heading={t("bento.synth.heading")}
+            title={t("bento.synth.title")}
+            description={t("bento.synth.description")}
             link="/works"
             gridBox="box-7"
           />

@@ -46,4 +46,9 @@
   "i18n-ally.theme.annotationMissingBorder": "#d37070",
   "i18n-ally.keystyle": "nested",
   "postman.settings.dotenv-detection-notification-visibility": false,
+  "i18n-ally.extract.ignoredByFiles": {
+    "src/components/home/TheHow.tsx": [
+      "!bg-white/50 backdrop-blur-lg"
+    ]
+  },
 }

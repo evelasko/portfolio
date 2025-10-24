@@ -57,20 +57,21 @@ export function ArticlePageContent({ article }: ArticlePageContentProps) {
           </p>
 
           {/* Metadata */}
-          <div className="flex flex-wrap items-center gap-4 text-black-96">
-            <span className={TYPOGRAPHY.text16}>
-              {article.frontmatter.author}
-            </span>
-            <span className={TYPOGRAPHY.text16}>•</span>
-            <time className={TYPOGRAPHY.text16}>
+          <div
+            className={clsx(
+              TYPOGRAPHY.mono16,
+              "flex flex-wrap items-center gap-4 text-black-70 uppercase"
+            )}
+          >
+            <span>{article.frontmatter.author}</span>
+            <span>•</span>
+            <time>
               {dayjs(article.frontmatter.publishedAt)
                 .locale(article.locale as Locale)
                 .format("MMMM D, YYYY")}
             </time>
-            <span className={TYPOGRAPHY.text16}>•</span>
-            <span className={TYPOGRAPHY.text16}>
-              {article.readingTime.text}
-            </span>
+            <span>•</span>
+            <span>{article.readingTime.minutes} min read</span>
           </div>
 
           {/* Tags */}
@@ -91,7 +92,6 @@ export function ArticlePageContent({ article }: ArticlePageContentProps) {
           )}
         </div>
       </section>
-
       {/* Cover Image */}
       {article.frontmatter.coverImage && (
         <section className="px-6 mb-12">

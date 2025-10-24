@@ -4,18 +4,20 @@ import TestimonialCarousel from "../lists_and_grids/TestimonialCarousel";
 import MainHeading from "../headings/MainHeading";
 import CenieBanner from "./CenieBanner";
 import { testimonials } from "@/content/testimonials";
+import { useTranslations } from "next-intl";
 
 export default function TheWho({ locale }: { locale: string }) {
+  const t = useTranslations("home.sections.theWho");
   return (
     <>
       <section id="the-who">
         <MainHeading
-          title="about me"
+          title={t("title")}
           className="text-center bg-black-100 text-white"
         />
         <BioBlock
-          photo_path="/assets/images/photos/photo_2.jpg"
-          short_bio="My journey wasn't in one world, but at the intersection of two. From the stages of the **Netherlands Dans Theatre** to the command line of a programming terminal, I discovered the same core truth: **the most powerful creations come from a harmony of logic and soul**. I don't teach theory; I share a methodology I've lived. **My goal is to give you the compass I built for myself.**"
+          photo_path="https://res.cloudinary.com/misfitcoders/image/upload/v1761045901/eVelasco/profile/portrait-2-cropped.jpg"
+          short_bio={t("shortBio")}
           social_links={INFO.social}
           other_links={[
             {
@@ -30,7 +32,7 @@ export default function TheWho({ locale }: { locale: string }) {
           margin={60}
         />
         <MainHeading
-          title="Words about me"
+          title={t("testimonialsHeading")}
           className="text-center text-white bg-black-100"
         />
         <TestimonialCarousel

@@ -5,8 +5,10 @@ import { TYPOGRAPHY } from "@/lib/typography";
 import { ArrowUpRight } from "lucide-react";
 import clsx from "clsx";
 import CenieLogo from "../graphics/CenieLogo";
+import { useTranslations } from "next-intl";
 
 export default function CenieBanner() {
+  const t = useTranslations("home.sections.theWho");
   return (
     <section className="relative w-full bg-black-100 -mb-px">
       {/* Background Image Container - Square aspect ratio */}
@@ -41,16 +43,11 @@ export default function CenieBanner() {
                   "text-white-100 text-center l:text-right"
                 )}
               >
-                The path of an architect begins with a single, intentional step.
+                {t("cenieBannerText")}
               </h2>
-              <div
-                className="!mix-blend-difference l:!mix-blend-normal mt-10 l:mt-0"
-                // style={{
-                //   mixBlendMode: "difference",
-                // }}
-              >
+              <div className="!mix-blend-difference l:!mix-blend-normal mt-10 l:mt-0">
                 <PortfolioButton href="https://cenie.org" variant="light">
-                  <span>Enter Cenie</span>
+                  <span>{t("cenieBannerLabel")}</span>
                   <ArrowUpRight className="ml-2" size={20} />
                 </PortfolioButton>
               </div>

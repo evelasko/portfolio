@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowDown } from "lucide-react";
 import { TYPOGRAPHY } from "@/lib/typography";
 import { CloudinaryImage } from "@/components/mdx/CloudinaryImage";
+import React from "react";
 
 /**
  * Photo Hero Component
@@ -81,7 +82,14 @@ export default function PhotoHero({
                     ease: "easeOut",
                   }}
                 >
-                  {title}
+                  {title.includes("|")
+                    ? title.split("|").map((line, i) => (
+                        <React.Fragment key={i}>
+                          {line}
+                          {i < title.split("|").length - 1 && <br />}
+                        </React.Fragment>
+                      ))
+                    : title}
                 </motion.h1>
 
                 {/* Subtitle */}
@@ -250,7 +258,14 @@ export default function PhotoHero({
                     ease: "easeOut",
                   }}
                 >
-                  {title}
+                  {title.includes("|")
+                    ? title.split("|").map((line, i) => (
+                        <React.Fragment key={i}>
+                          {line}
+                          {i < title.split("|").length - 1 && <br />}
+                        </React.Fragment>
+                      ))
+                    : title}
                 </motion.h1>
 
                 {/* Subtitle */}
