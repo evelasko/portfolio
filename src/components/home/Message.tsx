@@ -32,6 +32,7 @@ export default function Message({ segments }: { segments: string[] }) {
 
   // Create color transforms for each segment
   const segmentColors = segments.map((_, index) =>
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useTransform(activeSegmentIndex, value => {
       // If we're in fade-out phase (value >= 5), turn all grey
       if (value >= 5) return "rgb(50, 50, 50)";

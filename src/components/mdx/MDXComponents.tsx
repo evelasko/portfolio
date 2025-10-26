@@ -16,7 +16,7 @@ export function getMDXComponents(): MDXComponents {
     // Headings
     h1: ({ children, ...props }) => (
       <h1
-        className={clsx(TYPOGRAPHY.h2, "!font-extrabold mt-12 mb-6")}
+        className={clsx(TYPOGRAPHY.h2, "font-extrabold! mt-12 mb-6")}
         {...props}
       >
         {children}
@@ -37,7 +37,7 @@ export function getMDXComponents(): MDXComponents {
       <h3
         className={clsx(
           TYPOGRAPHY.h5,
-          "!font-extrabold leading-[1.2em] mt-12 mb-6"
+          "font-extrabold! leading-[1.2em] mt-12 mb-6"
         )}
         {...props}
       >
@@ -69,7 +69,7 @@ export function getMDXComponents(): MDXComponents {
         childrenArray.length === 1 &&
         React.isValidElement(childrenArray[0]) &&
         (childrenArray[0].type === "img" ||
-          (childrenArray[0].props as any)?.mdxType === "img");
+          (childrenArray[0].props as { mdxType?: string })?.mdxType === "img");
 
       if (hasOnlyImage) {
         return <>{children}</>;
@@ -86,6 +86,7 @@ export function getMDXComponents(): MDXComponents {
     a: props => <MDXLink {...props} />,
 
     // Images
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     img: props => <MDXImage {...(props as any)} />,
 
     // Code

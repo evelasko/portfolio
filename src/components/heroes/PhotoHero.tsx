@@ -233,7 +233,7 @@ export default function PhotoHero({
             </div>
 
             {/* Text Content - Mobile positioned at bottom */}
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <div className="max-w-full">
                 {/* Title */}
                 <motion.h1

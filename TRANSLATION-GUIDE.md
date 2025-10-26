@@ -6,13 +6,13 @@ This guide explains how to use the automated translation system for articles in 
 
 To translate all missing articles from English to Spanish, simply tell Claude Code:
 
-```
+```bash
 update article translations
 ```
 
 or
 
-```
+```bash
 translate missing articles to Spanish
 ```
 
@@ -23,9 +23,11 @@ Claude Code will automatically launch the translation agent to process all untra
 The translation system uses **two agents**:
 
 ### Single Article Translator
+
 Translates ONE specific article (`.claude/agents/translate-single-article.md`)
 
 ### Translation Orchestrator
+
 Identifies untranslated articles and calls the single-article translator for each one (`.claude/agents/article-translator.md`)
 
 **Process:**
@@ -48,12 +50,14 @@ This ensures **zero wasteful DeepL API calls** - each article is translated exac
 ### What Gets Translated
 
 **Frontmatter fields:**
+
 - `title` → Spanish title
 - `description` → Spanish description
 - `category` → Spanish category
 - `tags` → Each tag translated individually
 
 **Content:**
+
 - All markdown text (headings, paragraphs, lists)
 - Blockquotes
 - Link text (URLs preserved)
@@ -62,6 +66,7 @@ This ensures **zero wasteful DeepL API calls** - each article is translated exac
 ### What Gets Preserved
 
 **Frontmatter fields:**
+
 - `publishedAt` (same date)
 - `updatedAt` (if present)
 - `author` (same author)
@@ -70,7 +75,8 @@ This ensures **zero wasteful DeepL API calls** - each article is translated exac
 - `coverImage` (same path)
 
 **Content:**
-- Code blocks (```language```)
+
+- Code blocks (`language`)
 - MDX components (`<Callout>`, etc.)
 - URLs and links
 - Technical terms (see [configuration-config.json])
@@ -119,6 +125,7 @@ English slugs are intelligently translated to Spanish:
 ### Frontmatter Example
 
 **English:**
+
 ```yaml
 ---
 title: "AI as Co-Choreographer: When Technology Learns to Dance"
@@ -135,6 +142,7 @@ alternateLocales:
 ```
 
 **Spanish:**
+
 ```yaml
 ---
 title: "IA como co-coreógrafa: Cuando la tecnología aprende a bailar"
@@ -154,7 +162,7 @@ alternateLocales:
 
 If you need to translate a specific article (not all missing ones):
 
-```
+```prompt
 translate the article "from-stage-to-screen" to Spanish
 ```
 
@@ -185,6 +193,7 @@ If the agent reports a failed translation:
 ### Slug Conflicts
 
 If a Spanish slug already exists:
+
 - The agent will skip that article
 - Check if translation already exists
 - Rename existing file if needed
@@ -192,6 +201,7 @@ If a Spanish slug already exists:
 ### DeepL API Issues
 
 If DeepL translation fails:
+
 - Check DeepL MCP server is running
 - Verify API credentials
 - Check rate limits
@@ -210,7 +220,7 @@ To change translation formality, edit `translation-config.json`:
 ```json
 {
   "translationSettings": {
-    "formality": "more"  // Options: "less", "default", "more"
+    "formality": "more" // Options: "less", "default", "more"
   }
 }
 ```
@@ -230,6 +240,7 @@ The translation agent is defined in [.claude/agents/article-translator.md](.clau
 **Agent type:** `general-purpose`
 
 **Tools used:**
+
 - Bash (file listing)
 - Read (read articles and config)
 - Write (create Spanish articles)
@@ -251,6 +262,7 @@ The translation agent is defined in [.claude/agents/article-translator.md](.clau
 ## Future Improvements
 
 Potential enhancements:
+
 - Support for other target languages (French, German, etc.)
 - Parallel translation with rate limiting
 - Translation memory/glossary
@@ -261,6 +273,7 @@ Potential enhancements:
 ## Support
 
 For issues or questions:
+
 - Check [CLAUDE.md](CLAUDE.md) for project instructions
 - Review [.claude/agents/article-translator.md](.claude/agents/article-translator.md) for agent details
 - Ask Claude Code for help: "help with article translation"

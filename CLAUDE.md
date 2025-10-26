@@ -330,11 +330,13 @@ import clsx from "clsx";
 Two specialized agents are available for translating articles from English to Spanish:
 
 ### 1. Single Article Translator (.claude/agents/translate-single-article.md)
+
 Translates ONE specific article. Use for individual article translation.
 
 **When to invoke:** User asks to translate a specific article.
 
 **How to invoke:**
+
 ```typescript
 Task(
   description: "Translate article: {slug}",
@@ -344,15 +346,18 @@ Task(
 ```
 
 ### 2. Translation Orchestrator (.claude/agents/article-translator.md)
+
 Identifies all untranslated articles and orchestrates their translation by calling the single-article translator for each one.
 
 **When to invoke:** User asks to:
+
 - "update article translations"
 - "translate missing articles"
 - "translate all articles to Spanish"
 - "sync article translations"
 
 **How to invoke:**
+
 ```typescript
 Task(
   description: "Translate all missing articles",

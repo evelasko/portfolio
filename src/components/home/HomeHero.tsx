@@ -127,7 +127,7 @@ export default function HomeHero({
             {/* Row 1: topText only (fixed height based on content) */}
             <div
               id="row1"
-              className="flex-shrink-0 flex items-start justify-start pt-8 m:pt-8 l:pt-8"
+              className="shrink-0 flex items-start justify-start pt-8 m:pt-8 l:pt-8"
             >
               <motion.h1
                 className="text-h1-s m:text-h1-m l:text-h1-l font-bold uppercase tracking-tight"
@@ -236,13 +236,13 @@ export default function HomeHero({
             </div>
 
             {/* Row 3: subtitle+button + bottomText (fixed height based on bottomText content) */}
-            <div id="row3" className="flex-shrink-0 flex pb-8 m:pb-8 l:pb-8">
+            <div id="row3" className="shrink-0 flex pb-8 m:pb-8 l:pb-8">
               {/* Column 1: Subtitle + Button (flexible, yields space) */}
               <div className="flex-1 flex flex-col min-w-0 h-full">
                 {/* Subtitle row - aligned to top baseline of bottomText */}
                 <div
                   id="row3-subtitle"
-                  className="flex-shrink-0 overflow-hidden flex items-start mt-2"
+                  className="shrink-0 overflow-hidden flex items-start mt-2"
                 >
                   <motion.div
                     className={clsx(
@@ -270,7 +270,7 @@ export default function HomeHero({
                 {/* Button row - aligned to bottom baseline of bottomText */}
                 <div
                   id="row3-button"
-                  className="flex-shrink-0 flex items-baseline-last"
+                  className="shrink-0 flex items-baseline-last"
                 >
                   <Link href={link} className="group">
                     <motion.div
@@ -296,7 +296,7 @@ export default function HomeHero({
               {/* Column 2: Bottom Text (expands as needed, right-aligned) */}
               <div
                 id="row3-bottom-text"
-                className="flex-shrink-0 flex items-start ml-4"
+                className="shrink-0 flex items-start ml-4"
               >
                 <motion.h1
                   className="text-h1-s m:text-h1-m l:text-h1-l font-bold uppercase tracking-tight text-right"
@@ -375,7 +375,7 @@ export default function HomeHero({
             </div>
 
             {/* Row 2: subtitle (full width, no cutting) */}
-            <div className="flex-shrink-0 py-4">
+            <div className="shrink-0 py-4">
               <motion.div
                 className={clsx(TYPOGRAPHY.mono24, "uppercase tracking-wider")}
                 style={{
@@ -409,7 +409,7 @@ export default function HomeHero({
             </div>
 
             {/* Row 3: topText + bottomText concatenated (bottom-aligned with margin) */}
-            <div className="flex-shrink-0 pb-8">
+            <div className="shrink-0 pb-8">
               <div className="flex flex-row gap-4">
                 <motion.h1
                   className="text-h1-s font-bold uppercase tracking-tight"

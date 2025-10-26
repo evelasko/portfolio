@@ -14,12 +14,12 @@ This document summarizes the comprehensive Cloudinary optimization implementatio
 
 ### High Priority - Hero Components (Above-the-fold)
 
-| Component | File | Optimization | Impact |
-|-----------|------|--------------|--------|
+| Component       | File                                    | Optimization                                                                | Impact                   |
+| --------------- | --------------------------------------- | --------------------------------------------------------------------------- | ------------------------ |
 | **MinimalHero** | `src/components/heroes/MinimalHero.tsx` | CloudinaryImage with `crop="fill"`, `gravity="auto"`, `quality="auto:best"` | Critical LCP improvement |
-| **ThoughtHero** | `src/components/heroes/ThoughtHero.tsx` | ResponsiveCloudinaryImage with `aspectRatio="16/9"` | Optimized cover images |
-| **PhotoHero** | `src/components/heroes/PhotoHero.tsx` | CloudinaryImage with `gravity="face"` for portraits | Smart face detection |
-| **MainHero** | `src/components/heroes/MainHero.tsx` | CloudinaryImage for carousel with priority on first image | Carousel optimization |
+| **ThoughtHero** | `src/components/heroes/ThoughtHero.tsx` | ResponsiveCloudinaryImage with `aspectRatio="16/9"`                         | Optimized cover images   |
+| **PhotoHero**   | `src/components/heroes/PhotoHero.tsx`   | CloudinaryImage with `gravity="face"` for portraits                         | Smart face detection     |
+| **MainHero**    | `src/components/heroes/MainHero.tsx`    | CloudinaryImage for carousel with priority on first image                   | Carousel optimization    |
 
 **Expected Performance Gain**: 30-50% faster LCP, automatic WebP/AVIF delivery
 
@@ -27,11 +27,11 @@ This document summarizes the comprehensive Cloudinary optimization implementatio
 
 ### Medium Priority - Card Components
 
-| Component | File | Optimization | Impact |
-|-----------|------|--------------|--------|
-| **ProjectCard** | `src/components/cards/ProjectCard.tsx` | CloudinaryThumbnail with fill mode | Bandwidth savings |
-| **ImageCard** | `src/components/cards/ImageCard.tsx` | CloudinaryThumbnail + optimized background URLs | Dual optimization |
-| **BentoGrid** | `src/components/cards/BentoGrid.tsx` | ⚠️ Fixed raw `<img>` tag → CloudinaryImage | Critical fix |
+| Component       | File                                   | Optimization                                    | Impact            |
+| --------------- | -------------------------------------- | ----------------------------------------------- | ----------------- |
+| **ProjectCard** | `src/components/cards/ProjectCard.tsx` | CloudinaryThumbnail with fill mode              | Bandwidth savings |
+| **ImageCard**   | `src/components/cards/ImageCard.tsx`   | CloudinaryThumbnail + optimized background URLs | Dual optimization |
+| **BentoGrid**   | `src/components/cards/BentoGrid.tsx`   | ⚠️ Fixed raw `<img>` tag → CloudinaryImage      | Critical fix      |
 
 **Impact**: Fixed critical raw `<img>` tag bypassing Next.js optimization entirely
 
@@ -39,10 +39,10 @@ This document summarizes the comprehensive Cloudinary optimization implementatio
 
 ### Medium Priority - Misc Components
 
-| Component | File | Optimization | Impact |
-|-----------|------|--------------|--------|
-| **BioBlock** | `src/components/misc/BioBlock.tsx` | CloudinaryImage with `effects={["grayscale"]}` | Server-side B&W effect |
-| **ConnectBanner** | `src/components/banners/ConnectBanner.tsx` | Optimized background URL generation | CSS background optimization |
+| Component         | File                                       | Optimization                                   | Impact                      |
+| ----------------- | ------------------------------------------ | ---------------------------------------------- | --------------------------- |
+| **BioBlock**      | `src/components/misc/BioBlock.tsx`         | CloudinaryImage with `effects={["grayscale"]}` | Server-side B&W effect      |
+| **ConnectBanner** | `src/components/banners/ConnectBanner.tsx` | Optimized background URL generation            | CSS background optimization |
 
 **Key Feature**: Grayscale effect now handled by Cloudinary instead of CSS
 
@@ -50,12 +50,12 @@ This document summarizes the comprehensive Cloudinary optimization implementatio
 
 ### Low Priority - Content Components
 
-| Component | File | Optimization | Impact |
-|-----------|------|--------------|--------|
-| **InfoImageBlock** | `src/components/content_blocks/InfoImageBlock.tsx` | CloudinaryImage with standard transforms | Content optimization |
-| **LongStripe** | `src/components/image_stripes/LongStripe.tsx` | CloudinaryImage for featured images | Stripe optimization |
-| **ImageSimpleStripe** | `src/components/image_stripes/ImageSimpleStripe.tsx` | CloudinaryImage with responsive sizes | Grid optimization |
-| **TestimonialItem** | `src/components/list_items/TestimonialItem.tsx` | CloudinaryImage with `crop="thumb"`, `gravity="face"` | Avatar optimization |
+| Component             | File                                                 | Optimization                                          | Impact               |
+| --------------------- | ---------------------------------------------------- | ----------------------------------------------------- | -------------------- |
+| **InfoImageBlock**    | `src/components/content_blocks/InfoImageBlock.tsx`   | CloudinaryImage with standard transforms              | Content optimization |
+| **LongStripe**        | `src/components/image_stripes/LongStripe.tsx`        | CloudinaryImage for featured images                   | Stripe optimization  |
+| **ImageSimpleStripe** | `src/components/image_stripes/ImageSimpleStripe.tsx` | CloudinaryImage with responsive sizes                 | Grid optimization    |
+| **TestimonialItem**   | `src/components/list_items/TestimonialItem.tsx`      | CloudinaryImage with `crop="thumb"`, `gravity="face"` | Avatar optimization  |
 
 ---
 
@@ -75,6 +75,7 @@ export interface CloudinaryImageProps {
 ```
 
 **Usage Example**:
+
 ```tsx
 <CloudinaryImage
   src={photo}
@@ -85,6 +86,7 @@ export interface CloudinaryImageProps {
 ```
 
 **Supported Effects**:
+
 - `grayscale` - Black & white conversion
 - `blur:300` - Blur effect with intensity
 - `sharpen` - Image sharpening
@@ -95,6 +97,7 @@ export interface CloudinaryImageProps {
 ### 2. Optimization Patterns Used
 
 #### Pattern 1: Standard CloudinaryImage
+
 ```tsx
 <CloudinaryImage
   src={image}
@@ -109,6 +112,7 @@ export interface CloudinaryImageProps {
 ```
 
 #### Pattern 2: CloudinaryThumbnail
+
 ```tsx
 <CloudinaryThumbnail
   src={image}
@@ -119,6 +123,7 @@ export interface CloudinaryImageProps {
 ```
 
 #### Pattern 3: ResponsiveCloudinaryImage
+
 ```tsx
 <ResponsiveCloudinaryImage
   src={coverImage}
@@ -129,6 +134,7 @@ export interface CloudinaryImageProps {
 ```
 
 #### Pattern 4: Optimized Background URLs
+
 ```tsx
 const backgroundUrl = useMemo(() => {
   if (isCloudinaryUrl(imagePath)) {
@@ -147,12 +153,14 @@ const backgroundUrl = useMemo(() => {
 ## Performance Impact
 
 ### Before Optimization
+
 - Raw `<img>` tags bypassing Next.js optimization
 - Unoptimized image formats (JPEG/PNG only)
 - No smart cropping or compression
 - CSS-based effects (client-side processing)
 
 ### After Optimization
+
 - ✅ Automatic WebP/AVIF delivery
 - ✅ Smart cropping with AI (`gravity="auto:subject"`)
 - ✅ Face detection for portraits (`gravity="face"`)
@@ -162,6 +170,7 @@ const backgroundUrl = useMemo(() => {
 - ✅ Priority loading for LCP images
 
 ### Expected Improvements
+
 - **LCP**: 30-50% faster on hero sections
 - **Bandwidth**: 40-60% reduction via WebP/AVIF + quality:auto
 - **CLS**: Eliminated with proper aspect ratios
@@ -172,6 +181,7 @@ const backgroundUrl = useMemo(() => {
 ## Files Modified
 
 ### Core Components (13 files)
+
 1. `src/components/banners/ConnectBanner.tsx`
 2. `src/components/cards/BentoGrid.tsx` ⚠️ Critical fix
 3. `src/components/cards/ImageCard.tsx`
@@ -187,34 +197,40 @@ const backgroundUrl = useMemo(() => {
 13. `src/components/misc/BioBlock.tsx`
 
 ### Infrastructure (2 files)
-14. `src/components/mdx/CloudinaryImage.tsx` - Added effects support
-15. `src/components/mdx/MDXImage.tsx` - Fixed type error
+
+1. `src/components/mdx/CloudinaryImage.tsx` - Added effects support
+2. `src/components/mdx/MDXImage.tsx` - Fixed type error
 
 ---
 
 ## Best Practices Implemented
 
 ### 1. Priority Loading
+
 - Hero images use `priority` prop for LCP optimization
 - Carousel only prioritizes first image
 - Content images use lazy loading
 
 ### 2. Responsive Sizes
+
 - Custom breakpoints respected: 810px (m), 1200px (l)
 - Proper `sizes` attribute on all images
 - Mobile-first approach
 
 ### 3. Smart Cropping
+
 - `gravity="auto:subject"` for general content
 - `gravity="face"` for portraits and avatars
 - `crop="fill"` for consistent aspect ratios
 
 ### 4. Quality Optimization
+
 - `quality="auto:best"` for hero images
 - `quality="auto"` for standard content
 - Automatic format selection (WebP/AVIF)
 
 ### 5. Effects Offloading
+
 - Server-side grayscale (BioBlock)
 - Removed CSS `grayscale` filter
 - Better performance and caching
@@ -225,7 +241,7 @@ const backgroundUrl = useMemo(() => {
 
 When adding new image-based components, follow this decision tree:
 
-```
+```tree
 Is this an above-the-fold hero image?
 ├─ Yes → Use CloudinaryImage with priority={true}
 └─ No → Is this a card/thumbnail?
@@ -250,7 +266,7 @@ import { CloudinaryImage } from "@/components/mdx/CloudinaryImage";
   priority={false} // true only for LCP images
   className="object-cover"
   sizes="(max-width: 810px) 100vw, (max-width: 1200px) 50vw, 33vw"
-/>
+/>;
 ```
 
 ---
@@ -272,6 +288,7 @@ import { CloudinaryImage } from "@/components/mdx/CloudinaryImage";
 ## Known Issues
 
 ### Pre-existing Issues (Not Related to Cloudinary)
+
 - Zod validation error in `src/lib/mdx/types.ts` (line 39)
   - **Status**: Pre-existing, unrelated to Cloudinary optimizations
   - **Impact**: Build fails but not due to our changes
@@ -282,6 +299,7 @@ import { CloudinaryImage } from "@/components/mdx/CloudinaryImage";
 ## Next Steps (Optional Enhancements)
 
 ### 1. Blur Placeholders
+
 Add blur placeholders for improved perceived performance:
 
 ```tsx
@@ -292,6 +310,7 @@ const blurDataURL = cloudinaryPresets.blurPlaceholder(publicId);
 ```
 
 ### 2. DPR Optimization
+
 Enhance for retina displays:
 
 ```typescript
@@ -302,13 +321,17 @@ export interface CloudinaryTransformOptions {
 ```
 
 ### 3. Analytics
+
 Track image performance:
+
 - Cloudinary analytics dashboard
 - Vercel Speed Insights integration
 - Core Web Vitals monitoring
 
 ### 4. Additional Effects
+
 Explore Cloudinary effects library:
+
 - Background removal
 - Auto color correction
 - Artistic filters

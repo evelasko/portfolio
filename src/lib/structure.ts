@@ -65,7 +65,7 @@ export const legalLinks: NavigationLink[] = structure.utility.map(route => ({
 export function generatePathnames(
   structure: SiteStructure
 ): Pathnames<["en", "es"]> {
-  const pathnames: Record<string, any> = {};
+  const pathnames: Record<string, { en: string; es: string }> = {};
 
   function processItem(item: StructureItem) {
     // Only include routes that are actual pages (not external)

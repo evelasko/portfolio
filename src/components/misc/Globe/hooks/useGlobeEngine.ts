@@ -335,7 +335,7 @@ export const useGlobeEngine = (
       if (config.onRender) {
         config.onRender(uniforms);
       }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+       
     },
     [parseColor, config.onRender]
   );

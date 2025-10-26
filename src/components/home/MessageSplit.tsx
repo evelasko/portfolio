@@ -85,11 +85,11 @@ export default function MessageSplit({
         />
 
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/40 z-[1]" />
+        <div className="absolute inset-0 bg-black/40 z-1" />
 
         {/* VHS Noise Texture Overlay */}
         <motion.div
-          className="absolute inset-0 pointer-events-none z-[2]"
+          className="absolute inset-0 pointer-events-none z-2"
           style={{
             backgroundImage:
               "url(https://res.cloudinary.com/misfitcoders/image/upload/v1760882825/eVelasco/ui/noise.png)",
@@ -101,7 +101,7 @@ export default function MessageSplit({
 
         {/* VHS Animated Stripes/Distortion Overlay */}
         <motion.div
-          className="absolute inset-0 pointer-events-none z-[3]"
+          className="absolute inset-0 pointer-events-none z-3"
           style={{
             backgroundImage:
               "url(https://res.cloudinary.com/misfitcoders/image/upload/v1760882832/eVelasco/ui/stripes.gif)",

@@ -45,7 +45,7 @@ export default function CenieBanner() {
               >
                 {t("cenieBannerText")}
               </h2>
-              <div className="!mix-blend-difference l:!mix-blend-normal mt-10 l:mt-0">
+              <div className="mix-blend-difference! l:mix-blend-normal! mt-10 l:mt-0">
                 <PortfolioButton href="https://cenie.org" variant="light">
                   <span>{t("cenieBannerLabel")}</span>
                   <ArrowUpRight className="ml-2" size={20} />

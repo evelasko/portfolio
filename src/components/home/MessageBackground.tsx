@@ -64,6 +64,7 @@ export default function MessageBackground({
 
   // Create color transforms for each segment
   const segmentColors = segments.map((_, index) =>
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useTransform(activeSegmentIndex, value => {
       // If this segment's index is < current active segment (fully revealed), white
       if (index < Math.floor(value)) return "rgb(255, 255, 255)";
@@ -100,11 +101,11 @@ export default function MessageBackground({
         />
 
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/40 z-[1]" />
+        <div className="absolute inset-0 bg-black/40 z-1" />
 
         {/* VHS Noise Texture Overlay */}
         <motion.div
-          className="absolute inset-0 pointer-events-none z-[2]"
+          className="absolute inset-0 pointer-events-none z-2"
           style={{
             backgroundImage: "url(/assets/ui/noise.png)",
             backgroundRepeat: "repeat",
@@ -115,7 +116,7 @@ export default function MessageBackground({
 
         {/* VHS Scan Lines Overlay */}
         <motion.div
-          className="absolute inset-0 pointer-events-none z-[3]"
+          className="absolute inset-0 pointer-events-none z-3"
           style={{
             backgroundImage: `repeating-linear-gradient(
               0deg,
