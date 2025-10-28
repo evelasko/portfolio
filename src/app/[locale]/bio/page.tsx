@@ -12,7 +12,7 @@ import clsx from "clsx";
 import { ArrowUpRight, FileText } from "lucide-react";
 import Link from "next/link";
 import InlineSlideshow from "@/components/banners/InlineSlideshow";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import React from "react";
 import JsonLd from "@/components/seo/JsonLd";
 import {
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BioPage({ params }: Props) {
   const { locale } = await params;
-  const t = useTranslations("bio");
+  const t = await getTranslations("bio");
 
   // Generate Person schema
   const personSchema = generatePersonSchema({
