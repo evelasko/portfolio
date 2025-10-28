@@ -203,8 +203,8 @@ export function generatePersonSchema(params?: {
   };
 
   return {
-    "@context": "https://schema.org",
     ...schema,
+    "@context": "https://schema.org" as const,
   };
 }
 
@@ -241,8 +241,8 @@ export function generateOrganizationSchema(params: {
   }
 
   return {
-    "@context": "https://schema.org",
     ...schema,
+    "@context": "https://schema.org" as const,
   };
 }
 
@@ -327,8 +327,8 @@ export function generateArticleSchema(params: {
   }
 
   return {
-    "@context": "https://schema.org",
     ...schema,
+    "@context": "https://schema.org" as const,
   };
 }
 
@@ -346,10 +346,10 @@ export function generateBreadcrumbSchema(
   }));
 
   return {
-    "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement,
-  };
+    "@context": "https://schema.org",
+  } as WithContext<BreadcrumbListSchema>;
 }
 
 /**
@@ -388,8 +388,8 @@ export function generateWebSiteSchema(params: {
   }
 
   return {
-    "@context": "https://schema.org",
     ...schema,
+    "@context": "https://schema.org" as const,
   };
 }
 
@@ -416,8 +416,8 @@ export function generateImageObjectSchema(params: {
   if (caption) schema.caption = caption;
 
   return {
-    "@context": "https://schema.org",
     ...schema,
+    "@context": "https://schema.org" as const,
   };
 }
 

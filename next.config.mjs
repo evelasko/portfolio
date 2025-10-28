@@ -8,9 +8,6 @@ const nextConfig = {
   images: {
     remotePatterns: [{ hostname: "res.cloudinary.com" }],
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   outputFileTracingIncludes: {
     "/[locale]/articles/[slug]": ["./src/content/articles/**/*"],
     "/[locale]/works/[slug]": ["./src/content/works/**/*"],

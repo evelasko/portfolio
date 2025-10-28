@@ -109,14 +109,13 @@ export function generateBaseMetadata(params: {
     metadata.keywords = keywords;
   }
 
-  // OpenGraph
-  metadata.openGraph = {
+  // OpenGraph - build conditionally based on type
+  const baseOG = {
     title,
     description,
     url: alternates.canonical,
     siteName: INFO.name,
     locale: locale === "es" ? "es_ES" : "en_US",
-    type,
     images: [
       {
         url: ogImage,
@@ -127,33 +126,28 @@ export function generateBaseMetadata(params: {
     ],
   };
 
-  // Article-specific OG fields
   if (type === "article") {
-    metadata.openGraph.type = "article";
-    if (publishedTime) {
-      (metadata.openGraph as { publishedTime?: string }).publishedTime =
-        publishedTime;
-    }
-    if (modifiedTime) {
-      (metadata.openGraph as { modifiedTime?: string }).modifiedTime =
-        modifiedTime;
-    }
-    if (authors) {
-      (metadata.openGraph as { authors?: string[] }).authors = authors;
-    }
-    if (section) {
-      (metadata.openGraph as { section?: string }).section = section;
-    }
-    if (tags) {
-      (metadata.openGraph as { tags?: string[] }).tags = tags;
-    }
-  }
-
-  // Profile-specific OG fields
-  if (type === "profile") {
-    metadata.openGraph.type = "profile";
-    (metadata.openGraph as { firstName?: string }).firstName = "Enrique";
-    (metadata.openGraph as { lastName?: string }).lastName = "Velasco";
+    metadata.openGraph = {
+      ...baseOG,
+      type: "article",
+      publishedTime,
+      modifiedTime,
+      authors,
+      section,
+      tags,
+    };
+  } else if (type === "profile") {
+    metadata.openGraph = {
+      ...baseOG,
+      type: "profile",
+      firstName: "Enrique",
+      lastName: "Velasco",
+    };
+  } else {
+    metadata.openGraph = {
+      ...baseOG,
+      type: "website",
+    };
   }
 
   // Twitter Card
