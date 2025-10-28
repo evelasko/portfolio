@@ -1,4 +1,8 @@
 import { WorkPageContent } from "./WorkPageContent";
+import JsonLd from "@/components/seo/JsonLd";
+import { generateBreadcrumbSchema } from "@/lib/seo/schemas";
+import { BASE_URL } from "@/lib/seo/metadata";
+import { getAbsoluteUrl } from "@/lib/seo/utils";
 
 /**
  * Server component that loads work data and renders the page
@@ -29,7 +33,29 @@ export default async function WorkPage({
     content,
   };
 
-  return <WorkPageContent work={work} />;
+  // Generate Breadcrumb schema
+  const workUrl = getAbsoluteUrl(`/${locale}/works/${slug}`, BASE_URL);
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    {
+      name: locale === "en" ? "Home" : "Inicio",
+      url: BASE_URL,
+    },
+    {
+      name: locale === "en" ? "Works" : "Trabajos",
+      url: getAbsoluteUrl(`/${locale}/works`, BASE_URL),
+    },
+    {
+      name: work.frontmatter.title,
+      url: workUrl,
+    },
+  ]);
+
+  return (
+    <>
+      <JsonLd data={breadcrumbSchema} />
+      <WorkPageContent work={work} />
+    </>
+  );
 }
 
 /**
@@ -58,38 +84,23 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { getWorkData } = await import("@/lib/mdx");
+  const { generateBaseMetadata } = await import("@/lib/seo/metadata");
   const { locale, slug } = await params;
 
   try {
     const work = await getWorkData(locale, slug);
 
-    return {
+    // Use enhanced metadata generator with canonical + hreflang
+    return generateBaseMetadata({
       title: work.frontmatter.title,
       description: work.frontmatter.description,
+      path: `/works/${slug}`,
+      locale: locale as "en" | "es",
       keywords: work.frontmatter.seo?.keywords,
-      openGraph: {
-        title: work.frontmatter.title,
-        description:
-          work.frontmatter.seo?.ogDescription || work.frontmatter.description,
-        images: work.frontmatter.seo?.ogImage
-          ? [work.frontmatter.seo.ogImage]
-          : work.frontmatter.coverImage
-            ? [work.frontmatter.coverImage]
-            : [],
-        type: "website",
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: work.frontmatter.title,
-        description:
-          work.frontmatter.seo?.ogDescription || work.frontmatter.description,
-        images: work.frontmatter.seo?.ogImage
-          ? [work.frontmatter.seo.ogImage]
-          : work.frontmatter.coverImage
-            ? [work.frontmatter.coverImage]
-            : [],
-      },
-    };
+      image: work.frontmatter.seo?.ogImage || work.frontmatter.coverImage,
+      imageAlt: work.frontmatter.title,
+      type: "website",
+    });
   } catch {
     return {
       title: "Work Not Found",

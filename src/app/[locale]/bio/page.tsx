@@ -14,11 +14,65 @@ import Link from "next/link";
 import InlineSlideshow from "@/components/banners/InlineSlideshow";
 import { useTranslations } from "next-intl";
 import React from "react";
+import JsonLd from "@/components/seo/JsonLd";
+import {
+  generatePersonSchema,
+  generateBreadcrumbSchema,
+} from "@/lib/seo/schemas";
+import { BASE_URL } from "@/lib/seo/metadata";
+import { getAbsoluteUrl } from "@/lib/seo/utils";
+import { INFO } from "@/content/info";
+import { Metadata } from "next";
+import { generateBioMetadata } from "@/lib/seo/metadata";
 
-export default function BioPage() {
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+/**
+ * Generate metadata for bio page
+ */
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  return generateBioMetadata(locale as "en" | "es");
+}
+
+export default async function BioPage({ params }: Props) {
+  const { locale } = await params;
   const t = useTranslations("bio");
+
+  // Generate Person schema
+  const personSchema = generatePersonSchema({
+    includeAddress: true,
+    includeContact: true,
+    jobTitle: INFO.tagline,
+    description: t("subtitle"),
+    knowsAbout: [
+      "Creative Technology",
+      "Dance",
+      "Software Engineering",
+      "Business Development",
+      "Choreography",
+      "Full-Stack Development",
+    ],
+  });
+
+  // Generate Breadcrumb schema
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    {
+      name: locale === "en" ? "Home" : "Inicio",
+      url: BASE_URL,
+    },
+    {
+      name: locale === "en" ? "About" : "Acerca de",
+      url: getAbsoluteUrl(`/${locale}/bio`, BASE_URL),
+    },
+  ]);
+
   return (
     <>
+      <JsonLd data={personSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <section>
         <PhotoHero
           title={t("title")}
@@ -165,7 +219,7 @@ export default function BioPage() {
                 />
               </div>
               <div className="flex flex-col gap-6 pr-12 md:pr-24">
-                <p className={clsx(TYPOGRAPHY.text20, "font-[600]")}>
+                <p className={clsx(TYPOGRAPHY.text20, "font-semibold")}>
                   {t("transference.text")}
                 </p>
                 <Link

@@ -1,4 +1,11 @@
 import { ArticlePageContent } from "./ArticlePageContent";
+import JsonLd from "@/components/seo/JsonLd";
+import {
+  generateArticleSchema,
+  generateBreadcrumbSchema,
+} from "@/lib/seo/schemas";
+import { BASE_URL } from "@/lib/seo/metadata";
+import { getAbsoluteUrl } from "@/lib/seo/utils";
 
 /**
  * Server component that loads article data and renders the page
@@ -29,7 +36,45 @@ export default async function ArticlePage({
     content,
   };
 
-  return <ArticlePageContent article={article} />;
+  // Generate Article JSON-LD schema
+  const articleUrl = getAbsoluteUrl(`/${locale}/articles/${slug}`, BASE_URL);
+  const articleSchema = generateArticleSchema({
+    headline: article.frontmatter.title,
+    description: article.frontmatter.description,
+    url: articleUrl,
+    image: article.frontmatter.coverImage,
+    datePublished: article.frontmatter.publishedAt,
+    dateModified: article.frontmatter.updatedAt,
+    author: article.frontmatter.author,
+    keywords: article.frontmatter.seo?.keywords,
+    wordCount: article.readingTime?.words,
+    locale,
+    category: article.frontmatter.category,
+  });
+
+  // Generate Breadcrumb schema
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    {
+      name: locale === "en" ? "Home" : "Inicio",
+      url: BASE_URL,
+    },
+    {
+      name: locale === "en" ? "Articles" : "Artículos",
+      url: getAbsoluteUrl(`/${locale}/articles`, BASE_URL),
+    },
+    {
+      name: article.frontmatter.title,
+      url: articleUrl,
+    },
+  ]);
+
+  return (
+    <>
+      <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <ArticlePageContent article={article} />
+    </>
+  );
 }
 
 /**
@@ -58,44 +103,28 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { getArticleData } = await import("@/lib/mdx");
+  const { generateBaseMetadata } = await import("@/lib/seo/metadata");
   const { locale, slug } = await params;
 
   try {
     const article = await getArticleData(locale, slug);
 
-    return {
+    // Use enhanced metadata generator with canonical + hreflang
+    return generateBaseMetadata({
       title: article.frontmatter.title,
       description: article.frontmatter.description,
+      path: `/articles/${slug}`,
+      locale: locale as "en" | "es",
       keywords: article.frontmatter.seo?.keywords,
-      openGraph: {
-        title: article.frontmatter.title,
-        description:
-          article.frontmatter.seo?.ogDescription ||
-          article.frontmatter.description,
-        images: article.frontmatter.seo?.ogImage
-          ? [article.frontmatter.seo.ogImage]
-          : article.frontmatter.coverImage
-            ? [article.frontmatter.coverImage]
-            : [],
-        type: "article",
-        publishedTime: article.frontmatter.publishedAt,
-        modifiedTime: article.frontmatter.updatedAt,
-        authors: [article.frontmatter.author],
-        tags: article.frontmatter.tags,
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: article.frontmatter.title,
-        description:
-          article.frontmatter.seo?.ogDescription ||
-          article.frontmatter.description,
-        images: article.frontmatter.seo?.ogImage
-          ? [article.frontmatter.seo.ogImage]
-          : article.frontmatter.coverImage
-            ? [article.frontmatter.coverImage]
-            : [],
-      },
-    };
+      image: article.frontmatter.seo?.ogImage || article.frontmatter.coverImage,
+      imageAlt: article.frontmatter.title,
+      type: "article",
+      publishedTime: article.frontmatter.publishedAt,
+      modifiedTime: article.frontmatter.updatedAt,
+      authors: [article.frontmatter.author],
+      section: article.frontmatter.category,
+      tags: article.frontmatter.tags,
+    });
   } catch {
     return {
       title: "Article Not Found",

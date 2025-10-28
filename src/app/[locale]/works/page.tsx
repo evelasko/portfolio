@@ -30,10 +30,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const { generateWorksListMetadata } = await import("@/lib/seo/metadata");
 
-  return {
-    title: "Works",
-    description:
-      "Selected projects and case studies showcasing design and development work",
-  };
+  return generateWorksListMetadata(locale as "en" | "es");
 }
