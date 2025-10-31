@@ -1,0 +1,31 @@
+title,category,role,publishedAt,tags,client,featured,technologies,link
+Bankai,choreography,Choreographer,10/10/2009,,Ballet Fundación Alicia Alonso,FALSE,Contemporary Dance,
+"Hey Siri, do you love me?",choreography,Choreographer,29/04/2023,,Ballet Fundación Alicia Alonso,TRUE,"Musical Theatre,Jazz",
+Sway,choreography,Choreographer,20/06/2018,,Ballet Fundación Alicia Alonso,FALSE,"Musical Theatre,Jazz",
+The Scientist,choreography,Choreographer,06/04/2007,,Ballet Fundación Alicia Alonso,FALSE,Contemporary Dance,
+Tide Over,choreography,Choreographer,14/06/2005,,Ballet Fundación Alicia Alonso,FALSE,Contemporary Dance,
+Tribute to Dogs,choreography,Choreographer,05/03/2016,,Ballet Fundación Alicia Alonso,TRUE,Contemporary Dance,
+Death and Rebirth,choreography,Choreographer,12/11/2015,,Ballet Fundación Alicia Alonso,FALSE,Contemporary Dance,
+West Side Story,direction,Co–Director,10/05/2010,,Personal Project,FALSE,"Musical Theatre,Jazz",
+El Pájaro de Fuego,direction,Director,06/05/2008,,Personal Project,FALSE,Contemporary Dance,
+El Cuarto,choreography,Choreographer,18/11/2024,,Ballet Fundación Alicia Alonso,FALSE,Physical Theatre,
+Un Siglo con Cuatro,choreography,Choreographer,29/04/2024,,Ballet Fundación Alicia Alonso,TRUE,Contemporary Dance,
+Carrillón,choreography,Choreographer,11/06/2009,,Ballet Fundación Alicia Alonso,FALSE,Contemporary Dance,
+Cómo decirle que…,choreography,Choreographer,15/11/2005,,Ballet Fundación Alicia Alonso,FALSE,Contemporary Dance,
+Los Pájaros Tirando a las Escopetas,choreography,Choreographer,23/05/2006,,Ballet Fundación Alicia Alonso,FALSE,Contemporary Dance,
+DIVERSO,direction,Director,05/07/2018,,Festival Segovia en Danza,FALSE,"Musical Theatre,Jazz,Contemporary Dance",
+Fundación Alicia Alonso,graphic-design,Designer,10/10/2017,,Fundación Alicia Alonso,FALSE,Adobe Illustrator,https://www.behance.net/gallery/129013095/Fundacion-Alicia-Alonso
+Congreso Mundial de A.A.E.E.,graphic-design,Designer,05/10/2019,,Fundación Alicia Alonso,FALSE,Adobe Illustrator,https://www.behance.net/gallery/191256401/Imagen-de-Marca-CMIAE
+Obsidian Zotero Linker,development,Developer,01/11/2024,,Personal Project,FALSE,Typescript,https://github.com/evelasko/obsidian-zotero-linker
+Ilurama App,development,Developer,01/10/2022,,Personal Project,FALSE,Dart/Flutter,https://github.com/rozentia/ilurama
+Qlab Show Control Scripts,development,Developer,01/01/2016,,Personal Project,FALSE,Applescript,https://github.com/evelasko/qlab-automation
+INEDITO,direction,Director,09/10/2023,,CENIE,TRUE,Art Direction,https://www.inedito.net/about
+Artist Profolios,web-development,Developer,01/01/2020,,Various Clients,FALSE,"Typescript,React",
+Alicia Alonso Campus App,development,Developer,01/05/2018,,Fundación Alicia Alonso,FALSE,Dart/Flutter,https://github.com/fundacionalicialonso/campus_alicialonso_app
+Fundación Alicia Alonso Digitalization,development,Developer,01/02/2020,,Fundación Alicia Alonso,FALSE,Google Cloud,
+ITI 75 Anniversary Brand,graphic-design,Designer,10/07/2018,,International Theatre Institute,FALSE,Adobe Illustrator,
+Theodore System,ai-ml,Developer,01/10/2025,,Personal Project,TRUE,"Typescript,ExtendScript,Python",https://github.com/evelasko/theodore
+Zotero Citation Linker,ai-ml,Developer,22/08/2025,,Personal Project,FALSE,Typescript,https://github.com/evelasko/zotero-citation-linker
+Cuaderno,development,Developer,01/09/2025,,CENIE,FALSE,Swift,
+Stoomp,development,Developer,01/01/2014,,CENIE,FALSE,Dart/Flutter,
+Camerino,development,Developer,01/09/2025,,CENIE,FALSE,Swift,
