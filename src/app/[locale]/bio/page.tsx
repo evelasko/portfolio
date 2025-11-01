@@ -91,13 +91,13 @@ export default async function BioPage({ params }: Props) {
           content={[
             {
               imagePath:
-                "https://res.cloudinary.com/misfitcoders/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg",
+                "https://res.cloudinary.com/misfitcoders/image/upload/v1760882564/eVelasco/backgrounds/curtain.jpg",
               heading: t("twoCol.stage.heading"),
               text: t("twoCol.stage.text"),
             },
             {
               imagePath:
-                "https://res.cloudinary.com/misfitcoders/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg",
+                "https://res.cloudinary.com/misfitcoders/image/upload/v1761995034/eVelasco/backgrounds/computer-code.jpg",
               heading: t("twoCol.machine.heading"),
               text: t("twoCol.machine.text"),
             },
@@ -147,31 +147,43 @@ export default async function BioPage({ params }: Props) {
             {
               heading: t("milestones.grid.academic.heading"),
               content: t("milestones.grid.academic.text"),
+              imagePath:
+                "https://res.cloudinary.com/misfitcoders/image/upload/v1761996873/eVelasco/covers/milestones/academic-rigor_clkiff.jpg",
             },
             {
               heading: t("milestones.grid.performance.heading"),
               content: t("milestones.grid.performance.text"),
+              imagePath:
+                "https://res.cloudinary.com/misfitcoders/image/upload/v1761996938/eVelasco/covers/milestones/theatrical-performance_vckj7y.jpg",
             },
             {
               heading: t("milestones.grid.creative.heading"),
               content: t("milestones.grid.creative.text"),
+              imagePath:
+                "https://res.cloudinary.com/misfitcoders/image/upload/v1761996879/eVelasco/covers/milestones/creative-innovation_kud8pz.jpg",
             },
             {
               heading: t("milestones.grid.technology.heading"),
               content: t("milestones.grid.technology.text"),
+              imagePath:
+                "https://res.cloudinary.com/misfitcoders/image/upload/v1761996934/eVelasco/covers/milestones/technological-entrepeneurship_unzhdw.jpg",
             },
             {
               heading: t("milestones.grid.automation.heading"),
               content: t("milestones.grid.automation.text"),
+              imagePath:
+                "https://res.cloudinary.com/misfitcoders/image/upload/v1761996876/eVelasco/covers/milestones/ai-automation_bpetv2.jpg",
             },
             {
               heading: t("milestones.grid.recognition.heading"),
               content: t("milestones.grid.recognition.text"),
+              imagePath:
+                "https://res.cloudinary.com/misfitcoders/image/upload/v1761996931/eVelasco/covers/milestones/peer-recognition_oe3ple.jpg",
             },
           ].map(item => (
             <ImageCard
               key={item.heading}
-              image="https://res.cloudinary.com/misfitcoders/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg"
+              image={item.imagePath}
               title={item.heading}
               description={item.content}
               centerTitle={true}
@@ -210,7 +222,7 @@ export default async function BioPage({ params }: Props) {
         <MainHeading
           title={t("transference.title")}
           subtitle={t("transference.subtitle")}
-          className="my-12 text-center mx-12"
+          className="mt-32 mb-0 text-center"
         />
         <div className="w-full">
           <FullWidthImage
@@ -218,24 +230,40 @@ export default async function BioPage({ params }: Props) {
             alt="CENIE Ecosystem"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center items-center relative z-10">
-              <div className="flex justify-center items-center p-12">
+              <div className="flex justify-center items-center p-32 md:p-12">
                 <CenieLogo
                   color="rgba(0, 0, 0, 0.9)"
                   className="drop-shadow-lg"
                 />
               </div>
-              <div className="flex flex-col gap-6 pr-12 md:pr-24">
-                <p className={clsx(TYPOGRAPHY.text20, "font-semibold")}>
+              <div
+                className="flex flex-col gap-6 px-6 pb-6 md:px-0 md:pb-0 md:pr-24"
+                style={{ mixBlendMode: "difference" }}
+              >
+                <p
+                  className={clsx(
+                    TYPOGRAPHY.text18,
+                    "font-semibold",
+                    "text-center md:text-left",
+                    "text-black",
+                    "mix-blend-difference!",
+                    "bg-white/30 rounded-lg p-6 backdrop-blur-3xl"
+                  )}
+                >
                   {t("transference.text")}
                 </p>
                 <Link
-                  className={clsx(TYPOGRAPHY.mono18, "mt-12")}
+                  className={clsx(
+                    TYPOGRAPHY.mono18,
+                    "mt-12",
+                    "text-center md:text-left"
+                  )}
                   href="/the-architects-path"
                   target="_blank"
                 >
                   <Button
                     variant="outline"
-                    className="uppercase border-black-60"
+                    className="uppercase bg-white border-black hover:bg-white hover:text-black"
                   >
                     {t("transference.buttonLabel")}{" "}
                     <ArrowUpRight className="w-4 h-4" />
@@ -250,7 +278,7 @@ export default async function BioPage({ params }: Props) {
         <MainHeading
           title={t("beyond.title")}
           subtitle={t("beyond.subtitle")}
-          className="my-12 text-center"
+          className="mt-32 mb-12 text-center"
         />
         <p className={clsx(TYPOGRAPHY.text20, "text-center pb-32")}>
           {t("beyond.text")

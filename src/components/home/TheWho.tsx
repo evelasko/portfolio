@@ -10,10 +10,10 @@ export default function TheWho({ locale }: { locale: string }) {
   const t = useTranslations("home.sections.theWho");
   return (
     <>
-      <section id="the-who">
+      <section id="the-who" className="pt-32 bg-black-100">
         <MainHeading
           title={t("title")}
-          className="text-center bg-black-100 text-white"
+          className="text-center bg-black-100 text-white pt-32"
         />
         <BioBlock
           photo_path="https://res.cloudinary.com/misfitcoders/image/upload/v1761045901/eVelasco/profile/portrait-2-cropped.jpg"
@@ -31,9 +31,9 @@ export default function TheWho({ locale }: { locale: string }) {
           ]}
           margin={60}
         />
-        <MainHeading
+        {/* <MainHeading
           title={t("testimonialsHeading")}
-          className="text-center text-white bg-black-100"
+          className="text-center text-white bg-black-100 mt-24 pt-12"
         />
         <TestimonialCarousel
           className="text-white bg-black-100"
@@ -44,7 +44,7 @@ export default function TheWho({ locale }: { locale: string }) {
             message:
               testimonial.message[locale as keyof typeof testimonial.message],
           }))}
-        />
+        /> */}
       </section>
       <div className="mb-28 m:mb-12">
         <CenieBanner />

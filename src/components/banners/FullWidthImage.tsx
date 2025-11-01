@@ -15,6 +15,8 @@ export default function FullWidthImage({
 }) {
   return (
     <div className={clsx("relative w-full", className)}>
+      {/* Mobile: Image as absolute background, container expands for content */}
+      {/* Desktop: Image flows naturally, content absolutely positioned */}
       <CldImage
         src={image}
         alt={alt}
@@ -23,9 +25,13 @@ export default function FullWidthImage({
         sizes="100vw"
         quality="auto"
         format="auto"
-        className="h-auto w-full"
+        className="absolute inset-0 h-full w-full object-cover md:relative md:h-auto md:object-contain"
       />
-      {children && <div className="absolute inset-0">{children}</div>}
+      {children && (
+        <div className="relative z-10 min-h-[56.25vw] md:absolute md:inset-0 md:min-h-0" style={{ isolation: 'auto' }}>
+          {children}
+        </div>
+      )}
     </div>
   );
 }

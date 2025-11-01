@@ -28,7 +28,7 @@ export default function TwoColContent({
       {content.map((item, index) => (
         <div key={index}>
           {item.imagePath && (
-            <div className="relative w-full aspect-[16/9] mb-6 overflow-hidden rounded-lg">
+            <div className="relative w-full aspect-video mb-6 overflow-hidden rounded-lg">
               <CloudinaryImage
                 src={item.imagePath}
                 alt={item.heading || "Image"}
