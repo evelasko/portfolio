@@ -38,7 +38,17 @@
           }
         },
         "intro": "Presentando",
-        "introLabel": "Explora el Ecosistema CENIE"
+        "introLabel": "Explora el Ecosistema CENIE",
+        "waitlist": {
+          "namePlaceholder": "Nombre Completo",
+          "emailPlaceholder": "Correo Electrónico",
+          "submitLabel": "Únete a la Lista de Espera",
+          "submitting": "Suscribiendo...",
+          "submitted": "¡Suscrito!",
+          "success": "Te has suscrito exitosamente a la lista de espera",
+          "error": "Error al suscribirse. Por favor, inténtalo de nuevo.",
+          "networkError": "Error de conexión. Por favor, verifica tu internet e inténtalo de nuevo."
+        }
       },
       "theWho": {
         "title": "El Quien",
@@ -152,7 +162,17 @@
       "buttonLabel": "Descubre el Ecosistema CENIE",
       "subtitle": "Construyendo el puente para los demás",
       "text": "Después de décadas de construir este puente por mí mismo, reconocí una profunda necesidad. \nVi innumerables artistas brillantes que se sentían abandonados por la tecnología y abrumados por las exigencias de una carrera moderna. \nMe di cuenta de que los marcos que había construido para mi propia supervivencia y éxito podrían tener un propósito mayor. \nCENIE es la culminación de este viaje. \nEs mi respuesta a la 'injusticia sagrada'. \nEs el ecosistema que desearía haber tenido: un lugar dedicado a transformar a los artistas de artistas precarios a arquitectos empoderados de su propio futuro.",
-      "title": "Transferencia"
+      "title": "Transferencia",
+      "waitlist": {
+        "namePlaceholder": "Nombre Completo",
+        "emailPlaceholder": "Correo Electrónico",
+        "submitLabel": "Únete a la Lista de Espera",
+        "submitting": "Suscribiendo...",
+        "submitted": "¡Suscrito!",
+        "success": "Te has suscrito exitosamente a la lista de espera",
+        "error": "Error al suscribirse. Por favor, inténtalo de nuevo.",
+        "networkError": "Error de conexión. Por favor, verifica tu internet e inténtalo de nuevo."
+      }
     },
     "twoCol": {
       "machine": {

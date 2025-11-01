@@ -1,12 +1,12 @@
+"use client";
+
 import CardGrid from "../content_blocks/CardGrid";
 import MainHeading from "../headings/MainHeading";
 import clsx from "clsx";
 import { TYPOGRAPHY } from "@/lib/typography";
 import CenieFullLogo from "../graphics/CenieFullLogo";
-import { Button } from "../ui/button";
-import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
+import WaitlistForm from "../forms/WaitlistForm";
 
 export default function TheHow() {
   const t = useTranslations("home.sections.theHow");
@@ -16,7 +16,7 @@ export default function TheHow() {
       <div
         className={clsx(
           TYPOGRAPHY.h7,
-          "text-center px-12 !mb-0 !pb-0 leading-tight"
+          "text-center px-12 mb-0! pb-0! leading-tight"
         )}
       >
         {t("subtitle")
@@ -26,7 +26,7 @@ export default function TheHow() {
           ))}
       </div>
       <div
-        className="w-full aspect-[16/18] bg-cover bg-center !mt-0 !mb-0 !pt-0  bg-black"
+        className="w-full aspect-16/18 bg-cover bg-center mt-0! mb-0! pt-0!  bg-black"
         style={{
           backgroundImage:
             "url('https://res.cloudinary.com/misfitcoders/image/upload/v1760882567/eVelasco/backgrounds/fabric-folds-orange-1.jpg')",
@@ -66,26 +66,16 @@ export default function TheHow() {
             },
           ]}
         />
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center pb-12">
           <MainHeading title={t("intro")} className="text-center text-white" />
-          <div className="w-2/3 mb-24">
+          <div className="w-2/3 mb-12">
             <CenieFullLogo color="rgba(255, 255, 255, 0.9)" />
           </div>
-          <Link
-            href="https://cenie.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button
-              variant="outline"
-              brightness="dark"
-              size="lg"
-              className={clsx(TYPOGRAPHY.mono18, "uppercase")}
-            >
-              {t("introLabel")}
-              <ArrowUpRight className="w-4 h-4" />
-            </Button>
-          </Link>
+          <WaitlistForm
+            translationNamespace="home.sections.theHow"
+            className="max-w-md px-5"
+            variant="dark"
+          />
         </div>
       </div>
     </section>

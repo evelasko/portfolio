@@ -9,8 +9,8 @@ import PhotoHero from "@/components/heroes/PhotoHero";
 import { Button } from "@/components/ui/button";
 import { TYPOGRAPHY } from "@/lib/typography";
 import clsx from "clsx";
-import { ArrowUpRight, FileText } from "lucide-react";
-import Link from "next/link";
+import { FileText } from "lucide-react";
+import WaitlistForm from "@/components/forms/WaitlistForm";
 import InlineSlideshow from "@/components/banners/InlineSlideshow";
 import { getTranslations } from "next-intl/server";
 import React from "react";
@@ -252,23 +252,12 @@ export default async function BioPage({ params }: Props) {
                 >
                   {t("transference.text")}
                 </p>
-                <Link
-                  className={clsx(
-                    TYPOGRAPHY.mono18,
-                    "mt-12",
-                    "text-center md:text-left"
-                  )}
-                  href="/the-architects-path"
-                  target="_blank"
-                >
-                  <Button
-                    variant="outline"
-                    className="uppercase bg-white border-black hover:bg-white hover:text-black"
-                  >
-                    {t("transference.buttonLabel")}{" "}
-                    <ArrowUpRight className="w-4 h-4" />
-                  </Button>
-                </Link>
+                <div className="mt-6">
+                  <WaitlistForm
+                    translationNamespace="bio.transference"
+                    variant="light"
+                  />
+                </div>
               </div>
             </div>
           </FullWidthImage>

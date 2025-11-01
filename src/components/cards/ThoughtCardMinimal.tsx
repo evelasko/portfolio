@@ -40,7 +40,7 @@ export default function ThoughtCardMinimal({
         viewport={{ once: true }}
       >
         {/* Image */}
-        <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg mb-6">
+        <div className="relative w-full aspect-video overflow-hidden rounded-lg mb-6">
           <CloudinaryThumbnail
             src={image}
             alt={title}
@@ -97,7 +97,7 @@ export default function ThoughtCardMinimal({
           <motion.h6
             className={clsx(
               TYPOGRAPHY.h9,
-              "!font-extrabold",
+              "font-extrabold!",
               "group-hover:text-black-60 transition-colors duration-300"
             )}
             style={{

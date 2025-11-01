@@ -143,7 +143,7 @@ export default function AnimatedHero({
             {/* Row 1: topText only (sticky to top) */}
             <div
               id="row1"
-              className="flex-shrink-0 flex items-start justify-start w-[47.8%] sticky top-16"
+              className="shrink-0 flex items-start justify-start w-[47.8%] sticky top-16"
               style={{ position: "sticky" }}
             >
               <Enrique />
@@ -152,7 +152,10 @@ export default function AnimatedHero({
             {/* Row 2: Message block */}
             <motion.div
               id="row2"
-              className="flex-shrink-0 flex items-center justify-center relative h-80"
+              className={clsx(
+                "shrink-0 flex items-center justify-center relative h-80",
+                "hidden" //! TODO: Remove this once row2Content is implemented
+              )}
               style={{ opacity: row2Opacity }}
             >
               {row2Content}
@@ -161,7 +164,7 @@ export default function AnimatedHero({
             {/* Row 3: subtitle+button + bottomText (sticky to top, aligns with Row 1) */}
             <div
               id="row3"
-              className="flex-shrink-0 flex pb-8 m:pb-8 l:pb-0 sticky top-16"
+              className="shrink-0 flex pb-8 m:pb-8 l:pb-0 sticky top-16"
               style={{ position: "sticky" }}
             >
               {/* Column 1: Subtitle + Button (flexible, yields space) */}
@@ -169,7 +172,7 @@ export default function AnimatedHero({
                 {/* Subtitle row - aligned to top baseline of bottomText */}
                 <motion.div
                   id="row3-subtitle"
-                  className="flex-shrink-0 overflow-hidden flex items-start"
+                  className="shrink-0 overflow-hidden flex items-start"
                   style={{
                     opacity: row3ElementsOpacity,
                     y: row3ElementsY,
@@ -201,7 +204,7 @@ export default function AnimatedHero({
                 {/* Button row - aligned to bottom baseline of bottomText */}
                 <motion.div
                   id="row3-button"
-                  className="flex-shrink-0 flex items-baseline-last"
+                  className="shrink-0 flex items-baseline-last"
                   style={{
                     opacity: row3ElementsOpacity,
                     y: row3ElementsY,
@@ -231,7 +234,7 @@ export default function AnimatedHero({
               {/* Column 2: Bottom Text (expands as needed, right-aligned) */}
               <div
                 id="row3-bottom-text"
-                className="flex-shrink-0 flex items-start ml-4 w-[52.2%]"
+                className="shrink-0 flex items-start ml-4 w-[52.2%]"
               >
                 <Velasco />
               </div>
@@ -246,7 +249,7 @@ export default function AnimatedHero({
             </div>
 
             {/* Row 2: subtitle (full width, no cutting) */}
-            <div className="flex-shrink-0 py-4">
+            <div className="shrink-0 py-4">
               <motion.div
                 className={clsx(TYPOGRAPHY.mono24, "uppercase tracking-wider")}
                 style={{
@@ -280,7 +283,7 @@ export default function AnimatedHero({
             </div>
 
             {/* Row 3: topText + bottomText concatenated (bottom-aligned with margin) */}
-            <div className="flex-shrink-0 pb-8">
+            <div className="shrink-0 pb-8">
               <div className="flex w-full flex-row gap-4">
                 <Evelasco />
               </div>

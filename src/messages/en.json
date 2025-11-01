@@ -38,7 +38,17 @@
           }
         },
         "intro": "Introducing",
-        "introLabel": "Explore the CENIE Ecosystem"
+        "introLabel": "Explore the CENIE Ecosystem",
+        "waitlist": {
+          "namePlaceholder": "Full Name",
+          "emailPlaceholder": "Email Address",
+          "submitLabel": "Join Waitlist",
+          "submitting": "Subscribing...",
+          "submitted": "Subscribed!",
+          "success": "Successfully subscribed to waitlist",
+          "error": "Failed to subscribe. Please try again.",
+          "networkError": "Connection error. Please check your internet and try again."
+        }
       },
       "theWho": {
         "title": "About Me",
@@ -151,7 +161,17 @@
       "title": "Transference",
       "subtitle": "Building the Bridge for Others",
       "text": "After decades of building this bridge for myself, I recognized a profound need. I saw countless brilliant artists feeling left behind by technology and overwhelmed by the demands of a modern career. I realized the frameworks I had built for my own survival and success could serve a greater purpose. CENIE is the culmination of this journey. It is my answer to the 'sacred injustice.' It is the ecosystem I wish I'd had—a place dedicated to transforming artists from precarious performers into empowered architects of their own future.",
-      "buttonLabel": "Discover the CENIE Ecosystem"
+      "buttonLabel": "Discover the CENIE Ecosystem",
+      "waitlist": {
+        "namePlaceholder": "Full Name",
+        "emailPlaceholder": "Email Address",
+        "submitLabel": "Join Waitlist",
+        "submitting": "Subscribing...",
+        "submitted": "Subscribed!",
+        "success": "Successfully subscribed to waitlist",
+        "error": "Failed to subscribe. Please try again.",
+        "networkError": "Connection error. Please check your internet and try again."
+      }
     },
     "beyond": {
       "title": "Beyond the work",
