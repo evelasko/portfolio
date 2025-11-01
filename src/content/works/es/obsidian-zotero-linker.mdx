@@ -18,24 +18,39 @@ alternateLocales:
 
 # Obsidian Zotero Linker
 
-Un plugin de Obsidian que crea enlaces bidireccionales entre notas de Obsidian y referencias de Zotero, optimizando los flujos de trabajo de investigación académica al conectar de manera fluida tus sistemas de toma de notas y gestión de referencias.
+Este plugin transforma Obsidian en un potente entorno de investigación al integrarlo profundamente con tu biblioteca de Zotero. Va más allá de la simple vinculación para ofrecer un flujo de trabajo automatizado y potenciado por IA para capturar, gestionar y citar referencias académicas sin interrupciones.
 
 ## Resumen del Proyecto
 
-Obsidian Zotero Linker es un plugin de Obsidian diseñado para cerrar la brecha entre la toma de notas y la gestión de referencias. Crea enlaces bidireccionales entre notas de Obsidian y referencias de Zotero, permitiendo a los investigadores integrar de manera fluida sus flujos de trabajo de investigación.
+Obsidian Zotero Linker es un plugin de Obsidian diseñado para cerrar la brecha entre la toma de notas y la gestión de referencias. Crea una conexión fluida con tu biblioteca de Zotero e introduce un potente motor impulsado por IA para automatizar la extracción de citas de diversas fuentes, como páginas web, PDFs y documentos. Todo el flujo de trabajo está optimizado para la eficiencia, permitiendo a investigadores y escritores centrarse en su trabajo, no en la introducción manual de datos.
 
 ## Características Clave
 
-- **Enlaces Bidireccionales**: Crea enlaces entre notas de Obsidian y elementos de Zotero que funcionan en ambas direcciones
-- **Detección Automática de Referencias**: Detecta y vincula automáticamente referencias de Zotero en tus notas
-- **Integración Fluida**: Funciona dentro de la interfaz de Obsidian sin interrumpir tu flujo de trabajo
+### Integración Central con Zotero
+
+- **Acceso Directo a la Biblioteca**: Busca e inserta referencias de tu biblioteca de Zotero directamente desde Obsidian.
+- **Exportación Avanzada de Documentos**: Exporta notas a PDF, DOCX y HTML con citas y bibliografías formateadas correctamente, generadas por Pandoc.
+- **Plantillas Personalizables**: Adapta cómo aparecen los enlaces de citas en tus notas con plantillas flexibles.
+
+### Motor de Citas Potenciado por IA
+
+- **Extracción Automatizada de Metadatos**: Extrae automáticamente datos completos de citas de URLs, PDFs y documentos usando IA.
+- **Soporte para Múltiples Proveedores**: Se integra con varios proveedores de IA, incluyendo OpenAI, Anthropic Claude y Google Gemini.
+- **Recuperación Basada en Identificadores**: Obtiene metadatos al instante detectando y procesando identificadores como DOI, PMID y arXiv.
+
+### Flujo de Trabajo Inteligente y Eficiente
+
+- **Procesamiento Centrado en URLs**: Analiza cada URL única una sola vez, ahorrando tiempo y evitando operaciones redundantes.
+- **Procesamiento por Lotes**: Procesa múltiples enlaces simultáneamente con seguimiento del progreso en tiempo real.
+- **Detección Inteligente de Duplicados**: Identifica de forma inteligente elementos existentes para evitar el desorden en tu biblioteca de Zotero.
+- **Indicadores Visuales de Estado**: Información de un vistazo sobre cómo se procesará cada enlace, garantizando transparencia y control.
 
 ## Implementación Técnica
 
-Desarrollado con TypeScript, el plugin aprovecha la API de plugins de Obsidian y la estructura de datos de Zotero para crear una conexión robusta entre los dos sistemas. El plugin maneja casos límite y proporciona manejo de errores para asegurar confiabilidad.
+Desarrollado con TypeScript, el plugin aprovecha la API de plugins de Obsidian para crear una experiencia de usuario fluida. Se integra con la API de Zotero para la gestión de la biblioteca y utiliza Pandoc para una exportación de documentos robusta con citas de nivel académico. Las funciones de IA son modulares y soportan varios proveedores para garantizar flexibilidad y resiliencia.
 
 ## Casos de Uso
 
-- Investigadores académicos gestionando grandes bibliografías
-- Escritores rastreando fuentes y citas
-- Cualquiera que use tanto Obsidian como Zotero para gestión del conocimiento
+- **Investigadores Académicos**: Gestiona eficientemente cientos de fuentes y agiliza el proceso de citación para artículos y publicaciones.
+- **Estudiantes y Escritores**: Automatiza el tedioso proceso de creación de bibliografías y gestión de fuentes.
+- **Trabajadores del Conocimiento**: Agrega información de diversas fuentes en línea y captura referencias estructuradas y citables con facilidad.

@@ -1,16 +1,17 @@
 ---
 title: "Zotero Citation Linker"
-description: "Una herramienta que vincula automáticamente las citas en documentos con sus entradas de bibliografía correspondientes en Zotero, optimizando la escritura académica y asegurando una gestión precisa de referencias."
+description: "Un potente plugin de Zotero que une la gestión de referencias con flujos de escritura en Markdown, ofreciendo detección inteligente de duplicados, control de calidad automático y capacidades de integración fluidas."
 publishedAt: "2025-08-22"
 author: "Enrique Velasco"
 category: ai-ml
-tags: []
+tags: ["Zotero", "TypeScript", "Plugin", "Productividad", "Escritura Académica"]
 featured: false
 draft: false
 client: "Personal Project"
 role: "Developer"
-technologies: ["Typescript"]
-imageCover: "https://res.cloudinary.com/misfitcoders/image/upload/v1761953809/eVelasco/covers/works/zotero-plugin/zotero-plugin-cover_urwy7j.jpg"
+technologies:
+  ["TypeScript", "esbuild", "Zotero Plugin Toolkit", "WebExtension API"]
+coverImage: "https://res.cloudinary.com/misfitcoders/image/upload/v1761953809/eVelasco/covers/works/zotero-plugin/zotero-plugin-cover_urwy7j.jpg"
 projectUrl: "https://github.com/evelasko/zotero-citation-linker"
 alternateLocales:
   en: "zotero-citation-linker"
@@ -18,18 +19,36 @@ alternateLocales:
 
 # Zotero Citation Linker
 
-Una herramienta que vincula automáticamente las citas en documentos con sus entradas de bibliografía correspondientes en Zotero, optimizando la escritura académica y asegurando una gestión precisa de referencias.
+Un potente plugin de Zotero que conecta de forma fluida la gestión de referencias con los flujos de trabajo de escritura basados en Markdown. Genera citas en línea con enlaces API al instante e integra aplicaciones externas a través de un completo servidor HTTP local.
 
 ## Resumen del Proyecto
 
-Zotero Citation Linker es una herramienta diseñada para vincular automáticamente las citas en documentos con sus entradas de bibliografía correspondientes en Zotero. Esto optimiza los flujos de trabajo de escritura académica al asegurar una gestión precisa de referencias y una navegación fácil entre citas y sus fuentes.
+La escritura académica y de investigación exige una gestión de referencias meticulosa. El plugin Zotero Citation Linker fue desarrollado para abordar los puntos débiles comunes en este proceso, como mantener una biblioteca limpia, prevenir entradas duplicadas e integrar Zotero con herramientas de escritura modernas basadas en Markdown como Obsidian. El objetivo era crear una herramienta que no solo simplificara la generación de citas, sino que también automatizara el mantenimiento de la biblioteca, asegurando la calidad e integridad de los datos.
 
-## Características
+Este plugin transforma Zotero en un centro más potente para la investigación, permitiendo a los usuarios centrarse en su escritura mientras la herramienta maneja las complejidades de la gestión de citas y referencias en segundo plano.
 
-- **Detección Automática de Citas**: Identifica citas en documentos y las vincula con entradas de Zotero
-- **Enlaces Bidireccionales**: Navega sin problemas entre citas de documentos y bibliografía de Zotero
-- **Soporte de Múltiples Formatos**: Funciona con varios estilos de citas y formatos de documentos
+## Características Clave
 
-## Detalles Técnicos
+El plugin está repleto de características diseñadas para usuarios avanzados, garantizando un flujo de trabajo robusto y eficiente.
 
-Desarrollada con TypeScript, la herramienta se interfaza con la API de Zotero y bibliotecas de procesamiento de documentos para crear enlaces de citas confiables, mejorando la eficiencia de los flujos de trabajo de escritura académica e investigación.
+### Gestión Inteligente de la Biblioteca
+
+- **Control de Calidad Automático**: Valida automáticamente las nuevas entradas para datos esenciales como títulos y autores, rechazando elementos de baja calidad o incompletos. Las entradas no válidas se eliminan automáticamente para mantener una biblioteca impecable.
+- **Detección Inteligente de Duplicados**: Utiliza un sofisticado enfoque de múltiples capas para encontrar duplicados. Realiza coincidencias perfectas usando identificadores como DOI, ISBN y PMID, y emplea coincidencias aproximadas (distancia de Levenshtein) en títulos, autores y años para detectar entradas similares. El principio de "el elemento más antiguo prevalece" protege las citas existentes durante la fusión automática.
+
+### Integración y Flujo de Trabajo Fluidos
+
+- **Citas Optimizadas para Markdown**: Genera citas en línea limpias y de estilo académico (`(Autor, Año)`) con enlaces API de Zotero incrustados. Esto permite una fácil navegación desde tus notas de vuelta a tu biblioteca de Zotero.
+- **Servidor Local Completo**: Un servidor HTTP incorporado expone potentes puntos finales de API, permitiendo que otras aplicaciones (como plugins de Obsidian o scripts personalizados) interactúen con Zotero para el análisis de URL, procesamiento de identificadores y búsqueda de elementos.
+- **Experiencia de Usuario Sencilla**: El plugin se integra directamente en la interfaz de Zotero con acciones en el menú contextual y atajos de teclado configurables (`Ctrl+Shift+C`) para copiar citas rápidamente.
+
+## Implementación Técnica
+
+El plugin está construido con un stack moderno de TypeScript, aprovechando la última API de WebExtension de Zotero 7+ para compatibilidad y rendimiento.
+
+- **Tecnología Principal**: Construido completamente en **TypeScript** para seguridad de tipos y mantenibilidad.
+- **Empaquetado**: Utiliza **esbuild** para una compilación y empaquetado rápidos y eficientes del código fuente del plugin.
+- **Framework**: Aprovecha el **zotero-plugin-toolkit** para agilizar la interacción con la aplicación Zotero y sus datos.
+- **Arquitectura**: El plugin ejecuta un servidor HTTP local para manejar solicitudes de API, procesa datos de forma asíncrona y gestiona tareas complejas como la detección de duplicados y el control de calidad sin bloquear la interfaz principal de Zotero.
+
+El resultado es una herramienta ligera y de alto rendimiento que mejora la funcionalidad principal de Zotero al tiempo que proporciona características avanzadas para los flujos de trabajo académicos modernos.

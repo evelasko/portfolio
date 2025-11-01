@@ -1,15 +1,16 @@
 ---
 title: "Zotero Citation Linker"
-description: "A tool that automatically links citations in documents to their corresponding Zotero bibliography entries, streamlining academic writing and ensuring accurate reference management."
+description: "A powerful Zotero plugin that bridges reference management with Markdown writing workflows, offering intelligent duplicate detection, automatic quality control, and seamless integration capabilities."
 publishedAt: "2025-08-22"
 author: "Enrique Velasco"
 category: ai-ml
-tags: []
+tags: ["Zotero", "TypeScript", "Plugin", "Productivity", "Academic Writing"]
 featured: false
 draft: false
 client: "Personal Project"
 role: "Developer"
-technologies: ["Typescript"]
+technologies:
+  ["TypeScript", "esbuild", "Zotero Plugin Toolkit", "WebExtension API"]
 coverImage: "https://res.cloudinary.com/misfitcoders/image/upload/v1761953809/eVelasco/covers/works/zotero-plugin/zotero-plugin-cover_urwy7j.jpg"
 projectUrl: "https://github.com/evelasko/zotero-citation-linker"
 alternateLocales:
@@ -18,18 +19,36 @@ alternateLocales:
 
 # Zotero Citation Linker
 
-A tool that automatically links citations in documents to their corresponding Zotero bibliography entries, streamlining academic writing and ensuring accurate reference management.
+A powerful Zotero plugin that seamlessly bridges reference management with Markdown-based writing workflows. Generate inline citations with API links instantly, and integrate external applications through a comprehensive local HTTP server.
 
 ## Project Overview
 
-Zotero Citation Linker is a tool designed to automatically link citations in documents to their corresponding Zotero bibliography entries. This streamlines academic writing workflows by ensuring accurate reference management and easy navigation between citations and their sources.
+Academic and research writing demands meticulous reference management. The Zotero Citation Linker plugin was developed to address the common pain points in this process, such as maintaining a clean library, preventing duplicate entries, and integrating Zotero with modern, Markdown-based writing tools like Obsidian. The goal was to create a tool that not only simplifies citation generation but also automates library maintenance, ensuring data quality and integrity.
 
-## Features
+This plugin transforms Zotero into a more powerful hub for research, enabling users to focus on their writing while the tool handles the complexities of citation and reference management in the background.
 
-- **Automatic Citation Detection**: Identifies citations in documents and links them to Zotero entries
-- **Bidirectional Links**: Navigate seamlessly between document citations and Zotero bibliography
-- **Multiple Format Support**: Works with various citation styles and document formats
+## Key Features
 
-## Technical Details
+The plugin is packed with features designed for power users, ensuring a robust and efficient workflow.
 
-Built with TypeScript, the tool interfaces with Zotero's API and document processing libraries to create reliable citation links, improving the efficiency of academic writing and research workflows.
+### Intelligent Library Management
+
+- **Automatic Quality Control**: Automatically validates new entries for essential data like titles and authors, rejecting low-quality or incomplete items. Invalid entries are automatically removed to maintain a pristine library.
+- **Intelligent Duplicate Detection**: Utilizes a sophisticated multi-layered approach to find duplicates. It performs perfect matching using identifiers like DOI, ISBN, and PMID, and employs fuzzy matching (Levenshtein distance) on titles, authors, and years to catch similar entries. The "oldest item wins" principle protects existing citations during auto-merging.
+
+### Seamless Integration and Workflow
+
+- **Markdown-First Citations**: Generate clean, academic-style inline citations (`(Author, Year)`) with embedded Zotero API links. This allows for easy navigation from your notes back to your Zotero library.
+- **Comprehensive Local Server**: A built-in HTTP server exposes powerful API endpoints, allowing other applications (like Obsidian plugins or custom scripts) to interact with Zotero for URL analysis, identifier processing, and item lookups.
+- **Effortless UX**: The plugin integrates directly into the Zotero interface with context menu actions and configurable keyboard shortcuts (`Ctrl+Shift+C`) for quick citation copying.
+
+## Technical Implementation
+
+The plugin is built with a modern TypeScript stack, leveraging the latest Zotero 7+ WebExtension API for compatibility and performance.
+
+- **Core Technology**: Built entirely in **TypeScript** for type safety and maintainability.
+- **Bundling**: Uses **esbuild** for fast and efficient compilation and bundling of the plugin's source code.
+- **Framework**: Leverages the **zotero-plugin-toolkit** to streamline interaction with the Zotero application and its data.
+- **Architecture**: The plugin runs a local HTTP server to handle API requests, processes data asynchronously, and manages complex tasks like duplicate detection and quality control without blocking the main Zotero interface.
+
+The result is a lightweight, high-performance tool that enhances Zotero's core functionality while providing advanced features for modern academic workflows.

@@ -66,9 +66,14 @@ export function TrackedLink({
 
       case "social":
         if (trackingData.platform) {
+          // Filter out "contact" as it's not a valid location for social clicks
+          const validLocation: "bio" | "footer" | "header" =
+            trackingData.source && trackingData.source !== "contact"
+              ? trackingData.source
+              : "bio";
           trackSocialClick({
             platform: trackingData.platform,
-            location: trackingData.source || "bio",
+            location: validLocation,
             profile_url: href,
           });
         }
