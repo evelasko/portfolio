@@ -4,9 +4,8 @@ alternateLocales:
   es: cuando-el-codigo-se-vuelve-coreografia
 author: Enrique Velasco
 category: creative-process
-coverImage: https://res.cloudinary.com/misfitcoders/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg
-description:
-  Los sorprendentes paralelismos entre escribir código y crear danza, y cómo pensar como un coreógrafo puede hacerte un programador radicalmente mejor.
+coverImage: https://res.cloudinary.com/misfitcoders/image/upload/v1761918582/eVelasco/covers/articles/when-code-becomes-choreography_i21sgc.png
+description: Los sorprendentes paralelismos entre escribir código y crear danza, y cómo pensar como un coreógrafo puede hacerte un programador radicalmente mejor.
 draft: false
 featured: false
 publishedAt: "2024-09-30"
@@ -19,7 +18,7 @@ tags:
 title: "Cuando el Código es Coreografía: El Arte Oculto del Movimiento en la Programación"
 ---
 
-Hay un momento, a menudo a las 3 de la madrugada en un estudio de danza, en el que una secuencia de movimiento finalmente hace *clic*. De repente, los pasos fluyen, las transiciones se sienten inevitables y la lógica interna de la pieza se revela. Es un instante de una claridad casi dolorosa.
+Hay un momento, a menudo a las 3 de la madrugada en un estudio de danza, en el que una secuencia de movimiento finalmente hace _clic_. De repente, los pasos fluyen, las transiciones se sienten inevitables y la lógica interna de la pieza se revela. Es un instante de una claridad casi dolorosa.
 
 He sentido exactamente lo mismo refactorizando una función en JavaScript.
 
@@ -31,7 +30,7 @@ Entender esta conexión no solo ha enriquecido mi trabajo, sino que me ha conver
 
 ## Patrón 1: El Principio del LEGO (Composición Modular)
 
-En la danza, no creamos una pieza de una hora de una sola vez. Construimos "frases" de movimiento, pequeñas secuencias autónomas. Una frase simple podría ser: *cambio de peso, barrido del brazo, pivote, estocada*.
+En la danza, no creamos una pieza de una hora de una sola vez. Construimos "frases" de movimiento, pequeñas secuencias autónomas. Una frase simple podría ser: _cambio de peso, barrido del brazo, pivote, estocada_.
 
 Esta frase es como una función. Es una unidad de lógica reutilizable. Podemos repetirla, invertirla, acelerarla, o combinarla con otras frases para crear una complejidad emergente.
 
@@ -45,10 +44,7 @@ function fadeIn(element, duration = 300) {
 async function revealScene() {
   await fadeIn(title, 500);
   await moveElement(logo, { y: -20 }, 300);
-  await Promise.all([
-    fadeIn(column1, 400),
-    fadeIn(column2, 400)
-  ]);
+  await Promise.all([fadeIn(column1, 400), fadeIn(column2, 400)]);
 }
 ```
 
@@ -66,7 +62,7 @@ La próxima vez que te sientas bloqueado, no busques más libertad. Intenta impo
 
 ## Patrón 3: El Alma del Tiempo (Ritmo y Cadencia)
 
-La coreografía no trata solo de *qué* movimientos ocurren, sino de *cuándo* ocurren. El mismo gesto, ejecutado rápidamente, puede parecer agresivo. Lentamente, puede ser tierno. El tiempo lo es todo. Es el alma de la pieza.
+La coreografía no trata solo de _qué_ movimientos ocurren, sino de _cuándo_ ocurren. El mismo gesto, ejecutado rápidamente, puede parecer agresivo. Lentamente, puede ser tierno. El tiempo lo es todo. Es el alma de la pieza.
 
 En programación, a menudo tratamos el tiempo como un simple problema de eficiencia. Pero el tiempo en el código también es una herramienta expresiva.
 
@@ -75,7 +71,7 @@ En programación, a menudo tratamos el tiempo como un simple problema de eficien
 async function showOnboarding() {
   await fadeIn(welcomeMessage, 400); // Un inicio suave
   await delay(200); // Una pausa para respirar
-  
+
   // Acciones superpuestas, como un canon en danza
   Promise.all([
     slideIn(step1, 300),
@@ -84,17 +80,20 @@ async function showOnboarding() {
   ]);
 }
 ```
+
 Las animaciones, las operaciones asíncronas, las secuencias de carga... no son solo tareas técnicas. Son problemas coreográficos. Tu código es la partitura que dicta el ritmo de la experiencia del usuario.
 
 ## Patrón 4: El Espacio Negativo y el Silencio
 
-En la danza, lo que *no* haces es tan importante como lo que haces. Una pausa. La quietud. Un escenario vacío. Estos no son ausencias de movimiento; son movimientos en sí mismos. Crean contraste, dirigen la atención y dan peso a las acciones que los rodean.
+En la danza, lo que _no_ haces es tan importante como lo que haces. Una pausa. La quietud. Un escenario vacío. Estos no son ausencias de movimiento; son movimientos en sí mismos. Crean contraste, dirigen la atención y dan peso a las acciones que los rodean.
 
 En el código, el espacio negativo es igual de crucial.
 
 ```javascript
 // Código abarrotado, sin espacio para respirar
-function calculate(x,y,z){return x*y+z*2-Math.sqrt(x)/y}
+function calculate(x, y, z) {
+  return x * y + z * 2 - Math.sqrt(x) / y;
+}
 
 // Código coreografiado, con espacio negativo intencional
 function calculate(x, y, z) {

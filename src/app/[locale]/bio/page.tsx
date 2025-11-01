@@ -24,6 +24,7 @@ import { getAbsoluteUrl } from "@/lib/seo/utils";
 import { INFO } from "@/content/info";
 import { Metadata } from "next";
 import { generateBioMetadata } from "@/lib/seo/metadata";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -189,15 +190,20 @@ export default async function BioPage({ params }: Props) {
                 </React.Fragment>
               ))}
           </div>
-          <Link
+          <TrackedLink
+            href="/downloads/resume-EnriqueVelasco.pdf"
+            trackingType="cv_download"
+            trackingData={{
+              location: "bio_page",
+              language: locale as "en" | "es",
+            }}
             className={clsx(TYPOGRAPHY.mono18)}
-            href="/assets/documents/CV_Enrique_Perez_Velasco.pdf"
             target="_blank"
           >
             <Button variant="outline" className="uppercase border-black-60">
               <FileText /> {t("cvLabel")}
             </Button>
-          </Link>
+          </TrackedLink>
         </div>
       </section>
       <section className="w-full">
@@ -278,12 +284,14 @@ export default async function BioPage({ params }: Props) {
             <p className={clsx(TYPOGRAPHY.text20, "text-white")}>
               {t("connect.text")}
             </p>
-            <Link
-              href="/contact"
+            <TrackedLink
+              href="mailto:info@evelas.co"
+              trackingType="email"
+              trackingData={{ email: "info@evelas.co", source: "bio" }}
               className={clsx(TYPOGRAPHY.mono20, "uppercase py-24 text-white")}
             >
               {t("connect.buttonLabel")}
-            </Link>
+            </TrackedLink>
           </div>
         </div>
       </section>

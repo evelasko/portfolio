@@ -8,6 +8,9 @@ import { formatArticleDate } from "@/lib/utils";
 import type { ContentListItem, ArticleFrontmatter } from "@/lib/mdx/types";
 import { useTranslations } from "next-intl";
 import React from "react";
+import { Button } from "../ui/button";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export default function TheThoughts({
   locale,
@@ -63,6 +66,18 @@ export default function TheThoughts({
               link={`/${locale}/articles/${article.slug}`}
             />
           ))}
+        </div>
+        <div className="flex justify-center pt-32 m:pt-48">
+          <Link href="/articles">
+            <Button
+              variant="outline"
+              brightness="light"
+              size="lg"
+              className={clsx(TYPOGRAPHY.mono18, "uppercase")}
+            >
+              Explore all articles
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

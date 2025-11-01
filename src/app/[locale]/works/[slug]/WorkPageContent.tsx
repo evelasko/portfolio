@@ -5,6 +5,8 @@ import dayjs from "dayjs";
 import { ExternalLink } from "lucide-react";
 import type { WorkFrontmatter } from "@/lib/mdx";
 import MinimalHero from "@/components/heroes/MinimalHero";
+import { WorkViewTracker } from "@/components/analytics/WorkViewTracker";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 
 interface WorkPageContentProps {
   work: {
@@ -31,6 +33,14 @@ export function WorkPageContent({ work }: WorkPageContentProps) {
 
   return (
     <>
+      {/* Analytics Tracking */}
+      <WorkViewTracker
+        workTitle={work.frontmatter.title}
+        workCategory={work.frontmatter.category}
+        workSlug={work.slug}
+        language={work.locale as "en" | "es"}
+      />
+
       {/* Hero Section */}
       {work.frontmatter.coverImage && (
         <MinimalHero
@@ -161,10 +171,14 @@ export function WorkPageContent({ work }: WorkPageContentProps) {
           {/* Project URL */}
           {work.frontmatter.projectUrl && (
             <div className="mt-8">
-              <a
+              <TrackedLink
                 href={work.frontmatter.projectUrl}
                 target="_blank"
-                rel="noopener noreferrer"
+                trackingType="external"
+                trackingData={{
+                  linkType: "work",
+                  linkText: "View Live Project",
+                }}
                 className={clsx(
                   TYPOGRAPHY.text16,
                   "inline-flex items-center gap-2 text-orange-100 hover:underline"
@@ -172,7 +186,7 @@ export function WorkPageContent({ work }: WorkPageContentProps) {
               >
                 View Live Project
                 <ExternalLink className="w-4 h-4" />
-              </a>
+              </TrackedLink>
             </div>
           )}
         </div>

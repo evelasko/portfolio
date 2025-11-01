@@ -14,7 +14,7 @@ tags:
   ]
 featured: true
 draft: false
-coverImage: "https://res.cloudinary.com/misfitcoders/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg"
+coverImage: "https://res.cloudinary.com/misfitcoders/image/upload/v1761918605/eVelasco/covers/articles/building-real-time-creative-systems_itgs15.png"
 alternateLocales:
   en: "building-real-time-creative-systems"
 ---
@@ -29,9 +29,9 @@ Ese fracaso me enseñó más que una docena de éxitos. Me enseñó que construi
 
 En nuestro mundo, "tiempo real" no es una palabra de moda de marketing. Es una promesa.
 
--   **Para los Ojos:** Mínimo 60 fotogramas por segundo (eso es un presupuesto de 16.67 milisegundos por fotograma).
--   **Para los Oídos:** Menos de 10ms de latencia.
--   **Para el Tacto (sensores):** Menos de 5ms de tiempo de respuesta.
+- **Para los Ojos:** Mínimo 60 fotogramas por segundo (eso es un presupuesto de 16.67 milisegundos por fotograma).
+- **Para los Oídos:** Menos de 10ms de latencia.
+- **Para el Tacto (sensores):** Menos de 5ms de tiempo de respuesta.
 
 Si no cumples estos plazos, la ilusión se rompe. El sistema no se siente como una extensión del cuerpo, se siente como una herramienta torpe.
 
@@ -43,23 +43,23 @@ Para evitar el colapso, he aprendido a diseñar mis sistemas no como un bloque m
 
 Esta capa es la piel de tu proyecto. Su único trabajo es percibir el mundo de la forma más cruda y rápida posible.
 
--   **Qué hace:** Cámaras, micrófonos, sensores capturan datos (movimiento, sonido, biometría).
--   **Principio clave:** Haz el mínimo procesamiento posible aquí. Extrae solo la esencia (la posición de una mano, la intensidad de un sonido) y envíala inmediatamente.
--   **Lenguaje:** Protocolos ligeros como OSC o WebSockets.
+- **Qué hace:** Cámaras, micrófonos, sensores capturan datos (movimiento, sonido, biometría).
+- **Principio clave:** Haz el mínimo procesamiento posible aquí. Extrae solo la esencia (la posición de una mano, la intensidad de un sonido) y envíala inmediatamente.
+- **Lenguaje:** Protocolos ligeros como OSC o WebSockets.
 
 ### Capa 2: El Cerebro (Lógica y Toma de Decisiones)
 
 Aquí es donde reside la inteligencia. El cerebro recibe las señales de los sentidos y decide qué hacer con ellas.
 
--   **Qué hace:** Un servidor (Node.js o Python son mis favoritos) recibe los datos. Aquí es donde aplicas la lógica, suavizas los datos brutos y gestionas el estado general del sistema.
--   **Principio clave:** El cerebro no se preocupa por el renderizado. Su trabajo es pensar, no actuar. Esto lo mantiene rápido y ágil.
+- **Qué hace:** Un servidor (Node.js o Python son mis favoritos) recibe los datos. Aquí es donde aplicas la lógica, suavizas los datos brutos y gestionas el estado general del sistema.
+- **Principio clave:** El cerebro no se preocupa por el renderizado. Su trabajo es pensar, no actuar. Esto lo mantiene rápido y ágil.
 
 ### Capa 3: Los Músculos (Renderizado y Salida)
 
 Esta capa es la que actúa. Recibe órdenes del cerebro y las ejecuta, creando la experiencia final.
 
--   **Qué hace:** Renderiza los gráficos (con WebGL/shaders), produce el sonido (con Web Audio API, Max/MSP), o mueve objetos físicos (con Arduino/Raspberry Pi).
--   **Principio clave:** Los músculos son especialistas. La GPU se encarga de los gráficos, el motor de audio del sonido. Cada uno hace su trabajo pesado de forma independiente.
+- **Qué hace:** Renderiza los gráficos (con WebGL/shaders), produce el sonido (con Web Audio API, Max/MSP), o mueve objetos físicos (con Arduino/Raspberry Pi).
+- **Principio clave:** Los músculos son especialistas. La GPU se encarga de los gráficos, el motor de audio del sonido. Cada uno hace su trabajo pesado de forma independiente.
 
 La magia de esta separación es que un músculo lento (como un renderizado gráfico complejo) no puede ahogar al cerebro o a los sentidos. El sistema sigue siendo receptivo.
 
@@ -99,7 +99,7 @@ def process_frame(frame):
     osc_client.send_message("/motion/intensity", intensity)
 ```
 
-Fíjate en lo que *no* estamos haciendo: no enviamos el vídeo completo. Solo destilamos la esencia del movimiento y la enviamos.
+Fíjate en lo que _no_ estamos haciendo: no enviamos el vídeo completo. Solo destilamos la esencia del movimiento y la enviamos.
 
 ### El Cerebro (Node.js)
 
@@ -113,7 +113,8 @@ const wss = new WebSocket.Server({ port: 8080 });
 const udpPort = new osc.UDPPort({ localPort: 7400 });
 
 // Usamos una media móvil exponencial para suavizar los datos
-let smoothedX = 0, smoothedY = 0;
+let smoothedX = 0,
+  smoothedY = 0;
 const SMOOTHING = 0.3;
 
 udpPort.on("message", oscMsg => {
@@ -168,22 +169,22 @@ void main() {
 
 ## Secretos de Optimización del Campo de Batalla
 
--   **La GPU es tu mejor amiga:** Cualquier cálculo que pueda hacerse en paralelo (como el color de cada píxel) debe hacerse en un shader. La CPU es para la lógica secuencial, la GPU para la fuerza bruta paralela.
--   **Ponte a dieta de datos:** No envíes datos que no necesitas. Extrae las características clave en la capa de "Sentidos" y envía solo eso.
--   **Usa Web Workers:** Si tienes que hacer un cálculo pesado en el navegador (que no sea gráfico), mételo en un Web Worker. Esto evita que el hilo principal, encargado de que la página se sienta fluida, se bloquee.
+- **La GPU es tu mejor amiga:** Cualquier cálculo que pueda hacerse en paralelo (como el color de cada píxel) debe hacerse en un shader. La CPU es para la lógica secuencial, la GPU para la fuerza bruta paralela.
+- **Ponte a dieta de datos:** No envíes datos que no necesitas. Extrae las características clave en la capa de "Sentidos" y envía solo eso.
+- **Usa Web Workers:** Si tienes que hacer un cálculo pesado en el navegador (que no sea gráfico), mételo en un Web Worker. Esto evita que el hilo principal, encargado de que la página se sienta fluida, se bloquee.
 
 ## Mi Caja de Herramientas
 
--   **Sentidos (Visión):** OpenCV (Python/C++), MediaPipe.
--   **Comunicación:** OSC (mi favorito por su velocidad), WebSockets, MQTT.
--   **Músculos (Visuales):** Three.js, TouchDesigner, GLSL puro.
--   **Músculos (Audio):** Web Audio API, Max/MSP, Ableton Live.
+- **Sentidos (Visión):** OpenCV (Python/C++), MediaPipe.
+- **Comunicación:** OSC (mi favorito por su velocidad), WebSockets, MQTT.
+- **Músculos (Visuales):** Three.js, TouchDesigner, GLSL puro.
+- **Músculos (Audio):** Web Audio API, Max/MSP, Ableton Live.
 
 ## Los Errores que Cometerás (y cómo sobrevivir a ellos)
 
--   **La Pesadilla de la Sincronización:** Múltiples máquinas, múltiples relojes. Usa una única fuente de verdad para el tiempo y estampa cada mensaje con una marca de tiempo.
--   **La Fragilidad del Sistema:** ¿Qué pasa si un sensor se desconecta? Tu sistema no debe colapsar. Debe tener estados por defecto y degradarse con elegancia.
--   **Probar en el Vacío:** Probar un sistema interactivo sin humanos es como ensayar una obra de teatro sin actores. La gente es impredecible. Sus interacciones revelarán los puntos débiles de tu sistema.
+- **La Pesadilla de la Sincronización:** Múltiples máquinas, múltiples relojes. Usa una única fuente de verdad para el tiempo y estampa cada mensaje con una marca de tiempo.
+- **La Fragilidad del Sistema:** ¿Qué pasa si un sensor se desconecta? Tu sistema no debe colapsar. Debe tener estados por defecto y degradarse con elegancia.
+- **Probar en el Vacío:** Probar un sistema interactivo sin humanos es como ensayar una obra de teatro sin actores. La gente es impredecible. Sus interacciones revelarán los puntos débiles de tu sistema.
 
 Al final, construir sistemas en tiempo real es una disciplina a medio camino entre la ingeniería y la coreografía. Se trata de crear un diálogo, una conversación fluida entre el ser humano y la máquina.
 

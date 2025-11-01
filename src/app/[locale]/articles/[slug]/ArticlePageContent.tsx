@@ -5,6 +5,8 @@ import "dayjs/locale/es";
 import "dayjs/locale/en";
 import dayjs from "dayjs";
 import type { ArticleFrontmatter } from "@/lib/mdx";
+import { ScrollDepthTracker } from "@/components/analytics/ScrollDepthTracker";
+import { ArticleViewTracker } from "@/components/analytics/ArticleViewTracker";
 
 interface ArticlePageContentProps {
   article: {
@@ -31,6 +33,19 @@ export function ArticlePageContent({ article }: ArticlePageContentProps) {
 
   return (
     <>
+      {/* Analytics Tracking */}
+      <ArticleViewTracker
+        articleTitle={article.frontmatter.title}
+        articleCategory={article.frontmatter.category}
+        articleSlug={article.slug}
+        readingTime={article.readingTime.minutes}
+        language={article.locale as "en" | "es"}
+      />
+      <ScrollDepthTracker
+        articleTitle={article.frontmatter.title}
+        articleSlug={article.slug}
+      />
+
       {/* Hero Section */}
       <section className="min-h-[60vh] flex items-center justify-center px-6 py-24">
         <div className="max-w-4xl w-full">

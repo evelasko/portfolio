@@ -8,6 +8,7 @@ import {
   defaultTwitterConfig,
 } from "@/lib/seo/metadata";
 import { INFO } from "@/content/info";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -62,6 +63,9 @@ export default async function RootLayout({
         className={`${plusJakartaSans.variable} ${fragmentMono.variable} antialiased`}
       >
         {children}
+        {process.env.GOOGLE_MEASUREMENT_ID && (
+          <GoogleAnalytics gaId={process.env.GOOGLE_MEASUREMENT_ID} />
+        )}
       </body>
     </html>
   );
