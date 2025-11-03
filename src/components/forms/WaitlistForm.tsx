@@ -37,9 +37,12 @@ export default function WaitlistForm({
     setMessage("");
 
     try {
-      const response = await fetch("https://cenie.org/api/waitlist", {
+      // Use local proxy API route to avoid CORS issues
+      const response = await fetch("/api/waitlist", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           ...formData,
           source: "evelas",
@@ -95,9 +98,7 @@ export default function WaitlistForm({
           type="email"
           placeholder={t("emailPlaceholder")}
           value={formData.email}
-          onChange={e =>
-            setFormData({ ...formData, email: e.target.value })
-          }
+          onChange={e => setFormData({ ...formData, email: e.target.value })}
           required
           disabled={status === "loading"}
           className={inputBaseClasses}
@@ -146,4 +147,3 @@ export default function WaitlistForm({
     </form>
   );
 }
-
