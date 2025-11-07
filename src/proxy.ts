@@ -50,6 +50,10 @@ function cleanUrl(pathname: string): string | null {
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Debug logging for Spanish article URLs
+  const isSpanishArticlePath = pathname.startsWith("/articulos/");
+  const isSpanishWorkPath = pathname.startsWith("/trabajos/");
+
   // Handle invalid URLs
   if (!isValidUrl(pathname)) {
     const cleaned = cleanUrl(pathname);
@@ -81,8 +85,101 @@ export default function middleware(request: NextRequest) {
     }
   }
 
-  // Let next-intl middleware handle the rest
-  return intlMiddleware(request);
+  // Let next-intl middleware handle the request first
+  const response = intlMiddleware(request);
+
+  // Special handling for Spanish pathnames: intercept incorrect redirects
+  if (isSpanishArticlePath || isSpanishWorkPath) {
+    // Extract the slug from the pathname
+    const slug = pathname.split("/").slice(2).join("/");
+
+    // If next-intl is trying to redirect (likely to English), intercept and fix it
+    if (response.status === 307 || response.status === 308) {
+      const location = response.headers.get("location");
+      if (location) {
+        try {
+          const redirectUrl = new URL(location, request.url);
+
+          // If redirecting to English version of Spanish pathname, rewrite instead
+          // This happens when next-intl doesn't recognize the Spanish pathname
+          if (redirectUrl.pathname.startsWith("/en/")) {
+            // Rewrite to internal Spanish route structure
+            const internalPath = isSpanishArticlePath
+              ? `/${routing.defaultLocale}/articles/${slug}`
+              : `/${routing.defaultLocale}/works/${slug}`;
+
+            const url = request.nextUrl.clone();
+            url.pathname = internalPath;
+
+            // Rewrite preserves the original URL in browser
+            const rewrite = NextResponse.rewrite(url);
+            rewrite.headers.set("x-original-pathname", pathname);
+            rewrite.headers.set("x-next-intl-locale", routing.defaultLocale);
+
+            return rewrite;
+          }
+
+          // Check for redirect loops
+          const normalizedRedirectPath = redirectUrl.pathname.replace(
+            /^\/es\//,
+            "/"
+          );
+          const normalizedCurrentPath = pathname.replace(/^\/es\//, "/");
+
+          if (normalizedRedirectPath === normalizedCurrentPath) {
+            // Rewrite to internal route structure
+            const internalPath = isSpanishArticlePath
+              ? `/${routing.defaultLocale}/articles/${slug}`
+              : `/${routing.defaultLocale}/works/${slug}`;
+
+            const url = request.nextUrl.clone();
+            url.pathname = internalPath;
+
+            const rewrite = NextResponse.rewrite(url);
+            rewrite.headers.set("x-original-pathname", pathname);
+            rewrite.headers.set("x-next-intl-locale", routing.defaultLocale);
+
+            return rewrite;
+          }
+        } catch (e) {
+          console.error("[MIDDLEWARE] Error processing redirect:", e);
+        }
+      }
+    }
+
+    // If no redirect, but response is not a rewrite, check if we need to rewrite
+    // This handles the case where next-intl doesn't recognize the pathname at all
+    if (response.status === 200 || response.status === 404) {
+      // Check if the response is actually handling the Spanish pathname correctly
+      // If not, we need to rewrite it
+      const internalPath = isSpanishArticlePath
+        ? `/${routing.defaultLocale}/articles/${slug}`
+        : `/${routing.defaultLocale}/works/${slug}`;
+
+      const url = request.nextUrl.clone();
+      url.pathname = internalPath;
+
+      const rewrite = NextResponse.rewrite(url);
+      rewrite.headers.set("x-original-pathname", pathname);
+      rewrite.headers.set("x-next-intl-locale", routing.defaultLocale);
+
+      return rewrite;
+    }
+  }
+
+  // Log other redirects for debugging
+  if (response.status === 307 || response.status === 308) {
+    const location = response.headers.get("location");
+    if (location) {
+      console.log("[MIDDLEWARE] Redirect detected:", {
+        from: pathname,
+        to: location,
+        status: response.status,
+      });
+    }
+  }
+
+  return response;
 }
 
 export const config = {

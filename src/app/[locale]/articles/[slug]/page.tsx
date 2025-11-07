@@ -30,19 +30,26 @@ export default async function ArticlePage({
 
   // Check if article exists in current locale, if not try other locale
   const existsInCurrentLocale = await contentExists("article", locale, slug);
-  
+
   if (!existsInCurrentLocale) {
     // Try the other locale
     const otherLocale = routing.locales.find(l => l !== locale);
     if (otherLocale) {
-      const existsInOtherLocale = await contentExists("article", otherLocale, slug);
+      const existsInOtherLocale = await contentExists(
+        "article",
+        otherLocale,
+        slug
+      );
       if (existsInOtherLocale) {
         // Redirect to the correct locale
-        const articlesRoute = structure.routes.find(route => route.key === "/articles");
+        const articlesRoute = structure.routes.find(
+          route => route.key === "/articles"
+        );
         const articlesPath = articlesRoute?.href[otherLocale] || "/articles";
-        const redirectPath = otherLocale === routing.defaultLocale 
-          ? `${articlesPath}/${slug}`
-          : `/${otherLocale}${articlesPath}/${slug}`;
+        const redirectPath =
+          otherLocale === routing.defaultLocale
+            ? `${articlesPath}/${slug}`
+            : `/${otherLocale}${articlesPath}/${slug}`;
         redirect(redirectPath);
       }
     }
@@ -63,7 +70,17 @@ export default async function ArticlePage({
   };
 
   // Generate Article JSON-LD schema
-  const articleUrl = getAbsoluteUrl(`/${locale}/articles/${slug}`, BASE_URL);
+  // Use localized pathname for the URL
+  const articlesRoute = structure.routes.find(
+    route => route.key === "/articles"
+  );
+  const articlesPath =
+    articlesRoute?.href[locale as "en" | "es"] || "/articles";
+  const articleUrlPath =
+    locale === routing.defaultLocale
+      ? `${articlesPath}/${slug}`
+      : `/${locale}${articlesPath}/${slug}`;
+  const articleUrl = getAbsoluteUrl(articleUrlPath, BASE_URL);
   const articleSchema = generateArticleSchema({
     headline: article.frontmatter.title,
     description: article.frontmatter.description,
@@ -86,7 +103,12 @@ export default async function ArticlePage({
     },
     {
       name: locale === "en" ? "Articles" : "Artículos",
-      url: getAbsoluteUrl(`/${locale}/articles`, BASE_URL),
+      url: getAbsoluteUrl(
+        locale === routing.defaultLocale
+          ? articlesPath
+          : `/${locale}${articlesPath}`,
+        BASE_URL
+      ),
     },
     {
       name: article.frontmatter.title,
