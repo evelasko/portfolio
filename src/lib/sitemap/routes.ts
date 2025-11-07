@@ -23,12 +23,6 @@ import { withCache, generateSitemapCacheKey } from "./cache";
  * Get the base URL from environment or request
  */
 function getBaseUrl(request: NextRequest): string {
-  // Try to get from environment variable first
-  const envUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  if (envUrl) {
-    return envUrl.replace(/\/$/, "");
-  }
-
   // Fallback to request headers
   const host = request.headers.get("host") || "localhost:3000";
   const protocol = host.includes("localhost") ? "http" : "https";
@@ -83,6 +77,7 @@ export async function generateSitemapResponse(
   try {
     const baseUrl = getBaseUrl(request);
     const config = createSitemapConfig(baseUrl);
+    console.log(`@generateSitemapResponse: baseUrl: ${baseUrl}`);
 
     // Collect URLs with caching
     const cacheKey = generateSitemapCacheKey(type);
