@@ -3,6 +3,12 @@ import JsonLd from "@/components/seo/JsonLd";
 import { generateBreadcrumbSchema } from "@/lib/seo/schemas";
 import { BASE_URL } from "@/lib/seo/metadata";
 import { getAbsoluteUrl } from "@/lib/seo/utils";
+import { redirect } from "next/navigation";
+import { routing } from "@/i18n/routing";
+import structure from "@/lib/structure";
+
+// Ensure dynamic rendering for locale detection
+export const dynamic = "force-dynamic";
 
 /**
  * Server component that loads work data and renders the page
@@ -12,12 +18,32 @@ export default async function WorkPage({
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { getWorkData, getContentSlugs, compileMDXContent } = await import(
+  const { getWorkData, contentExists, compileMDXContent } = await import(
     "@/lib/mdx"
   );
   const { getMDXComponents } = await import("@/components/mdx");
 
   const { locale, slug } = await params;
+
+  // Check if work exists in current locale, if not try other locale
+  const existsInCurrentLocale = await contentExists("work", locale, slug);
+  
+  if (!existsInCurrentLocale) {
+    // Try the other locale
+    const otherLocale = routing.locales.find(l => l !== locale);
+    if (otherLocale) {
+      const existsInOtherLocale = await contentExists("work", otherLocale, slug);
+      if (existsInOtherLocale) {
+        // Redirect to the correct locale
+        const worksRoute = structure.routes.find(route => route.key === "/works");
+        const worksPath = worksRoute?.href[otherLocale] || "/works";
+        const redirectPath = otherLocale === routing.defaultLocale 
+          ? `${worksPath}/${slug}`
+          : `/${otherLocale}${worksPath}/${slug}`;
+        redirect(redirectPath);
+      }
+    }
+  }
 
   // Load work data
   const workData = await getWorkData(locale, slug);
