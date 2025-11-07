@@ -4,6 +4,7 @@ import { LegalHeader, getLegalMDXComponents } from "@/components/mdx";
 import { LegalPageLayout } from "@/components/layout/LegalPageLayout";
 import { Metadata } from "next";
 import { generateLegalMetadata } from "@/lib/seo/metadata";
+import { getContentSlug } from "@/lib/localization/slug-mapping";
 
 interface TermsPageProps {
   params: Promise<{
@@ -18,7 +19,8 @@ export async function generateMetadata({
   params,
 }: TermsPageProps): Promise<Metadata> {
   const { locale } = await params;
-  const legalData = await getLegalData(locale, "terms");
+  const slug = getContentSlug("/terms", locale as "en" | "es", "legal");
+  const legalData = await getLegalData(locale, slug);
 
   return generateLegalMetadata({
     title: legalData.frontmatter.title,
@@ -31,7 +33,8 @@ export async function generateMetadata({
 
 export default async function TermsPage({ params }: TermsPageProps) {
   const { locale } = await params;
-  const legalData = await getLegalData(locale, "terms");
+  const slug = getContentSlug("/terms", locale as "en" | "es", "legal");
+  const legalData = await getLegalData(locale, slug);
   const compiledContent = await compileMDXContent(
     legalData.content,
     getLegalMDXComponents()
