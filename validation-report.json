@@ -1,0 +1,2169 @@
+{
+  "base_url": "https://evelas.co",
+  "timestamp": "2025-11-07T23:34:53.697293",
+  "total_urls": 84,
+  "valid_urls": 84,
+  "failed_urls": 0,
+  "redirect_urls": 4,
+  "execution_time": 11.07211709022522,
+  "sitemap_results": [
+    {
+      "segment": "pages",
+      "total_urls": 8,
+      "valid_urls": 8,
+      "failed_urls": 0,
+      "redirect_urls": 1,
+      "errors": [],
+      "url_results": [
+        {
+          "url": "https://www.evelas.co/en/",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en",
+          "redirect_chain": [
+            "https://www.evelas.co/en/",
+            "https://www.evelas.co/en"
+          ],
+          "response_time": 2.789078950881958,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [
+            "Redirects to: https://www.evelas.co/en"
+          ],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/",
+          "redirect_chain": [],
+          "response_time": 1.2438709735870361,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/works",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/works",
+          "redirect_chain": [],
+          "response_time": 2.725675106048584,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/trabajos",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/trabajos",
+          "redirect_chain": [],
+          "response_time": 2.6844348907470703,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles",
+          "redirect_chain": [],
+          "response_time": 1.409538984298706,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos",
+          "redirect_chain": [],
+          "response_time": 2.6342740058898926,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/bio",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/bio",
+          "redirect_chain": [],
+          "response_time": 2.079293966293335,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/bio"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/bio"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/bio"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/bio",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/bio",
+          "redirect_chain": [],
+          "response_time": 2.0644071102142334,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/bio"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/bio"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/bio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "articles",
+      "total_urls": 40,
+      "valid_urls": 40,
+      "failed_urls": 0,
+      "redirect_urls": 0,
+      "errors": [],
+      "url_results": [
+        {
+          "url": "https://www.evelas.co/en/articles/creative-philosophy-principles",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/creative-philosophy-principles",
+          "redirect_chain": [],
+          "response_time": 2.1430399417877197,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/creative-philosophy-principles"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/mi-filosofia-creativa-principios-que-guian-mi-trabajo"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/mi-filosofia-creativa-principios-que-guian-mi-trabajo"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/personal-creative-rituals",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/personal-creative-rituals",
+          "redirect_chain": [],
+          "response_time": 2.3227200508117676,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/personal-creative-rituals"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/rituales-creativos-personales-las-pequenas-practicas-que-dan-forma-al-arte"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/rituales-creativos-personales-las-pequenas-practicas-que-dan-forma-al-arte"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/failure-as-data",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/failure-as-data",
+          "redirect_chain": [],
+          "response_time": 1.5290896892547607,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/failure-as-data"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/fracaso-como-datos"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/fracaso-como-datos"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/design-systems-for-creative-work",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/design-systems-for-creative-work",
+          "redirect_chain": [],
+          "response_time": 0.5559408664703369,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/design-systems-for-creative-work"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/sistemas-de-diseno-para-el-trabajo-creativo-la-estructura-da-libertad"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/sistemas-de-diseno-para-el-trabajo-creativo-la-estructura-da-libertad"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/documentation-as-creative-practice",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/documentation-as-creative-practice",
+          "redirect_chain": [],
+          "response_time": 2.1942808628082275,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/documentation-as-creative-practice"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/la-documentacion-como-practica-creativa-hacer-visible-el-proceso"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/la-documentacion-como-practica-creativa-hacer-visible-el-proceso"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/building-creative-community",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/building-creative-community",
+          "redirect_chain": [],
+          "response_time": 1.3110029697418213,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/building-creative-community"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/crear-una-comunidad-creativa-por-que-no-puedes-crecer-aislado"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/crear-una-comunidad-creativa-por-que-no-puedes-crecer-aislado"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/from-stage-to-screen",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/from-stage-to-screen",
+          "redirect_chain": [],
+          "response_time": 2.079177141189575,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/from-stage-to-screen"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/del-escenario-a-la-pantalla"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/del-escenario-a-la-pantalla"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/client-communication-frameworks",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/client-communication-frameworks",
+          "redirect_chain": [],
+          "response_time": 2.1775240898132324,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/client-communication-frameworks"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/marcos-de-comunicacion-con-el-cliente-que-realmente-funcionan"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/marcos-de-comunicacion-con-el-cliente-que-realmente-funcionan"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/when-code-becomes-choreography",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/when-code-becomes-choreography",
+          "redirect_chain": [],
+          "response_time": 2.0406970977783203,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/when-code-becomes-choreography"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/cuando-el-codigo-se-convierte-en-coreografia-la-interseccion-entre-programacion-y-movimiento"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/cuando-el-codigo-se-convierte-en-coreografia-la-interseccion-entre-programacion-y-movimiento"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/interdisciplinary-creative-thinking",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/interdisciplinary-creative-thinking",
+          "redirect_chain": [],
+          "response_time": 2.054749011993408,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/interdisciplinary-creative-thinking"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/pensamiento-creativo-interdisciplinar-tomar-prestadas-ideas-de-distintos-ambitos"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/pensamiento-creativo-interdisciplinar-tomar-prestadas-ideas-de-distintos-ambitos"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/from-freelancer-to-agency",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/from-freelancer-to-agency",
+          "redirect_chain": [],
+          "response_time": 0.6283049583435059,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/from-freelancer-to-agency"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/de-autonomo-a-agencia-cuando-y-como-escalar"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/de-autonomo-a-agencia-cuando-y-como-escalar"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/teaching-what-you-learn",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/teaching-what-you-learn",
+          "redirect_chain": [],
+          "response_time": 0.6821737289428711,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/teaching-what-you-learn"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/ensenar-lo-que-se-aprende-el-camino-mas-rapido-hacia-la-maestria"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/ensenar-lo-que-se-aprende-el-camino-mas-rapido-hacia-la-maestria"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/building-real-time-creative-systems",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/building-real-time-creative-systems",
+          "redirect_chain": [],
+          "response_time": 0.6461091041564941,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/building-real-time-creative-systems"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/construyendo-sistemas-creativos-en-tiempo-real"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/construyendo-sistemas-creativos-en-tiempo-real"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/pricing-creative-technical-work",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/pricing-creative-technical-work",
+          "redirect_chain": [],
+          "response_time": 2.1147568225860596,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/pricing-creative-technical-work"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/como-fijar-el-precio-del-trabajo-creativo-tecnico-un-marco-practico"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/como-fijar-el-precio-del-trabajo-creativo-tecnico-un-marco-practico"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/comfortable-with-not-knowing",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/comfortable-with-not-knowing",
+          "redirect_chain": [],
+          "response_time": 1.9366731643676758,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/comfortable-with-not-knowing"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/como-sentirse-comodo-con-el-desconocimiento-aceptar-la-incertidumbre-como-combustible-creativo"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/como-sentirse-comodo-con-el-desconocimiento-aceptar-la-incertidumbre-como-combustible-creativo"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/creative-tech-tools-2024",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/creative-tech-tools-2024",
+          "redirect_chain": [],
+          "response_time": 0.5813863277435303,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/creative-tech-tools-2024"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/la-caja-de-herramientas-del-tecnologo-creativo-herramientas-que-utilizare-en-2024"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/la-caja-de-herramientas-del-tecnologo-creativo-herramientas-que-utilizare-en-2024"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/finding-your-niche",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/finding-your-niche",
+          "redirect_chain": [],
+          "response_time": 0.7220990657806396,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/finding-your-niche"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/encontrar-su-nicho-por-que-el-yo-lo-hago-todo-esta-matando-su-negocio"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/encontrar-su-nicho-por-que-el-yo-lo-hago-todo-esta-matando-su-negocio"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/ai-as-co-choreographer",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/ai-as-co-choreographer",
+          "redirect_chain": [],
+          "response_time": 2.1092090606689453,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/ai-as-co-choreographer"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/ia-como-co-coreografa"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/ia-como-co-coreografa"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/sustainable-creative-career",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/sustainable-creative-career",
+          "redirect_chain": [],
+          "response_time": 1.2987887859344482,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/sustainable-creative-career"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/construir-una-carrera-creativa-sostenible-mas-alla-del-mito-del-ajetreo"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/construir-una-carrera-creativa-sostenible-mas-alla-del-mito-del-ajetreo"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/articles/craft-over-hustle",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/articles/craft-over-hustle",
+          "redirect_chain": [],
+          "response_time": 2.0687198638916016,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/craft-over-hustle"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/la-artesania-por-encima-de-la-prisa-por-que-bajar-el-ritmo-me-hizo-mas-productivo"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/la-artesania-por-encima-de-la-prisa-por-que-bajar-el-ritmo-me-hizo-mas-productivo"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/mi-filosofia-creativa-principios-que-guian-mi-trabajo",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/mi-filosofia-creativa-principios-que-guian-mi-trabajo",
+          "redirect_chain": [],
+          "response_time": 0.3050241470336914,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/mi-filosofia-creativa-principios-que-guian-mi-trabajo"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/creative-philosophy-principles"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/mi-filosofia-creativa-principios-que-guian-mi-trabajo"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/rituales-creativos-personales-las-pequenas-practicas-que-dan-forma-al-arte",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/rituales-creativos-personales-las-pequenas-practicas-que-dan-forma-al-arte",
+          "redirect_chain": [],
+          "response_time": 0.25285816192626953,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/rituales-creativos-personales-las-pequenas-practicas-que-dan-forma-al-arte"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/rituales-creativos-personales-las-pequenas-practicas-que-dan-forma-al-arte"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/fracaso-como-datos",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/fracaso-como-datos",
+          "redirect_chain": [],
+          "response_time": 0.35077714920043945,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/fracaso-como-datos"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/failure-as-data"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/fracaso-como-datos"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/sistemas-de-diseno-para-el-trabajo-creativo-la-estructura-da-libertad",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/sistemas-de-diseno-para-el-trabajo-creativo-la-estructura-da-libertad",
+          "redirect_chain": [],
+          "response_time": 0.26716089248657227,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/sistemas-de-diseno-para-el-trabajo-creativo-la-estructura-da-libertad"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/design-systems-for-creative-work"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/sistemas-de-diseno-para-el-trabajo-creativo-la-estructura-da-libertad"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/la-documentacion-como-practica-creativa-hacer-visible-el-proceso",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/la-documentacion-como-practica-creativa-hacer-visible-el-proceso",
+          "redirect_chain": [],
+          "response_time": 0.3287088871002197,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/la-documentacion-como-practica-creativa-hacer-visible-el-proceso"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/documentation-as-creative-practice"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/la-documentacion-como-practica-creativa-hacer-visible-el-proceso"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/crear-una-comunidad-creativa-por-que-no-puedes-crecer-aislado",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/crear-una-comunidad-creativa-por-que-no-puedes-crecer-aislado",
+          "redirect_chain": [],
+          "response_time": 0.2977890968322754,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/crear-una-comunidad-creativa-por-que-no-puedes-crecer-aislado"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/building-creative-community"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/crear-una-comunidad-creativa-por-que-no-puedes-crecer-aislado"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/del-escenario-a-la-pantalla",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/del-escenario-a-la-pantalla",
+          "redirect_chain": [],
+          "response_time": 0.3397481441497803,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/del-escenario-a-la-pantalla"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/from-stage-to-screen"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/del-escenario-a-la-pantalla"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/marcos-de-comunicacion-con-el-cliente-que-realmente-funcionan",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/marcos-de-comunicacion-con-el-cliente-que-realmente-funcionan",
+          "redirect_chain": [],
+          "response_time": 0.4976670742034912,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/marcos-de-comunicacion-con-el-cliente-que-realmente-funcionan"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/client-communication-frameworks"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/marcos-de-comunicacion-con-el-cliente-que-realmente-funcionan"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/cuando-el-codigo-se-convierte-en-coreografia-la-interseccion-entre-programacion-y-movimiento",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/cuando-el-codigo-se-convierte-en-coreografia-la-interseccion-entre-programacion-y-movimiento",
+          "redirect_chain": [],
+          "response_time": 0.3343527317047119,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/cuando-el-codigo-se-convierte-en-coreografia-la-interseccion-entre-programacion-y-movimiento"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/when-code-becomes-choreography"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/cuando-el-codigo-se-convierte-en-coreografia-la-interseccion-entre-programacion-y-movimiento"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/pensamiento-creativo-interdisciplinar-tomar-prestadas-ideas-de-distintos-ambitos",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/pensamiento-creativo-interdisciplinar-tomar-prestadas-ideas-de-distintos-ambitos",
+          "redirect_chain": [],
+          "response_time": 0.4372692108154297,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/pensamiento-creativo-interdisciplinar-tomar-prestadas-ideas-de-distintos-ambitos"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/interdisciplinary-creative-thinking"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/pensamiento-creativo-interdisciplinar-tomar-prestadas-ideas-de-distintos-ambitos"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/de-autonomo-a-agencia-cuando-y-como-escalar",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/de-autonomo-a-agencia-cuando-y-como-escalar",
+          "redirect_chain": [],
+          "response_time": 0.38094401359558105,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/de-autonomo-a-agencia-cuando-y-como-escalar"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/from-freelancer-to-agency"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/de-autonomo-a-agencia-cuando-y-como-escalar"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/ensenar-lo-que-se-aprende-el-camino-mas-rapido-hacia-la-maestria",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/ensenar-lo-que-se-aprende-el-camino-mas-rapido-hacia-la-maestria",
+          "redirect_chain": [],
+          "response_time": 0.338238000869751,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/ensenar-lo-que-se-aprende-el-camino-mas-rapido-hacia-la-maestria"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/teaching-what-you-learn"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/ensenar-lo-que-se-aprende-el-camino-mas-rapido-hacia-la-maestria"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/construyendo-sistemas-creativos-en-tiempo-real",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/construyendo-sistemas-creativos-en-tiempo-real",
+          "redirect_chain": [],
+          "response_time": 0.30912113189697266,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/construyendo-sistemas-creativos-en-tiempo-real"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/building-real-time-creative-systems"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/construyendo-sistemas-creativos-en-tiempo-real"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/como-fijar-el-precio-del-trabajo-creativo-tecnico-un-marco-practico",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/como-fijar-el-precio-del-trabajo-creativo-tecnico-un-marco-practico",
+          "redirect_chain": [],
+          "response_time": 0.5418579578399658,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/como-fijar-el-precio-del-trabajo-creativo-tecnico-un-marco-practico"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/pricing-creative-technical-work"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/como-fijar-el-precio-del-trabajo-creativo-tecnico-un-marco-practico"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/como-sentirse-comodo-con-el-desconocimiento-aceptar-la-incertidumbre-como-combustible-creativo",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/como-sentirse-comodo-con-el-desconocimiento-aceptar-la-incertidumbre-como-combustible-creativo",
+          "redirect_chain": [],
+          "response_time": 0.536311149597168,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/como-sentirse-comodo-con-el-desconocimiento-aceptar-la-incertidumbre-como-combustible-creativo"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/comfortable-with-not-knowing"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/como-sentirse-comodo-con-el-desconocimiento-aceptar-la-incertidumbre-como-combustible-creativo"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/la-caja-de-herramientas-del-tecnologo-creativo-herramientas-que-utilizare-en-2024",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/la-caja-de-herramientas-del-tecnologo-creativo-herramientas-que-utilizare-en-2024",
+          "redirect_chain": [],
+          "response_time": 0.29829883575439453,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/la-caja-de-herramientas-del-tecnologo-creativo-herramientas-que-utilizare-en-2024"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/creative-tech-tools-2024"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/la-caja-de-herramientas-del-tecnologo-creativo-herramientas-que-utilizare-en-2024"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/encontrar-su-nicho-por-que-el-yo-lo-hago-todo-esta-matando-su-negocio",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/encontrar-su-nicho-por-que-el-yo-lo-hago-todo-esta-matando-su-negocio",
+          "redirect_chain": [],
+          "response_time": 0.35027217864990234,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/encontrar-su-nicho-por-que-el-yo-lo-hago-todo-esta-matando-su-negocio"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/finding-your-niche"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/encontrar-su-nicho-por-que-el-yo-lo-hago-todo-esta-matando-su-negocio"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/ia-como-co-coreografa",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/ia-como-co-coreografa",
+          "redirect_chain": [],
+          "response_time": 0.2986278533935547,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/ia-como-co-coreografa"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/ai-as-co-choreographer"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/ia-como-co-coreografa"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/construir-una-carrera-creativa-sostenible-mas-alla-del-mito-del-ajetreo",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/construir-una-carrera-creativa-sostenible-mas-alla-del-mito-del-ajetreo",
+          "redirect_chain": [],
+          "response_time": 0.3031737804412842,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/construir-una-carrera-creativa-sostenible-mas-alla-del-mito-del-ajetreo"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/sustainable-creative-career"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/construir-una-carrera-creativa-sostenible-mas-alla-del-mito-del-ajetreo"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/articulos/la-artesania-por-encima-de-la-prisa-por-que-bajar-el-ritmo-me-hizo-mas-productivo",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/articulos/la-artesania-por-encima-de-la-prisa-por-que-bajar-el-ritmo-me-hizo-mas-productivo",
+          "redirect_chain": [],
+          "response_time": 0.2868807315826416,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/articulos/la-artesania-por-encima-de-la-prisa-por-que-bajar-el-ritmo-me-hizo-mas-productivo"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/articles/craft-over-hustle"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/articulos/la-artesania-por-encima-de-la-prisa-por-que-bajar-el-ritmo-me-hizo-mas-productivo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "works",
+      "total_urls": 30,
+      "valid_urls": 30,
+      "failed_urls": 0,
+      "redirect_urls": 0,
+      "errors": [],
+      "url_results": [
+        {
+          "url": "https://www.evelas.co/en/works/theodore-system",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/works/theodore-system",
+          "redirect_chain": [],
+          "response_time": 1.521233081817627,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/theodore-system"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/theodore-system"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/theodore-system"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/works/zotero-citation-linker",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/works/zotero-citation-linker",
+          "redirect_chain": [],
+          "response_time": 0.48035097122192383,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/zotero-citation-linker"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/zotero-citation-linker"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/zotero-citation-linker"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/works/obsidian-zotero-linker",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/works/obsidian-zotero-linker",
+          "redirect_chain": [],
+          "response_time": 0.5080058574676514,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/obsidian-zotero-linker"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/obsidian-zotero-linker"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/obsidian-zotero-linker"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/works/un-siglo-con-cuatro",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/works/un-siglo-con-cuatro",
+          "redirect_chain": [],
+          "response_time": 0.4700808525085449,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/un-siglo-con-cuatro"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/un-siglo-con-cuatro"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/un-siglo-con-cuatro"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/works/inedito",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/works/inedito",
+          "redirect_chain": [],
+          "response_time": 0.46166396141052246,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/inedito"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/inedito"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/inedito"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/works/ilurama-app",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/works/ilurama-app",
+          "redirect_chain": [],
+          "response_time": 0.4351680278778076,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/ilurama-app"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/ilurama-app"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/ilurama-app"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/works/hey-siri-do-you-love-me",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/works/hey-siri-do-you-love-me",
+          "redirect_chain": [],
+          "response_time": 0.40110015869140625,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/hey-siri-do-you-love-me"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/hey-siri-do-you-love-me"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/hey-siri-do-you-love-me"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/works/congreso-mundial-de-a-a-e-e",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/works/congreso-mundial-de-a-a-e-e",
+          "redirect_chain": [],
+          "response_time": 0.43863487243652344,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/congreso-mundial-de-a-a-e-e"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/congreso-mundial-de-a-a-e-e"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/congreso-mundial-de-a-a-e-e"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/works/iti-75-anniversary-brand",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/works/iti-75-anniversary-brand",
+          "redirect_chain": [],
+          "response_time": 0.46721792221069336,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/iti-75-anniversary-brand"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/iti-75-anniversary-brand"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/iti-75-anniversary-brand"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/works/diverso",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/works/diverso",
+          "redirect_chain": [],
+          "response_time": 0.47386908531188965,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/diverso"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/diverso"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/diverso"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/works/alicia-alonso-campus-app",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/works/alicia-alonso-campus-app",
+          "redirect_chain": [],
+          "response_time": 0.3987143039703369,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/alicia-alonso-campus-app"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/alicia-alonso-campus-app"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/alicia-alonso-campus-app"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/works/fundacion-alicia-alonso",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/works/fundacion-alicia-alonso",
+          "redirect_chain": [],
+          "response_time": 0.4111900329589844,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/fundacion-alicia-alonso"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/fundacion-alicia-alonso"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/fundacion-alicia-alonso"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/works/qlab-show-control-scripts",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/works/qlab-show-control-scripts",
+          "redirect_chain": [],
+          "response_time": 0.3729221820831299,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/qlab-show-control-scripts"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/qlab-show-control-scripts"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/qlab-show-control-scripts"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/works/stoomp",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/works/stoomp",
+          "redirect_chain": [],
+          "response_time": 0.3735361099243164,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/stoomp"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/stoomp"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/stoomp"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/works/west-side-story",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/works/west-side-story",
+          "redirect_chain": [],
+          "response_time": 0.47565484046936035,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/west-side-story"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/west-side-story"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/west-side-story"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/trabajos/theodore-system",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/trabajos/theodore-system",
+          "redirect_chain": [],
+          "response_time": 0.39839601516723633,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/theodore-system"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/theodore-system"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/theodore-system"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/trabajos/zotero-citation-linker",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/trabajos/zotero-citation-linker",
+          "redirect_chain": [],
+          "response_time": 0.5234448909759521,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/zotero-citation-linker"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/zotero-citation-linker"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/zotero-citation-linker"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/trabajos/obsidian-zotero-linker",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/trabajos/obsidian-zotero-linker",
+          "redirect_chain": [],
+          "response_time": 0.4346897602081299,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/obsidian-zotero-linker"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/obsidian-zotero-linker"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/obsidian-zotero-linker"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/trabajos/un-siglo-con-cuatro",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/trabajos/un-siglo-con-cuatro",
+          "redirect_chain": [],
+          "response_time": 0.37717199325561523,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/un-siglo-con-cuatro"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/un-siglo-con-cuatro"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/un-siglo-con-cuatro"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/trabajos/inedito",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/trabajos/inedito",
+          "redirect_chain": [],
+          "response_time": 0.4042038917541504,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/inedito"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/inedito"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/inedito"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/trabajos/ilurama-app",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/trabajos/ilurama-app",
+          "redirect_chain": [],
+          "response_time": 0.2446901798248291,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/ilurama-app"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/ilurama-app"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/ilurama-app"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/trabajos/hey-siri-do-you-love-me",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/trabajos/hey-siri-do-you-love-me",
+          "redirect_chain": [],
+          "response_time": 0.3139801025390625,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/hey-siri-do-you-love-me"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/hey-siri-do-you-love-me"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/hey-siri-do-you-love-me"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/trabajos/congreso-mundial-de-a-a-e-e",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/trabajos/congreso-mundial-de-a-a-e-e",
+          "redirect_chain": [],
+          "response_time": 0.2135019302368164,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/congreso-mundial-de-a-a-e-e"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/congreso-mundial-de-a-a-e-e"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/congreso-mundial-de-a-a-e-e"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/trabajos/iti-75-anniversary-brand",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/trabajos/iti-75-anniversary-brand",
+          "redirect_chain": [],
+          "response_time": 0.2922840118408203,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/iti-75-anniversary-brand"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/iti-75-anniversary-brand"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/iti-75-anniversary-brand"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/trabajos/diverso",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/trabajos/diverso",
+          "redirect_chain": [],
+          "response_time": 0.2646820545196533,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/diverso"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/diverso"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/diverso"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/trabajos/alicia-alonso-campus-app",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/trabajos/alicia-alonso-campus-app",
+          "redirect_chain": [],
+          "response_time": 0.3236210346221924,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/alicia-alonso-campus-app"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/alicia-alonso-campus-app"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/alicia-alonso-campus-app"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/trabajos/fundacion-alicia-alonso",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/trabajos/fundacion-alicia-alonso",
+          "redirect_chain": [],
+          "response_time": 0.32682013511657715,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/fundacion-alicia-alonso"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/fundacion-alicia-alonso"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/fundacion-alicia-alonso"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/trabajos/qlab-show-control-scripts",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/trabajos/qlab-show-control-scripts",
+          "redirect_chain": [],
+          "response_time": 0.30106687545776367,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/qlab-show-control-scripts"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/qlab-show-control-scripts"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/qlab-show-control-scripts"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/trabajos/stoomp",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/trabajos/stoomp",
+          "redirect_chain": [],
+          "response_time": 0.24155688285827637,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/stoomp"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/stoomp"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/stoomp"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/trabajos/west-side-story",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/trabajos/west-side-story",
+          "redirect_chain": [],
+          "response_time": 0.3229329586029053,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/trabajos/west-side-story"
+            },
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/works/west-side-story"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/trabajos/west-side-story"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "legal",
+      "total_urls": 6,
+      "valid_urls": 6,
+      "failed_urls": 0,
+      "redirect_urls": 3,
+      "errors": [],
+      "url_results": [
+        {
+          "url": "https://www.evelas.co/en/privacy",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/privacy",
+          "redirect_chain": [],
+          "response_time": 0.4398689270019531,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/privacy"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/privacidad"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/privacidad"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/privacidad",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/privacy",
+          "redirect_chain": [
+            "https://www.evelas.co/privacidad",
+            "https://www.evelas.co/en/privacy"
+          ],
+          "response_time": 0.555833101272583,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [
+            "Redirects to: https://www.evelas.co/en/privacy"
+          ],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/privacy"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/privacidad"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/privacidad"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/terms",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/terms",
+          "redirect_chain": [],
+          "response_time": 0.5162971019744873,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/terms"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/terminos"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/terminos"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/terminos",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/terms",
+          "redirect_chain": [
+            "https://www.evelas.co/terminos",
+            "https://www.evelas.co/en/terms"
+          ],
+          "response_time": 0.4996311664581299,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [
+            "Redirects to: https://www.evelas.co/en/terms"
+          ],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/terms"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/terminos"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/terminos"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/en/imprint",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/imprint",
+          "redirect_chain": [],
+          "response_time": 0.5950851440429688,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/imprint"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/aviso"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/aviso"
+            }
+          ]
+        },
+        {
+          "url": "https://www.evelas.co/aviso",
+          "status_code": 200,
+          "final_url": "https://www.evelas.co/en/imprint",
+          "redirect_chain": [
+            "https://www.evelas.co/aviso",
+            "https://www.evelas.co/en/imprint"
+          ],
+          "response_time": 0.6963667869567871,
+          "error": null,
+          "content_type": "text/html; charset=utf-8",
+          "is_valid": true,
+          "warnings": [
+            "Redirects to: https://www.evelas.co/en/imprint"
+          ],
+          "hreflang_links": [
+            {
+              "hreflang": "en",
+              "href": "https://www.evelas.co/en/imprint"
+            },
+            {
+              "hreflang": "es",
+              "href": "https://www.evelas.co/aviso"
+            },
+            {
+              "hreflang": "x-default",
+              "href": "https://www.evelas.co/aviso"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "hreflang_issues": [],
+  "redirect_loops": []
+}
