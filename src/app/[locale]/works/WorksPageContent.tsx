@@ -22,7 +22,7 @@ interface WorksPageContentProps {
 }
 
 const WORK_PLACEHOLDER =
-  "https://res.cloudinary.com/misfitcoders/image/upload/v1760912222/eVelasco/covers/work-placeholder.jpg";
+  "https://res.cloudinary.com/evelasco/image/upload/v1760912222/eVelasco/covers/work-placeholder.jpg";
 
 /**
  * Client component for works listing page content with filtering and sorting

@@ -92,7 +92,7 @@ export default function MessageSplit({
           className="absolute inset-0 pointer-events-none z-2"
           style={{
             backgroundImage:
-              "url(https://res.cloudinary.com/misfitcoders/image/upload/v1760882825/eVelasco/ui/noise.png)",
+              "url(https://res.cloudinary.com/evelasco/image/upload/v1760882825/eVelasco/ui/noise.png)",
             backgroundRepeat: "repeat",
             mixBlendMode: "overlay",
             opacity: vhsOpacity,
@@ -104,7 +104,7 @@ export default function MessageSplit({
           className="absolute inset-0 pointer-events-none z-3"
           style={{
             backgroundImage:
-              "url(https://res.cloudinary.com/misfitcoders/image/upload/v1760882832/eVelasco/ui/stripes.gif)",
+              "url(https://res.cloudinary.com/evelasco/image/upload/v1760882832/eVelasco/ui/stripes.gif)",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center",

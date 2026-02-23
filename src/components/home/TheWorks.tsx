@@ -32,7 +32,7 @@ export default function TheWorks({
     description: work.frontmatter.description,
     image:
       work.frontmatter.coverImage ||
-      "https://res.cloudinary.com/misfitcoders/image/upload/v1760912222/eVelasco/covers/work-placeholder.jpg",
+      "https://res.cloudinary.com/evelasco/image/upload/v1760912222/eVelasco/covers/work-placeholder.jpg",
     link: `/${locale}/works/${work.slug}`,
   }));
 

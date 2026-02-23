@@ -16,7 +16,7 @@ export default function TheWho({ locale }: { locale: string }) {
           className="text-center bg-black-100 text-white pt-32"
         />
         <BioBlock
-          photo_path="https://res.cloudinary.com/misfitcoders/image/upload/v1761045901/eVelasco/profile/portrait-2-cropped.jpg"
+          photo_path="https://res.cloudinary.com/evelasco/image/upload/v1761045901/eVelasco/profile/portrait-2-cropped.jpg"
           short_bio={t("shortBio")}
           social_links={INFO.social}
           other_links={[

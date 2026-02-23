@@ -19,7 +19,7 @@ export const INFO: Info = {
   email: "info@evelas.co",
   phone: "+34 609 971 307",
   profilePhoto:
-    "https://res.cloudinary.com/misfitcoders/image/upload/v1761655819/common/protrait-1_w9waah.jpg",
+    "https://res.cloudinary.com/evelasco/image/upload/v1761655819/common/protrait-1_w9waah.jpg",
   address: "Calle Eduardo Rivas 14\n28019 Madrid\nSpain",
   website: "https://evelas.co",
   domain: "https://evelas.co",

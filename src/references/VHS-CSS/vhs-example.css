@@ -22,8 +22,8 @@
     #6f5d79,
     #4e779a
   );
-  --noise-texture: url(https://res.cloudinary.com/misfitcoders/image/upload/v1760882825/eVelasco/ui/noise.png);
-  --gif-texture: url(https://res.cloudinary.com/misfitcoders/image/upload/v1760882832/eVelasco/ui/stripes.gif);
+  --noise-texture: url(https://res.cloudinary.com/evelasco/image/upload/v1760882825/eVelasco/ui/noise.png);
+  --gif-texture: url(https://res.cloudinary.com/evelasco/image/upload/v1760882832/eVelasco/ui/stripes.gif);
   --mulish: "Mulish", sans-serif;
   --playfair: "Playfair Display", serif;
   --dm: "DM Serif Display", serif;

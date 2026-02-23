@@ -61,7 +61,7 @@ export default function TheThoughts({
               readingTime={article.readingTime?.minutes || 5}
               image={
                 article.frontmatter.coverImage ||
-                "https://res.cloudinary.com/misfitcoders/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg"
+                "https://res.cloudinary.com/evelasco/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg"
               }
               link={`/${locale}/articles/${article.slug}`}
             />

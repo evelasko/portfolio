@@ -25,7 +25,7 @@ interface ArticlesPageContentProps {
 }
 
 const ARTICLE_PLACEHOLDER =
-  "https://res.cloudinary.com/misfitcoders/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg";
+  "https://res.cloudinary.com/evelasco/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg";
 
 /**
  * Client component for articles listing page content with filtering and sorting

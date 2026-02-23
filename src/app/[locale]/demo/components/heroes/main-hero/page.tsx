@@ -18,7 +18,7 @@ export default function MainHeroComponentsDemo() {
         graphicHeight={120}
         graphicWidth={250}
         subtitle={`TIMELESS VISUAL STORIES\nFOR LEGENDARY BRANDS`}
-        video="https://res.cloudinary.com/misfitcoders/video/upload/v1760882884/eVelasco/videos/throwback-slo-mo_b1sycx.mp4"
+        video="https://res.cloudinary.com/evelasco/video/upload/v1760882884/eVelasco/videos/throwback-slo-mo_b1sycx.mp4"
         images={[
           "/assets/images/cards/card_1.jpg",
           "/assets/images/cards/card_2.jpg",

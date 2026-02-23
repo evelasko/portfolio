@@ -78,8 +78,8 @@ export default async function BioPage({ params }: Props) {
         <PhotoHero
           title={t("title")}
           subtitle={t("subtitle")}
-          backgroundImage="https://res.cloudinary.com/misfitcoders/image/upload/v1760995083/eVelasco/backgrounds/seating-layout.jpg"
-          photo="https://res.cloudinary.com/misfitcoders/image/upload/v1761043101/eVelasco/profile/protrait-1.jpg"
+          backgroundImage="https://res.cloudinary.com/evelasco/image/upload/v1760995083/eVelasco/backgrounds/seating-layout.jpg"
+          photo="https://res.cloudinary.com/evelasco/image/upload/v1761043101/eVelasco/profile/protrait-1.jpg"
           link="#documentation"
         />
       </section>
@@ -91,13 +91,13 @@ export default async function BioPage({ params }: Props) {
           content={[
             {
               imagePath:
-                "https://res.cloudinary.com/misfitcoders/image/upload/v1760882564/eVelasco/backgrounds/curtain.jpg",
+                "https://res.cloudinary.com/evelasco/image/upload/v1760882564/eVelasco/backgrounds/curtain.jpg",
               heading: t("twoCol.stage.heading"),
               text: t("twoCol.stage.text"),
             },
             {
               imagePath:
-                "https://res.cloudinary.com/misfitcoders/image/upload/v1761995034/eVelasco/backgrounds/computer-code.jpg",
+                "https://res.cloudinary.com/evelasco/image/upload/v1761995034/eVelasco/backgrounds/computer-code.jpg",
               heading: t("twoCol.machine.heading"),
               text: t("twoCol.machine.text"),
             },
@@ -125,12 +125,12 @@ export default async function BioPage({ params }: Props) {
             slideDuration={5000}
             transitionDuration={0.6}
             images={[
-              "https://res.cloudinary.com/misfitcoders/image/upload/v1761254001/eVelasco/photos/rehearsal-3.jpg",
-              "https://res.cloudinary.com/misfitcoders/image/upload/v1761254001/eVelasco/photos/rehearsal-2.jpg",
-              "https://res.cloudinary.com/misfitcoders/image/upload/v1761254001/eVelasco/photos/rehearsal-1.jpg",
-              "https://res.cloudinary.com/misfitcoders/image/upload/v1761253998/eVelasco/photos/computer-1.jpg",
-              "https://res.cloudinary.com/misfitcoders/image/upload/v1761253998/eVelasco/photos/computer-2.jpg",
-              "https://res.cloudinary.com/misfitcoders/image/upload/v1761253998/eVelasco/photos/computer-3.jpg",
+              "https://res.cloudinary.com/evelasco/image/upload/v1761254001/eVelasco/photos/rehearsal-3.jpg",
+              "https://res.cloudinary.com/evelasco/image/upload/v1761254001/eVelasco/photos/rehearsal-2.jpg",
+              "https://res.cloudinary.com/evelasco/image/upload/v1761254001/eVelasco/photos/rehearsal-1.jpg",
+              "https://res.cloudinary.com/evelasco/image/upload/v1761253998/eVelasco/photos/computer-1.jpg",
+              "https://res.cloudinary.com/evelasco/image/upload/v1761253998/eVelasco/photos/computer-2.jpg",
+              "https://res.cloudinary.com/evelasco/image/upload/v1761253998/eVelasco/photos/computer-3.jpg",
             ]}
           />
         </div>
@@ -148,37 +148,37 @@ export default async function BioPage({ params }: Props) {
               heading: t("milestones.grid.academic.heading"),
               content: t("milestones.grid.academic.text"),
               imagePath:
-                "https://res.cloudinary.com/misfitcoders/image/upload/v1761996873/eVelasco/covers/milestones/academic-rigor_clkiff.jpg",
+                "https://res.cloudinary.com/evelasco/image/upload/v1761996873/eVelasco/covers/milestones/academic-rigor_clkiff.jpg",
             },
             {
               heading: t("milestones.grid.performance.heading"),
               content: t("milestones.grid.performance.text"),
               imagePath:
-                "https://res.cloudinary.com/misfitcoders/image/upload/v1761996938/eVelasco/covers/milestones/theatrical-performance_vckj7y.jpg",
+                "https://res.cloudinary.com/evelasco/image/upload/v1761996938/eVelasco/covers/milestones/theatrical-performance_vckj7y.jpg",
             },
             {
               heading: t("milestones.grid.creative.heading"),
               content: t("milestones.grid.creative.text"),
               imagePath:
-                "https://res.cloudinary.com/misfitcoders/image/upload/v1761996879/eVelasco/covers/milestones/creative-innovation_kud8pz.jpg",
+                "https://res.cloudinary.com/evelasco/image/upload/v1761996879/eVelasco/covers/milestones/creative-innovation_kud8pz.jpg",
             },
             {
               heading: t("milestones.grid.technology.heading"),
               content: t("milestones.grid.technology.text"),
               imagePath:
-                "https://res.cloudinary.com/misfitcoders/image/upload/v1761996934/eVelasco/covers/milestones/technological-entrepeneurship_unzhdw.jpg",
+                "https://res.cloudinary.com/evelasco/image/upload/v1761996934/eVelasco/covers/milestones/technological-entrepeneurship_unzhdw.jpg",
             },
             {
               heading: t("milestones.grid.automation.heading"),
               content: t("milestones.grid.automation.text"),
               imagePath:
-                "https://res.cloudinary.com/misfitcoders/image/upload/v1761996876/eVelasco/covers/milestones/ai-automation_bpetv2.jpg",
+                "https://res.cloudinary.com/evelasco/image/upload/v1761996876/eVelasco/covers/milestones/ai-automation_bpetv2.jpg",
             },
             {
               heading: t("milestones.grid.recognition.heading"),
               content: t("milestones.grid.recognition.text"),
               imagePath:
-                "https://res.cloudinary.com/misfitcoders/image/upload/v1761996931/eVelasco/covers/milestones/peer-recognition_oe3ple.jpg",
+                "https://res.cloudinary.com/evelasco/image/upload/v1761996931/eVelasco/covers/milestones/peer-recognition_oe3ple.jpg",
             },
           ].map(item => (
             <ImageCard
@@ -226,7 +226,7 @@ export default async function BioPage({ params }: Props) {
         />
         <div className="w-full">
           <FullWidthImage
-            image="https://res.cloudinary.com/misfitcoders/image/upload/v1761210986/eVelasco/backgrounds/fabric-folds-orange-6.jpg"
+            image="https://res.cloudinary.com/evelasco/image/upload/v1761210986/eVelasco/backgrounds/fabric-folds-orange-6.jpg"
             alt="CENIE Ecosystem"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center items-center relative z-10">

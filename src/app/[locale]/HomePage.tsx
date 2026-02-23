@@ -188,7 +188,7 @@ export default function HomePage({
         leftText={t("sections.messageSplit.leftText")}
         rightText={t("sections.messageSplit.rightText")}
         finalText={t("sections.messageSplit.finalText")}
-        imagePath="https://res.cloudinary.com/misfitcoders/image/upload/v1760882564/eVelasco/backgrounds/curtain.jpg"
+        imagePath="https://res.cloudinary.com/evelasco/image/upload/v1760882564/eVelasco/backgrounds/curtain.jpg"
       />
       <TheHow />
       <TheWho locale={locale} />

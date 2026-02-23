@@ -63,7 +63,7 @@ curl -X POST "https://api.cloudinary.com/v1_1/misfitcoders/image/upload" \
 coverImage: "articles/my-article-cover"
 ---
 
-![Description](https://res.cloudinary.com/misfitcoders/image/upload/articles/screenshot.jpg)
+![Description](https://res.cloudinary.com/evelasco/image/upload/articles/screenshot.jpg)
 ```
 
 **The system automatically adds:**
@@ -86,7 +86,7 @@ coverImage: "articles/my-article-cover"
 title: "My Article"
 coverImage: "articles/ai-choreographer"
 # OR full URL:
-coverImage: "https://res.cloudinary.com/misfitcoders/image/upload/v1/articles/ai-choreographer.jpg"
+coverImage: "https://res.cloudinary.com/evelasco/image/upload/v1/articles/ai-choreographer.jpg"
 ---
 ```
 
@@ -102,13 +102,13 @@ coverImage: "https://res.cloudinary.com/misfitcoders/image/upload/v1/articles/ai
 **Standard markdown syntax:**
 
 ```mdx
-![AI Choreography Demo](https://res.cloudinary.com/misfitcoders/image/upload/demos/ai-dance.jpg)
+![AI Choreography Demo](https://res.cloudinary.com/evelasco/image/upload/demos/ai-dance.jpg)
 ```
 
 **With size specifications:**
 
 ```mdx
-![Screenshot](https://res.cloudinary.com/misfitcoders/image/upload/demos/screenshot.jpg)
+![Screenshot](https://res.cloudinary.com/evelasco/image/upload/demos/screenshot.jpg)
 
 <!-- width="800" height="600" -->
 ```
@@ -136,7 +136,7 @@ coverImage: "articles/my-article"
 If no `coverImage` is provided, the system uses:
 
 ```url
-https://res.cloudinary.com/misfitcoders/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg
+https://res.cloudinary.com/evelasco/image/upload/v1760912221/eVelasco/covers/article-placeholder.jpg
 ```
 
 ### For Works
@@ -152,7 +152,7 @@ coverImage: "works/my-project"
 If no `coverImage` is provided, the system uses:
 
 ```url
-https://res.cloudinary.com/misfitcoders/image/upload/v1760912222/eVelasco/covers/work-placeholder.jpg
+https://res.cloudinary.com/evelasco/image/upload/v1760912222/eVelasco/covers/work-placeholder.jpg
 ```
 
 ---
@@ -164,7 +164,7 @@ https://res.cloudinary.com/misfitcoders/image/upload/v1760912222/eVelasco/covers
 **Direct URL with transformations:**
 
 ```mdx
-![Thumbnail](https://res.cloudinary.com/misfitcoders/image/upload/
+![Thumbnail](https://res.cloudinary.com/evelasco/image/upload/
 c_fill,w_400,h_400,g_face,q_auto,f_auto/profile/headshot.jpg)
 ```
 
@@ -288,7 +288,7 @@ cloudinary.com/misfitcoders/
 **1. Check the URL format:**
 
 ```text
-✅ https://res.cloudinary.com/misfitcoders/image/upload/articles/my-image
+✅ https://res.cloudinary.com/evelasco/image/upload/articles/my-image
 ✅ articles/my-image
 ❌ cloudinary.com/articles/my-image
 ```
@@ -391,12 +391,12 @@ featured: true
 
 # AI as Co-Choreographer
 
-![Performance setup](https://res.cloudinary.com/misfitcoders/image/upload/
+![Performance setup](https://res.cloudinary.com/evelasco/image/upload/
 w_1200,h_675,c_fill,g_auto,q_auto:best,f_auto/articles/ai-setup.jpg)
 
 The system uses motion capture to track...
 
-![Data visualization](https://res.cloudinary.com/misfitcoders/image/upload/
+![Data visualization](https://res.cloudinary.com/evelasco/image/upload/
 w_800,h_600,c_fit,q_auto,f_auto/articles/data-viz.jpg)
 ```
 
@@ -414,7 +414,7 @@ featured: true
 
 # Hey Siri, do you love me?
 
-![Performance](https://res.cloudinary.com/misfitcoders/image/upload/
+![Performance](https://res.cloudinary.com/evelasco/image/upload/
 works/hey-siri-performance.jpg)
 ```
 

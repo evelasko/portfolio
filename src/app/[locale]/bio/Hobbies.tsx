@@ -17,7 +17,7 @@ const hobbies: HobbyItem[] = [
     description:
       "You'll often find me on the water, kitesurfing. It's the ultimate conversation with a powerful, invisible system—a physical form of debugging in real-time.",
     imagePublicId:
-      "https://res.cloudinary.com/misfitcoders/image/upload/v1761251216/eVelasco/photos/kitesurf.jpg",
+      "https://res.cloudinary.com/evelasco/image/upload/v1761251216/eVelasco/photos/kitesurf.jpg",
     imagePosition: "left",
   },
   {
@@ -25,7 +25,7 @@ const hobbies: HobbyItem[] = [
     description:
       "As a vehement evangelist for decentralized technology, I am an active member of communities like CryptoPlaza and BerChain, exploring the systems that will shape our future.",
     imagePublicId:
-      "https://res.cloudinary.com/misfitcoders/image/upload/v1761250949/eVelasco/photos/cryptoplaza.jpg",
+      "https://res.cloudinary.com/evelasco/image/upload/v1761250949/eVelasco/photos/cryptoplaza.jpg",
     imagePosition: "right",
   },
   {
@@ -33,7 +33,7 @@ const hobbies: HobbyItem[] = [
     description:
       "My study of Japanese is an exploration of a different kind of operating system for thought and communication, a challenge that consistently reveals new perspectives.",
     imagePublicId:
-      "https://res.cloudinary.com/misfitcoders/image/upload/v1761250707/eVelasco/photos/japanese.jpg",
+      "https://res.cloudinary.com/evelasco/image/upload/v1761250707/eVelasco/photos/japanese.jpg",
     imagePosition: "left",
   },
 ];
