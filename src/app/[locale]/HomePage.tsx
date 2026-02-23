@@ -176,7 +176,7 @@ export default function HomePage({
         subtitle={t("subtitle")}
         images={[]}
         link="#documentation"
-        video="https://res.cloudinary.com/misfitcoders/video/upload/v1760882884/eVelasco/videos/throwback-slo-mo_b1sycx.mp4"
+        video="https://res.cloudinary.com/evelasco/video/upload/v1760882884/eVelasco/videos/throwback-slo-mo_b1sycx.mp44"
         heroRef={heroRef}
         row2Content={desktopRow2Content}
         mobileRow1Content={mobileRow1Content}
