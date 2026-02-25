@@ -346,7 +346,7 @@ Explore Cloudinary effects library:
 
 ```typescript
 export const cloudinaryConfig = {
-  cloudName: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "misfitcoders",
+  cloudName: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "evelasco",
   baseUrl: `...`,
 };
 ```

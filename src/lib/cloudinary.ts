@@ -10,8 +10,8 @@
  * Update this with your Cloudinary cloud name
  */
 export const cloudinaryConfig = {
-  cloudName: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "misfitcoders",
-  baseUrl: `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "misfitcoders"}/image/upload`,
+  cloudName: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "evelasco",
+  baseUrl: `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "evelasco"}/image/upload`,
 };
 
 /**
@@ -22,7 +22,13 @@ export interface CloudinaryTransformOptions {
   height?: number;
   crop?: "fill" | "fit" | "scale" | "thumb" | "pad" | "limit";
   gravity?: "auto" | "auto:subject" | "center" | "face" | "faces" | "north";
-  quality?: "auto" | "auto:best" | "auto:good" | "auto:eco" | "auto:low" | number;
+  quality?:
+    | "auto"
+    | "auto:best"
+    | "auto:good"
+    | "auto:eco"
+    | "auto:low"
+    | number;
   format?: "auto" | "webp" | "avif" | "jpg" | "png";
   effect?: string;
   dpr?: "auto" | 1 | 2 | 3;
@@ -175,7 +181,7 @@ export function getResponsiveSrcSet(
   widths: number[] = [400, 800, 1200, 1600, 2400]
 ): { srcset: string; sizes: string } {
   const srcset = widths
-    .map((width) => {
+    .map(width => {
       const url = getOptimizedImageUrl(publicId, {
         width,
         crop: "scale",

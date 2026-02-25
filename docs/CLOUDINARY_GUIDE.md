@@ -27,7 +27,7 @@ Cloudinary is a cloud-based image management service that automatically optimize
 - **Responsive images** generated automatically
 - **Zero manual optimization** required
 
-**Current Cloud:** `misfitcoders` (configured in `.env.local`)
+**Current Cloud:** `evelasco` (configured in `.env.local`)
 
 ---
 
@@ -48,7 +48,7 @@ Cloudinary is a cloud-based image management service that automatically optimize
 
 ```bash
 # Example using curl
-curl -X POST "https://api.cloudinary.com/v1_1/misfitcoders/image/upload" \
+curl -X POST "https://api.cloudinary.com/v1_1/evelasco/image/upload" \
   -F "file=@/path/to/image.jpg" \
   -F "folder=articles" \
   -F "upload_preset=unsigned_preset"
@@ -221,7 +221,7 @@ const customUrl = getOptimizedImageUrl("articles/my-article", {
 Organize images by type:
 
 ```tree
-cloudinary.com/misfitcoders/
+cloudinary.com/evelasco/
 ├── articles/          # Article cover images
 │   ├── ai-choreographer
 │   ├── building-community
